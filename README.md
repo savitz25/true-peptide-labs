@@ -1,39 +1,59 @@
 # True Peptide Labs
 
-Premium research peptides website.
+Premium research peptides website for Vercel deployment.
 
-## Deployment to Vercel
+## Vercel + GitHub Fix (The Issue You Mentioned)
 
-This site is set up for easy deployment on Vercel.
+The error about "missing root branch" or GitHub configuration usually means one of these:
 
-### Steps to Deploy / Fix the GitHub Connection
+1. The production branch in GitHub/Vercel is not set to `main`
+2. No code has been pushed to the default branch yet
+3. Root directory not set correctly in Vercel
 
-1. Make sure your GitHub repository is named `true-peptide-labs` (or update the remote).
+### Steps to Fix and Deploy
 
-2. The production branch must be `main`.
+**1. Push your code to GitHub (using the helper script)**
 
-3. In Vercel:
-   - When importing the GitHub repo, set:
-     - **Framework Preset**: Other (or None)
-     - **Root Directory**: `.` (leave as root)
-     - **Build Command**: (leave empty)
-     - **Output Directory**: `.` (or leave default)
-     - **Production Branch**: `main`
+In PowerShell, from this folder:
 
-4. Common fix for "missing root branch" or branch errors:
-   - Go to your GitHub repo → Settings → Branches
-   - Make sure the default branch is set to `main`
-   - If it's `master`, rename it to `main` in GitHub settings.
+```powershell
+.\push-to-github.ps1
+```
 
-### Local Development
+It will ask for your GitHub repo URL (e.g. `https://github.com/yourusername/true-peptide-labs.git`)
 
-Double click `index.html` or serve it locally.
+**Manual way:**
 
-## Project Structure
+```powershell
+git remote add origin https://github.com/YOUR_USERNAME/true-peptide-labs.git
+git branch -M main
+git push -u origin main
+```
 
-- `index.html` - The full site (self-contained with Tailwind CDN)
-- `vercel.json` - Configuration for Vercel static deployment
+(Replace YOUR_USERNAME with your GitHub username)
 
-This was migrated from the original APEX Research template and rebranded for True Peptide Labs.
+**2. Fix in Vercel Dashboard**
 
-For a more advanced version (React etc.), let me know and we can upgrade the project.
+- Go to your Vercel project → **Settings** → **Git**
+- Set **Production Branch** to `main`
+- Set **Root Directory** to `.` (the current folder / root)
+- Framework: **Other** or leave blank
+- Build Command: (leave empty)
+- Output Directory: `.`
+
+- Then click **Redeploy** on the latest deployment.
+
+This should resolve the "missing root branch" error.
+
+## How to Run Locally
+
+- Double-click `index.html`
+- Or run a local server: `python -m http.server 8080`
+
+## Files
+
+- `index.html` - Complete site (self-contained)
+- `vercel.json` - Config for Vercel static hosting
+- `push-to-github.ps1` - Helper to push code
+
+Let me know if you want to upgrade this to a full React/Next.js app for more advanced features.
