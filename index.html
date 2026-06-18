@@ -168,7 +168,8 @@
                 <div class="hidden md:flex items-center gap-x-9 text-sm">
                     <a href="#shop" class="nav-link text-slate-600 hover:text-slate-900 font-medium">Shop</a>
                     <a href="#science" class="nav-link text-slate-600 hover:text-slate-900 font-medium">Science</a>
-                    <a href="stack-builder.html" class="nav-link text-emerald-600 font-semibold">Stack Builder</a>
+                    <a href="peptide-calculator.html" class="nav-link text-emerald-600 font-semibold">Calculator</a>
+                    <a href="stack-builder.html" class="nav-link text-slate-600 hover:text-slate-900">Stack Builder</a>
                     <a href="#faq" class="nav-link text-slate-600 hover:text-slate-900 font-medium">FAQ</a>
                     <a href="#contact" class="nav-link text-slate-600 hover:text-slate-900 font-medium">Contact</a>
                 </div>
@@ -212,7 +213,8 @@
             <div class="flex flex-col gap-y-3">
                 <a href="#shop" class="py-1 text-slate-600">Shop</a>
                 <a href="#science" class="py-1 text-slate-600">Science</a>
-                <a href="stack-builder.html" class="py-1 text-emerald-600 font-semibold">Stack Builder</a>
+                <a href="peptide-calculator.html" class="py-1 text-emerald-600 font-semibold">Calculator</a>
+                <a href="stack-builder.html" class="py-1 text-slate-600">Stack Builder</a>
                 <a href="#faq" class="py-1 text-slate-600">FAQ</a>
                 <a href="#contact" class="py-1 text-slate-600">Contact</a>
             </div>
@@ -367,109 +369,6 @@
 
         <div class="mt-5 text-center">
             <p class="text-xs text-slate-500">All products are sold strictly for laboratory research use only. Not intended for human consumption.</p>
-        </div>
-    </section>
-
-    <!-- PEPTIDE CALCULATOR -->
-    <section id="peptide-calculator" class="max-w-screen-2xl mx-auto px-8 py-16 bg-white">
-        <div class="max-w-4xl mx-auto">
-            <div class="text-center mb-10">
-                <div class="text-emerald-600 text-sm font-semibold tracking-[2px] mb-2">TOOLS</div>
-                <h2 class="section-header text-5xl font-semibold tracking-tighter mb-3">Peptide Calculator</h2>
-                <p class="text-lg text-slate-600 max-w-md mx-auto">Easily calculate accurate dosages by selecting your parameters below.</p>
-            </div>
-
-            <!-- Dose Section -->
-            <div class="mb-8">
-                <h3 class="font-semibold text-lg mb-3 text-slate-800">Dose of Peptide</h3>
-                <div id="dose-buttons" class="flex flex-wrap gap-2">
-                    <!-- JS populated buttons -->
-                </div>
-            </div>
-
-            <!-- Strength Section -->
-            <div class="mb-8">
-                <h3 class="font-semibold text-lg mb-3 text-slate-800">Strength of Peptide (Vial)</h3>
-                <div id="strength-buttons" class="flex flex-wrap gap-2">
-                    <!-- JS populated buttons -->
-                </div>
-            </div>
-
-            <!-- Water Section -->
-            <div class="mb-8">
-                <h3 class="font-semibold text-lg mb-3 text-slate-800">Water Added (Reconstitution)</h3>
-                <div id="water-buttons" class="flex flex-wrap gap-2">
-                    <!-- JS populated buttons -->
-                </div>
-            </div>
-
-            <!-- Results -->
-            <div class="bg-slate-50 border border-slate-200 rounded-3xl p-8 mb-8">
-                <h3 class="font-semibold text-lg mb-6 text-slate-800">Results</h3>
-                
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-                    <div class="bg-white border border-slate-200 rounded-2xl p-4">
-                        <div class="text-xs text-emerald-700 font-semibold tracking-wider">PEPTIDE DOSE</div>
-                        <div id="result-dose" class="text-2xl font-semibold mt-1 text-slate-900">--</div>
-                    </div>
-                    <div class="bg-white border border-slate-200 rounded-2xl p-4">
-                        <div class="text-xs text-emerald-700 font-semibold tracking-wider">DRAW SYRINGE TO</div>
-                        <div id="result-draw" class="text-2xl font-semibold mt-1 text-slate-900">--</div>
-                    </div>
-                    <div class="bg-white border border-slate-200 rounded-2xl p-4">
-                        <div class="text-xs text-emerald-700 font-semibold tracking-wider">YOUR VIAL CONTAINS</div>
-                        <div id="result-vial" class="text-2xl font-semibold mt-1 text-slate-900">--</div>
-                    </div>
-                    <div class="bg-white border border-slate-200 rounded-2xl p-4">
-                        <div class="text-xs text-emerald-700 font-semibold tracking-wider">CONCENTRATION</div>
-                        <div id="result-conc" class="text-2xl font-semibold mt-1 text-slate-900">--</div>
-                    </div>
-                </div>
-
-                <!-- Visual Dosage Meter -->
-                <div>
-                    <div class="flex justify-between items-end mb-2">
-                        <div class="text-xs text-emerald-700 font-semibold tracking-wider">VISUAL DOSAGE METER</div>
-                        <div id="result-volume" class="text-sm font-medium text-slate-700"></div>
-                    </div>
-                    
-                    <div class="relative h-6 bg-slate-200 rounded-full overflow-hidden mb-2">
-                        <div id="dosage-meter" 
-                             class="h-full bg-gradient-to-r from-emerald-500 to-emerald-600 transition-all duration-300 rounded-full"
-                             style="width: 0%"></div>
-                    </div>
-                    
-                    <div class="flex justify-between text-[10px] text-slate-400 px-1">
-                        <span>0 mL</span>
-                        <span>0.5</span>
-                        <span>1.0</span>
-                        <span>1.5</span>
-                        <span>2.0</span>
-                        <span>2.5</span>
-                        <span>3.0 mL</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- How to use -->
-            <div class="max-w-3xl mx-auto">
-                <h3 class="font-semibold text-xl mb-4">How to Use the Peptide Calculator</h3>
-                <div class="space-y-4 text-sm text-slate-600">
-                    <div>
-                        <strong class="text-slate-800">1. Select your desired dose</strong> — Choose how much peptide you want to inject (e.g. 0.5mg).
-                    </div>
-                    <div>
-                        <strong class="text-slate-800">2. Select the strength of your vial</strong> — The total amount of peptide in your vial (e.g. 10mg).
-                    </div>
-                    <div>
-                        <strong class="text-slate-800">3. Select how much water you added</strong> — The volume of bacteriostatic water used for reconstitution.
-                    </div>
-                    <div>
-                        The calculator will instantly show the concentration and exactly how much to draw into your syringe.
-                    </div>
-                </div>
-                <p class="mt-6 text-xs text-slate-500">Note: This is for research purposes only. Always follow proper sterile technique and consult with qualified professionals.</p>
-            </div>
         </div>
     </section>
 
