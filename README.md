@@ -1,59 +1,73 @@
 # True Peptide Labs
 
-Premium research peptides website for Vercel deployment.
+Premium research peptides site, deployed on Vercel.
 
-## Vercel + GitHub Fix (The Issue You Mentioned)
+## Current Status
 
-The error about "missing root branch" or GitHub configuration usually means one of these:
+The site is a self-contained static HTML (index.html) using Tailwind via CDN.
 
-1. The production branch in GitHub/Vercel is not set to `main`
-2. No code has been pushed to the default branch yet
-3. Root directory not set correctly in Vercel
+## Vercel Deployment Fix (DEPLOYMENT_NOT_FOUND / Missing Branch)
 
-### Steps to Fix and Deploy
+This error usually happens for one of these reasons:
 
-**1. Push your code to GitHub (using the helper script)**
+1. **Wrong Production Branch** in Vercel (most common)
+2. Root Directory set incorrectly
+3. Framework detection trying to build a non-existent app
 
-In PowerShell, from this folder:
+### Step-by-step Fix
+
+**1. Push the latest code to GitHub**
+
+Run this in PowerShell from the project folder:
 
 ```powershell
+cd "C:\Users\Michael.Savitsky\true-peptide-labs"
 .\push-to-github.ps1
 ```
 
-It will ask for your GitHub repo URL (e.g. `https://github.com/yourusername/true-peptide-labs.git`)
+When asked, paste your full GitHub repo URL (example: `https://github.com/yourname/true-peptide-labs.git`)
 
-**Manual way:**
+**Manual commands (if script doesn't work):**
 
 ```powershell
+cd "C:\Users\Michael.Savitsky\true-peptide-labs"
 git remote add origin https://github.com/YOUR_USERNAME/true-peptide-labs.git
 git branch -M main
 git push -u origin main
 ```
 
-(Replace YOUR_USERNAME with your GitHub username)
+**2. Fix Vercel Project Settings**
 
-**2. Fix in Vercel Dashboard**
+Go to your Vercel dashboard → true-peptide-labs project → **Settings** (top tab) → **Git**
 
-- Go to your Vercel project → **Settings** → **Git**
-- Set **Production Branch** to `main`
-- Set **Root Directory** to `.` (the current folder / root)
-- Framework: **Other** or leave blank
-- Build Command: (leave empty)
-- Output Directory: `.`
+Set these values:
 
-- Then click **Redeploy** on the latest deployment.
+- **Production Branch**: `main`   ← Very important
+- **Root Directory**: `.`        ← Leave as root / dot
+- **Framework Preset**: **Other** (or None)
+- **Build Command**: (leave completely empty)
+- **Output Directory**: `.`      ← Very important for static HTML
 
-This should resolve the "missing root branch" error.
+Scroll down and click **Save**.
 
-## How to Run Locally
+**3. Redeploy**
 
-- Double-click `index.html`
-- Or run a local server: `python -m http.server 8080`
+- Go back to the **Deployments** tab
+- Find the latest deployment
+- Click the three dots → **Redeploy**
 
-## Files
+This should fix the 404 / DEPLOYMENT_NOT_FOUND.
 
-- `index.html` - Complete site (self-contained)
-- `vercel.json` - Config for Vercel static hosting
-- `push-to-github.ps1` - Helper to push code
+### After Deployment Works
 
-Let me know if you want to upgrade this to a full React/Next.js app for more advanced features.
+The site should load at https://true-peptide-labs.vercel.app
+
+If you still get issues, take a screenshot of your Vercel **Git** settings page and share it.
+
+## Local Testing
+
+Just open `index.html` in your browser.
+
+## Want to Upgrade?
+
+This is currently the old static version. If you want a more advanced version (React + proper routing, admin panel, real backend, etc.), tell me and I can rebuild it as a Next.js or Vite project.
