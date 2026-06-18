@@ -1,0 +1,1646 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>APEX Research • Premium Research Peptides</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=Space+Grotesk:wght@500;600&amp;display=swap');
+        
+        :root {
+            --primary: #0F172A;
+        }
+        
+        body {
+            font-family: 'Inter', system_ui, sans-serif;
+        }
+        
+        .logo-font {
+            font-family: 'Space Grotesk', 'Inter', sans-serif;
+            font-weight: 600;
+            letter-spacing: -0.025em;
+        }
+
+        .section-header {
+            font-family: 'Space Grotesk', 'Inter', sans-serif;
+            letter-spacing: -0.04em;
+        }
+
+        .peptide-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .peptide-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        }
+
+        .nav-active {
+            color: #0F172A;
+            font-weight: 600;
+        }
+
+        .product-gradient {
+            background: linear-gradient(145deg, #0F172A 0%, #1E2937 100%);
+        }
+
+        .science-bg {
+            background-image: 
+                linear-gradient(rgba(15, 23, 42, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(15, 23, 42, 0.03) 1px, transparent 1px);
+            background-size: 32px 32px;
+        }
+
+        .stat-number {
+            font-variant-numeric: tabular-nums;
+        }
+
+        .modal {
+            animation: modalPop 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        @keyframes modalPop {
+            from {
+                opacity: 0;
+                transform: scale(0.95) translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        .cart-slide {
+            animation: slideIn 0.3s ease forwards;
+        }
+
+        .filter-btn {
+            transition: all 0.2s ease;
+        }
+
+        .filter-btn.active {
+            background-color: #0F172A;
+            color: white;
+            border-color: #0F172A;
+        }
+
+        .nav-link {
+            transition: color 0.2s ease;
+        }
+        
+        .nav-link:hover {
+            color: #0F172A;
+        }
+
+        .peptide-icon {
+            filter: drop-shadow(0 2px 4px rgb(0 0 0 / 0.1));
+        }
+
+        .disclaimer {
+            font-size: 0.75rem;
+            line-height: 1.4;
+        }
+
+        .metric {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .product-img {
+            background: linear-gradient(135deg, #1E2937 0%, #0F172A 100%);
+        }
+
+        .trust-badge {
+            transition: transform 0.2s ease;
+        }
+        
+        .trust-badge:hover {
+            transform: translateY(-1px);
+        }
+
+        .price {
+            font-variant-numeric: tabular-nums;
+        }
+
+        .smooth-scroll {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 smooth-scroll">
+    <!-- NAVBAR -->
+    <nav class="bg-white border-b border-slate-200 sticky top-0 z-50">
+        <div class="max-w-screen-2xl mx-auto">
+            <div class="px-8 py-5 flex items-center justify-between">
+                <div class="flex items-center gap-x-3">
+                    <!-- Logo -->
+                    <div class="flex items-center gap-x-2.5">
+                        <div class="w-9 h-9 bg-slate-900 rounded-xl flex items-center justify-center">
+                            <i class="fa-solid fa-flask text-white text-2xl"></i>
+                        </div>
+                        <div>
+                            <span class="logo-font text-3xl font-semibold tracking-tighter text-slate-900">APEX</span>
+                            <span class="logo-font text-3xl font-semibold tracking-tighter text-emerald-600">Research</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Desktop Nav -->
+                <div class="hidden md:flex items-center gap-x-9 text-sm">
+                    <a href="#shop" class="nav-link text-slate-600 hover:text-slate-900 font-medium">Shop</a>
+                    <a href="#science" class="nav-link text-slate-600 hover:text-slate-900 font-medium">Science</a>
+                    <a href="#faq" class="nav-link text-slate-600 hover:text-slate-900 font-medium">FAQ</a>
+                    <a href="#contact" class="nav-link text-slate-600 hover:text-slate-900 font-medium">Contact</a>
+                </div>
+
+                <div class="flex items-center gap-x-3">
+                    <!-- Search -->
+                    <div class="hidden md:block relative w-72">
+                        <input id="nav-search" 
+                               type="text" 
+                               placeholder="Search peptides..." 
+                               class="w-full bg-white border border-slate-200 focus:border-slate-300 text-sm pl-10 pr-4 py-2.5 rounded-2xl outline-none">
+                        <i class="fa-solid fa-search absolute left-4 top-3.5 text-slate-400"></i>
+                    </div>
+
+                    <!-- Orders Button -->
+                    <button onclick="showOrderHistory()" 
+                            class="flex items-center gap-x-2 px-4 h-11 rounded-2xl text-sm font-semibold border border-slate-200 hover:bg-slate-50 text-slate-700 transition-colors">
+                        <i class="fa-solid fa-receipt"></i>
+                        <span class="hidden sm:inline">Orders</span>
+                    </button>
+
+                    <!-- Account Button -->
+                    <button onclick="showAccountModal()" 
+                            class="flex items-center gap-x-2 px-4 h-11 rounded-2xl text-sm font-semibold border border-slate-200 hover:bg-slate-50 text-slate-700 transition-colors">
+                        <i class="fa-solid fa-user"></i>
+                        <span class="hidden sm:inline" id="account-btn-text">${currentUser ? currentUser.name.split(' ')[0] : 'Account'}</span>
+                    </button>
+
+                    <!-- Cart Button -->
+                    <button onclick="openCart()" 
+                            class="flex items-center gap-x-2.5 bg-white hover:bg-slate-50 border border-slate-200 text-slate-700 px-5 h-11 rounded-2xl text-sm font-semibold transition-colors relative">
+                        <i class="fa-solid fa-shopping-cart"></i>
+                        <span class="hidden sm:inline">Cart</span>
+                        <div id="cart-count" 
+                             class="absolute -top-1.5 -right-1.5 min-w-[19px] h-[19px] px-1.5 bg-emerald-600 text-white text-[10px] font-bold rounded-full flex items-center justify-center">0</div>
+                    </button>
+
+                    <!-- Mobile Menu -->
+                    <button class="md:hidden w-11 h-11 flex items-center justify-center text-slate-600 hover:text-slate-900" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden border-t bg-white px-6 py-4 text-sm">
+            <div class="flex flex-col gap-y-3">
+                <a href="#shop" class="py-1 text-slate-600">Shop</a>
+                <a href="#science" class="py-1 text-slate-600">Science</a>
+                <a href="#faq" class="py-1 text-slate-600">FAQ</a>
+                <a href="#contact" class="py-1 text-slate-600">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <header class="bg-slate-900 text-white">
+        <div class="max-w-screen-2xl mx-auto px-8 pt-16 pb-20">
+            <div class="max-w-2xl">
+                <div class="inline-flex items-center gap-2 bg-white/10 text-white/90 text-xs font-semibold tracking-[1px] px-4 h-8 rounded-full mb-6">
+                    <div class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></div>
+                    EST. 2019 • USA • GMP CERTIFIED
+                </div>
+                
+                <h1 class="section-header text-6xl md:text-7xl font-semibold tracking-tighter leading-none mb-6">
+                    Premium research<br>peptides for<br>serious science.
+                </h1>
+                
+                <p class="text-xl text-slate-300 max-w-md mb-9">
+                    Third-party tested. Batch verified. Shipped same-day from our U.S. laboratory.
+                </p>
+
+                <div class="flex flex-wrap gap-4">
+                    <button onclick="document.getElementById('shop').scrollIntoView({ behavior: 'smooth' })" 
+                            class="px-8 h-14 bg-emerald-500 hover:bg-emerald-600 active:bg-emerald-700 transition-colors rounded-2xl text-lg font-semibold text-white flex items-center gap-3 shadow-lg shadow-emerald-900/30">
+                        Browse Catalog
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                    <button onclick="document.getElementById('science').scrollIntoView({ behavior: 'smooth' })" 
+                            class="px-8 h-14 border border-white/30 hover:bg-white/5 transition-colors rounded-2xl text-lg font-semibold flex items-center gap-3">
+                        View Certificates
+                    </button>
+                </div>
+
+                <div class="flex items-center gap-x-8 mt-9 text-sm">
+                    <div class="flex -space-x-2">
+                        <div class="w-7 h-7 bg-slate-600 rounded-full ring-2 ring-slate-900 overflow-hidden"><img src="https://i.pravatar.cc/28?img=28" alt=""></div>
+                        <div class="w-7 h-7 bg-slate-600 rounded-full ring-2 ring-slate-900 overflow-hidden"><img src="https://i.pravatar.cc/28?img=47" alt=""></div>
+                        <div class="w-7 h-7 bg-slate-600 rounded-full ring-2 ring-slate-900 overflow-hidden"><img src="https://i.pravatar.cc/28?img=12" alt=""></div>
+                    </div>
+                    <div class="text-slate-400">
+                        <span class="text-emerald-400 font-semibold">4,812</span> researchers served
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- TRUST BAR -->
+    <div class="border-b bg-white">
+        <div class="max-w-screen-2xl mx-auto px-8 py-4">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
+                <div class="flex items-center gap-x-3 px-1">
+                    <i class="fa-solid fa-shield-halved text-emerald-600 text-xl"></i>
+                    <div>
+                        <div class="font-semibold">HPLC + MS Tested</div>
+                        <div class="text-slate-500 text-xs">≥99% purity guaranteed</div>
+                    </div>
+                </div>
+                <div class="flex items-center gap-x-3 px-1">
+                    <i class="fa-solid fa-truck-fast text-emerald-600 text-xl"></i>
+                    <div>
+                        <div class="font-semibold">Same-Day Shipping</div>
+                        <div class="text-slate-500 text-xs">Orders placed before 2pm EST</div>
+                    </div>
+                </div>
+                <div class="flex items-center gap-x-3 px-1">
+                    <i class="fa-solid fa-flask text-emerald-600 text-xl"></i>
+                    <div>
+                        <div class="font-semibold">U.S. Manufactured</div>
+                        <div class="text-slate-500 text-xs">cGMP compliant facility</div>
+                    </div>
+                </div>
+                <div class="flex items-center gap-x-3 px-1">
+                    <i class="fa-solid fa-lock text-emerald-600 text-xl"></i>
+                    <div>
+                        <div class="font-semibold">Secure &amp; Discreet</div>
+                        <div class="text-slate-500 text-xs">Plain packaging • SSL checkout</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- STATS -->
+    <div class="max-w-screen-2xl mx-auto px-8 py-9">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-px bg-slate-200 rounded-3xl overflow-hidden">
+            <div class="bg-white px-8 py-6">
+                <div class="text-4xl font-semibold metric tracking-tighter">99.4%</div>
+                <div class="text-sm text-slate-500 mt-1">Average lot purity (2025)</div>
+            </div>
+            <div class="bg-white px-8 py-6">
+                <div class="text-4xl font-semibold metric tracking-tighter">42k+</div>
+                <div class="text-sm text-slate-500 mt-1">Vials shipped last year</div>
+            </div>
+            <div class="bg-white px-8 py-6">
+                <div class="text-4xl font-semibold metric tracking-tighter">87</div>
+                <div class="text-sm text-slate-500 mt-1">Universities &amp; labs served</div>
+            </div>
+            <div class="bg-white px-8 py-6">
+                <div class="text-4xl font-semibold metric tracking-tighter">4.98</div>
+                <div class="text-sm text-slate-500 mt-1">Average customer rating</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SHOP SECTION -->
+    <section id="shop" class="max-w-screen-2xl mx-auto px-8 pb-16">
+        <div class="flex items-end justify-between mb-8">
+            <div>
+                <div class="uppercase tracking-[2px] text-xs font-semibold text-emerald-600 mb-1">CATALOG</div>
+                <h2 class="section-header text-5xl font-semibold tracking-tighter">Research Peptides</h2>
+            </div>
+            
+            <!-- Search + Filter Controls -->
+            <div class="hidden md:flex items-center gap-3">
+                <div class="relative w-80">
+                    <input id="shop-search" 
+                           type="text" 
+                           placeholder="Search by name or benefit..." 
+                           onkeyup="filterProducts()"
+                           class="w-full bg-white border border-slate-200 focus:border-slate-300 pl-11 py-3 text-sm rounded-2xl outline-none">
+                    <i class="fa-solid fa-search absolute left-4 top-4 text-slate-400"></i>
+                </div>
+            </div>
+        </div>
+
+        <!-- Category Filters -->
+        <div class="flex flex-wrap gap-2 mb-7" id="category-filters">
+            <button onclick="filterByCategory('all')" class="filter-btn active px-5 py-2 text-sm font-semibold border border-slate-900 rounded-2xl bg-slate-900 text-white" data-category="all">
+                All Peptides
+            </button>
+            <button onclick="filterByCategory('recovery')" class="filter-btn px-5 py-2 text-sm font-semibold border border-slate-200 hover:border-slate-300 rounded-2xl bg-white" data-category="recovery">
+                Recovery &amp; Healing
+            </button>
+            <button onclick="filterByCategory('metabolic')" class="filter-btn px-5 py-2 text-sm font-semibold border border-slate-200 hover:border-slate-300 rounded-2xl bg-white" data-category="metabolic">
+                Metabolic
+            </button>
+            <button onclick="filterByCategory('gh')" class="filter-btn px-5 py-2 text-sm font-semibold border border-slate-200 hover:border-slate-300 rounded-2xl bg-white" data-category="gh">
+                Growth Hormone
+            </button>
+            <button onclick="filterByCategory('cosmetic')" class="filter-btn px-5 py-2 text-sm font-semibold border border-slate-200 hover:border-slate-300 rounded-2xl bg-white" data-category="cosmetic">
+                Cosmetic
+            </button>
+        </div>
+
+        <!-- Products Grid -->
+        <div id="products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-5">
+            <!-- Populated by JavaScript -->
+        </div>
+
+        <div class="mt-5 text-center">
+            <p class="text-xs text-slate-500">All products are sold strictly for laboratory research use only. Not intended for human consumption.</p>
+        </div>
+    </section>
+
+    <!-- SCIENCE / QUALITY SECTION -->
+    <section id="science" class="bg-slate-900 text-white py-16">
+        <div class="max-w-screen-2xl mx-auto px-8">
+            <div class="grid lg:grid-cols-2 gap-x-16 gap-y-12 items-center">
+                <div>
+                    <div class="text-emerald-400 text-sm font-semibold tracking-[2px] mb-3">UNCOMPROMISING QUALITY</div>
+                    <h2 class="section-header text-6xl font-semibold tracking-tighter leading-none">Every batch.<br>Verified.</h2>
+                    
+                    <div class="mt-8 space-y-6 text-slate-300">
+                        <div class="flex gap-4">
+                            <i class="fa-solid fa-check-circle mt-1 text-emerald-400 text-xl"></i>
+                            <div>
+                                <div class="font-semibold text-white">HPLC &amp; Mass Spectrometry</div>
+                                <div class="text-sm">Purity and identity verified on every lot by independent ISO 17025 labs.</div>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <i class="fa-solid fa-check-circle mt-1 text-emerald-400 text-xl"></i>
+                            <div>
+                                <div class="font-semibold text-white">Real CoAs</div>
+                                <div class="text-sm">Full Certificates of Analysis available for every vial. Scan the QR on your product.</div>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <i class="fa-solid fa-check-circle mt-1 text-emerald-400 text-xl"></i>
+                            <div>
+                                <div class="font-semibold text-white">Cold-chain validated</div>
+                                <div class="text-sm">Lyophilized peptides shipped with desiccant and temperature monitoring.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-slate-800 rounded-3xl p-9 text-sm">
+                    <div class="uppercase tracking-widest text-xs font-bold text-emerald-400 mb-5">LATEST BATCH REPORTS</div>
+                    
+                    <div class="space-y-4">
+                        <div class="flex justify-between border-b border-white/10 pb-4">
+                            <div>
+                                <div class="font-semibold">BPC-157 Arginate • Lot #AP-241118</div>
+                                <div class="text-emerald-400 text-xs">99.7% purity • 5mg</div>
+                            </div>
+                            <a href="#" class="text-xs px-3 py-1 border border-white/20 rounded-xl flex items-center hover:bg-white/5">Download CoA</a>
+                        </div>
+                        <div class="flex justify-between border-b border-white/10 pb-4">
+                            <div>
+                                <div class="font-semibold">Tirzepatide • Lot #AP-241205</div>
+                                <div class="text-emerald-400 text-xs">99.3% purity • 5mg</div>
+                            </div>
+                            <a href="#" class="text-xs px-3 py-1 border border-white/20 rounded-xl flex items-center hover:bg-white/5">Download CoA</a>
+                        </div>
+                        <div class="flex justify-between">
+                            <div>
+                                <div class="font-semibold">Retatrutide • Lot #AP-250109</div>
+                                <div class="text-emerald-400 text-xs">99.5% purity • 5mg</div>
+                            </div>
+                            <a href="#" class="text-xs px-3 py-1 border border-white/20 rounded-xl flex items-center hover:bg-white/5">Download CoA</a>
+                        </div>
+                    </div>
+                    
+                    <div class="text-[10px] text-center text-white/50 mt-8">All reports are independently audited. Full archive available upon request.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="max-w-screen-2xl mx-auto px-8 py-16">
+        <div class="mb-9">
+            <div class="uppercase tracking-[2px] text-xs font-semibold text-emerald-600">RESEARCHERS SPEAK</div>
+            <h2 class="section-header text-4xl font-semibold tracking-tight">Trusted by leading labs worldwide</h2>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-5">
+            <div class="bg-white border border-slate-100 p-7 rounded-3xl">
+                <div class="flex mb-5">
+                    <div class="text-emerald-500">★★★★★</div>
+                </div>
+                <p class="text-[15px] leading-snug">"The purity reports and consistency are unmatched. We've compared 4 vendors. Apex is the only one we use for our metabolic studies now."</p>
+                <div class="mt-6 flex items-center gap-3">
+                    <div class="text-sm">
+                        <div class="font-semibold">Dr. Elena Vasquez</div>
+                        <div class="text-slate-500 text-xs">Principal Investigator, Stanford Metabolism Lab</div>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white border border-slate-100 p-7 rounded-3xl">
+                <div class="flex mb-5">
+                    <div class="text-emerald-500">★★★★★</div>
+                </div>
+                <p class="text-[15px] leading-snug">"Fast shipping and excellent packaging. Every vial has arrived perfectly lyophilized. Their TB-500 and BPC-157 batches are consistently the cleanest we've tested."</p>
+                <div class="mt-6 flex items-center gap-3">
+                    <div class="text-sm">
+                        <div class="font-semibold">Marcus Chen, PhD</div>
+                        <div class="text-slate-500 text-xs">Director of Research, Regeneron</div>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white border border-slate-100 p-7 rounded-3xl">
+                <div class="flex mb-5">
+                    <div class="text-emerald-500">★★★★★</div>
+                </div>
+                <p class="text-[15px] leading-snug">"Outstanding customer support and transparent documentation. The CoAs are incredibly detailed. We recommend Apex to every academic collaborator."</p>
+                <div class="mt-6 flex items-center gap-3">
+                    <div class="text-sm">
+                        <div class="font-semibold">Prof. Sarah Patel</div>
+                        <div class="text-slate-500 text-xs">Harvard Medical School • Cell Biology</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="max-w-screen-2xl mx-auto px-8 pb-20">
+        <div class="max-w-3xl mx-auto">
+            <div class="text-center mb-9">
+                <div class="uppercase tracking-[2px] text-xs font-semibold text-emerald-600">QUESTIONS</div>
+                <h2 class="section-header text-5xl font-semibold tracking-tighter">Frequently Asked Questions</h2>
+            </div>
+
+            <div class="space-y-3">
+                <div class="bg-white border border-slate-200 rounded-2xl px-6 py-4">
+                    <button onclick="toggleFaq(this)" class="w-full flex justify-between items-center text-left font-medium">
+                        <span>Are your peptides intended for human use?</span>
+                        <i class="fa-solid fa-chevron-down transition-transform"></i>
+                    </button>
+                    <div class="faq-answer hidden text-sm text-slate-600 pt-3">
+                        No. All products sold by APEX Research are strictly for <strong>in vitro laboratory research use only</strong>. They are not intended for human consumption, medical use, or veterinary applications.
+                    </div>
+                </div>
+                <div class="bg-white border border-slate-200 rounded-2xl px-6 py-4">
+                    <button onclick="toggleFaq(this)" class="w-full flex justify-between items-center text-left font-medium">
+                        <span>How are the peptides shipped?</span>
+                        <i class="fa-solid fa-chevron-down transition-transform"></i>
+                    </button>
+                    <div class="faq-answer hidden text-sm text-slate-600 pt-3">
+                        All vials are lyophilized and shipped in insulated packaging with desiccant packs. Orders placed before 2:00 PM Eastern are typically dispatched same day via FedEx or UPS. Cold-chain options available for bulk orders.
+                    </div>
+                </div>
+                <div class="bg-white border border-slate-200 rounded-2xl px-6 py-4">
+                    <button onclick="toggleFaq(this)" class="w-full flex justify-between items-center text-left font-medium">
+                        <span>Do you provide Certificates of Analysis?</span>
+                        <i class="fa-solid fa-chevron-down transition-transform"></i>
+                    </button>
+                    <div class="faq-answer hidden text-sm text-slate-600 pt-3">
+                        Yes. Every batch comes with a full CoA from a third-party ISO-certified laboratory. You can download the latest CoA directly from each product page or by entering your lot number.
+                    </div>
+                </div>
+                <div class="bg-white border border-slate-200 rounded-2xl px-6 py-4">
+                    <button onclick="toggleFaq(this)" class="w-full flex justify-between items-center text-left font-medium">
+                        <span>What payment methods do you accept?</span>
+                        <i class="fa-solid fa-chevron-down transition-transform"></i>
+                    </button>
+                    <div class="faq-answer hidden text-sm text-slate-600 pt-3">
+                        We accept all major credit cards, ACH transfers, and wire payments for institutional orders. Cryptocurrency (USDC) is available for qualifying accounts.
+                    </div>
+                </div>
+                <div class="bg-white border border-slate-200 rounded-2xl px-6 py-4">
+                    <button onclick="toggleFaq(this)" class="w-full flex justify-between items-center text-left font-medium">
+                        <span>Can I order in bulk or for institutional use?</span>
+                        <i class="fa-solid fa-chevron-down transition-transform"></i>
+                    </button>
+                    <div class="faq-answer hidden text-sm text-slate-600 pt-3">
+                        Yes. We support universities, contract research organizations, and biotech companies. Contact our research sales team for volume pricing and documentation packages.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <div class="bg-emerald-600 text-white">
+        <div class="max-w-screen-2xl mx-auto px-8 py-12 text-center">
+            <h3 class="font-semibold text-3xl tracking-tight">Ready to advance your research?</h3>
+            <p class="mt-2 text-emerald-100 max-w-md mx-auto">Order today and receive your peptides with full traceability and documentation.</p>
+            <button onclick="document.getElementById('shop').scrollIntoView({ behavior: 'smooth' })" 
+                    class="mt-6 inline-block px-8 py-3.5 bg-white text-emerald-700 hover:bg-emerald-50 active:bg-white font-semibold rounded-2xl transition-colors">
+                Start Shopping
+            </button>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-900 text-slate-400 text-sm">
+        <div class="max-w-screen-2xl mx-auto px-8 pt-14 pb-9">
+            <div class="flex flex-col md:flex-row justify-between gap-y-10">
+                <div>
+                    <div class="flex items-center gap-x-2 text-white mb-4">
+                        <div class="w-8 h-8 bg-white/90 rounded-xl flex items-center justify-center">
+                            <i class="fa-solid fa-flask text-slate-900"></i>
+                        </div>
+                        <span class="logo-font text-2xl font-semibold tracking-tighter">APEX Research</span>
+                    </div>
+                    <div class="text-xs max-w-xs">Precision peptide synthesis for the global scientific community since 2019.</div>
+                </div>
+
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-x-12 gap-y-8 text-xs">
+                    <div>
+                        <div class="font-semibold text-white tracking-wider mb-3 text-xs">COMPANY</div>
+                        <div class="space-y-1.5">
+                            <div>About Us</div>
+                            <div>Quality &amp; Compliance</div>
+                            <div>Careers</div>
+                            <div>Research Grants</div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="font-semibold text-white tracking-wider mb-3 text-xs">RESOURCES</div>
+                        <div class="space-y-1.5">
+                            <div>Certificates of Analysis</div>
+                            <div>Reconstitution Guide</div>
+                            <div>Peptide Storage</div>
+                            <div>Publications</div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="font-semibold text-white tracking-wider mb-3 text-xs">LEGAL</div>
+                        <div class="space-y-1.5">
+                            <div>Terms of Sale</div>
+                            <div>Privacy Policy</div>
+                            <div>Research Use Only</div>
+                            <div>DMCA / Compliance</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Heavy Disclaimer -->
+            <div class="mt-12 pt-8 border-t border-white/10">
+                <div class="disclaimer bg-slate-950 border border-white/10 rounded-2xl p-5 text-[11.5px] leading-relaxed">
+                    <strong class="text-white">IMPORTANT DISCLAIMER:</strong> All products sold by APEX Research, LLC are intended <span class="text-red-400 font-semibold">strictly for in vitro laboratory research purposes only</span>. They are not approved by the FDA for human use, are not drugs, and are not intended to diagnose, treat, cure, or prevent any disease. These products are not for human consumption, injection, or any form of bodily introduction. By purchasing from this website you certify that you are a qualified researcher, institution, or laboratory professional and will use these products solely for legitimate laboratory research in a controlled setting. Misuse of these products is a violation of our Terms of Sale and may be illegal. All sales are final.
+                </div>
+                <div class="text-center mt-8 text-[10px] tracking-wider">© 2026 APEX Research, LLC. All rights reserved. • Made for research professionals.</div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- PRODUCT DETAIL MODAL -->
+    <div id="product-modal" onclick="if (event.target.id === 'product-modal') closeProductModal()" class="hidden fixed inset-0 bg-black/70 backdrop-blur-sm z-[100] flex items-center justify-center p-4">
+        <div onclick="event.stopImmediatePropagation()" class="bg-white rounded-3xl max-w-2xl w-full overflow-hidden modal shadow-2xl">
+            <!-- Modal content injected by JS -->
+            <div id="modal-content"></div>
+        </div>
+    </div>
+
+    <!-- CART DRAWER -->
+    <div id="cart-drawer" onclick="if (event.target.id === 'cart-drawer') closeCart()" class="hidden fixed inset-0 bg-black/60 backdrop-blur-sm z-[110]">
+        <div onclick="event.stopImmediatePropagation()" class="cart-slide absolute right-0 top-0 h-full w-full max-w-md bg-white shadow-2xl flex flex-col">
+            <!-- Cart Header -->
+            <div class="px-7 py-6 border-b flex items-center justify-between">
+                <div class="font-semibold text-2xl tracking-tight">Your Cart</div>
+                <button onclick="closeCart()" class="text-slate-400 hover:text-slate-800 w-10 h-10 flex items-center justify-center">
+                    <i class="fa-solid fa-times text-2xl"></i>
+                </button>
+            </div>
+
+            <!-- Cart Items -->
+            <div id="cart-items" class="flex-1 overflow-y-auto px-7 py-5 text-sm space-y-5">
+                <!-- Populated dynamically -->
+            </div>
+
+            <!-- Cart Footer -->
+            <div class="border-t px-7 py-6 bg-slate-50">
+                <div class="flex justify-between text-lg font-semibold mb-1 px-1">
+                    <div>Subtotal</div>
+                    <div id="cart-subtotal">$0.00</div>
+                </div>
+                <div class="text-xs px-1 text-emerald-600 mb-5">Shipping calculated at checkout • Free on orders over $450</div>
+                
+                <button onclick="proceedToCheckout()" 
+                        class="w-full py-4 bg-slate-900 hover:bg-black transition-colors rounded-2xl text-white font-semibold text-base">
+                    Proceed to Checkout
+                </button>
+                
+                <button onclick="closeCart()" class="mt-3 w-full text-sm text-slate-600 font-medium">Continue Shopping</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- CHECKOUT MODAL -->
+    <div id="checkout-modal" onclick="if (event.target.id === 'checkout-modal') closeCheckoutModal()" class="hidden fixed inset-0 bg-black/70 z-[120] flex items-center justify-center p-4">
+        <div onclick="event.stopImmediatePropagation()" class="bg-white rounded-3xl max-w-lg w-full modal shadow-xl overflow-hidden">
+            <div class="px-8 py-6 border-b flex justify-between items-center">
+                <div class="font-semibold text-xl">Checkout</div>
+                <button onclick="closeCheckoutModal()" class="text-slate-400 hover:text-black"><i class="fa-solid fa-times text-2xl"></i></button>
+            </div>
+            
+            <div class="p-8">
+                <!-- Order Summary -->
+                <div class="mb-6">
+                    <div class="uppercase text-xs font-semibold tracking-wider text-slate-500 mb-3">ORDER SUMMARY</div>
+                    <div id="checkout-summary" class="text-sm bg-slate-50 border border-slate-100 rounded-2xl p-4"></div>
+                </div>
+
+                <form id="checkout-form" onsubmit="completePurchase(event)">
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="col-span-2">
+                            <label class="text-xs font-semibold tracking-wide text-slate-500 block mb-1">FULL NAME</label>
+                            <input type="text" value="Dr. Sarah Kline" required class="w-full border border-slate-200 px-4 py-3 rounded-2xl text-sm">
+                        </div>
+                        <div class="col-span-2">
+                            <label class="text-xs font-semibold tracking-wide text-slate-500 block mb-1">INSTITUTION / LAB</label>
+                            <input type="text" value="Kline Lab — MIT" required class="w-full border border-slate-200 px-4 py-3 rounded-2xl text-sm">
+                        </div>
+                        <div class="col-span-2">
+                            <label class="text-xs font-semibold tracking-wide text-slate-500 block mb-1">SHIPPING ADDRESS</label>
+                            <input type="text" value="77 Massachusetts Ave, Building 68" required class="w-full border border-slate-200 px-4 py-3 rounded-2xl text-sm">
+                        </div>
+                        <div>
+                            <label class="text-xs font-semibold tracking-wide text-slate-500 block mb-1">CITY</label>
+                            <input type="text" value="Cambridge" required class="w-full border border-slate-200 px-4 py-3 rounded-2xl text-sm">
+                        </div>
+                        <div class="grid grid-cols-2 gap-3">
+                            <div>
+                                <label class="text-xs font-semibold tracking-wide text-slate-500 block mb-1">STATE</label>
+                                <input type="text" value="MA" required class="w-full border border-slate-200 px-4 py-3 rounded-2xl text-sm">
+                            </div>
+                            <div>
+                                <label class="text-xs font-semibold tracking-wide text-slate-500 block mb-1">ZIP</label>
+                                <input type="text" value="02139" required class="w-full border border-slate-200 px-4 py-3 rounded-2xl text-sm">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Payment -->
+                    <div class="mt-6">
+                        <div class="uppercase text-xs font-semibold tracking-wider text-slate-500 mb-3">PAYMENT</div>
+                        <div class="bg-slate-50 border border-slate-100 rounded-2xl p-4 text-sm">
+                            <div class="flex gap-3 mb-4">
+                                <div class="flex-1 border border-emerald-600 bg-emerald-50 text-emerald-700 px-4 py-2 rounded-xl text-center font-medium text-xs">Credit Card</div>
+                                <div class="flex-1 border px-4 py-2 rounded-xl text-center text-slate-400 text-xs">ACH / Wire</div>
+                            </div>
+                            
+                            <div class="space-y-3">
+                                <div>
+                                    <input type="text" placeholder="4242 4242 4242 4242" value="4242 4242 4242 4242" class="w-full text-sm border border-slate-200 px-4 py-[11px] rounded-2xl">
+                                </div>
+                                <div class="grid grid-cols-2 gap-3">
+                                    <input type="text" placeholder="MM / YY" value="04 / 28" class="text-sm border border-slate-200 px-4 py-[11px] rounded-2xl">
+                                    <input type="text" placeholder="CVC" value="382" class="text-sm border border-slate-200 px-4 py-[11px] rounded-2xl">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-7">
+                        <button type="submit" 
+                                class="w-full py-[17px] rounded-2xl text-white font-semibold bg-emerald-600 hover:bg-emerald-700 transition-colors text-base">
+                            Complete Purchase • <span id="checkout-total"></span>
+                        </button>
+                        <div class="text-[10px] text-center mt-3 text-slate-500">Your order is protected by 256-bit SSL. All sales final.</div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- SUCCESS MODAL -->
+    <div id="success-modal" onclick="if (event.target.id === 'success-modal') closeSuccessModal()" class="hidden fixed inset-0 bg-black/70 z-[130] flex items-center justify-center p-4">
+        <div onclick="event.stopImmediatePropagation()" class="bg-white rounded-3xl max-w-md w-full modal p-9 text-center shadow-2xl">
+            <div class="mx-auto w-16 h-16 rounded-full bg-emerald-100 flex items-center justify-center mb-5">
+                <i class="fa-solid fa-check text-emerald-600 text-4xl"></i>
+            </div>
+            <h3 class="text-3xl font-semibold tracking-tight">Order Confirmed</h3>
+            <p class="mt-1.5 text-emerald-700 font-medium">Thank you for your research order.</p>
+            
+            <div class="my-6 text-left text-sm bg-slate-50 border border-slate-100 rounded-2xl p-5">
+                <div class="flex justify-between text-xs mb-3">
+                    <div class="text-slate-500">ORDER NUMBER</div>
+                    <div class="font-mono font-semibold" id="order-number"></div>
+                </div>
+                <div class="text-xs text-slate-600">Your peptides have been prepared and will ship today. Tracking and CoAs will be emailed to the address on file.</div>
+            </div>
+            
+            <div class="text-sm text-slate-500">Questions? Email <span class="font-semibold text-emerald-700">orders@apexresearch.co</span></div>
+            
+            <button onclick="closeSuccessModal()" class="mt-8 w-full py-3 bg-slate-900 text-white rounded-2xl font-semibold">Return to Catalog</button>
+        </div>
+    </div>
+
+    <script>
+        // Tailwind script configuration
+        function initTailwind() {
+            document.documentElement.style.setProperty('--accent', '#10b981');
+            
+            tailwind.config = {
+                theme: {
+                    extend: {
+                        fontFamily: {
+                            'space': ['Space Grotesk', 'Inter', 'sans-serif']
+                        }
+                    }
+                }
+            };
+        }
+
+        // ============================================
+        // ADVANCED WEB APP: Data Layer with Persistence
+        // ============================================
+
+        // Load products from localStorage or use defaults
+        let products = JSON.parse(localStorage.getItem('apex_products')) || [
+
+            {
+                id: 1,
+                name: "BPC-157 Arginate",
+                category: "recovery",
+                price: 59,
+                vialSize: "5 mg",
+                purity: "≥99.5%",
+                description: "Body protection compound for tissue repair research",
+                details: "BPC-157 is a synthetic pentadecapeptide derived from gastric juice. Extensively studied for its role in angiogenesis, tendon/ligament repair, and gut-brain axis research. Highly stable in physiological conditions.",
+                benefits: ["Tissue regeneration", "Angiogenesis", "GI tract integrity"],
+                inStock: true
+            },
+            {
+                id: 2,
+                name: "TB-500 (Thymosin Beta-4)",
+                category: "recovery",
+                price: 69,
+                vialSize: "5 mg",
+                purity: "≥99.3%",
+                description: "Actin-sequestering peptide for wound healing models",
+                details: "TB-500 is a synthetic version of the naturally occurring thymosin beta-4 peptide. Research focuses on its ability to promote cell migration, reduce inflammation, and support tissue remodeling in injury models.",
+                benefits: ["Cell migration", "Anti-inflammatory", "Tissue remodeling"],
+                inStock: true
+            },
+            {
+                id: 3,
+                name: "Semaglutide",
+                category: "metabolic",
+                price: 129,
+                vialSize: "5 mg",
+                purity: "≥99.7%",
+                description: "GLP-1 receptor agonist for metabolic research",
+                details: "Semaglutide is a long-acting GLP-1 analog. Used widely in research exploring glucose homeostasis, appetite regulation, and weight management mechanisms in rodent and primate models.",
+                benefits: ["GLP-1 agonism", "Glucose control", "Appetite research"],
+                inStock: true
+            },
+            {
+                id: 4,
+                name: "Tirzepatide",
+                category: "metabolic",
+                price: 149,
+                vialSize: "5 mg",
+                purity: "≥99.4%",
+                description: "Dual GIP / GLP-1 agonist peptide",
+                details: "Tirzepatide is a novel dual incretin mimetic. It is the subject of intense study for its superior efficacy on glycemic control and body weight compared to selective GLP-1 agonists in preclinical trials.",
+                benefits: ["Dual agonist", "Superior efficacy", "Metabolic syndrome"],
+                inStock: true
+            },
+            {
+                id: 5,
+                name: "Ipamorelin",
+                category: "gh",
+                price: 49,
+                vialSize: "5 mg",
+                purity: "≥99.6%",
+                description: "Selective ghrelin receptor agonist (GHSR)",
+                details: "Ipamorelin is a potent and selective growth hormone secretagogue. It stimulates GH release with minimal impact on cortisol or prolactin. Popular for pulsatile GH research and recovery studies.",
+                benefits: ["GH release", "Low side effects", "Pulsatile secretion"],
+                inStock: true
+            },
+            {
+                id: 6,
+                name: "CJC-1295 (no DAC)",
+                category: "gh",
+                price: 55,
+                vialSize: "2 mg",
+                purity: "≥99.2%",
+                description: "Growth hormone releasing hormone analog",
+                details: "A modified GHRH (1-29) analog designed to increase the amplitude of natural GH pulses. Often studied in combination with Ipamorelin or GHRP-2 for synergistic GH release research.",
+                benefits: ["GH pulse amplification", "Synergistic pairing", "Longer half-life"],
+                inStock: true
+            },
+            {
+                id: 7,
+                name: "GHK-Cu Copper Peptide",
+                category: "cosmetic",
+                price: 45,
+                vialSize: "50 mg",
+                purity: "≥99.8%",
+                description: "Copper-binding tripeptide for skin & anti-aging research",
+                details: "GHK-Cu is a naturally occurring copper complex with potent anti-inflammatory, antioxidant, and collagen-stimulating properties. Extensively studied for wound healing and dermal matrix research.",
+                benefits: ["Collagen synthesis", "Skin remodeling", "Antioxidant"],
+                inStock: true
+            },
+            {
+                id: 8,
+                name: "Retatrutide",
+                category: "metabolic",
+                price: 179,
+                vialSize: "5 mg",
+                purity: "≥99.1%",
+                description: "Triple agonist (GLP-1 / GIP / Glucagon)",
+                details: "The next-generation triple agonist peptide. Retatrutide is currently one of the most advanced molecules being studied for obesity and NASH research. Exceptional potency in preclinical models.",
+                benefits: ["Triple agonist", "Highest potency", "NASH research"],
+                inStock: true
+            }
+        ];
+
+        // Save products if they were just initialized from defaults
+        if (!localStorage.getItem('apex_products')) {
+            localStorage.setItem('apex_products', JSON.stringify(products));
+        }
+
+        // ============================================
+        // App State (now persistent where it matters)
+        // ============================================
+        let cart = JSON.parse(localStorage.getItem('apex_cart')) || [];
+        let wishlist = JSON.parse(localStorage.getItem('apex_wishlist')) || [];
+        let orders = JSON.parse(localStorage.getItem('apex_orders')) || [];
+        
+        let currentUser = JSON.parse(localStorage.getItem('apex_user')) || null;
+        let currentFilter = 'all';
+        let currentSearchTerm = '';
+        let isAdminMode = false;
+
+        // Persistence Helpers
+        function saveCart() {
+            localStorage.setItem('apex_cart', JSON.stringify(cart));
+        }
+        
+        function saveWishlist() {
+            localStorage.setItem('apex_wishlist', JSON.stringify(wishlist));
+        }
+        
+        function saveProducts() {
+            localStorage.setItem('apex_products', JSON.stringify(products));
+        }
+        
+        function saveOrders() {
+            localStorage.setItem('apex_orders', JSON.stringify(orders));
+        }
+        
+        function saveUser() {
+            if (currentUser) {
+                localStorage.setItem('apex_user', JSON.stringify(currentUser));
+            } else {
+                localStorage.removeItem('apex_user');
+            }
+        }
+
+        // Render products
+        function renderProducts(filteredProducts) {
+            const grid = document.getElementById('products-grid');
+            grid.innerHTML = '';
+
+            if (!filteredProducts) {
+                filteredProducts = products;
+            }
+
+            filteredProducts.forEach(product => {
+                const card = document.createElement('div');
+                card.className = `peptide-card bg-white border border-slate-100 rounded-3xl overflow-hidden flex flex-col group`;
+                
+                const categoryLabel = getCategoryLabel(product.category);
+                
+                card.innerHTML = `
+                    <div class="product-img h-40 flex items-center justify-center relative">
+                        <div class="w-16 h-16 bg-white/10 backdrop-blur rounded-2xl flex items-center justify-center">
+                            <i class="fa-solid fa-flask text-white text-4xl peptide-icon"></i>
+                        </div>
+                        
+                        <div class="absolute top-4 right-4">
+                            <div class="text-[10px] bg-white/90 text-slate-700 font-mono px-2.5 py-px rounded-full shadow-sm">${product.vialSize}</div>
+                        </div>
+                        
+                        <div class="absolute bottom-4 left-4">
+                            <div class="text-emerald-400 text-[10px] font-bold tracking-widest px-2 py-0.5 bg-black/30 backdrop-blur rounded">${product.purity}</div>
+                        </div>
+                    </div>
+                    
+                    <div class="p-5 flex-1 flex flex-col">
+                        <div>
+                            <div class="uppercase tracking-widest text-[10px] text-emerald-700 font-bold">${categoryLabel}</div>
+                            <h3 class="font-semibold text-xl tracking-tight mt-0.5 leading-tight">${product.name}</h3>
+                            <p class="text-sm text-slate-600 mt-2 line-clamp-2">${product.description}</p>
+                        </div>
+                        
+                        <div class="mt-auto pt-5">
+                            <div class="flex items-baseline justify-between mb-4">
+                                <div>
+                                    <span class="text-3xl font-semibold tracking-tighter">$${product.price}</span>
+                                </div>
+                                <div class="text-right">
+                                    <div class="text-emerald-600 text-xs font-semibold">IN STOCK</div>
+                                    <div class="text-[10px] text-slate-400">Ships today</div>
+                                </div>
+                            </div>
+                            
+                            <div class="grid grid-cols-2 gap-2.5">
+                                <button onclick="addToCart(${product.id}, event)" 
+                                        class="flex items-center justify-center gap-x-2 bg-emerald-600 hover:bg-emerald-700 text-white text-sm font-semibold py-[13px] rounded-2xl transition-colors">
+                                    <i class="fa-solid fa-cart-plus"></i>
+                                    <span>Add</span>
+                                </button>
+                                
+                                <button onclick="showProductModal(${product.id})" 
+                                        class="flex items-center justify-center gap-x-2 text-sm font-semibold border border-slate-200 hover:bg-slate-50 py-[13px] rounded-2xl transition-colors">
+                                    Details
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                
+                grid.appendChild(card);
+            });
+        }
+
+        function getCategoryLabel(category) {
+            const labels = {
+                'recovery': 'RECOVERY',
+                'metabolic': 'METABOLIC',
+                'gh': 'GROWTH HORMONE',
+                'cosmetic': 'COSMETIC'
+            };
+            return labels[category] || 'RESEARCH';
+        }
+
+        // Filter products by category
+        function filterByCategory(category) {
+            currentFilter = category;
+            
+            // Update button states
+            document.querySelectorAll('#category-filters button').forEach(btn => {
+                btn.classList.remove('active', 'bg-slate-900', 'text-white', 'border-slate-900');
+                btn.classList.add('bg-white', 'border-slate-200');
+                
+                if (category === 'all' && btn.dataset.category === 'all') {
+                    btn.classList.add('active', 'bg-slate-900', 'text-white', 'border-slate-900');
+                    btn.classList.remove('bg-white', 'border-slate-200');
+                } else if (btn.dataset.category === category) {
+                    btn.classList.add('active', 'bg-slate-900', 'text-white', 'border-slate-900');
+                    btn.classList.remove('bg-white', 'border-slate-200');
+                }
+            });
+            
+            filterProducts();
+        }
+
+        // Main filter/search function
+        function filterProducts() {
+            const searchInput = document.getElementById('shop-search') || document.getElementById('nav-search');
+            currentSearchTerm = searchInput ? searchInput.value.toLowerCase() : '';
+            
+            let filtered = products;
+            
+            // Apply category filter
+            if (currentFilter !== 'all') {
+                filtered = filtered.filter(p => p.category === currentFilter);
+            }
+            
+            // Apply search
+            if (currentSearchTerm.length > 1) {
+                filtered = filtered.filter(p => 
+                    p.name.toLowerCase().includes(currentSearchTerm) ||
+                    p.description.toLowerCase().includes(currentSearchTerm) ||
+                    p.details.toLowerCase().includes(currentSearchTerm) ||
+                    p.benefits.join(' ').toLowerCase().includes(currentSearchTerm)
+                );
+            }
+            
+            renderProducts(filtered);
+        }
+
+        // Add to cart
+        function addToCart(productId, e) {
+            e.stopImmediatePropagation();
+            
+            const product = products.find(p => p.id === productId);
+            if (!product) return;
+            
+            const existingItem = cart.find(item => item.id === productId);
+            
+            if (existingItem) {
+                existingItem.qty += 1;
+            } else {
+                cart.push({ ...product, qty: 1 });
+            }
+            
+            saveCart();
+            updateCartCount();
+            
+            showToast(`${product.name} added to cart`);
+            
+            if (cart.length === 1) {
+                setTimeout(() => {
+                    openCart();
+                }, 650);
+            }
+        }
+
+        function showToast(message) {
+            const toast = document.createElement('div');
+            toast.className = `fixed bottom-6 left-1/2 -translate-x-1/2 bg-slate-900 text-white px-5 py-3 rounded-2xl text-sm shadow-xl z-[200] flex items-center gap-2`;
+            toast.innerHTML = `
+                <i class="fa-solid fa-check text-emerald-400"></i>
+                <span>${message}</span>
+            `;
+            document.body.appendChild(toast);
+            
+            setTimeout(() => {
+                toast.style.transition = 'all 0.2s ease';
+                toast.style.opacity = '0';
+                setTimeout(() => toast.remove(), 200);
+            }, 1800);
+        }
+
+        function updateCartCount() {
+            const countEl = document.getElementById('cart-count');
+            const totalItems = cart.reduce((sum, item) => sum + item.qty, 0);
+            countEl.textContent = totalItems;
+            
+            if (totalItems > 0) {
+                countEl.style.display = 'flex';
+            } else {
+                countEl.style.display = 'none';
+            }
+        }
+
+        // Open Cart Drawer
+        function openCart() {
+            const drawer = document.getElementById('cart-drawer');
+            drawer.classList.remove('hidden');
+            drawer.classList.add('flex');
+            
+            renderCartItems();
+        }
+
+        function closeCart() {
+            const drawer = document.getElementById('cart-drawer');
+            drawer.classList.add('hidden');
+            drawer.classList.remove('flex');
+        }
+
+        function renderCartItems() {
+            const container = document.getElementById('cart-items');
+            const subtotalEl = document.getElementById('cart-subtotal');
+            
+            if (cart.length === 0) {
+                container.innerHTML = `
+                    <div class="h-full flex flex-col items-center justify-center text-center py-12">
+                        <i class="fa-solid fa-shopping-cart text-5xl text-slate-200 mb-4"></i>
+                        <div class="font-medium text-lg">Your cart is empty</div>
+                        <div class="text-slate-500 text-sm mt-1">Add peptides from the catalog to get started.</div>
+                    </div>
+                `;
+                subtotalEl.textContent = '$0.00';
+                return;
+            }
+            
+            let html = '';
+            let subtotal = 0;
+            
+            cart.forEach((item, index) => {
+                const itemTotal = item.price * item.qty;
+                subtotal += itemTotal;
+                
+                html += `
+                    <div class="flex gap-4">
+                        <div class="w-14 h-14 flex-shrink-0 bg-slate-800 rounded-2xl flex items-center justify-center">
+                            <i class="fa-solid fa-flask text-white/70"></i>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <div class="font-semibold tracking-tight">${item.name}</div>
+                                    <div class="text-xs text-slate-500">${item.vialSize} • ${item.purity}</div>
+                                </div>
+                                <div class="text-right">
+                                    <div class="font-semibold">$${itemTotal}</div>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center justify-between mt-3">
+                                <div class="flex items-center border border-slate-200 rounded-xl">
+                                    <button onclick="changeCartQty(${index}, -1)" class="w-8 h-8 flex items-center justify-center hover:bg-slate-100 active:bg-slate-200 rounded-l-xl text-xl leading-none">−</button>
+                                    <div class="px-3 font-medium tabular-nums">${item.qty}</div>
+                                    <button onclick="changeCartQty(${index}, 1)" class="w-8 h-8 flex items-center justify-center hover:bg-slate-100 active:bg-slate-200 rounded-r-xl text-xl leading-none">+</button>
+                                </div>
+                                
+                                <button onclick="removeFromCart(${index})" class="text-xs text-red-500 hover:text-red-600 font-medium px-2">Remove</button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+            
+            container.innerHTML = html;
+            subtotalEl.textContent = `$${subtotal}`;
+        }
+
+        function changeCartQty(index, delta) {
+            cart[index].qty += delta;
+            
+            if (cart[index].qty < 1) {
+                cart[index].qty = 1;
+            }
+            
+            saveCart();
+            renderCartItems();
+            updateCartCount();
+        }
+
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            saveCart();
+            renderCartItems();
+            updateCartCount();
+            
+            if (cart.length === 0) {
+                closeCart();
+            }
+        }
+
+        // Proceed to checkout
+        function proceedToCheckout() {
+            if (cart.length === 0) return;
+            
+            closeCart();
+            
+            const checkoutModal = document.getElementById('checkout-modal');
+            const summaryContainer = document.getElementById('checkout-summary');
+            const totalEl = document.getElementById('checkout-total');
+            
+            let html = '';
+            let subtotal = 0;
+            
+            cart.forEach(item => {
+                const lineTotal = item.price * item.qty;
+                subtotal += lineTotal;
+                html += `
+                    <div class="flex justify-between items-center py-[3px]">
+                        <div class="flex-1">
+                            <span class="font-semibold">${item.name}</span> 
+                            <span class="text-xs text-slate-500">×${item.qty}</span>
+                        </div>
+                        <div class="font-medium tabular-nums">$${lineTotal}</div>
+                    </div>
+                `;
+            });
+            
+            const shipping = subtotal >= 450 ? 0 : 18;
+            const total = subtotal + shipping;
+            
+            html += `
+                <div class="border-t border-slate-200 mt-3 pt-3 text-xs text-slate-500 flex justify-between">
+                    <div>Shipping</div>
+                    <div class="font-medium text-slate-700">${shipping === 0 ? 'FREE' : '$' + shipping}</div>
+                </div>
+                <div class="mt-3 pt-3 border-t font-semibold flex justify-between items-baseline text-base">
+                    <div>Total</div>
+                    <div class="tabular-nums">$${total}</div>
+                </div>
+            `;
+            
+            summaryContainer.innerHTML = html;
+            totalEl.textContent = `$${total}`;
+            
+            checkoutModal.classList.remove('hidden');
+            checkoutModal.classList.add('flex');
+        }
+
+        function closeCheckoutModal() {
+            const modal = document.getElementById('checkout-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        function completePurchase(e) {
+            e.preventDefault();
+            
+            const checkoutModal = document.getElementById('checkout-modal');
+            checkoutModal.classList.add('hidden');
+            checkoutModal.classList.remove('flex');
+            
+            // Generate real order
+            const orderNum = 'APX-' + Date.now().toString().slice(-8);
+            const orderTotal = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+            
+            const newOrder = {
+                id: orderNum,
+                date: new Date().toISOString(),
+                items: [...cart],
+                total: orderTotal,
+                user: currentUser ? currentUser.name : "Guest Researcher"
+            };
+            
+            orders.unshift(newOrder);
+            saveOrders();
+            
+            // Show success
+            document.getElementById('order-number').textContent = orderNum;
+            const successModal = document.getElementById('success-modal');
+            successModal.classList.remove('hidden');
+            successModal.classList.add('flex');
+            
+            // Clear cart
+            cart = [];
+            saveCart();
+            updateCartCount();
+        }
+
+        function closeSuccessModal() {
+            const modal = document.getElementById('success-modal');
+            modal.classList.remove('flex');
+            modal.classList.add('hidden');
+            
+            renderProducts(products);
+        }
+
+        // ============================================
+        // NEW ADVANCED FEATURE: Order History
+        // ============================================
+        // ============================================
+        // NEW ADVANCED FEATURE: User Account System
+        // ============================================
+        function showAccountModal() {
+            if (currentUser) {
+                // Show logged in state
+                const modal = document.createElement('div');
+                modal.className = 'fixed inset-0 bg-black/70 z-[120] flex items-center justify-center p-4';
+                modal.innerHTML = `
+                    <div class="bg-white rounded-3xl max-w-sm w-full p-8" onclick="event.stopImmediatePropagation()">
+                        <div class="text-center">
+                            <div class="w-16 h-16 bg-emerald-100 rounded-full mx-auto flex items-center justify-center">
+                                <i class="fa-solid fa-user text-emerald-600 text-3xl"></i>
+                            </div>
+                            <div class="mt-4 text-xl font-semibold">${currentUser.name}</div>
+                            <div class="text-sm text-slate-500">${currentUser.email}</div>
+                            <div class="text-xs mt-1 text-emerald-600">Researcher ID: ${currentUser.id}</div>
+                        </div>
+                        
+                        <div class="mt-8 space-y-3">
+                            <button onclick="this.closest('.fixed').remove(); showOrderHistory()" 
+                                    class="w-full py-3 border rounded-2xl font-semibold flex items-center justify-center gap-2 hover:bg-slate-50">
+                                <i class="fa-solid fa-receipt"></i> View Order History
+                            </button>
+                            
+                            <button onclick="logout()" 
+                                    class="w-full py-3 text-red-600 font-semibold border border-red-200 hover:bg-red-50 rounded-2xl">
+                                Log Out
+                            </button>
+                        </div>
+                    </div>
+                `;
+                document.body.appendChild(modal);
+            } else {
+                // Show login form
+                const modal = document.createElement('div');
+                modal.className = 'fixed inset-0 bg-black/70 z-[120] flex items-center justify-center p-4';
+                modal.innerHTML = `
+                    <div class="bg-white rounded-3xl max-w-sm w-full p-8" onclick="event.stopImmediatePropagation()">
+                        <h3 class="text-2xl font-semibold mb-1">Researcher Login</h3>
+                        <p class="text-sm text-slate-500 mb-6">Sign in to save orders and track purchases</p>
+                        
+                        <form onsubmit="loginUser(event, this)">
+                            <input type="text" name="name" placeholder="Full Name" value="Dr. Elena Vargas" required 
+                                   class="w-full border border-slate-200 px-4 py-3 rounded-2xl mb-3">
+                            <input type="email" name="email" placeholder="Email" value="elena@stanford.edu" required 
+                                   class="w-full border border-slate-200 px-4 py-3 rounded-2xl mb-6">
+                            
+                            <button type="submit" class="w-full py-3.5 bg-slate-900 text-white rounded-2xl font-semibold">
+                                Sign In
+                            </button>
+                        </form>
+                        
+                        <div class="text-center text-xs text-slate-500 mt-4">
+                            Demo: Any name/email works
+                        </div>
+                    </div>
+                `;
+                document.body.appendChild(modal);
+            }
+        }
+
+        function loginUser(e, form) {
+            e.preventDefault();
+            
+            const name = form.name.value;
+            const email = form.email.value;
+            
+            currentUser = {
+                id: 'RES-' + Math.random().toString(36).substr(2, 6).toUpperCase(),
+                name: name,
+                email: email,
+                loginDate: new Date().toISOString()
+            };
+            
+            saveUser();
+            
+            // Update UI
+            document.querySelectorAll('#account-btn-text').forEach(el => {
+                el.textContent = name.split(' ')[0];
+            });
+            
+            // Close modal
+            document.querySelector('.fixed').remove();
+            
+            showToast(`Welcome, ${name.split(' ')[0]}!`);
+        }
+
+        function logout() {
+            currentUser = null;
+            saveUser();
+            document.querySelectorAll('#account-btn-text').forEach(el => el.textContent = 'Account');
+            document.querySelector('.fixed').remove();
+            showToast('Logged out successfully');
+        }
+
+        function showOrderHistory() {
+            const modal = document.createElement('div');
+            modal.className = 'fixed inset-0 bg-black/70 backdrop-blur-sm z-[120] flex items-center justify-center p-4';
+            
+            let html = `
+                <div class="bg-white rounded-3xl max-w-2xl w-full max-h-[85vh] overflow-hidden modal" onclick="event.stopImmediatePropagation()">
+                    <div class="px-8 py-6 border-b flex justify-between items-center">
+                        <div>
+                            <div class="font-semibold text-2xl">Order History</div>
+                            <div class="text-sm text-slate-500">${currentUser ? currentUser.name : 'Guest'}</div>
+                        </div>
+                        <button onclick="this.closest('.fixed').remove()" class="text-3xl leading-none text-slate-400 hover:text-black">&times;</button>
+                    </div>
+                    <div class="p-8 overflow-y-auto max-h-[60vh]">
+            `;
+            
+            if (orders.length === 0) {
+                html += `
+                    <div class="text-center py-12">
+                        <i class="fa-solid fa-receipt text-5xl text-slate-200 mb-4"></i>
+                        <div class="font-semibold text-xl">No orders yet</div>
+                        <p class="text-slate-500 mt-2">Your research orders will appear here.</p>
+                    </div>
+                `;
+            } else {
+                orders.forEach(order => {
+                    const date = new Date(order.date).toLocaleDateString();
+                    html += `
+                        <div class="border border-slate-200 rounded-2xl p-5 mb-4">
+                            <div class="flex justify-between items-start mb-3">
+                                <div>
+                                    <div class="font-mono font-semibold text-emerald-700">${order.id}</div>
+                                    <div class="text-sm text-slate-500">${date}</div>
+                                </div>
+                                <div class="text-right">
+                                    <div class="font-semibold text-lg">$${order.total}</div>
+                                    <div class="text-xs text-slate-500">${order.items.length} items</div>
+                                </div>
+                            </div>
+                            <div class="text-sm text-slate-600">
+                                ${order.items.map(item => `${item.name} ×${item.qty}`).join(', ')}
+                            </div>
+                        </div>
+                    `;
+                });
+            }
+            
+            html += `</div></div>`;
+            modal.innerHTML = html;
+            document.body.appendChild(modal);
+        }
+
+        // Show product detail modal
+        function showProductModal(productId) {
+            const product = products.find(p => p.id === productId);
+            if (!product) return;
+            
+            const modal = document.getElementById('product-modal');
+            const content = document.getElementById('modal-content');
+            
+            const categoryLabel = getCategoryLabel(product.category);
+            
+            content.innerHTML = `
+                <div>
+                    <!-- Header -->
+                    <div class="px-8 pt-7 pb-5 bg-slate-900 text-white flex justify-between items-start">
+                        <div>
+                            <div class="text-emerald-400 text-xs font-extrabold tracking-[2.5px]">${categoryLabel}</div>
+                            <h2 class="text-4xl font-semibold tracking-tighter mt-1">${product.name}</h2>
+                            <div class="flex items-center gap-x-3 mt-2">
+                                <div class="font-mono text-sm">${product.vialSize}</div>
+                                <div class="bg-emerald-500/90 text-white text-xs font-bold px-2.5 py-px rounded">${product.purity}</div>
+                            </div>
+                        </div>
+                        
+                        <button onclick="closeProductModal()" class="text-white/60 hover:text-white text-3xl leading-none mt-1">&times;</button>
+                    </div>
+                    
+                    <div class="p-8">
+                        <div class="text-4xl font-semibold tracking-tighter mb-1">$${product.price}</div>
+                        <div class="text-emerald-700 text-sm">+ $18 shipping (free over $450)</div>
+                        
+                        <div class="my-6 text-[15px] text-slate-700 leading-relaxed">
+                            ${product.details}
+                        </div>
+                        
+                        <div>
+                            <div class="uppercase text-xs font-extrabold tracking-[1.5px] text-emerald-700 mb-2.5">RESEARCH FOCUS AREAS</div>
+                            <div class="flex flex-wrap gap-2">
+                                ${product.benefits.map(benefit => 
+                                    `<div class="px-4 py-1 bg-emerald-50 text-emerald-700 rounded-2xl text-sm">${benefit}</div>`
+                                ).join('')}
+                            </div>
+                        </div>
+                        
+                        <div class="mt-7 border border-slate-200 rounded-2xl p-5 bg-slate-50">
+                            <div class="flex gap-x-3">
+                                <i class="fa-solid fa-exclamation-triangle text-amber-500 mt-0.5"></i>
+                                <div class="text-xs leading-snug text-slate-600">
+                                    <strong class="text-amber-600">RESEARCH USE ONLY.</strong> Not for human or veterinary use. 
+                                    This product is sold exclusively to qualified laboratories and research institutions.
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-7 flex gap-3">
+                            <button onclick="addToCartFromModal(${product.id}); closeProductModal()" 
+                                    class="flex-1 py-4 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold rounded-2xl transition-colors flex items-center justify-center gap-2 text-base">
+                                <i class="fa-solid fa-cart-plus"></i>
+                                <span>Add to Cart — $${product.price}</span>
+                            </button>
+                            
+                            <button onclick="closeProductModal()" 
+                                    class="px-8 py-4 border text-slate-700 hover:bg-slate-50 font-semibold rounded-2xl transition-colors">
+                                Close
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function addToCartFromModal(productId) {
+            const product = products.find(p => p.id === productId);
+            if (!product) return;
+            
+            const existing = cart.find(item => item.id === productId);
+            if (existing) {
+                existing.qty++;
+            } else {
+                cart.push({ ...product, qty: 1 });
+            }
+            
+            updateCartCount();
+            showToast(`${product.name} added to cart`);
+        }
+
+        function closeProductModal() {
+            const modal = document.getElementById('product-modal');
+            modal.classList.remove('flex');
+            modal.classList.add('hidden');
+        }
+
+        // FAQ Toggle
+        function toggleFaq(button) {
+            const answer = button.nextElementSibling;
+            const icon = button.querySelector('i');
+            
+            answer.classList.toggle('hidden');
+            
+            if (!answer.classList.contains('hidden')) {
+                icon.style.transform = 'rotate(180deg)';
+            } else {
+                icon.style.transform = '';
+            }
+        }
+
+        // Sync nav search with main search
+        function setupSearchSync() {
+            const navSearch = document.getElementById('nav-search');
+            const shopSearch = document.getElementById('shop-search');
+            
+            if (navSearch && shopSearch) {
+                navSearch.addEventListener('input', () => {
+                    shopSearch.value = navSearch.value;
+                    filterProducts();
+                    
+                    // Scroll to shop if user types in nav
+                    if (navSearch.value.length > 1) {
+                        document.getElementById('shop').scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    }
+                });
+                
+                shopSearch.addEventListener('input', () => {
+                    navSearch.value = shopSearch.value;
+                });
+            }
+            
+            // Allow pressing Enter on nav search to focus shop
+            if (navSearch) {
+                navSearch.addEventListener('keypress', (e) => {
+                    if (e.key === 'Enter') {
+                        document.getElementById('shop').scrollIntoView({ behavior: 'smooth' });
+                    }
+                });
+            }
+        }
+
+        // Keyboard shortcuts
+        function setupKeyboardShortcuts() {
+            document.addEventListener('keydown', (e) => {
+                // Press "/" to focus search
+                if (e.key === '/' && document.activeElement.tagName === 'BODY') {
+                    e.preventDefault();
+                    const shopSearch = document.getElementById('shop-search');
+                    if (shopSearch) shopSearch.focus();
+                }
+                
+                // Press Escape to close any open modals/drawers
+                if (e.key === 'Escape') {
+                    const modals = document.querySelectorAll('.fixed:not(.hidden)');
+                    if (modals.length > 0) {
+                        const last = modals[modals.length - 1];
+                        if (last.id === 'cart-drawer') {
+                            closeCart();
+                        } else if (last.id === 'checkout-modal') {
+                            closeCheckoutModal();
+                        } else if (last.id === 'product-modal') {
+                            closeProductModal();
+                        } else if (last.id === 'success-modal') {
+                            closeSuccessModal();
+                        }
+                    }
+                }
+            });
+            
+            // Hint about shortcut
+            const shopSearch = document.getElementById('shop-search');
+            if (shopSearch) {
+                shopSearch.placeholder = "Search peptides... (press /)";
+            }
+        }
+
+        // Initialize everything
+        function initializeWebsite() {
+            initTailwind();
+            
+            // Render all products initially
+            renderProducts(products);
+            
+            // Setup search sync
+            setupSearchSync();
+            
+            // Keyboard shortcuts
+            setupKeyboardShortcuts();
+            
+            // Seed a couple items into cart to showcase functionality (optional - comment out for clean start)
+            // cart = [{...products[0], qty: 1}, {...products[2], qty: 1}];
+            // updateCartCount();
+            
+            // Make category filter buttons have proper data attributes
+            document.querySelectorAll('#category-filters button').forEach(btn => {
+                if (!btn.dataset.category) {
+                    if (btn.textContent.includes('All')) btn.dataset.category = 'all';
+                    else if (btn.textContent.includes('Recovery')) btn.dataset.category = 'recovery';
+                    else if (btn.textContent.includes('Metabolic')) btn.dataset.category = 'metabolic';
+                    else if (btn.textContent.includes('Growth')) btn.dataset.category = 'gh';
+                    else if (btn.textContent.includes('Cosmetic')) btn.dataset.category = 'cosmetic';
+                }
+            });
+            
+            // Initial cart count
+            updateCartCount();
+            
+            // Set initial account button text if logged in
+            if (currentUser) {
+                const btnTexts = document.querySelectorAll('#account-btn-text');
+                btnTexts.forEach(el => el.textContent = currentUser.name.split(' ')[0]);
+            }
+            
+            // Accessibility: allow clicking category buttons with keyboard
+            console.log('%c[APEX Research] Premium peptide store initialized successfully.', 'color:#64748b');
+            
+            // Optional: auto-highlight first filter as active (already done in HTML)
+        }
+
+        // Boot up
+        window.onload = initializeWebsite;
+    </script>
+</body>
+</html>
