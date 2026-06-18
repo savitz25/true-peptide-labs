@@ -126,6 +126,24 @@
         .smooth-scroll {
             scroll-behavior: smooth;
         }
+
+        .calc-btn {
+            transition: all 0.15s ease;
+            min-width: 62px;
+            text-align: center;
+        }
+        
+        .calc-btn.active {
+            background-color: #10b981;
+            color: white;
+            border-color: #10b981;
+            box-shadow: 0 2px 4px rgb(16 185 129 / 0.2);
+        }
+        
+        .calc-btn:hover:not(.active) {
+            border-color: #10b981;
+            background-color: #f0fdf4;
+        }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-800 smooth-scroll">
@@ -150,6 +168,7 @@
                 <div class="hidden md:flex items-center gap-x-9 text-sm">
                     <a href="#shop" class="nav-link text-slate-600 hover:text-slate-900 font-medium">Shop</a>
                     <a href="#science" class="nav-link text-slate-600 hover:text-slate-900 font-medium">Science</a>
+                    <a href="#peptide-calculator" class="nav-link text-slate-600 hover:text-slate-900 font-medium">Calculator</a>
                     <a href="#faq" class="nav-link text-slate-600 hover:text-slate-900 font-medium">FAQ</a>
                     <a href="#contact" class="nav-link text-slate-600 hover:text-slate-900 font-medium">Contact</a>
                 </div>
@@ -193,6 +212,7 @@
             <div class="flex flex-col gap-y-3">
                 <a href="#shop" class="py-1 text-slate-600">Shop</a>
                 <a href="#science" class="py-1 text-slate-600">Science</a>
+                <a href="#peptide-calculator" class="py-1 text-slate-600">Calculator</a>
                 <a href="#faq" class="py-1 text-slate-600">FAQ</a>
                 <a href="#contact" class="py-1 text-slate-600">Contact</a>
             </div>
@@ -347,6 +367,109 @@
 
         <div class="mt-5 text-center">
             <p class="text-xs text-slate-500">All products are sold strictly for laboratory research use only. Not intended for human consumption.</p>
+        </div>
+    </section>
+
+    <!-- PEPTIDE CALCULATOR -->
+    <section id="peptide-calculator" class="max-w-screen-2xl mx-auto px-8 py-16 bg-white">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-10">
+                <div class="text-emerald-600 text-sm font-semibold tracking-[2px] mb-2">TOOLS</div>
+                <h2 class="section-header text-5xl font-semibold tracking-tighter mb-3">Peptide Calculator</h2>
+                <p class="text-lg text-slate-600 max-w-md mx-auto">Easily calculate accurate dosages by selecting your parameters below.</p>
+            </div>
+
+            <!-- Dose Section -->
+            <div class="mb-8">
+                <h3 class="font-semibold text-lg mb-3 text-slate-800">Dose of Peptide</h3>
+                <div id="dose-buttons" class="flex flex-wrap gap-2">
+                    <!-- JS populated buttons -->
+                </div>
+            </div>
+
+            <!-- Strength Section -->
+            <div class="mb-8">
+                <h3 class="font-semibold text-lg mb-3 text-slate-800">Strength of Peptide (Vial)</h3>
+                <div id="strength-buttons" class="flex flex-wrap gap-2">
+                    <!-- JS populated buttons -->
+                </div>
+            </div>
+
+            <!-- Water Section -->
+            <div class="mb-8">
+                <h3 class="font-semibold text-lg mb-3 text-slate-800">Water Added (Reconstitution)</h3>
+                <div id="water-buttons" class="flex flex-wrap gap-2">
+                    <!-- JS populated buttons -->
+                </div>
+            </div>
+
+            <!-- Results -->
+            <div class="bg-slate-50 border border-slate-200 rounded-3xl p-8 mb-8">
+                <h3 class="font-semibold text-lg mb-6 text-slate-800">Results</h3>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                    <div class="bg-white border border-slate-200 rounded-2xl p-4">
+                        <div class="text-xs text-emerald-700 font-semibold tracking-wider">PEPTIDE DOSE</div>
+                        <div id="result-dose" class="text-2xl font-semibold mt-1 text-slate-900">--</div>
+                    </div>
+                    <div class="bg-white border border-slate-200 rounded-2xl p-4">
+                        <div class="text-xs text-emerald-700 font-semibold tracking-wider">DRAW SYRINGE TO</div>
+                        <div id="result-draw" class="text-2xl font-semibold mt-1 text-slate-900">--</div>
+                    </div>
+                    <div class="bg-white border border-slate-200 rounded-2xl p-4">
+                        <div class="text-xs text-emerald-700 font-semibold tracking-wider">YOUR VIAL CONTAINS</div>
+                        <div id="result-vial" class="text-2xl font-semibold mt-1 text-slate-900">--</div>
+                    </div>
+                    <div class="bg-white border border-slate-200 rounded-2xl p-4">
+                        <div class="text-xs text-emerald-700 font-semibold tracking-wider">CONCENTRATION</div>
+                        <div id="result-conc" class="text-2xl font-semibold mt-1 text-slate-900">--</div>
+                    </div>
+                </div>
+
+                <!-- Visual Dosage Meter -->
+                <div>
+                    <div class="flex justify-between items-end mb-2">
+                        <div class="text-xs text-emerald-700 font-semibold tracking-wider">VISUAL DOSAGE METER</div>
+                        <div id="result-volume" class="text-sm font-medium text-slate-700"></div>
+                    </div>
+                    
+                    <div class="relative h-6 bg-slate-200 rounded-full overflow-hidden mb-2">
+                        <div id="dosage-meter" 
+                             class="h-full bg-gradient-to-r from-emerald-500 to-emerald-600 transition-all duration-300 rounded-full"
+                             style="width: 0%"></div>
+                    </div>
+                    
+                    <div class="flex justify-between text-[10px] text-slate-400 px-1">
+                        <span>0 mL</span>
+                        <span>0.5</span>
+                        <span>1.0</span>
+                        <span>1.5</span>
+                        <span>2.0</span>
+                        <span>2.5</span>
+                        <span>3.0 mL</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- How to use -->
+            <div class="max-w-3xl mx-auto">
+                <h3 class="font-semibold text-xl mb-4">How to Use the Peptide Calculator</h3>
+                <div class="space-y-4 text-sm text-slate-600">
+                    <div>
+                        <strong class="text-slate-800">1. Select your desired dose</strong> — Choose how much peptide you want to inject (e.g. 0.5mg).
+                    </div>
+                    <div>
+                        <strong class="text-slate-800">2. Select the strength of your vial</strong> — The total amount of peptide in your vial (e.g. 10mg).
+                    </div>
+                    <div>
+                        <strong class="text-slate-800">3. Select how much water you added</strong> — The volume of bacteriostatic water used for reconstitution.
+                    </div>
+                    <div>
+                        The calculator will instantly show the concentration and exactly how much to draw into your syringe.
+                    </div>
+                </div>
+                <p class="mt-6 text-xs text-slate-500">Note: This is for research purposes only. Always follow proper sterile technique and consult with qualified professionals.</p>
+            </div>
         </div>
     </section>
 
@@ -1584,6 +1707,125 @@
             }
         }
 
+        // ============================================
+        // PEPTIDE CALCULATOR (exact style like cellgenic)
+        // ============================================
+        let selectedDose = null;
+        let selectedStrength = null;
+        let selectedWater = null;
+
+        function initPeptideCalculator() {
+            const doseContainer = document.getElementById('dose-buttons');
+            const strengthContainer = document.getElementById('strength-buttons');
+            const waterContainer = document.getElementById('water-buttons');
+
+            if (!doseContainer || !strengthContainer || !waterContainer) return;
+
+            const doseOptions = ['0.1', '0.25', '0.5', '1', '2', '2.5', '5', '7.5', '10', '12.5', '15'];
+            const strengthOptions = ['1', '5', '10', '15', '20', '50'];
+            const waterOptions = ['0.5', '1.0', '1.5', '2.0', '2.5', '3.0'];
+
+            // Render dose buttons
+            doseOptions.forEach(val => {
+                const btn = document.createElement('button');
+                btn.textContent = val + 'mg';
+                btn.className = 'calc-btn px-3.5 py-1.5 text-sm border border-slate-300 hover:border-emerald-600 rounded-full transition-all font-medium';
+                btn.dataset.value = val;
+                btn.onclick = () => selectOption('dose', val, btn);
+                doseContainer.appendChild(btn);
+            });
+
+            // Render strength buttons
+            strengthOptions.forEach(val => {
+                const btn = document.createElement('button');
+                btn.textContent = val + 'mg';
+                btn.className = 'calc-btn px-3.5 py-1.5 text-sm border border-slate-300 hover:border-emerald-600 rounded-full transition-all font-medium';
+                btn.dataset.value = val;
+                btn.onclick = () => selectOption('strength', val, btn);
+                strengthContainer.appendChild(btn);
+            });
+
+            // Render water buttons
+            waterOptions.forEach(val => {
+                const btn = document.createElement('button');
+                btn.textContent = val + 'mL';
+                btn.className = 'calc-btn px-3.5 py-1.5 text-sm border border-slate-300 hover:border-emerald-600 rounded-full transition-all font-medium';
+                btn.dataset.value = val;
+                btn.onclick = () => selectOption('water', val, btn);
+                waterContainer.appendChild(btn);
+            });
+
+            // Initial state
+            updatePeptideResults();
+        }
+
+        function selectOption(type, value, clickedBtn) {
+            let container, selectedVar;
+            
+            if (type === 'dose') {
+                container = document.getElementById('dose-buttons');
+                selectedDose = parseFloat(value);
+            } else if (type === 'strength') {
+                container = document.getElementById('strength-buttons');
+                selectedStrength = parseFloat(value);
+            } else if (type === 'water') {
+                container = document.getElementById('water-buttons');
+                selectedWater = parseFloat(value);
+            }
+
+            // Deselect all in this group
+            container.querySelectorAll('button').forEach(b => {
+                b.classList.remove('active', 'bg-emerald-600', 'text-white', 'border-emerald-600');
+                b.classList.add('border-slate-300');
+            });
+
+            // Select this one
+            clickedBtn.classList.add('active', 'bg-emerald-600', 'text-white', 'border-emerald-600');
+            clickedBtn.classList.remove('border-slate-300');
+
+            updatePeptideResults();
+        }
+
+        function updatePeptideResults() {
+            const doseEl = document.getElementById('result-dose');
+            const drawEl = document.getElementById('result-draw');
+            const vialEl = document.getElementById('result-vial');
+            const concEl = document.getElementById('result-conc');
+            const meterEl = document.getElementById('dosage-meter');
+            const volumeEl = document.getElementById('result-volume');
+
+            if (!doseEl || !drawEl || !vialEl || !concEl) return;
+
+            if (!selectedDose || !selectedStrength || !selectedWater) {
+                doseEl.textContent = 'Select dose';
+                drawEl.textContent = 'Select values';
+                vialEl.textContent = 'Select values';
+                concEl.textContent = 'Select values';
+                meterEl.style.width = '0%';
+                volumeEl.textContent = '';
+                return;
+            }
+
+            const dose = selectedDose;
+            const strength = selectedStrength;
+            const water = selectedWater;
+
+            const concentration = strength / water; // mg/ml
+            const volumeMl = dose / concentration;
+            const units = Math.round(volumeMl * 100);
+
+            // Update text
+            doseEl.textContent = dose + ' mg';
+            drawEl.textContent = volumeMl.toFixed(2) + ' mL (' + units + ' units)';
+            vialEl.textContent = strength + ' mg';
+            concEl.textContent = concentration.toFixed(2) + ' mg/mL';
+
+            // Visual meter (scaled to 0-3ml)
+            const percent = Math.min((volumeMl / 3) * 100, 100);
+            meterEl.style.width = percent + '%';
+            volumeEl.textContent = volumeMl.toFixed(2) + ' mL • ' + units + ' units on U-100 syringe';
+        }
+
         // Initialize everything
         function initializeWebsite() {
             initTailwind();
@@ -1614,6 +1856,9 @@
             
             // Initial cart count
             updateCartCount();
+            
+            // Initialize Peptide Calculator
+            initPeptideCalculator();
             
             // Accessibility: allow clicking category buttons with keyboard
             console.log('%c[True Peptide Labs] Premium peptide store initialized successfully.', 'color:#64748b');
