@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peptide Stack Builder • True Peptide Labs</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=Space+Grotesk:wght@500;600&amp;display=swap');
+        
+        body {
+            font-family: 'Inter', system_ui, sans-serif;
+        }
+        
+        .heading-font {
+            font-family: 'Space Grotesk', 'Inter', system_ui, sans-serif;
+            font-weight: 600;
+            letter-spacing: -0.03em;
+        }
+
+        .nav-link {
+            transition: color 0.2s ease;
+        }
+        
+        .nav-link:hover {
+            color: #10b981;
+        }
+
+        .goal-card {
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+        }
+        
+        .goal-card.selected {
+            border-color: #10b981;
+            background-color: #f0fdf4;
+            box-shadow: 0 10px 15px -3px rgb(16 185 129 / 0.1);
+        }
+
+        .goal-card:hover:not(.selected) {
+            transform: translateY(-2px);
+            border-color: #10b981;
+        }
+
+        .peptide-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .peptide-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        }
+
+        .stack-score {
+            transition: width 0.5s ease;
+        }
+
+        .modal {
+            animation: modalPop 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .benefit-tag {
+            font-size: 0.75rem;
+            padding: 0.125rem 0.5rem;
+            border-radius: 9999px;
+            background-color: #ecfdf5;
+            color: #10b981;
+            font-weight: 500;
+        }
+
+        .sleek-shadow {
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+    <!-- NAVBAR -->
+    <nav class="bg-white border-b border-slate-200 sticky top-0 z-50">
+        <div class="max-w-screen-2xl mx-auto">
+            <div class="px-8 py-5 flex items-center justify-between">
+                <div class="flex items-center gap-x-2">
+                    <a href="index.html" class="flex items-center gap-x-2">
+                        <div class="w-8 h-8 bg-slate-900 rounded-xl flex items-center justify-center">
+                            <i class="fa-solid fa-flask text-white text-xl"></i>
+                        </div>
+                        <div>
+                            <span class="heading-font text-2xl font-semibold tracking-tighter text-slate-900">True Peptide</span>
+                            <span class="heading-font text-2xl font-semibold tracking-tighter text-emerald-600">Labs</span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="hidden md:flex items-center gap-x-8 text-sm font-medium">
+                    <a href="index.html#shop" class="nav-link text-slate-600 hover:text-slate-900">Shop</a>
+                    <a href="index.html#science" class="nav-link text-slate-600 hover:text-slate-900">Science</a>
+                    <a href="stack-builder.html" class="nav-link text-emerald-600 font-semibold">Stack Builder</a>
+                    <a href="index.html#faq" class="nav-link text-slate-600 hover:text-slate-900">FAQ</a>
+                    <a href="index.html#contact" class="nav-link text-slate-600 hover:text-slate-900">Contact</a>
+                </div>
+
+                <div class="flex items-center gap-x-3">
+                    <a href="index.html" 
+                       class="hidden sm:flex items-center gap-x-2 px-4 py-2 text-sm font-semibold border border-slate-200 hover:bg-slate-50 rounded-2xl">
+                        <i class="fa-solid fa-arrow-left"></i>
+                        <span>Back to Shop</span>
+                    </a>
+                    <button onclick="saveStack()" 
+                            class="px-5 py-2 bg-emerald-600 hover:bg-emerald-700 text-white text-sm font-semibold rounded-2xl flex items-center gap-x-2">
+                        <i class="fa-solid fa-save"></i>
+                        <span class="hidden sm:inline">Save Stack</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <div class="bg-slate-900 text-white">
+        <div class="max-w-screen-2xl mx-auto px-8 py-14">
+            <div class="max-w-3xl">
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="px-4 py-1.5 bg-white/10 rounded-full text-sm font-medium flex items-center gap-2">
+                        <i class="fa-solid fa-magic text-emerald-400"></i>
+                        <span>Gamified Research Tool</span>
+                    </div>
+                </div>
+                <h1 class="heading-font text-6xl font-semibold tracking-tighter mb-4">Peptide Stack Builder</h1>
+                <p class="text-2xl text-white/80 max-w-2xl">Select your goals. We'll build your optimal, research-backed peptide protocol with full explanations.</p>
+                
+                <div class="mt-8 flex items-center gap-4 text-sm">
+                    <div class="flex items-center gap-2">
+                        <div class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></div>
+                        <span class="text-white/70">Used by 2,400+ researchers</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="max-w-screen-2xl mx-auto px-8 py-10">
+        
+        <!-- GOAL SELECTION -->
+        <div class="mb-10">
+            <div class="flex items-center justify-between mb-6">
+                <div>
+                    <div class="text-emerald-600 text-sm font-semibold tracking-[1.5px]">STEP 1</div>
+                    <h2 class="heading-font text-4xl font-semibold tracking-tight">What are your goals?</h2>
+                    <p class="text-slate-600 mt-1">Select up to 4. We'll calculate synergies and build the perfect stack.</p>
+                </div>
+                <div id="stack-score" 
+                     class="hidden md:flex items-center gap-3 bg-white border border-slate-200 px-5 py-3 rounded-2xl">
+                    <div>
+                        <div class="text-xs text-slate-500">STACK POWER</div>
+                        <div id="score-value" class="text-3xl font-semibold tabular-nums text-emerald-600">0</div>
+                    </div>
+                    <div class="text-right">
+                        <div class="text-emerald-600">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <div class="text-xs text-slate-500">Synergy Score</div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="goal-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+                <!-- Populated by JS -->
+            </div>
+            
+            <div id="selected-goals" class="mt-6 flex flex-wrap gap-2 min-h-[40px]">
+                <!-- Dynamic selected goal tags -->
+            </div>
+        </div>
+
+        <!-- RECOMMENDED STACK -->
+        <div class="mb-12">
+            <div class="flex items-center justify-between mb-6">
+                <div>
+                    <div class="text-emerald-600 text-sm font-semibold tracking-[1.5px]">YOUR PROTOCOL</div>
+                    <h2 class="heading-font text-4xl font-semibold tracking-tight">Recommended Stack</h2>
+                </div>
+                <button onclick="resetStack()" 
+                        class="text-sm px-4 py-2 text-slate-600 hover:text-slate-800 flex items-center gap-2">
+                    <i class="fa-solid fa-undo"></i> 
+                    <span>Reset</span>
+                </button>
+            </div>
+
+            <div id="stack-results" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 min-h-[240px]">
+                <!-- Dynamic peptide cards -->
+                <div class="col-span-full flex items-center justify-center h-64 border border-dashed border-slate-200 rounded-3xl text-center">
+                    <div>
+                        <i class="fa-solid fa-magic text-5xl text-slate-300 mb-4"></i>
+                        <p class="text-slate-500">Select goals above to see your personalized stack</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- MY STACK SUMMARY (Gamified) -->
+        <div id="my-stack-panel" class="hidden bg-white border border-slate-200 rounded-3xl p-8 mb-12">
+            <div class="flex items-center justify-between mb-6">
+                <div>
+                    <h3 class="font-semibold text-2xl">Your Custom Stack</h3>
+                    <p class="text-sm text-slate-500">This is your personalized protocol. Click peptides for details.</p>
+                </div>
+                <button onclick="exportStack()" 
+                        class="px-5 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white text-sm font-semibold rounded-2xl flex items-center gap-2">
+                    <i class="fa-solid fa-download"></i>
+                    <span>Export Protocol</span>
+                </button>
+            </div>
+            
+            <div id="my-stack-list" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <!-- Populated when stack is built -->
+            </div>
+            
+            <div class="mt-8 p-5 bg-emerald-50 border border-emerald-100 rounded-2xl">
+                <div class="font-semibold text-emerald-800">Next Step</div>
+                <p class="text-sm text-emerald-700 mt-1">This stack is research-backed for your selected goals. <a href="index.html#contact" class="underline">Talk to our team</a> for a custom reconstitution guide and sourcing recommendations.</p>
+            </div>
+        </div>
+
+        <!-- HOW IT WORKS -->
+        <div class="max-w-3xl mx-auto">
+            <h3 class="font-semibold text-2xl mb-6 text-center">How the Stack Builder Works</h3>
+            
+            <div class="grid md:grid-cols-3 gap-6 text-sm">
+                <div class="bg-white border border-slate-100 rounded-2xl p-6">
+                    <div class="font-semibold mb-2 flex items-center gap-2">
+                        <span class="w-6 h-6 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center text-xs font-bold">1</span> 
+                        Select Goals
+                    </div>
+                    <p class="text-slate-600">Tell us what you're optimizing for. The more aligned your goals, the higher the synergy score.</p>
+                </div>
+                <div class="bg-white border border-slate-100 rounded-2xl p-6">
+                    <div class="font-semibold mb-2 flex items-center gap-2">
+                        <span class="w-6 h-6 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center text-xs font-bold">2</span> 
+                        AI-Style Matching
+                    </div>
+                    <p class="text-slate-600">We analyze compatibility across peptides. Each recommendation shows why it fits your specific goals.</p>
+                </div>
+                <div class="bg-white border border-slate-100 rounded-2xl p-6">
+                    <div class="font-semibold mb-2 flex items-center gap-2">
+                        <span class="w-6 h-6 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center text-xs font-bold">3</span> 
+                        Deep Dive &amp; Build
+                    </div>
+                    <p class="text-slate-600">Tap any peptide for full benefits, research notes, and stacking tips. Save or export your protocol.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PEPTIDE DETAIL MODAL -->
+    <div id="peptide-modal" onclick="if (event.target.id === 'peptide-modal') closeModal()" class="hidden fixed inset-0 bg-black/70 backdrop-blur-sm z-[200] flex items-center justify-center p-4">
+        <div onclick="event.stopImmediatePropagation()" class="bg-white rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-hidden modal shadow-2xl">
+            <div class="px-8 py-6 border-b flex items-center justify-between">
+                <div id="modal-title" class="text-2xl font-semibold"></div>
+                <button onclick="closeModal()" class="text-slate-400 hover:text-slate-700 text-2xl">&times;</button>
+            </div>
+            
+            <div class="p-8 overflow-y-auto max-h-[70vh]">
+                <div id="modal-short" class="text-lg text-slate-600 mb-6"></div>
+                
+                <div class="mb-8">
+                    <div class="uppercase text-xs font-bold tracking-widest text-emerald-700 mb-2">KEY BENEFITS</div>
+                    <ul id="modal-benefits" class="space-y-1.5 text-sm"></ul>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                    <div>
+                        <div class="uppercase text-xs font-bold tracking-widest text-emerald-700 mb-2">TYPICAL RESEARCH DOSE</div>
+                        <div id="modal-dose" class="font-semibold text-lg"></div>
+                    </div>
+                    <div>
+                        <div class="uppercase text-xs font-bold tracking-widest text-emerald-700 mb-2">STACK SYNERGY</div>
+                        <div id="modal-synergy" class="text-sm"></div>
+                    </div>
+                </div>
+                
+                <div class="mb-6">
+                    <div class="uppercase text-xs font-bold tracking-widest text-emerald-700 mb-2">RESEARCH NOTES</div>
+                    <div id="modal-research" class="text-sm leading-relaxed text-slate-600"></div>
+                </div>
+                
+                <div class="bg-emerald-50 border border-emerald-100 rounded-2xl p-5 text-sm">
+                    <div class="font-semibold text-emerald-800 mb-1 flex items-center gap-2">
+                        <i class="fa-solid fa-info-circle"></i> Important
+                    </div>
+                    <div class="text-emerald-700">All information is for research and educational purposes only. Not for human use. Consult with qualified professionals.</div>
+                </div>
+            </div>
+            
+            <div class="border-t px-8 py-5 bg-slate-50 flex justify-end">
+                <button onclick="addToMyStackFromModal()" 
+                        class="px-6 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold rounded-2xl text-sm flex items-center gap-2">
+                    <i class="fa-solid fa-plus"></i>
+                    <span>Add to My Stack</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Data: Goals and Peptides
+        const goalsData = [
+            { id: 'weight-loss', name: 'Weight Loss & Fat Reduction', icon: 'fa-weight-hanging', desc: 'Metabolic support & appetite control' },
+            { id: 'muscle', name: 'Muscle Growth & Recovery', icon: 'fa-dumbbell', desc: 'Anabolic support & faster repair' },
+            { id: 'healing', name: 'Injury Healing & Tissue Repair', icon: 'fa-heart-pulse', desc: 'Accelerated recovery & anti-inflammatory' },
+            { id: 'anti-aging', name: 'Anti-Aging & Skin Health', icon: 'fa-spa', desc: 'Collagen production & cellular renewal' },
+            { id: 'gut', name: 'Gut Health & Inflammation', icon: 'fa-stomach', desc: 'GI repair & systemic inflammation' },
+            { id: 'performance', name: 'Athletic Performance', icon: 'fa-running', desc: 'Endurance, recovery & power' },
+        ];
+
+        const peptideData = {
+            bpc157: {
+                id: 'bpc157',
+                name: 'BPC-157 Arginate',
+                short: 'The ultimate healing & gut peptide',
+                benefits: [
+                    'Promotes rapid tendon, ligament & muscle repair',
+                    'Strengthens gut lining & reduces inflammation',
+                    'Supports angiogenesis and tissue regeneration',
+                    'Neuroprotective and anti-inflammatory'
+                ],
+                typicalDose: '250–500 mcg per day',
+                synergy: 'Excellent with TB-500 for full-body repair protocols.',
+                research: 'Derived from gastric juice. Extensively studied for its role in accelerating healing of soft tissue injuries and protecting the gastrointestinal tract.'
+            },
+            tb500: {
+                id: 'tb500',
+                name: 'TB-500 (Thymosin Beta-4)',
+                short: 'Actin-sequestering recovery powerhouse',
+                benefits: [
+                    'Promotes cell migration & new blood vessel formation',
+                    'Reduces inflammation and scar tissue',
+                    'Supports muscle, tendon and ligament recovery',
+                    'Improves flexibility and reduces downtime'
+                ],
+                typicalDose: '2–5 mg per week (split doses)',
+                synergy: 'Synergistic with BPC-157 for comprehensive healing.',
+                research: 'Synthetic version of a naturally occurring protein. Well-studied for its ability to promote healing by regulating actin and reducing inflammation.'
+            },
+            semaglutide: {
+                id: 'semaglutide',
+                name: 'Semaglutide',
+                short: 'GLP-1 agonist for metabolic health',
+                benefits: [
+                    'Powerful appetite suppression and satiety',
+                    'Improves insulin sensitivity',
+                    'Significant fat loss while preserving muscle',
+                    'Cardiovascular and metabolic benefits'
+                ],
+                typicalDose: '0.25–2.4 mg per week (titrated)',
+                synergy: 'Often stacked with CJC-1295/Ipamorelin for body recomposition.',
+                research: 'Long-acting GLP-1 receptor agonist. Extensively researched for type 2 diabetes and obesity management.'
+            },
+            tirzepatide: {
+                id: 'tirzepatide',
+                name: 'Tirzepatide',
+                short: 'Dual GIP/GLP-1 for superior results',
+                benefits: [
+                    'Superior weight loss compared to single agonists',
+                    'Enhanced glycemic control',
+                    'Reduces food noise and cravings dramatically',
+                    'Improves energy and body composition'
+                ],
+                typicalDose: '2.5–15 mg per week',
+                synergy: 'Top choice for aggressive fat loss protocols.',
+                research: 'Novel dual incretin mimetic showing exceptional efficacy in clinical trials for obesity and metabolic syndrome.'
+            },
+            retatrutide: {
+                id: 'retatrutide',
+                name: 'Retatrutide',
+                short: 'Triple agonist (next-gen metabolic)',
+                benefits: [
+                    'Triple hormone action (GLP-1, GIP, Glucagon)',
+                    'Highest weight loss potential currently studied',
+                    'Increases energy expenditure',
+                    'Strong effects on liver fat and NASH'
+                ],
+                typicalDose: '2–12 mg per week (investigational)',
+                synergy: 'Cutting-edge option for advanced metabolic goals.',
+                research: 'Investigational triple agonist demonstrating unprecedented weight loss and metabolic improvements in early studies.'
+            },
+            ipamorelin: {
+                id: 'ipamorelin',
+                name: 'Ipamorelin',
+                short: 'Clean GH secretagogue',
+                benefits: [
+                    'Stimulates natural growth hormone release',
+                    'Supports fat loss and muscle preservation',
+                    'Improves sleep quality and recovery',
+                    'Minimal impact on cortisol or prolactin'
+                ],
+                typicalDose: '200–300 mcg 1–3x daily',
+                synergy: 'Great base for most stacks, especially with CJC-1295.',
+                research: 'Selective ghrelin receptor agonist. Popular for its clean GH pulse profile and favorable safety in research settings.'
+            },
+            cjc: {
+                id: 'cjc',
+                name: 'CJC-1295 (no DAC)',
+                short: 'GH pulse amplifier',
+                benefits: [
+                    'Amplifies natural growth hormone pulses',
+                    'Supports muscle growth and fat metabolism',
+                    'Improves recovery and skin elasticity',
+                    'Often paired with Ipamorelin for synergy'
+                ],
+                typicalDose: '100–200 mcg at bedtime',
+                synergy: 'Classic combo with Ipamorelin for optimized GH release.',
+                research: 'Modified GHRH analog designed to increase the amplitude of GH secretion.'
+            },
+            ghk: {
+                id: 'ghk',
+                name: 'GHK-Cu (Copper Peptide)',
+                short: 'Regenerative skin & anti-aging peptide',
+                benefits: [
+                    'Stimulates collagen and elastin production',
+                    'Powerful antioxidant and anti-inflammatory',
+                    'Accelerates wound healing and tissue remodeling',
+                    'Improves skin firmness and reduces wrinkles'
+                ],
+                typicalDose: '1–2 mg per day (topical or injectable)',
+                synergy: 'Excellent addition to healing and anti-aging protocols.',
+                research: 'Naturally occurring copper-binding peptide with well-documented effects on skin regeneration and gene expression.'
+            }
+        };
+
+        // Which peptides support which goals
+        const goalPeptideMap = {
+            'weight-loss': ['semaglutide', 'tirzepatide', 'retatrutide', 'ipamorelin'],
+            'muscle': ['ipamorelin', 'cjc', 'bpc157', 'tb500'],
+            'healing': ['bpc157', 'tb500', 'ghk', 'ipamorelin'],
+            'anti-aging': ['ghk', 'ipamorelin', 'cjc', 'bpc157'],
+            'gut': ['bpc157', 'ghk', 'semaglutide'],
+            'performance': ['ipamorelin', 'cjc', 'tb500', 'bpc157']
+        };
+
+        let selectedGoals = new Set();
+        let myStack = new Set();
+
+        function renderGoals() {
+            const container = document.getElementById('goal-grid');
+            container.innerHTML = '';
+
+            goalsData.forEach(goal => {
+                const isSelected = selectedGoals.has(goal.id);
+                
+                const card = document.createElement('div');
+                card.className = `goal-card bg-white border-2 ${isSelected ? 'selected border-emerald-500' : 'border-slate-200'} rounded-3xl p-5 flex flex-col`;
+                
+                card.innerHTML = `
+                    <div class="flex items-start justify-between">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 bg-emerald-100 text-emerald-600 rounded-2xl flex items-center justify-center">
+                                <i class="fa-solid ${goal.icon} text-xl"></i>
+                            </div>
+                            <div>
+                                <div class="font-semibold leading-tight">${goal.name}</div>
+                                <div class="text-xs text-slate-500 mt-0.5">${goal.desc}</div>
+                            </div>
+                        </div>
+                        ${isSelected ? '<i class="fa-solid fa-check-circle text-emerald-600 text-2xl"></i>' : ''}
+                    </div>
+                `;
+                
+                card.onclick = () => toggleGoal(goal.id, card);
+                container.appendChild(card);
+            });
+        }
+
+        function toggleGoal(goalId, cardElement) {
+            if (selectedGoals.has(goalId)) {
+                selectedGoals.delete(goalId);
+            } else {
+                if (selectedGoals.size >= 4) {
+                    alert("Maximum 4 goals for best results. Deselect one to add another.");
+                    return;
+                }
+                selectedGoals.add(goalId);
+            }
+            
+            // Re-render goals for visual update
+            renderGoals();
+            
+            // Update selected tags
+            renderSelectedGoals();
+            
+            // Update stack
+            renderRecommendedStack();
+            updateStackScore();
+        }
+
+        function renderSelectedGoals() {
+            const container = document.getElementById('selected-goals');
+            container.innerHTML = '';
+            
+            if (selectedGoals.size === 0) {
+                container.innerHTML = `<div class="text-sm text-slate-400 italic">No goals selected yet</div>`;
+                return;
+            }
+            
+            selectedGoals.forEach(id => {
+                const goal = goalsData.find(g => g.id === id);
+                if (!goal) return;
+                
+                const tag = document.createElement('div');
+                tag.className = `inline-flex items-center gap-2 bg-emerald-100 text-emerald-700 px-3 py-1 rounded-2xl text-sm font-medium`;
+                tag.innerHTML = `
+                    <span>${goal.name}</span>
+                    <button onclick="event.stopImmediatePropagation(); removeGoal('${id}')" class="hover:text-emerald-900">
+                        <i class="fa-solid fa-times text-xs"></i>
+                    </button>
+                `;
+                container.appendChild(tag);
+            });
+        }
+
+        function removeGoal(goalId) {
+            selectedGoals.delete(goalId);
+            renderGoals();
+            renderSelectedGoals();
+            renderRecommendedStack();
+            updateStackScore();
+        }
+
+        function getRecommendedPeptides() {
+            if (selectedGoals.size === 0) return [];
+            
+            const scores = {};
+            
+            // Score each peptide based on how many selected goals it supports
+            Object.keys(peptideData).forEach(pid => {
+                scores[pid] = 0;
+                selectedGoals.forEach(gid => {
+                    if (goalPeptideMap[gid] && goalPeptideMap[gid].includes(pid)) {
+                        scores[pid]++;
+                    }
+                });
+            });
+            
+            // Sort by score desc, then by name
+            return Object.keys(scores)
+                .filter(pid => scores[pid] > 0)
+                .sort((a, b) => scores[b] - scores[a] || peptideData[a].name.localeCompare(peptideData[b].name))
+                .slice(0, 5); // Top 5
+        }
+
+        function renderRecommendedStack() {
+            const container = document.getElementById('stack-results');
+            const myStackPanel = document.getElementById('my-stack-panel');
+            
+            const recommendedIds = getRecommendedPeptides();
+            
+            if (recommendedIds.length === 0) {
+                container.innerHTML = `
+                    <div class="col-span-full flex items-center justify-center h-64 border border-dashed border-slate-200 rounded-3xl text-center">
+                        <div>
+                            <i class="fa-solid fa-magic text-5xl text-slate-300 mb-4"></i>
+                            <p class="text-slate-500">Select goals above to generate your optimized stack</p>
+                        </div>
+                    </div>
+                `;
+                myStackPanel.classList.add('hidden');
+                return;
+            }
+            
+            container.innerHTML = '';
+            
+            recommendedIds.forEach(pid => {
+                const p = peptideData[pid];
+                const score = selectedGoals.size > 0 ? 
+                    Math.round((getRecommendedPeptides().indexOf(pid) / recommendedIds.length) * 100) : 80;
+                
+                const card = document.createElement('div');
+                card.className = `peptide-card bg-white border border-slate-200 rounded-3xl p-6 cursor-pointer sleek-shadow`;
+                
+                card.innerHTML = `
+                    <div class="flex justify-between items-start mb-3">
+                        <div>
+                            <div class="font-semibold text-xl tracking-tight">${p.name}</div>
+                            <div class="text-sm text-emerald-600 font-medium">${p.short}</div>
+                        </div>
+                        <div class="text-right">
+                            <div class="text-xs text-emerald-600 font-medium">MATCH</div>
+                            <div class="text-emerald-700 font-semibold">${score}%</div>
+                        </div>
+                    </div>
+                    
+                    <div class="text-sm text-slate-600 mb-4 line-clamp-2">${p.benefits[0]}</div>
+                    
+                    <div class="flex items-center justify-between">
+                        <div class="flex gap-1">
+                            ${selectedGoals.size > 0 ? 
+                                Array.from(selectedGoals).slice(0, 2).map(gid => {
+                                    const g = goalsData.find(gg => gg.id === gid);
+                                    return g ? `<span class="text-[10px] px-2 py-0.5 bg-emerald-100 text-emerald-700 rounded">${g.name.split(' ')[0]}</span>` : '';
+                                }).join('') : ''}
+                        </div>
+                        <button onclick="event.stopImmediatePropagation(); showPeptideModal('${pid}')" 
+                                class="text-xs px-3 py-1.5 bg-slate-900 hover:bg-slate-800 text-white rounded-2xl font-medium flex items-center gap-1">
+                            <span>Details</span> <i class="fa-solid fa-info text-[10px]"></i>
+                        </button>
+                    </div>
+                `;
+                
+                card.onclick = () => showPeptideModal(pid);
+                container.appendChild(card);
+            });
+            
+            // Show my stack panel if we have recommendations
+            myStackPanel.classList.remove('hidden');
+            renderMyStack();
+        }
+
+        function updateStackScore() {
+            const scoreEl = document.getElementById('score-value');
+            if (!scoreEl) return;
+            
+            const numGoals = selectedGoals.size;
+            if (numGoals === 0) {
+                document.getElementById('stack-score').classList.add('hidden');
+                return;
+            }
+            
+            document.getElementById('stack-score').classList.remove('hidden');
+            
+            // Simple gamification score
+            const base = numGoals * 18;
+            const synergy = Math.min(getRecommendedPeptides().length * 4, 28);
+            const total = Math.min(base + synergy, 98);
+            
+            scoreEl.textContent = total;
+            
+            // Animate stars based on score
+            const starContainer = document.getElementById('stack-score');
+            if (starContainer) {
+                const stars = starContainer.querySelectorAll('i');
+                stars.forEach((star, i) => {
+                    if ((total / 33) > i) {
+                        star.classList.add('text-emerald-400');
+                    } else {
+                        star.classList.remove('text-emerald-400');
+                    }
+                });
+            }
+        }
+
+        function showPeptideModal(peptideId) {
+            const p = peptideData[peptideId];
+            if (!p) return;
+            
+            const modal = document.getElementById('peptide-modal');
+            
+            document.getElementById('modal-title').textContent = p.name;
+            document.getElementById('modal-short').textContent = p.short;
+            
+            const benefitsList = document.getElementById('modal-benefits');
+            benefitsList.innerHTML = p.benefits.map(b => 
+                `<li class="flex items-start gap-2"><i class="fa-solid fa-check text-emerald-600 mt-1 text-xs"></i> <span>${b}</span></li>`
+            ).join('');
+            
+            document.getElementById('modal-dose').textContent = p.typicalDose;
+            document.getElementById('modal-synergy').innerHTML = `<span class="font-medium">${p.synergy}</span>`;
+            document.getElementById('modal-research').textContent = p.research;
+            
+            // Store current peptide for add action
+            modal.dataset.currentPeptide = peptideId;
+            
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('peptide-modal');
+            modal.classList.remove('flex');
+            modal.classList.add('hidden');
+        }
+
+        function addToMyStackFromModal() {
+            const modal = document.getElementById('peptide-modal');
+            const pid = modal.dataset.currentPeptide;
+            if (pid) {
+                myStack.add(pid);
+                renderMyStack();
+                closeModal();
+                
+                // Little gamification toast
+                showToast(`${peptideData[pid].name} added to your protocol!`);
+            }
+        }
+
+        function renderMyStack() {
+            const container = document.getElementById('my-stack-list');
+            if (!container) return;
+            
+            if (myStack.size === 0) {
+                container.innerHTML = `<div class="text-sm text-slate-400 col-span-full">Your saved stack will appear here. Add peptides from the recommendations above.</div>`;
+                return;
+            }
+            
+            container.innerHTML = '';
+            
+            myStack.forEach(pid => {
+                const p = peptideData[pid];
+                if (!p) return;
+                
+                const item = document.createElement('div');
+                item.className = `flex items-center justify-between bg-white border border-slate-200 rounded-2xl px-4 py-3 text-sm`;
+                
+                item.innerHTML = `
+                    <div class="font-medium">${p.name}</div>
+                    <button onclick="removeFromMyStack('${pid}', event)" class="text-red-400 hover:text-red-600 text-lg leading-none">&times;</button>
+                `;
+                
+                container.appendChild(item);
+            });
+        }
+
+        function removeFromMyStack(pid, e) {
+            e.stopImmediatePropagation();
+            myStack.delete(pid);
+            renderMyStack();
+        }
+
+        function updateStackScoreOnLoad() {
+            // Already handled in render functions
+        }
+
+        function resetStack() {
+            selectedGoals.clear();
+            myStack.clear();
+            
+            document.querySelectorAll('.goal-card').forEach(c => c.classList.remove('selected'));
+            
+            const selectedContainer = document.getElementById('selected-goals');
+            if (selectedContainer) selectedContainer.innerHTML = `<div class="text-sm text-slate-400 italic">No goals selected yet</div>`;
+            
+            const stackContainer = document.getElementById('stack-results');
+            if (stackContainer) {
+                stackContainer.innerHTML = `
+                    <div class="col-span-full flex items-center justify-center h-64 border border-dashed border-slate-200 rounded-3xl text-center">
+                        <div>
+                            <i class="fa-solid fa-magic text-5xl text-slate-300 mb-4"></i>
+                            <p class="text-slate-500">Select goals above to generate your optimized stack</p>
+                        </div>
+                    </div>
+                `;
+            }
+            
+            const myPanel = document.getElementById('my-stack-panel');
+            if (myPanel) myPanel.classList.add('hidden');
+            
+            document.getElementById('score-value').textContent = '0';
+            document.getElementById('stack-score').classList.add('hidden');
+            
+            renderGoals();
+        }
+
+        function saveStack() {
+            if (myStack.size === 0) {
+                alert("Add some peptides to your stack first!");
+                return;
+            }
+            
+            const stackNames = Array.from(myStack).map(pid => peptideData[pid].name);
+            const goalsText = Array.from(selectedGoals).map(id => goalsData.find(g => g.id === id).name).join(', ');
+            
+            const summary = `Your Protocol:\nGoals: ${goalsText}\nPeptides: ${stackNames.join(' + ')}\n\nSaved to your profile (demo). In real use this would be stored.`;
+            
+            alert(summary);
+            
+            // In a real app this would save to user account
+            console.log('Stack saved:', { goals: selectedGoals, stack: myStack });
+        }
+
+        function exportStack() {
+            if (myStack.size === 0) {
+                alert("Build your stack first!");
+                return;
+            }
+            
+            let text = "TRUE PEPTIDE LABS - CUSTOM PEPTIDE PROTOCOL\n";
+            text += "Generated: " + new Date().toLocaleDateString() + "\n\n";
+            
+            text += "YOUR GOALS:\n";
+            Array.from(selectedGoals).forEach(gid => {
+                const g = goalsData.find(gg => gg.id === gid);
+                text += `• ${g.name}\n`;
+            });
+            
+            text += "\nRECOMMENDED PEPTIDES:\n";
+            Array.from(myStack).forEach(pid => {
+                const p = peptideData[pid];
+                text += `• ${p.name} - ${p.short}\n`;
+                text += `  Typical: ${p.typicalDose}\n`;
+                text += `  Notes: ${p.synergy}\n\n`;
+            });
+            
+            text += "This is for research purposes only.\nContact us for personalized guidance.";
+            
+            const blob = new Blob([text], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'TruePeptideLabs_Stack_Protocol.txt';
+            a.click();
+            URL.revokeObjectURL(url);
+        }
+
+        function showToast(message) {
+            const toast = document.createElement('div');
+            toast.className = `fixed bottom-6 left-1/2 -translate-x-1/2 bg-slate-900 text-white px-6 py-3 rounded-2xl text-sm font-medium shadow-xl flex items-center gap-2 z-[300]`;
+            toast.innerHTML = `<i class="fa-solid fa-check text-emerald-400"></i> <span>${message}</span>`;
+            document.body.appendChild(toast);
+            
+            setTimeout(() => {
+                toast.style.transition = 'all 0.25s ease';
+                toast.style.opacity = '0';
+                setTimeout(() => toast.remove(), 200);
+            }, 2400);
+        }
+
+        function initStackBuilder() {
+            // Render goals
+            renderGoals();
+            
+            // Render initial selected (empty)
+            const sel = document.getElementById('selected-goals');
+            sel.innerHTML = `<div class="text-sm text-slate-400 italic">No goals selected yet</div>`;
+            
+            // Hide score initially
+            document.getElementById('stack-score').classList.add('hidden');
+            
+            // Initial stack state
+            document.getElementById('my-stack-panel').classList.add('hidden');
+            
+            // Keyboard support (optional)
+            document.addEventListener('keydown', function(e) {
+                if (e.key === "/" && document.activeElement.tagName === "BODY") {
+                    e.preventDefault();
+                    const firstGoal = document.querySelector('.goal-card');
+                    if (firstGoal) firstGoal.click();
+                }
+            });
+            
+            // Make sure score updates if needed
+            updateStackScore();
+        }
+
+        // Boot the stack builder when page loads
+        window.addEventListener('load', function() {
+            // If the main init exists, call it
+            if (typeof initializeWebsite === 'function') {
+                // Don't call full, just the stack part
+            }
+            
+            initStackBuilder();
+        });
+        
+        // Make some functions global if needed for onclick
+        window.showPeptideModal = showPeptideModal;
+        window.closeModal = closeModal;
+    </script>
+</body>
+</html>
