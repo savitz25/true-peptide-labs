@@ -1,9 +1,25 @@
-# True Peptide Labs
+# VialVibes (true-peptide-labs)
 
 Research-use-only (RUO) peptide supplier site. Static multi-page HTML on Vercel.
 
-**Brand:** True Peptide Labs (operated by APEX Research, LLC)  
+**Brand:** VialVibes (operated by APEX Research, LLC)  
+**Tagline:** Good Vibes. Serious Science.  
 **Domain:** peptidetrue.com  
+**Emails (current):** research@truepeptidelabs.com · orders@truepeptidelabs.com  
+
+## Brand & design system
+
+User-facing brand is **VialVibes**. Legal entity remains **APEX Research, LLC**.
+
+| Resource | Path |
+|----------|------|
+| Brand guide | [BRAND-VIALVIBES.md](./BRAND-VIALVIBES.md) |
+| Live design system | [design-system.html](./design-system.html) |
+| Full logo (SVG) | `assets/logo-vialvibes.svg` |
+| Favicon / mark (SVG) | `assets/logo-vialvibes-mark.svg` |
+| Tokens + dark theme | `css/site.css` |
+
+Compliance non-negotiables (RUO, no human-use language, no invented CoAs) are documented in the brand guide and Phase changelogs.
 
 ## Phase status
 
@@ -17,6 +33,7 @@ Research-use-only (RUO) peptide supplier site. Static multi-page HTML on Vercel.
 
 ```
 /                       Homepage (proof-first)
+/design-system.html     VialVibes brand kit showcase
 /peptides/              Catalog + category hubs + product pages
 /research/              Research Hub + compound overviews + educational guides + compare
 /tools/                 Calculator + combination builder
@@ -25,8 +42,9 @@ Research-use-only (RUO) peptide supplier site. Static multi-page HTML on Vercel.
 /quality.html           Quality stance
 /cart.html /checkout.html
 legal & company pages   about, terms, privacy, RUO, contact, ...
+/assets/                Logos (logo-vialvibes.svg, logo-vialvibes-mark.svg)
 /js/products.js         Shared catalog data
-/css/site.css           Shared styles
+/css/site.css           VialVibes tokens + shared styles
 ```
 
 ## Local testing

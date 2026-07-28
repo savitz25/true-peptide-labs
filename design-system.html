@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VialVibes Design System | Brand &amp; UI Tokens</title>
+  <meta name="description" content="VialVibes brand design system: colors, type, logo, components. Good Vibes. Serious Science.">
+  <link rel="canonical" href="https://www.peptidetrue.com/design-system.html">
+  <link rel="icon" type="image/svg+xml" href="assets/logo-vialvibes-mark.svg">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/site.css">
+</head>
+<body class="min-h-screen flex flex-col">
+  <nav class="sticky top-0 z-50">
+    <div class="max-w-screen-2xl mx-auto px-4 sm:px-8 py-4 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-3">
+        <img src="assets/logo-vialvibes.svg" alt="VialVibes" class="h-10 sm:h-12 w-auto">
+      </a>
+      <div class="hidden md:flex items-center gap-6 text-sm">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="peptides/index.html" class="nav-link">Peptides</a>
+        <a href="research/index.html" class="nav-link">Research</a>
+        <a href="design-system.html" class="nav-link active">Design System</a>
+      </div>
+      <a href="cart.html" class="vv-btn-ghost text-sm py-2 px-4">Cart</a>
+    </div>
+  </nav>
+  <div class="ruo-banner">
+    <div class="max-w-screen-2xl mx-auto px-4 sm:px-8 py-2.5 text-center text-xs sm:text-sm">
+      <strong>Research Use Only.</strong> Fun exterior. Serious science inside. Products are not for human use.
+      <a href="research-use-only.html" class="underline font-semibold ml-1">RUO policy</a>
+    </div>
+  </div>
+
+  <main class="flex-1 max-w-screen-2xl mx-auto px-4 sm:px-8 py-12 sm:py-16 w-full">
+    <div class="vv-chip mb-6"><span class="w-1.5 h-1.5 rounded-full bg-cyan-400"></span> Design System v1</div>
+    <h1 class="heading-font text-5xl sm:text-6xl tracking-tighter mb-4">VialVibes brand kit</h1>
+    <p class="text-xl max-w-2xl mb-3" style="color: var(--vv-text-muted)">
+      Good Vibes. Serious Science. Outside playful &amp; curious — inside precise, transparent, and RUO-strict.
+    </p>
+    <p class="text-sm mb-14" style="color: var(--vv-text-dim)">
+      Legal entity: VialVibes is operated by APEX Research, LLC. Design itself is a trust signal.
+    </p>
+
+    <!-- Logo -->
+    <section class="mb-16">
+      <h2 class="heading-font text-3xl mb-6">Logo — Waveform Vial</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="vv-glass rounded-3xl p-10 flex flex-col items-center justify-center min-h-[200px]">
+          <img src="assets/logo-vialvibes.svg" alt="VialVibes full logo" class="w-full max-w-sm">
+          <p class="text-xs mt-6" style="color: var(--vv-text-dim)">Primary lockup · SVG</p>
+        </div>
+        <div class="vv-glass rounded-3xl p-10 flex flex-col items-center justify-center min-h-[200px]">
+          <img src="assets/logo-vialvibes-mark.svg" alt="VialVibes mark" class="w-24 h-24">
+          <p class="text-xs mt-6" style="color: var(--vv-text-dim)">App icon / favicon mark</p>
+        </div>
+      </div>
+      <p class="mt-4 text-sm" style="color: var(--vv-text-muted)">
+        Concept: a refined vial containing a waveform — curiosity + signal + lab precision. Works from favicon to packaging.
+      </p>
+    </section>
+
+    <!-- Colors -->
+    <section class="mb-16">
+      <h2 class="heading-font text-3xl mb-6">Color system</h2>
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 mb-8">
+        <div><div class="vv-swatch w-full h-20" style="background:#0F0C29"></div><div class="text-xs mt-2 font-mono">#0F0C29</div><div class="text-xs" style="color:var(--vv-text-dim)">Deep midnight</div></div>
+        <div><div class="vv-swatch w-full h-20" style="background:#121212"></div><div class="text-xs mt-2 font-mono">#121212</div><div class="text-xs" style="color:var(--vv-text-dim)">Near black</div></div>
+        <div><div class="vv-swatch w-full h-20" style="background:#1E1B4B"></div><div class="text-xs mt-2 font-mono">#1E1B4B</div><div class="text-xs" style="color:var(--vv-text-dim)">Elevated indigo</div></div>
+        <div><div class="vv-swatch w-full h-20" style="background:#00E5FF"></div><div class="text-xs mt-2 font-mono">#00E5FF</div><div class="text-xs" style="color:var(--vv-text-dim)">Electric cyan</div></div>
+        <div><div class="vv-swatch w-full h-20" style="background:#A855F7"></div><div class="text-xs mt-2 font-mono">#A855F7</div><div class="text-xs" style="color:var(--vv-text-dim)">Violet</div></div>
+        <div><div class="vv-swatch w-full h-20" style="background:#00FFAA"></div><div class="text-xs mt-2 font-mono">#00FFAA</div><div class="text-xs" style="color:var(--vv-text-dim)">Neon mint</div></div>
+      </div>
+      <h3 class="heading-font text-xl mb-3">Category energy (sparingly)</h3>
+      <div class="flex flex-wrap gap-4 text-sm">
+        <span class="inline-flex items-center gap-2"><span class="vv-cat-dot" style="background:var(--vv-cat-cellular)"></span> Cellular</span>
+        <span class="inline-flex items-center gap-2"><span class="vv-cat-dot" style="background:var(--vv-cat-performance)"></span> Performance*</span>
+        <span class="inline-flex items-center gap-2"><span class="vv-cat-dot" style="background:var(--vv-cat-cognitive)"></span> Cognitive*</span>
+        <span class="inline-flex items-center gap-2"><span class="vv-cat-dot" style="background:var(--vv-cat-cosmetic)"></span> Cosmetic / ECM</span>
+        <span class="inline-flex items-center gap-2"><span class="vv-cat-dot" style="background:var(--vv-cat-metabolic)"></span> Metabolic</span>
+        <span class="inline-flex items-center gap-2"><span class="vv-cat-dot" style="background:var(--vv-cat-longevity)"></span> General / cyan</span>
+      </div>
+      <p class="text-xs mt-3" style="color:var(--vv-text-dim)">*UI energy labels only — catalog uses RUO-safe research category names (Tissue &amp; Repair Models, Metabolic Research, etc.).</p>
+    </section>
+
+    <!-- Type -->
+    <section class="mb-16">
+      <h2 class="heading-font text-3xl mb-6">Typography</h2>
+      <div class="vv-glass rounded-3xl p-8 space-y-6">
+        <div>
+          <div class="text-xs uppercase tracking-widest mb-2" style="color:var(--vv-text-dim)">Display · Space Grotesk</div>
+          <div class="heading-font text-4xl sm:text-5xl tracking-tighter">Good Vibes. Serious Science.</div>
+        </div>
+        <div>
+          <div class="text-xs uppercase tracking-widest mb-2" style="color:var(--vv-text-dim)">Body · Inter</div>
+          <p class="text-lg max-w-2xl" style="color:var(--vv-text-muted)">Smart, playful, confident, curious. Never bro-science. Never cold clinical. Never sketchy.</p>
+        </div>
+        <div>
+          <div class="text-xs uppercase tracking-widest mb-2" style="color:var(--vv-text-dim)">Data · mono</div>
+          <p class="font-mono-data text-sm" style="color:var(--vv-cyan)">CAS 137525-51-0 · 5 mg · Lot CoA on request</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Components -->
+    <section class="mb-16">
+      <h2 class="heading-font text-3xl mb-6">Components</h2>
+      <div class="flex flex-wrap gap-4 mb-8">
+        <a href="peptides/index.html" class="vv-btn-primary">Browse catalog</a>
+        <a href="coa.html" class="vv-btn-ghost">Request CoA</a>
+        <span class="vv-chip">Research use only</span>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <article class="peptide-card p-6">
+          <div class="text-xs font-bold tracking-widest mb-2" style="color:var(--vv-cyan)">METABOLIC RESEARCH</div>
+          <h3 class="heading-font text-xl mb-2">Sample card</h3>
+          <p class="text-sm mb-4" style="color:var(--vv-text-muted)">Glass surface, cyan hover glow, serious specs underneath the vibe.</p>
+          <div class="heading-font text-2xl">$129</div>
+        </article>
+        <article class="peptide-card p-6">
+          <div class="text-xs font-bold tracking-widest mb-2" style="color:var(--vv-mint)">TISSUE &amp; REPAIR</div>
+          <h3 class="heading-font text-xl mb-2">Proof-first UI</h3>
+          <p class="text-sm" style="color:var(--vv-text-muted)">Lot documentation and RUO language stay non-negotiable.</p>
+        </article>
+        <article class="peptide-card p-6">
+          <div class="text-xs font-bold tracking-widest mb-2" style="color:var(--vv-violet)">TOOLS</div>
+          <h3 class="heading-font text-xl mb-2">Interactive lab utils</h3>
+          <p class="text-sm" style="color:var(--vv-text-muted)">Calculator &amp; research combinations — laboratory language only.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Voice -->
+    <section class="mb-16">
+      <h2 class="heading-font text-3xl mb-6">Voice &amp; compliance</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="vv-glass rounded-3xl p-6">
+          <div class="heading-font text-lg mb-3" style="color:var(--vv-mint)">Do</div>
+          <ul class="text-sm space-y-2" style="color:var(--vv-text-muted)">
+            <li>Playful headlines + precise body copy</li>
+            <li>“Investigated in preclinical research…”</li>
+            <li>Research combination builder (not human protocols)</li>
+            <li>Shown proof over unverified badges</li>
+          </ul>
+        </div>
+        <div class="vv-glass rounded-3xl p-6">
+          <div class="heading-font text-lg mb-3" style="color:#F472B6">Don't</div>
+          <ul class="text-sm space-y-2" style="color:var(--vv-text-muted)">
+            <li>Bro-science, inject language, therapeutic claims</li>
+            <li>Fake testimonials, GMP badges without proof</li>
+            <li>Pure black + neon “gamer” overload</li>
+            <li>Invent studies or credentials</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <div class="flex flex-wrap gap-4">
+      <a href="index.html" class="vv-btn-primary">View live homepage</a>
+      <a href="BRAND-VIALVIBES.md" class="vv-btn-ghost">Brand notes (MD)</a>
+    </div>
+  </main>
+
+  <footer class="mt-auto py-10 text-center text-xs" style="color:var(--vv-text-dim)">
+    © 2026 VialVibes · operated by APEX Research, LLC · Research use only
+  </footer>
+</body>
+</html>

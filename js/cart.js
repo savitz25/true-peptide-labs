@@ -1,5 +1,5 @@
 /**
- * True Peptide Labs cart helpers (localStorage tpl_cart)
+ * VialVibes cart helpers (localStorage tpl_cart)
  * Product pages call tplAddToCart(slug)
  */
 (function () {

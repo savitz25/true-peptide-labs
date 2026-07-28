@@ -1,5 +1,5 @@
 /**
- * True Peptide Labs — Phase 1 product catalog
+ * VialVibes — Phase 1 product catalog
  * Research Use Only. Specs without verified CoA evidence stay conservative.
  * Prices/sizes seeded from Phase 0 homepage catalog.
  */
@@ -20,7 +20,7 @@ window.TPL_PRODUCTS = [
     molecularWeight: "1419.5 g/mol (free peptide; salt form may vary)",
     sequence: "Gly-Glu-Pro-Pro-Pro-Gly-Lys-Pro-Ala-Asp-Asp-Ala-Gly-Leu-Val (BPC-157 backbone; arginate salt form)",
     description: "Synthetic pentadecapeptide supplied for laboratory research in angiogenesis, soft-tissue, and gut-barrier model systems.",
-    details: "BPC-157 Arginate is provided as a lyophilized research material for qualified laboratories. Published literature discusses this peptide sequence in experimental models of tissue response and GI barrier biology. Materials from True Peptide Labs are for controlled laboratory research use only—not for human or veterinary use.",
+    details: "BPC-157 Arginate is provided as a lyophilized research material for qualified laboratories. Published literature discusses this peptide sequence in experimental models of tissue response and GI barrier biology. Materials from VialVibes are for controlled laboratory research use only—not for human or veterinary use.",
     researchFocus: ["Angiogenesis models", "Soft-tissue research", "GI barrier models"],
     inStock: true
   },
@@ -194,8 +194,8 @@ window.TPL_CATEGORIES = [
 ];
 
 window.TPL_SITE = {
-  brand: "True Peptide Labs",
-  legal: "True Peptide Labs is operated by APEX Research, LLC",
+  brand: "VialVibes",
+  legal: "VialVibes is operated by APEX Research, LLC",
   domain: "https://www.peptidetrue.com",
   emailResearch: "research@truepeptidelabs.com",
   emailOrders: "orders@truepeptidelabs.com"
