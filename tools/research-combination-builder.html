@@ -1,0 +1,977 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Research Combination Builder | True Peptide Labs</title>
+  <meta name="description" content="Design research combinations for laboratory study focus areas. Research use only — not for human use. True Peptide Labs.">
+  <link rel="canonical" href="https://www.peptidetrue.com/tools/research-combination-builder.html">
+  <meta property="og:title" content="Research Combination Builder | True Peptide Labs">
+  <meta property="og:description" content="Design research combinations for laboratory study focus areas. Research use only — not for human use. True Peptide Labs.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.peptidetrue.com/tools/research-combination-builder.html">
+  <meta property="og:site_name" content="True Peptide Labs">
+  <meta name="twitter:card" content="summary">
+  <link rel="icon" type="image/png" href="../logo.png">
+  <link rel="apple-touch-icon" href="../logo.png">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="../css/site.css">
+  <style>
+    .goal-card {
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      cursor: pointer;
+    }
+    .goal-card.selected {
+      border-color: #10b981;
+      background-color: #f0fdf4;
+      box-shadow: 0 10px 15px -3px rgb(16 185 129 / 0.1);
+    }
+    .goal-card:hover:not(.selected) {
+      transform: translateY(-2px);
+      border-color: #10b981;
+    }
+    .peptide-card {
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .peptide-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+    }
+    .stack-score {
+      transition: width 0.5s ease;
+    }
+    .modal {
+      animation: modalPop 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    @keyframes modalPop {
+      from { opacity: 0; transform: scale(0.96); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    .benefit-tag {
+      font-size: 0.75rem;
+      padding: 0.125rem 0.5rem;
+      border-radius: 9999px;
+      background-color: #ecfdf5;
+      color: #10b981;
+      font-weight: 500;
+    }
+    .sleek-shadow {
+      box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    }
+  </style>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "True Peptide Labs",
+  "legalName": "APEX Research, LLC",
+  "url": "https://www.peptidetrue.com",
+  "email": "research@truepeptidelabs.com",
+  "description": "Research-use-only peptide supplier for qualified laboratories.",
+  "areaServed": "US"
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Research Combination Builder",
+  "url": "https://www.peptidetrue.com/tools/research-combination-builder.html",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Any",
+  "description": "Study-design aid for mapping laboratory research focus areas to literature-aligned peptide combinations. Research use only.",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "provider": {
+    "@type": "Organization",
+    "name": "True Peptide Labs",
+    "legalName": "APEX Research, LLC",
+    "url": "https://www.peptidetrue.com"
+  }
+}
+  </script>
+</head>
+<body class="bg-slate-50 text-slate-800 min-h-screen flex flex-col">
+<nav class="bg-white border-b border-slate-200 sticky top-0 z-50">
+  <div class="max-w-screen-2xl mx-auto">
+    <div class="px-4 sm:px-8 py-4 flex items-center justify-between gap-4">
+      <a href="../index.html" class="flex items-center gap-x-2 shrink-0">
+        <img src="../logo.png" alt="True Peptide Labs" class="h-12 sm:h-14 w-auto">
+      </a>
+      <div class="hidden lg:flex items-center gap-x-7 text-sm font-medium">
+        <a href="../peptides/index.html" class="nav-link text-slate-600">Peptides</a>
+        <a href="../research/index.html" class="nav-link text-slate-600">Research</a>
+        <a href="../quality.html" class="nav-link text-slate-600">Quality</a>
+        <div class="relative group">
+          <button type="button" class="nav-link active text-emerald-700 font-semibold flex items-center gap-1">Tools <i class="fa-solid fa-chevron-down text-[10px]"></i></button>
+          <div class="absolute left-0 top-full pt-2 hidden group-hover:block z-50">
+            <div class="bg-white border border-slate-200 rounded-2xl shadow-lg py-2 min-w-[240px]">
+              <a href="../tools/peptide-calculator.html" class="block px-4 py-2.5 text-sm text-slate-700 hover:bg-emerald-50 hover:text-emerald-800">Reconstitution Calculator</a>
+              <a href="../tools/research-combination-builder.html" class="block px-4 py-2.5 text-sm text-emerald-800 bg-emerald-50 font-semibold">Research Combination Builder</a>
+            </div>
+          </div>
+        </div>
+        <a href="../about.html" class="nav-link text-slate-600">About</a>
+        <a href="../contact.html" class="nav-link text-slate-600">Contact</a>
+      </div>
+      <div class="flex items-center gap-x-2 sm:gap-x-3">
+        <button type="button" onclick="saveStack()"
+                class="hidden sm:flex items-center gap-x-2 px-4 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white text-sm font-semibold rounded-2xl">
+          <i class="fa-solid fa-save"></i>
+          <span>Save Combination</span>
+        </button>
+        <a href="../cart.html" class="flex items-center gap-x-2 bg-white hover:bg-slate-50 border border-slate-200 text-slate-700 px-4 sm:px-5 h-11 rounded-2xl text-sm font-semibold relative">
+          <i class="fa-solid fa-shopping-cart"></i>
+          <span class="hidden sm:inline">Cart</span>
+        </a>
+        <button type="button" class="lg:hidden w-11 h-11 flex items-center justify-center text-slate-600" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')" aria-label="Open menu">
+          <i class="fa-solid fa-bars text-xl"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div id="mobile-menu" class="hidden lg:hidden border-t bg-white px-6 py-4 text-sm">
+    <div class="flex flex-col gap-y-3">
+      <a href="../peptides/index.html" class="py-1 text-slate-700 font-medium">Peptides</a>
+      <a href="../peptides/tissue-repair.html" class="py-1 pl-3 text-slate-500">Tissue and Repair Models</a>
+      <a href="../peptides/metabolic.html" class="py-1 pl-3 text-slate-500">Metabolic Research</a>
+      <a href="../peptides/growth-hormone.html" class="py-1 pl-3 text-slate-500">GH Axis Research</a>
+      <a href="../peptides/cosmetic.html" class="py-1 pl-3 text-slate-500">Skin / ECM Research</a>
+      <a href="../research/index.html" class="py-1 text-slate-700 font-medium">Research Hub</a>
+      <a href="../quality.html" class="py-1 text-slate-700 font-medium">Quality</a>
+      <a href="../coa.html" class="py-1 text-slate-700 font-medium">CoA / Lot Lookup</a>
+      <a href="../tools/peptide-calculator.html" class="py-1 text-slate-700 font-medium">Reconstitution Calculator</a>
+      <a href="../tools/research-combination-builder.html" class="py-1 text-emerald-700 font-semibold">Research Combination Builder</a>
+      <a href="../about.html" class="py-1 text-slate-700 font-medium">About</a>
+      <a href="../contact.html" class="py-1 text-slate-700 font-medium">Contact</a>
+      <a href="../cart.html" class="py-1 text-slate-700 font-medium">Cart</a>
+      <button type="button" onclick="saveStack()" class="py-1 text-left text-emerald-700 font-medium">Save Combination</button>
+    </div>
+  </div>
+</nav>
+<div class="ruo-banner">
+  <div class="max-w-screen-2xl mx-auto px-4 sm:px-8 py-2.5 text-center text-xs sm:text-sm">
+    <strong>Research Use Only.</strong> Products are not for human consumption, clinical use, or veterinary administration.
+    <a href="../research-use-only.html" class="underline font-semibold ml-1">RUO policy</a>
+  </div>
+</div>
+
+<main class="flex-1">
+  <div class="hero-dark text-white">
+    <div class="max-w-screen-2xl mx-auto px-4 sm:px-8 py-12 sm:py-14 relative z-10">
+      <nav class="breadcrumb text-sm text-white/60 flex gap-2 mb-6" aria-label="Breadcrumb">
+        <a href="../index.html" class="hover:text-white">Home</a>
+        <span>/</span>
+        <span class="text-white/60">Tools</span>
+        <span>/</span>
+        <span class="text-white">Research Combination Builder</span>
+      </nav>
+      <div class="max-w-3xl">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="px-4 py-1.5 bg-white/10 rounded-full text-sm font-medium flex items-center gap-2">
+            <i class="fa-solid fa-flask text-emerald-400"></i>
+            <span>Laboratory Study Design Aid</span>
+          </div>
+        </div>
+        <h1 class="heading-font text-4xl sm:text-5xl md:text-6xl font-semibold tracking-tighter mb-4">Research Combination Builder</h1>
+        <p class="text-xl sm:text-2xl text-white/80 max-w-2xl">Select study focus areas. Explore literature-aligned peptide combinations for in-vitro and research-model assay design — with research notes and compatibility context.</p>
+        <div class="mt-6 flex flex-wrap gap-3 text-sm">
+          <a href="../peptides/index.html" class="inline-flex items-center gap-2 px-4 py-2 rounded-2xl bg-white/10 hover:bg-white/15 border border-white/15">
+            <i class="fa-solid fa-flask text-emerald-400"></i> Browse catalog
+          </a>
+          <a href="../research/index.html" class="inline-flex items-center gap-2 px-4 py-2 rounded-2xl bg-white/10 hover:bg-white/15 border border-white/15">
+            <i class="fa-solid fa-book text-emerald-400"></i> Research Hub
+          </a>
+          <a href="../tools/peptide-calculator.html" class="inline-flex items-center gap-2 px-4 py-2 rounded-2xl bg-white/10 hover:bg-white/15 border border-white/15">
+            <i class="fa-solid fa-calculator text-emerald-400"></i> Reconstitution Calculator
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="max-w-screen-2xl mx-auto px-4 sm:px-8 py-10">
+
+    <!-- STUDY FOCUS SELECTION -->
+    <div class="mb-10">
+      <div class="flex items-center justify-between mb-6">
+        <div>
+          <div class="text-emerald-600 text-sm font-semibold tracking-[1.5px]">STEP 1</div>
+          <h2 class="heading-font text-3xl sm:text-4xl font-semibold tracking-tight">Study Focus Areas</h2>
+          <p class="text-slate-600 mt-1">Select up to 4 research domains. We highlight candidate compounds and combination notes for study design.</p>
+        </div>
+        <div id="stack-score"
+             class="hidden md:flex items-center gap-3 bg-white border border-slate-200 px-5 py-3 rounded-2xl">
+          <div>
+            <div class="text-xs text-slate-500">COMBINATION FIT</div>
+            <div id="score-value" class="text-3xl font-semibold tabular-nums text-emerald-600">0</div>
+          </div>
+          <div class="text-right">
+            <div class="text-emerald-600">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            <div class="text-xs text-slate-500">Alignment Index</div>
+          </div>
+        </div>
+      </div>
+
+      <div id="goal-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+        <!-- Populated by JS -->
+      </div>
+
+      <div id="selected-goals" class="mt-6 flex flex-wrap gap-2 min-h-[40px]">
+        <!-- Dynamic selected focus tags -->
+      </div>
+    </div>
+
+    <!-- RECOMMENDED RESEARCH COMBINATION -->
+    <div class="mb-12">
+      <div class="flex items-center justify-between mb-6">
+        <div>
+          <div class="text-emerald-600 text-sm font-semibold tracking-[1.5px]">RESEARCH DESIGN</div>
+          <h2 class="heading-font text-3xl sm:text-4xl font-semibold tracking-tight">Recommended Research Combination</h2>
+        </div>
+        <button type="button" onclick="resetStack()"
+                class="text-sm px-4 py-2 text-slate-600 hover:text-slate-800 flex items-center gap-2">
+          <i class="fa-solid fa-undo"></i>
+          <span>Reset</span>
+        </button>
+      </div>
+
+      <div id="stack-results" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 min-h-[240px]">
+        <!-- Dynamic peptide cards -->
+        <div class="col-span-full flex items-center justify-center h-64 border border-dashed border-slate-200 rounded-3xl text-center">
+          <div>
+            <i class="fa-solid fa-flask text-5xl text-slate-300 mb-4"></i>
+            <p class="text-slate-500">Select study focus areas above to see a recommended research combination</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MY COMBINATION SUMMARY -->
+    <div id="my-stack-panel" class="hidden bg-white border border-slate-200 rounded-3xl p-8 mb-12">
+      <div class="flex items-center justify-between mb-6 flex-wrap gap-4">
+        <div>
+          <h3 class="font-semibold text-2xl">Your Research Combination</h3>
+          <p class="text-sm text-slate-500">Saved candidate compounds for study design. Open any item for research notes.</p>
+        </div>
+        <button type="button" onclick="exportStack()"
+                class="px-5 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white text-sm font-semibold rounded-2xl flex items-center gap-2">
+          <i class="fa-solid fa-download"></i>
+          <span>Export Research Combination</span>
+        </button>
+      </div>
+
+      <div id="my-stack-list" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <!-- Populated when combination is built -->
+      </div>
+
+      <div class="mt-8 p-5 bg-emerald-50 border border-emerald-100 rounded-2xl">
+        <div class="font-semibold text-emerald-800">Next Step</div>
+        <p class="text-sm text-emerald-700 mt-1">Use this combination as a planning aid for research design only. <a href="../contact.html" class="underline">Contact True Peptide Labs</a> for sourcing and laboratory reconstitution guidance for research materials. Also see the <a href="../peptides/index.html" class="underline">catalog</a> and <a href="../tools/peptide-calculator.html" class="underline">reconstitution calculator</a>.</p>
+      </div>
+    </div>
+
+    <!-- HOW IT WORKS -->
+    <div class="max-w-3xl mx-auto">
+      <h3 class="font-semibold text-2xl mb-6 text-center">How the Research Combination Builder Works</h3>
+
+      <div class="grid md:grid-cols-3 gap-6 text-sm">
+        <div class="bg-white border border-slate-100 rounded-2xl p-6">
+          <div class="font-semibold mb-2 flex items-center gap-2">
+            <span class="w-6 h-6 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center text-xs font-bold">1</span>
+            Select Focus Areas
+          </div>
+          <p class="text-slate-600">Choose research domains relevant to your study (e.g., metabolic pathway research, tissue repair models).</p>
+        </div>
+        <div class="bg-white border border-slate-100 rounded-2xl p-6">
+          <div class="font-semibold mb-2 flex items-center gap-2">
+            <span class="w-6 h-6 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center text-xs font-bold">2</span>
+            Compatibility Matching
+          </div>
+          <p class="text-slate-600">We map compounds to selected focus areas and surface combination alignment for research design planning.</p>
+        </div>
+        <div class="bg-white border border-slate-100 rounded-2xl p-6">
+          <div class="font-semibold mb-2 flex items-center gap-2">
+            <span class="w-6 h-6 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center text-xs font-bold">3</span>
+            Review &amp; Export
+          </div>
+          <p class="text-slate-600">Open any compound for research endpoints, concentration ranges reported in literature, and compatibility notes. Save or export your combination.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- RUO BANNER (BOTTOM) -->
+    <div class="mt-12 max-w-3xl mx-auto p-6 bg-amber-50 border border-amber-200 rounded-3xl text-sm text-amber-950">
+      <div class="font-semibold mb-2 flex items-center gap-2">
+        <i class="fa-solid fa-flask"></i>
+        Research Use Only — True Peptide Labs
+      </div>
+      <p>
+        This tool is a study-design aid for laboratory researchers. All compounds referenced are for laboratory research only.
+        Information is not medical advice and does not describe human administration, clinical protocols, or therapeutic use.
+        <strong>Not for human use.</strong> Not intended to diagnose, treat, cure, or prevent any disease.
+      </p>
+    </div>
+  </div>
+</main>
+
+<!-- PEPTIDE DETAIL MODAL -->
+<div id="peptide-modal" onclick="if (event.target.id === 'peptide-modal') closeModal()" class="hidden fixed inset-0 bg-black/70 backdrop-blur-sm z-[200] flex items-center justify-center p-4">
+  <div onclick="event.stopImmediatePropagation()" class="bg-white rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-hidden modal shadow-2xl">
+    <div class="px-8 py-6 border-b flex items-center justify-between">
+      <div id="modal-title" class="text-2xl font-semibold"></div>
+      <button type="button" onclick="closeModal()" class="text-slate-400 hover:text-slate-700 text-2xl">&times;</button>
+    </div>
+
+    <div class="p-8 overflow-y-auto max-h-[70vh]">
+      <div id="modal-short" class="text-lg text-slate-600 mb-6"></div>
+
+      <div class="mb-8">
+        <div class="uppercase text-xs font-bold tracking-widest text-emerald-700 mb-2">RESEARCH ENDPOINTS / OBSERVATIONS</div>
+        <ul id="modal-benefits" class="space-y-1.5 text-sm"></ul>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+        <div>
+          <div class="uppercase text-xs font-bold tracking-widest text-emerald-700 mb-2">TYPICAL RESEARCH CONCENTRATION RANGE</div>
+          <div id="modal-dose" class="font-semibold text-lg"></div>
+        </div>
+        <div>
+          <div class="uppercase text-xs font-bold tracking-widest text-emerald-700 mb-2">COMPATIBILITY NOTES FOR RESEARCH DESIGN</div>
+          <div id="modal-synergy" class="text-sm"></div>
+        </div>
+      </div>
+
+      <div class="mb-6">
+        <div class="uppercase text-xs font-bold tracking-widest text-emerald-700 mb-2">RESEARCH NOTES</div>
+        <div id="modal-research" class="text-sm leading-relaxed text-slate-600"></div>
+      </div>
+
+      <div class="bg-amber-50 border border-amber-200 rounded-2xl p-5 text-sm">
+        <div class="font-semibold text-amber-900 mb-1 flex items-center gap-2">
+          <i class="fa-solid fa-info-circle"></i> Research Use Only
+        </div>
+        <div class="text-amber-900">All information is for laboratory research and educational purposes only. Not for human use. Not a clinical or therapeutic recommendation. True Peptide Labs products are intended exclusively for research.</div>
+      </div>
+    </div>
+
+    <div class="border-t px-8 py-5 bg-slate-50 flex justify-end">
+      <button type="button" onclick="addToMyStackFromModal()"
+              class="px-6 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold rounded-2xl text-sm flex items-center gap-2">
+        <i class="fa-solid fa-plus"></i>
+        <span>Add to Combination</span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<footer class="bg-slate-900 text-slate-400 text-sm mt-auto">
+  <div class="max-w-screen-2xl mx-auto px-4 sm:px-8 pt-14 pb-9">
+    <div class="flex flex-col md:flex-row justify-between gap-y-10">
+      <div>
+        <a href="../index.html" class="inline-flex items-center gap-x-2 text-white mb-4">
+          <img src="../logo.png" alt="True Peptide Labs" class="h-12 w-auto">
+        </a>
+        <p class="text-xs max-w-xs">True Peptide Labs supplies research-use-only peptides for qualified laboratories. Operated by APEX Research, LLC.</p>
+        <p class="text-xs mt-3"><a href="mailto:research@truepeptidelabs.com" class="hover:text-white">research@truepeptidelabs.com</a></p>
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-x-10 gap-y-8 text-xs">
+        <div>
+          <div class="font-semibold text-white tracking-wider mb-3">PEPTIDES</div>
+          <div class="space-y-1.5">
+            <a href="../peptides/index.html" class="block hover:text-white">All Peptides</a>
+            <a href="../peptides/tissue-repair.html" class="block hover:text-white">Tissue and Repair</a>
+            <a href="../peptides/metabolic.html" class="block hover:text-white">Metabolic</a>
+            <a href="../peptides/growth-hormone.html" class="block hover:text-white">GH Axis</a>
+            <a href="../peptides/cosmetic.html" class="block hover:text-white">Skin / ECM</a>
+          </div>
+        </div>
+        <div>
+          <div class="font-semibold text-white tracking-wider mb-3">RESOURCES</div>
+          <div class="space-y-1.5">
+            <a href="../research/index.html" class="block hover:text-white">Research Hub</a>
+            <a href="../coa.html" class="block hover:text-white">Certificates of Analysis</a>
+            <a href="../quality.html" class="block hover:text-white">Quality and Compliance</a>
+            <a href="../tools/peptide-calculator.html" class="block hover:text-white">Reconstitution Calculator</a>
+            <a href="../tools/research-combination-builder.html" class="block hover:text-white">Combination Builder</a>
+          </div>
+        </div>
+        <div>
+          <div class="font-semibold text-white tracking-wider mb-3">COMPANY</div>
+          <div class="space-y-1.5">
+            <a href="../about.html" class="block hover:text-white">About Us</a>
+            <a href="../contact.html" class="block hover:text-white">Contact</a>
+            <a href="../careers.html" class="block hover:text-white">Careers</a>
+            <a href="../publications.html" class="block hover:text-white">Publications</a>
+            <a href="../research-grants.html" class="block hover:text-white">Research Grants</a>
+          </div>
+        </div>
+        <div>
+          <div class="font-semibold text-white tracking-wider mb-3">LEGAL</div>
+          <div class="space-y-1.5">
+            <a href="../terms.html" class="block hover:text-white">Terms of Sale</a>
+            <a href="../privacy.html" class="block hover:text-white">Privacy Policy</a>
+            <a href="../research-use-only.html" class="block hover:text-white">Research Use Only</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="mt-12 pt-8 border-t border-white/10">
+      <div class="disclaimer bg-slate-950 border border-white/10 rounded-2xl p-5 text-[11.5px] leading-relaxed">
+        <strong class="text-white">IMPORTANT DISCLAIMER:</strong> All products sold by True Peptide Labs (operated by APEX Research, LLC) are intended <span class="text-red-400 font-semibold">strictly for in vitro laboratory research purposes only</span>. They are not approved by the FDA for human use, are not drugs, and are not intended to diagnose, treat, cure, or prevent any disease. These products are not for human consumption, injection, or any form of bodily introduction. By purchasing you certify you are a qualified researcher, institution, or laboratory professional. Misuse may be illegal. All sales are final.
+        <a href="../research-use-only.html" class="underline text-emerald-400">Full RUO policy</a>.
+      </div>
+      <div class="text-center mt-8 text-[10px] tracking-wider">&copy; 2026 True Peptide Labs, operated by APEX Research, LLC. All rights reserved.</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Data: Study focus areas and research compounds
+  const goalsData = [
+    { id: 'weight-loss', name: 'Metabolic Pathway Research', icon: 'fa-flask', desc: 'GLP-1 / incretin pathway & energy-balance models' },
+    { id: 'muscle', name: 'Cellular Recovery Assays', icon: 'fa-dna', desc: 'GH-axis, recovery, and anabolic signaling models' },
+    { id: 'healing', name: 'Tissue Repair Models', icon: 'fa-microscope', desc: 'In-vitro / animal-model soft-tissue repair research' },
+    { id: 'anti-aging', name: 'Skin / Extracellular Matrix Research', icon: 'fa-spa', desc: 'Collagen, remodeling & regenerative endpoints' },
+    { id: 'gut', name: 'GI Barrier Research Models', icon: 'fa-bacteria', desc: 'Gut lining integrity & inflammatory pathway assays' },
+    { id: 'performance', name: 'Performance Physiology Research Models', icon: 'fa-chart-line', desc: 'Endurance, recovery & physiological response models' },
+  ];
+
+  const peptideData = {
+    bpc157: {
+      id: 'bpc157',
+      name: 'BPC-157 Arginate',
+      short: 'Gastric-derived peptide studied in tissue & GI models',
+      benefits: [
+        'Investigated for effects on tendon, ligament, and muscle repair endpoints in research models',
+        'Studied in relation to gut barrier integrity and local inflammatory signaling',
+        'Associated in literature with angiogenesis and tissue remodeling pathways',
+        'Explored for neuroprotective and anti-inflammatory research endpoints'
+      ],
+      typicalDose: 'Common research amounts reported in literature: ~250–500 mcg equivalent per experimental condition (model-dependent)',
+      synergy: 'Often co-studied with TB-500 in multi-compound tissue-repair research designs.',
+      research: 'Derived from a gastric juice sequence. Extensively referenced in preclinical literature for soft-tissue injury models and gastrointestinal tract research. For laboratory research only.'
+    },
+    tb500: {
+      id: 'tb500',
+      name: 'TB-500 (Thymosin Beta-4)',
+      short: 'Actin-sequestering peptide for recovery pathway research',
+      benefits: [
+        'Studied for cell migration and angiogenesis-related endpoints',
+        'Investigated for modulation of inflammation and scarring pathways in models',
+        'Used in research on muscle, tendon, and ligament recovery systems',
+        'Explored for flexibility-related and post-injury remodeling endpoints in models'
+      ],
+      typicalDose: 'Common research amounts reported in literature: ~2–5 mg per week equivalent in experimental designs (split aliquots; model-dependent)',
+      synergy: 'Frequently paired with BPC-157 in comprehensive tissue-repair combination studies.',
+      research: 'Synthetic analog related to a naturally occurring peptide. Referenced for actin regulation and healing-pathway research. For laboratory research only.'
+    },
+    semaglutide: {
+      id: 'semaglutide',
+      name: 'Semaglutide',
+      short: 'GLP-1 receptor agonist for metabolic pathway research',
+      benefits: [
+        'Used in research on appetite-related and satiety signaling pathways in models',
+        'Studied for insulin sensitivity and glycemic pathway endpoints',
+        'Investigated in body-composition and energy-balance research models',
+        'Referenced in cardiovascular and metabolic pathway literature'
+      ],
+      typicalDose: 'Used in research at literature-reported ranges approximately 0.25–2.4 mg per week equivalent in model systems (study design–dependent)',
+      synergy: 'Sometimes combined in research designs with GH secretagogues (e.g., CJC-1295 / Ipamorelin) when studying body-composition endpoints.',
+      research: 'Long-acting GLP-1 receptor agonist. Extensively studied in metabolic disease research literature. Materials from True Peptide Labs are for laboratory research only — not for human use.'
+    },
+    tirzepatide: {
+      id: 'tirzepatide',
+      name: 'Tirzepatide',
+      short: 'Dual GIP/GLP-1 agonist for advanced metabolic models',
+      benefits: [
+        'Studied for dual-incretin effects on weight-related and metabolic endpoints in models',
+        'Investigated for glycemic control pathway outcomes',
+        'Used in research on food-intake signaling and craving-related endpoints',
+        'Explored for energy and body-composition research endpoints'
+      ],
+      typicalDose: 'Common research amounts reported in literature: approximately 2.5–15 mg per week equivalent (study design–dependent)',
+      synergy: 'Often selected for intensive metabolic pathway combination studies requiring dual incretin coverage.',
+      research: 'Dual incretin mimetic with substantial clinical and preclinical literature in obesity and metabolic syndrome research. For laboratory research only.'
+    },
+    retatrutide: {
+      id: 'retatrutide',
+      name: 'Retatrutide',
+      short: 'Triple agonist for next-generation metabolic research',
+      benefits: [
+        'Investigated for triple hormone action (GLP-1, GIP, glucagon) in research models',
+        'Studied for substantial weight-related and metabolic endpoints in early literature',
+        'Explored for effects on energy expenditure pathways',
+        'Referenced in liver fat and NASH-related research models'
+      ],
+      typicalDose: 'Investigational research ranges reported approximately 2–12 mg per week equivalent (early literature; model-dependent)',
+      synergy: 'Considered for advanced metabolic pathway research designs requiring multi-receptor coverage.',
+      research: 'Investigational triple agonist with emerging literature on metabolic endpoints. For laboratory research only — not for human use.'
+    },
+    ipamorelin: {
+      id: 'ipamorelin',
+      name: 'Ipamorelin',
+      short: 'Selective GH secretagogue for recovery research',
+      benefits: [
+        'Studied for stimulation of growth hormone release pathways',
+        'Investigated in fat-metabolism and lean-mass preservation research models',
+        'Explored for sleep-architecture and recovery-related endpoints',
+        'Noted in research for selective profile with limited cortisol/prolactin pathway impact'
+      ],
+      typicalDose: 'Common research amounts reported in literature: approximately 200–300 mcg per experimental exposure, 1–3× per study day (model-dependent)',
+      synergy: 'Frequently combined with CJC-1295 in GH-axis combination research designs.',
+      research: 'Selective ghrelin receptor agonist. Used in research for GH pulse profiling. For laboratory research only.'
+    },
+    cjc: {
+      id: 'cjc',
+      name: 'CJC-1295 (no DAC)',
+      short: 'GHRH analog for GH pulse amplitude research',
+      benefits: [
+        'Studied for amplifying growth hormone pulse amplitude',
+        'Investigated in muscle-growth and fat-metabolism research models',
+        'Explored for recovery and skin-elasticity related endpoints in models',
+        'Commonly co-evaluated with Ipamorelin in combination studies'
+      ],
+      typicalDose: 'Common research amounts reported in literature: approximately 100–200 mcg per experimental condition (often timed to rest phase; model-dependent)',
+      synergy: 'Classic research pairing with Ipamorelin for optimized GH-release pathway studies.',
+      research: 'Modified GHRH analog designed to increase GH secretion amplitude in research settings. For laboratory research only.'
+    },
+    ghk: {
+      id: 'ghk',
+      name: 'GHK-Cu (Copper Peptide)',
+      short: 'Copper-binding peptide for skin & remodeling research',
+      benefits: [
+        'Studied for collagen and elastin production endpoints',
+        'Investigated as an antioxidant and anti-inflammatory research agent',
+        'Used in wound-healing and tissue-remodeling assay systems',
+        'Explored for skin firmness and extracellular matrix research endpoints'
+      ],
+      typicalDose: 'Common research amounts reported in literature: approximately 1–2 mg per experimental day equivalent (topical formulations or in-vitro systems; model-dependent)',
+      synergy: 'Useful addition to tissue-repair and extracellular-matrix research combinations.',
+      research: 'Naturally occurring copper-binding peptide with documented effects on skin regeneration and gene-expression research. For laboratory research only — not for human use.'
+    }
+  };
+
+  // Which compounds support which study focus areas
+  const goalPeptideMap = {
+    'weight-loss': ['semaglutide', 'tirzepatide', 'retatrutide', 'ipamorelin'],
+    'muscle': ['ipamorelin', 'cjc', 'bpc157', 'tb500'],
+    'healing': ['bpc157', 'tb500', 'ghk', 'ipamorelin'],
+    'anti-aging': ['ghk', 'ipamorelin', 'cjc', 'bpc157'],
+    'gut': ['bpc157', 'ghk', 'semaglutide'],
+    'performance': ['ipamorelin', 'cjc', 'tb500', 'bpc157']
+  };
+
+  let selectedGoals = new Set();
+  let myStack = new Set();
+
+  function renderGoals() {
+    const container = document.getElementById('goal-grid');
+    container.innerHTML = '';
+
+    goalsData.forEach(goal => {
+      const isSelected = selectedGoals.has(goal.id);
+
+      const card = document.createElement('div');
+      card.className = `goal-card bg-white border-2 ${isSelected ? 'selected border-emerald-500' : 'border-slate-200'} rounded-3xl p-5 flex flex-col`;
+
+      card.innerHTML = `
+        <div class="flex items-start justify-between">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 bg-emerald-100 text-emerald-600 rounded-2xl flex items-center justify-center">
+              <i class="fa-solid ${goal.icon} text-xl"></i>
+            </div>
+            <div>
+              <div class="font-semibold leading-tight">${goal.name}</div>
+              <div class="text-xs text-slate-500 mt-0.5">${goal.desc}</div>
+            </div>
+          </div>
+          ${isSelected ? '<i class="fa-solid fa-check-circle text-emerald-600 text-2xl"></i>' : ''}
+        </div>
+      `;
+
+      card.onclick = () => toggleGoal(goal.id, card);
+      container.appendChild(card);
+    });
+  }
+
+  function toggleGoal(goalId, cardElement) {
+    if (selectedGoals.has(goalId)) {
+      selectedGoals.delete(goalId);
+    } else {
+      if (selectedGoals.size >= 4) {
+        alert("Maximum 4 study focus areas for best combination clarity. Deselect one to add another.");
+        return;
+      }
+      selectedGoals.add(goalId);
+    }
+
+    renderGoals();
+    renderSelectedGoals();
+    renderRecommendedStack();
+    updateStackScore();
+  }
+
+  function renderSelectedGoals() {
+    const container = document.getElementById('selected-goals');
+    container.innerHTML = '';
+
+    if (selectedGoals.size === 0) {
+      container.innerHTML = `<div class="text-sm text-slate-400 italic">No study focus areas selected yet</div>`;
+      return;
+    }
+
+    selectedGoals.forEach(id => {
+      const goal = goalsData.find(g => g.id === id);
+      if (!goal) return;
+
+      const tag = document.createElement('div');
+      tag.className = `inline-flex items-center gap-2 bg-emerald-100 text-emerald-700 px-3 py-1 rounded-2xl text-sm font-medium`;
+      tag.innerHTML = `
+        <span>${goal.name}</span>
+        <button type="button" onclick="event.stopImmediatePropagation(); removeGoal('${id}')" class="hover:text-emerald-900">
+          <i class="fa-solid fa-times text-xs"></i>
+        </button>
+      `;
+      container.appendChild(tag);
+    });
+  }
+
+  function removeGoal(goalId) {
+    selectedGoals.delete(goalId);
+    renderGoals();
+    renderSelectedGoals();
+    renderRecommendedStack();
+    updateStackScore();
+  }
+
+  function getRecommendedPeptides() {
+    if (selectedGoals.size === 0) return [];
+
+    const scores = {};
+
+    Object.keys(peptideData).forEach(pid => {
+      scores[pid] = 0;
+      selectedGoals.forEach(gid => {
+        if (goalPeptideMap[gid] && goalPeptideMap[gid].includes(pid)) {
+          scores[pid]++;
+        }
+      });
+    });
+
+    return Object.keys(scores)
+      .filter(pid => scores[pid] > 0)
+      .sort((a, b) => scores[b] - scores[a] || peptideData[a].name.localeCompare(peptideData[b].name))
+      .slice(0, 5);
+  }
+
+  function renderRecommendedStack() {
+    const container = document.getElementById('stack-results');
+    const myStackPanel = document.getElementById('my-stack-panel');
+
+    const recommendedIds = getRecommendedPeptides();
+
+    if (recommendedIds.length === 0) {
+      container.innerHTML = `
+        <div class="col-span-full flex items-center justify-center h-64 border border-dashed border-slate-200 rounded-3xl text-center">
+          <div>
+            <i class="fa-solid fa-flask text-5xl text-slate-300 mb-4"></i>
+            <p class="text-slate-500">Select study focus areas above to generate a research combination</p>
+          </div>
+        </div>
+      `;
+      myStackPanel.classList.add('hidden');
+      return;
+    }
+
+    container.innerHTML = '';
+
+    recommendedIds.forEach(pid => {
+      const p = peptideData[pid];
+      const score = selectedGoals.size > 0 ?
+        Math.round((getRecommendedPeptides().indexOf(pid) / recommendedIds.length) * 100) : 80;
+
+      const card = document.createElement('div');
+      card.className = `peptide-card bg-white border border-slate-200 rounded-3xl p-6 cursor-pointer sleek-shadow`;
+
+      card.innerHTML = `
+        <div class="flex justify-between items-start mb-3">
+          <div>
+            <div class="font-semibold text-xl tracking-tight">${p.name}</div>
+            <div class="text-sm text-emerald-600 font-medium">${p.short}</div>
+          </div>
+          <div class="text-right">
+            <div class="text-xs text-emerald-600 font-medium">ALIGN</div>
+            <div class="text-emerald-700 font-semibold">${score}%</div>
+          </div>
+        </div>
+
+        <div class="text-sm text-slate-600 mb-4 line-clamp-2">${p.benefits[0]}</div>
+
+        <div class="flex items-center justify-between">
+          <div class="flex gap-1">
+            ${selectedGoals.size > 0 ?
+              Array.from(selectedGoals).slice(0, 2).map(gid => {
+                const g = goalsData.find(gg => gg.id === gid);
+                return g ? `<span class="text-[10px] px-2 py-0.5 bg-emerald-100 text-emerald-700 rounded">${g.name.split(' ')[0]}</span>` : '';
+              }).join('') : ''}
+          </div>
+          <button type="button" onclick="event.stopImmediatePropagation(); showPeptideModal('${pid}')"
+                  class="text-xs px-3 py-1.5 bg-slate-900 hover:bg-slate-800 text-white rounded-2xl font-medium flex items-center gap-1">
+            <span>Details</span> <i class="fa-solid fa-info text-[10px]"></i>
+          </button>
+        </div>
+      `;
+
+      card.onclick = () => showPeptideModal(pid);
+      container.appendChild(card);
+    });
+
+    myStackPanel.classList.remove('hidden');
+    renderMyStack();
+  }
+
+  function updateStackScore() {
+    const scoreEl = document.getElementById('score-value');
+    if (!scoreEl) return;
+
+    const numGoals = selectedGoals.size;
+    if (numGoals === 0) {
+      document.getElementById('stack-score').classList.add('hidden');
+      return;
+    }
+
+    document.getElementById('stack-score').classList.remove('hidden');
+
+    const base = numGoals * 18;
+    const synergy = Math.min(getRecommendedPeptides().length * 4, 28);
+    const total = Math.min(base + synergy, 98);
+
+    scoreEl.textContent = total;
+
+    const starContainer = document.getElementById('stack-score');
+    if (starContainer) {
+      const stars = starContainer.querySelectorAll('i');
+      stars.forEach((star, i) => {
+        if ((total / 33) > i) {
+          star.classList.add('text-emerald-400');
+        } else {
+          star.classList.remove('text-emerald-400');
+        }
+      });
+    }
+  }
+
+  function showPeptideModal(peptideId) {
+    const p = peptideData[peptideId];
+    if (!p) return;
+
+    const modal = document.getElementById('peptide-modal');
+
+    document.getElementById('modal-title').textContent = p.name;
+    document.getElementById('modal-short').textContent = p.short;
+
+    const benefitsList = document.getElementById('modal-benefits');
+    benefitsList.innerHTML = p.benefits.map(b =>
+      `<li class="flex items-start gap-2"><i class="fa-solid fa-check text-emerald-600 mt-1 text-xs"></i> <span>${b}</span></li>`
+    ).join('');
+
+    document.getElementById('modal-dose').textContent = p.typicalDose;
+    document.getElementById('modal-synergy').innerHTML = `<span class="font-medium">${p.synergy}</span>`;
+    document.getElementById('modal-research').textContent = p.research;
+
+    modal.dataset.currentPeptide = peptideId;
+
+    modal.classList.remove('hidden');
+    modal.classList.add('flex');
+  }
+
+  function closeModal() {
+    const modal = document.getElementById('peptide-modal');
+    modal.classList.remove('flex');
+    modal.classList.add('hidden');
+  }
+
+  function addToMyStackFromModal() {
+    const modal = document.getElementById('peptide-modal');
+    const pid = modal.dataset.currentPeptide;
+    if (pid) {
+      myStack.add(pid);
+      renderMyStack();
+      closeModal();
+
+      showToast(`${peptideData[pid].name} added to your research combination`);
+    }
+  }
+
+  function renderMyStack() {
+    const container = document.getElementById('my-stack-list');
+    if (!container) return;
+
+    if (myStack.size === 0) {
+      container.innerHTML = `<div class="text-sm text-slate-400 col-span-full">Your saved research combination will appear here. Add compounds from the recommendations above.</div>`;
+      return;
+    }
+
+    container.innerHTML = '';
+
+    myStack.forEach(pid => {
+      const p = peptideData[pid];
+      if (!p) return;
+
+      const item = document.createElement('div');
+      item.className = `flex items-center justify-between bg-white border border-slate-200 rounded-2xl px-4 py-3 text-sm`;
+
+      item.innerHTML = `
+        <div class="font-medium">${p.name}</div>
+        <button type="button" onclick="removeFromMyStack('${pid}', event)" class="text-red-400 hover:text-red-600 text-lg leading-none">&times;</button>
+      `;
+
+      container.appendChild(item);
+    });
+  }
+
+  function removeFromMyStack(pid, e) {
+    e.stopImmediatePropagation();
+    myStack.delete(pid);
+    renderMyStack();
+  }
+
+  function resetStack() {
+    selectedGoals.clear();
+    myStack.clear();
+
+    document.querySelectorAll('.goal-card').forEach(c => c.classList.remove('selected'));
+
+    const selectedContainer = document.getElementById('selected-goals');
+    if (selectedContainer) selectedContainer.innerHTML = `<div class="text-sm text-slate-400 italic">No study focus areas selected yet</div>`;
+
+    const stackContainer = document.getElementById('stack-results');
+    if (stackContainer) {
+      stackContainer.innerHTML = `
+        <div class="col-span-full flex items-center justify-center h-64 border border-dashed border-slate-200 rounded-3xl text-center">
+          <div>
+            <i class="fa-solid fa-flask text-5xl text-slate-300 mb-4"></i>
+            <p class="text-slate-500">Select study focus areas above to generate a research combination</p>
+          </div>
+        </div>
+      `;
+    }
+
+    const myPanel = document.getElementById('my-stack-panel');
+    if (myPanel) myPanel.classList.add('hidden');
+
+    document.getElementById('score-value').textContent = '0';
+    document.getElementById('stack-score').classList.add('hidden');
+
+    renderGoals();
+  }
+
+  function saveStack() {
+    if (myStack.size === 0) {
+      alert("Add research compounds to your combination first.");
+      return;
+    }
+
+    const stackNames = Array.from(myStack).map(pid => peptideData[pid].name);
+    const goalsText = Array.from(selectedGoals).map(id => goalsData.find(g => g.id === id).name).join(', ');
+
+    const summary = `True Peptide Labs — Research Combination\nStudy focus areas: ${goalsText}\nCompounds: ${stackNames.join(' + ')}\n\nResearch use only. Not for human use.\nSaved locally (demo). In production this would be stored to a research profile.`;
+
+    alert(summary);
+
+    console.log('True Peptide Labs research combination saved:', { goals: Array.from(selectedGoals), stack: Array.from(myStack) });
+  }
+
+  function exportStack() {
+    if (myStack.size === 0) {
+      alert("Build your research combination first.");
+      return;
+    }
+
+    let text = "TRUE PEPTIDE LABS — RESEARCH COMBINATION\n";
+    text += "Generated: " + new Date().toLocaleDateString() + "\n";
+    text += "RESEARCH USE ONLY — NOT FOR HUMAN USE\n\n";
+
+    text += "STUDY FOCUS AREAS:\n";
+    Array.from(selectedGoals).forEach(gid => {
+      const g = goalsData.find(gg => gg.id === gid);
+      text += `• ${g.name}\n`;
+    });
+
+    text += "\nRECOMMENDED RESEARCH COMPOUNDS:\n";
+    Array.from(myStack).forEach(pid => {
+      const p = peptideData[pid];
+      text += `• ${p.name} - ${p.short}\n`;
+      text += `  Typical research concentration range: ${p.typicalDose}\n`;
+      text += `  Compatibility notes for research design: ${p.synergy}\n\n`;
+    });
+
+    text += "DISCLAIMER: For laboratory research only. Not for human use.\n";
+    text += "Not intended to diagnose, treat, cure, or prevent any disease.\n";
+    text += "Contact True Peptide Labs for research material sourcing guidance.\n";
+
+    const blob = new Blob([text], { type: 'text/plain' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'TruePeptideLabs_Research_Combination.txt';
+    a.click();
+    URL.revokeObjectURL(url);
+  }
+
+  function showToast(message) {
+    const toast = document.createElement('div');
+    toast.className = `fixed bottom-6 left-1/2 -translate-x-1/2 bg-slate-900 text-white px-6 py-3 rounded-2xl text-sm font-medium shadow-xl flex items-center gap-2 z-[300]`;
+    toast.innerHTML = `<i class="fa-solid fa-check text-emerald-400"></i> <span>${message}</span>`;
+    document.body.appendChild(toast);
+
+    setTimeout(() => {
+      toast.style.transition = 'all 0.25s ease';
+      toast.style.opacity = '0';
+      setTimeout(() => toast.remove(), 200);
+    }, 2400);
+  }
+
+  function initStackBuilder() {
+    renderGoals();
+
+    const sel = document.getElementById('selected-goals');
+    sel.innerHTML = `<div class="text-sm text-slate-400 italic">No study focus areas selected yet</div>`;
+
+    document.getElementById('stack-score').classList.add('hidden');
+    document.getElementById('my-stack-panel').classList.add('hidden');
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === "/" && document.activeElement.tagName === "BODY") {
+        e.preventDefault();
+        const firstGoal = document.querySelector('.goal-card');
+        if (firstGoal) firstGoal.click();
+      }
+    });
+
+    updateStackScore();
+    console.log('True Peptide Labs — Research Combination Builder ready (research use only)');
+  }
+
+  window.addEventListener('load', function() {
+    initStackBuilder();
+  });
+
+  window.showPeptideModal = showPeptideModal;
+  window.closeModal = closeModal;
+  window.removeGoal = removeGoal;
+  window.resetStack = resetStack;
+  window.saveStack = saveStack;
+  window.exportStack = exportStack;
+  window.addToMyStackFromModal = addToMyStackFromModal;
+  window.removeFromMyStack = removeFromMyStack;
+</script>
+</body>
+</html>

@@ -1,40 +1,41 @@
 # True Peptide Labs
 
-Research-use-only (RUO) peptide supplier site. Static HTML, deployed on Vercel.
+Research-use-only (RUO) peptide supplier site. Static multi-page HTML on Vercel.
 
 **Brand:** True Peptide Labs (operated by APEX Research, LLC)  
-**Domain:** peptidetrue.com (Vercel: true-peptide-labs)
+**Domain:** peptidetrue.com  
 
-## Phase 0 status
+## Phase status
 
-Critical trust, brand, and compliance fixes are complete. See [PHASE0-CHANGELOG.md](./PHASE0-CHANGELOG.md).
+| Phase | Focus | Doc |
+|-------|--------|-----|
+| **0** | Brand, claims, RUO, legal pages, PCI-safe checkout stubs | [PHASE0-CHANGELOG.md](./PHASE0-CHANGELOG.md) |
+| **1** | Multi-page architecture, product pages, Research Hub, tools, SEO | [PHASE1-CHANGELOG.md](./PHASE1-CHANGELOG.md) |
 
-- Unified brand (no “peptide true.com” / fabricated Apex testimonials)
-- Unverified GMP/ISO/stats removed
-- CoA: lot lookup / request only (no fake PDFs)
-- RUO language on calculator & research combination builder
-- Real legal pages (About, Terms, Privacy, Quality, RUO, Contact, etc.)
-- `/cart` + `/checkout` without client-side card capture
-- `robots.txt`, `sitemap.xml`, `vercel.json` 301 for index.html → /
+## Structure
+
+```
+/                       Homepage (proof-first)
+/peptides/              Catalog + category hubs + product pages
+/research/              Research Hub landing
+/tools/                 Calculator + combination builder
+/coa.html               Lot CoA request
+/quality.html           Quality stance
+/cart.html /checkout.html
+legal & company pages   about, terms, privacy, RUO, contact, ...
+/js/products.js         Shared catalog data
+/css/site.css           Shared styles
+```
 
 ## Local testing
 
-Open `index.html` in a browser, or serve the folder:
-
-```powershell
-cd C:\Users\Michael.Savitsky\true-peptide-labs
-npx --yes serve .
-```
+Open `index.html` in a browser or serve the folder statically.
 
 ## Deploy
 
-Push to GitHub `true-peptide-labs` (branch `main`). Vercel settings:
+Push to `main`. Vercel: Framework **Other**, empty build, output `.`.  
+Redirects in `vercel.json` (index.html → `/`, legacy tools → `/tools/*`).
 
-- Production Branch: `main`
-- Framework: Other / None
-- Build Command: empty
-- Output Directory: `.`
+## Compliance
 
-## Important compliance notes
-
-Products are **research use only**. Recommend legal review before traffic scaling. Do not reintroduce unverified certificates, institutional testimonials, or human-use language.
+Products are **research use only**. Do not reintroduce unverified certificates, institutional testimonials, or human-use language. Prefer legal review before traffic scaling.

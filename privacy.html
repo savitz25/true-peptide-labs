@@ -22,20 +22,31 @@
 <body class="bg-slate-50 text-slate-800">
     <nav class="bg-white border-b border-slate-200 sticky top-0 z-50">
         <div class="max-w-screen-2xl mx-auto">
-            <div class="px-4 sm:px-8 py-4 flex items-center justify-between">
-                <a href="index.html" class="flex items-center gap-x-2">
-                    <img src="logo.png" alt="True Peptide Labs" class="h-14 w-auto">
+            <div class="px-4 sm:px-8 py-4 flex items-center justify-between gap-4">
+                <a href="index.html" class="flex items-center gap-x-2 shrink-0">
+                    <img src="logo.png" alt="True Peptide Labs" class="h-12 sm:h-14 w-auto">
                 </a>
                 <div class="hidden lg:flex items-center gap-x-7 text-sm font-medium">
-                    <a href="index.html#shop" class="nav-link text-slate-600">Shop</a>
-                    <a href="index.html#science" class="nav-link text-slate-600">Science</a>
-                    <a href="stack-builder.html" class="nav-link text-slate-600">Research Combinations</a>
-                    <a href="peptide-calculator.html" class="nav-link text-slate-600">Reconstitution Calculator</a>
-                    <a href="index.html#faq" class="nav-link text-slate-600">FAQ</a>
+                    <a href="peptides/index.html" class="nav-link text-slate-600">Peptides</a>
+                    <a href="research/index.html" class="nav-link text-slate-600">Research</a>
+                    <a href="quality.html" class="nav-link text-slate-600">Quality</a>
+                    <div class="relative group">
+                        <button type="button" class="nav-link text-slate-600 flex items-center gap-1">Tools <i class="fa-solid fa-chevron-down text-[10px]"></i></button>
+                        <div class="absolute left-0 top-full pt-2 hidden group-hover:block z-50">
+                            <div class="bg-white border border-slate-200 rounded-2xl shadow-lg py-2 min-w-[240px]">
+                                <a href="tools/peptide-calculator.html" class="block px-4 py-2.5 text-sm text-slate-700 hover:bg-emerald-50 hover:text-emerald-800">Reconstitution Calculator</a>
+                                <a href="tools/research-combination-builder.html" class="block px-4 py-2.5 text-sm text-slate-700 hover:bg-emerald-50 hover:text-emerald-800">Research Combination Builder</a>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="about.html" class="nav-link text-slate-600">About</a>
                     <a href="contact.html" class="nav-link text-slate-600">Contact</a>
                 </div>
-                <div class="flex items-center gap-x-3">
-                    <a href="index.html#shop" class="hidden sm:inline-flex px-5 py-2.5 text-sm font-semibold bg-emerald-600 hover:bg-emerald-700 text-white rounded-2xl">Shop</a>
+                <div class="flex items-center gap-x-2 sm:gap-x-3">
+                    <a href="cart.html" class="flex items-center gap-x-2 bg-white hover:bg-slate-50 border border-slate-200 text-slate-700 px-4 sm:px-5 h-11 rounded-2xl text-sm font-semibold relative">
+                        <i class="fa-solid fa-shopping-cart"></i>
+                        <span class="hidden sm:inline">Cart</span>
+                    </a>
                     <button type="button" class="lg:hidden w-11 h-11 flex items-center justify-center text-slate-600" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')" aria-label="Open menu">
                         <i class="fa-solid fa-bars text-xl"></i>
                     </button>
@@ -44,15 +55,24 @@
         </div>
         <div id="mobile-menu" class="hidden lg:hidden border-t bg-white px-6 py-4 text-sm">
             <div class="flex flex-col gap-y-3">
-                <a href="index.html#shop" class="py-1 text-slate-600">Shop</a>
-                <a href="index.html#science" class="py-1 text-slate-600">Science</a>
-                <a href="stack-builder.html" class="py-1 text-slate-600">Research Combinations</a>
-                <a href="peptide-calculator.html" class="py-1 text-slate-600">Reconstitution Calculator</a>
-                <a href="index.html#faq" class="py-1 text-slate-600">FAQ</a>
-                <a href="contact.html" class="py-1 text-slate-600">Contact</a>
+                <a href="peptides/index.html" class="py-1 text-slate-700 font-medium">Peptides</a>
+                <a href="research/index.html" class="py-1 text-slate-700 font-medium">Research Hub</a>
+                <a href="quality.html" class="py-1 text-slate-700 font-medium">Quality</a>
+                <a href="coa.html" class="py-1 text-slate-700 font-medium">CoA / Lot Lookup</a>
+                <a href="tools/peptide-calculator.html" class="py-1 text-slate-700 font-medium">Reconstitution Calculator</a>
+                <a href="tools/research-combination-builder.html" class="py-1 text-slate-700 font-medium">Research Combination Builder</a>
+                <a href="about.html" class="py-1 text-slate-700 font-medium">About</a>
+                <a href="contact.html" class="py-1 text-slate-700 font-medium">Contact</a>
+                <a href="cart.html" class="py-1 text-slate-700 font-medium">Cart</a>
             </div>
         </div>
     </nav>
+    <div class="bg-amber-50 border-b border-amber-200">
+        <div class="max-w-screen-2xl mx-auto px-4 sm:px-8 py-2.5 text-center text-xs sm:text-sm text-amber-900">
+            <strong>Research Use Only.</strong> Products are not for human consumption, clinical use, or veterinary administration.
+            <a href="research-use-only.html" class="underline font-semibold ml-1">RUO policy</a>
+        </div>
+    </div>
 
     <div class="bg-slate-900 text-white py-12 sm:py-16">
         <div class="max-w-screen-2xl mx-auto px-4 sm:px-8">
@@ -171,34 +191,45 @@
         <div class="max-w-screen-2xl mx-auto px-4 sm:px-8 pt-14 pb-9">
             <div class="flex flex-col md:flex-row justify-between gap-y-10">
                 <div>
-                    <div class="flex items-center gap-x-2 text-white mb-4">
+                    <a href="index.html" class="inline-flex items-center gap-x-2 text-white mb-4">
                         <img src="logo.png" alt="True Peptide Labs" class="h-12 w-auto">
-                    </div>
-                    <p class="text-xs max-w-xs">True Peptide Labs is operated by APEX Research, LLC. Research peptides for qualified laboratory use only.</p>
+                    </a>
+                    <p class="text-xs max-w-xs">True Peptide Labs supplies research-use-only peptides for qualified laboratories. Operated by APEX Research, LLC.</p>
                     <p class="text-xs mt-3"><a href="mailto:research@truepeptidelabs.com" class="hover:text-white">research@truepeptidelabs.com</a></p>
                 </div>
-                <div class="grid grid-cols-2 md:grid-cols-3 gap-x-12 gap-y-8 text-xs">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-x-10 gap-y-8 text-xs">
                     <div>
-                        <div class="font-semibold text-white tracking-wider mb-3 text-xs">COMPANY</div>
+                        <div class="font-semibold text-white tracking-wider mb-3">PEPTIDES</div>
+                        <div class="space-y-1.5">
+                            <a href="peptides/index.html" class="block hover:text-white">All Peptides</a>
+                            <a href="peptides/tissue-repair.html" class="block hover:text-white">Tissue and Repair</a>
+                            <a href="peptides/metabolic.html" class="block hover:text-white">Metabolic</a>
+                            <a href="peptides/growth-hormone.html" class="block hover:text-white">GH Axis</a>
+                            <a href="peptides/cosmetic.html" class="block hover:text-white">Skin / ECM</a>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="font-semibold text-white tracking-wider mb-3">RESOURCES</div>
+                        <div class="space-y-1.5">
+                            <a href="research/index.html" class="block hover:text-white">Research Hub</a>
+                            <a href="coa.html" class="block hover:text-white">Certificates of Analysis</a>
+                            <a href="quality.html" class="block hover:text-white">Quality and Compliance</a>
+                            <a href="tools/peptide-calculator.html" class="block hover:text-white">Reconstitution Calculator</a>
+                            <a href="tools/research-combination-builder.html" class="block hover:text-white">Combination Builder</a>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="font-semibold text-white tracking-wider mb-3">COMPANY</div>
                         <div class="space-y-1.5">
                             <a href="about.html" class="block hover:text-white">About Us</a>
-                            <a href="quality.html" class="block hover:text-white">Quality &amp; Compliance</a>
-                            <a href="careers.html" class="block hover:text-white">Careers</a>
-                            <a href="research-grants.html" class="block hover:text-white">Research Grants</a>
                             <a href="contact.html" class="block hover:text-white">Contact</a>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="font-semibold text-white tracking-wider mb-3 text-xs">RESOURCES</div>
-                        <div class="space-y-1.5">
-                            <a href="coa.html" class="block hover:text-white">Certificates of Analysis</a>
-                            <a href="peptide-calculator.html" class="block hover:text-white">Reconstitution Calculator</a>
-                            <a href="stack-builder.html" class="block hover:text-white">Research Combinations</a>
+                            <a href="careers.html" class="block hover:text-white">Careers</a>
                             <a href="publications.html" class="block hover:text-white">Publications</a>
+                            <a href="research-grants.html" class="block hover:text-white">Research Grants</a>
                         </div>
                     </div>
                     <div>
-                        <div class="font-semibold text-white tracking-wider mb-3 text-xs">LEGAL</div>
+                        <div class="font-semibold text-white tracking-wider mb-3">LEGAL</div>
                         <div class="space-y-1.5">
                             <a href="terms.html" class="block hover:text-white">Terms of Sale</a>
                             <a href="privacy.html" class="block hover:text-white">Privacy Policy</a>
@@ -209,9 +240,10 @@
             </div>
             <div class="mt-12 pt-8 border-t border-white/10">
                 <div class="disclaimer bg-slate-950 border border-white/10 rounded-2xl p-5 text-[11.5px] leading-relaxed">
-                    <strong class="text-white">IMPORTANT DISCLAIMER:</strong> All products sold by True Peptide Labs (operated by APEX Research, LLC) are intended <span class="text-red-400 font-semibold">strictly for in vitro laboratory research purposes only</span>. They are not approved by the FDA for human use, are not drugs, and are not intended to diagnose, treat, cure, or prevent any disease. These products are not for human consumption, injection, or any form of bodily introduction. By purchasing from this website you certify that you are a qualified researcher, institution, or laboratory professional and will use these products solely for legitimate laboratory research in a controlled setting. Misuse of these products is a violation of our Terms of Sale and may be illegal. All sales are final.
+                    <strong class="text-white">IMPORTANT DISCLAIMER:</strong> All products sold by True Peptide Labs (operated by APEX Research, LLC) are intended <span class="text-red-400 font-semibold">strictly for in vitro laboratory research purposes only</span>. They are not approved by the FDA for human use, are not drugs, and are not intended to diagnose, treat, cure, or prevent any disease. These products are not for human consumption, injection, or any form of bodily introduction. By purchasing you certify you are a qualified researcher, institution, or laboratory professional. Misuse may be illegal. All sales are final.
+                    <a href="research-use-only.html" class="underline text-emerald-400">Full RUO policy</a>.
                 </div>
-                <div class="text-center mt-8 text-[10px] tracking-wider">© 2026 True Peptide Labs, operated by APEX Research, LLC. All rights reserved.</div>
+                <div class="text-center mt-8 text-[10px] tracking-wider">&copy; 2026 True Peptide Labs, operated by APEX Research, LLC. All rights reserved.</div>
             </div>
         </div>
     </footer>
