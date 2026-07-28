@@ -878,3 +878,76 @@ footer {
   opacity: 0.35;
   animation: vv-float 6s ease-in-out infinite;
 }
+
+/* ---- PWA Add-to-Home-Screen banner ---- */
+#vv-a2hs {
+  position: fixed;
+  left: 0; right: 0; bottom: 0;
+  z-index: 9999;
+  padding: 0.75rem max(0.75rem, env(safe-area-inset-left)) calc(0.85rem + env(safe-area-inset-bottom)) max(0.75rem, env(safe-area-inset-right));
+  pointer-events: none;
+}
+.vv-a2hs-inner {
+  pointer-events: auto;
+  max-width: 28rem;
+  margin: 0 auto;
+  padding: 1rem 1.1rem 1.1rem;
+  border-radius: 1.25rem;
+  background: rgba(15, 12, 41, 0.94);
+  border: 1px solid rgba(0, 229, 255, 0.28);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.45), 0 0 30px rgba(0, 229, 255, 0.12);
+  backdrop-filter: blur(14px);
+  position: relative;
+}
+.vv-a2hs-close {
+  position: absolute;
+  top: 0.35rem; right: 0.55rem;
+  background: transparent;
+  border: none;
+  color: #94A3B8;
+  font-size: 1.35rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0.25rem 0.4rem;
+}
+.vv-a2hs-title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.05rem;
+  margin-bottom: 0.35rem;
+  padding-right: 1.5rem;
+  color: #F8F9FA;
+}
+.vv-a2hs-text, .vv-a2hs-steps {
+  font-size: 0.85rem;
+  color: #94A3B8;
+  line-height: 1.45;
+  margin-bottom: 0.65rem;
+}
+.vv-a2hs-steps strong { color: #00E5FF; }
+.vv-a2hs-actions { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+.vv-a2hs-btn { font-size: 0.85rem !important; padding: 0.65rem 1rem !important; min-height: 44px; }
+
+/* Standalone PWA polish for tools */
+@media all and (display-mode: standalone) {
+  body {
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+  .vv-nav {
+    padding-top: env(safe-area-inset-top);
+  }
+}
+
+/* Touch-friendly tool chips */
+.calc-btn, .goal-card, .library-filter {
+  min-height: 44px;
+  touch-action: manipulation;
+}
+@media (max-width: 640px) {
+  .calc-btn {
+    min-width: 72px;
+    padding: 0.65rem 0.85rem;
+    font-size: 0.9rem;
+  }
+}

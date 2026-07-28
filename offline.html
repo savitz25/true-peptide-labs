@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Offline | Vial Vibes</title>
+  <meta name="theme-color" content="#0F0C29">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Vial Vibes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <link rel="stylesheet" href="/css/site.css">
+  <style>
+    body { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 1.5rem; text-align: center; }
+    .card { max-width: 24rem; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <img src="/icons/icon-192.png" alt="Vial Vibes" width="72" height="72" style="margin:0 auto 1rem;border-radius:16px">
+    <h1 class="heading-font" style="font-size:1.75rem;margin-bottom:0.5rem">You’re offline</h1>
+    <p style="color:var(--vv-text-muted);margin-bottom:1.25rem">
+      Core tools may still open from cache. Reconnect for the full catalog, Vault, and forms.
+    </p>
+    <p style="font-size:0.75rem;color:var(--vv-text-dim);margin-bottom:1.5rem">Research Use Only · Not for human use</p>
+    <div style="display:flex;flex-direction:column;gap:0.75rem">
+      <a class="vv-btn-primary" href="/tools/peptide-calculator.html">Reconstitution Calculator</a>
+      <a class="vv-btn-ghost" href="/tools/research-combination-builder.html">Research Combination Builder</a>
+      <a class="vv-btn-ghost" href="/">Home</a>
+    </div>
+  </div>
+  <script src="js/pwa-register.js" defer></script>
+</body>
+</html>
