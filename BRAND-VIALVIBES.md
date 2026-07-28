@@ -21,11 +21,16 @@ Never bro-science · never cold clinical · never sketchy
 
 ## Logo
 
-**Waveform Vial** — refined vial mark with internal waveform (signal + lab).  
+**VV monogram** — vial silhouette + frequency/vibe wave + subtle amino-chain nodes.  
+Primary: gradient stroke Neon Mint `#00FFAA` → Lab Cyan `#00E5FF` with soft glow.  
+Secondary: solid `currentColor` for single-color apps.
+
 Assets:
 
-- `assets/logo-vialvibes.svg` — full lockup  
-- `assets/logo-vialvibes-mark.svg` — app / favicon mark  
+- `assets/vv-monogram.svg` — primary gradient monogram  
+- `assets/vv-monogram-solid.svg` — solid mono (print / light / apparel)  
+- `assets/logo-vialvibes.svg` — wordmark lockup (stacked VIAL / VIBES)  
+- `assets/logo-vialvibes-mark.svg` — app / favicon tile  
 
 ## Color (dark-first)
 

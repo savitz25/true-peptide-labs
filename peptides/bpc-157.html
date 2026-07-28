@@ -130,10 +130,22 @@
   <section class="max-w-screen-2xl mx-auto px-4 sm:px-8 pb-16">
     <div class="grid lg:grid-cols-12 gap-10">
       <div class="lg:col-span-5">
-        <div class="product-img rounded-3xl h-72 sm:h-96 flex items-center justify-center border border-slate-800">
-          <div class="text-center text-white">
-            <i class="fa-solid fa-flask text-6xl text-emerald-400 mb-4"></i>
-            <div class="font-mono text-sm text-white/70">5 mg - Research material</div>
+        <div class="product-img rounded-3xl h-72 sm:h-96 flex items-center justify-center border border-slate-800 overflow-hidden">
+          <div class="vial-3d-scene energy-tissue w-full h-full">
+            <div class="orbit-ring"></div>
+            <div class="vial-3d" id="product-vial">
+              <div class="glass-vial" aria-hidden="true">
+                <div class="vial-cap"></div>
+                <div class="vial-neck"></div>
+                <div class="vial-body">
+                  <div class="vial-liquid"></div>
+                  <svg class="vial-wave" viewBox="0 0 50 16" preserveAspectRatio="none" aria-hidden="true"><path d="M2 10 C8 2 14 14 20 8 S32 2 38 10 S46 14 48 8"/></svg>
+                </div>
+              </div>
+            </div>
+            <div class="info-orbit a">5 mg</div>
+            <div class="info-orbit b">CoA on request</div>
+            <div class="info-orbit c">RUO</div>
           </div>
         </div>
       </div>
@@ -287,5 +299,42 @@
 </footer>
 <script src="../js/products.js"></script>
 <script src="../js/cart.js"></script>
+<script>
+  (function () {
+    var vial = document.getElementById('product-vial');
+    if (!vial) return;
+    var rotY = 0;
+    var dragging = false;
+    var lastX = 0;
+
+    function apply() {
+      vial.style.animation = 'none';
+      vial.style.transform = 'rotateY(' + rotY + 'deg)';
+    }
+
+    vial.addEventListener('pointerdown', function (e) {
+      dragging = true;
+      lastX = e.clientX;
+      vial.setPointerCapture(e.pointerId);
+      vial.style.cursor = 'grabbing';
+      e.preventDefault();
+    });
+    vial.addEventListener('pointermove', function (e) {
+      if (!dragging) return;
+      var dx = e.clientX - lastX;
+      lastX = e.clientX;
+      rotY += dx * 0.6;
+      apply();
+    });
+    function endDrag(e) {
+      if (!dragging) return;
+      dragging = false;
+      vial.style.cursor = 'grab';
+      try { vial.releasePointerCapture(e.pointerId); } catch (err) {}
+    }
+    vial.addEventListener('pointerup', endDrag);
+    vial.addEventListener('pointercancel', endDrag);
+  })();
+</script>
 </body>
 </html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vibe Finder | What’s your research vibe? | VialVibes</title>
+  <meta name="description" content="Personalized research discovery quiz. Match study focus areas to research peptides. Research use only. VialVibes.">
+  <link rel="canonical" href="https://www.peptidetrue.com/vibe-finder.html">
+  <link rel="icon" type="image/svg+xml" href="assets/logo-vialvibes-mark.svg">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/site.css">
+</head>
+<body class="min-h-screen flex flex-col">
+  <nav class="vv-nav sticky top-0 z-50">
+    <div class="max-w-screen-2xl mx-auto px-4 sm:px-8 py-3.5 flex items-center justify-between">
+      <a href="index.html"><img src="assets/logo-vialvibes.svg" alt="VialVibes" class="h-10 sm:h-12"></a>
+      <div class="hidden md:flex gap-6 text-sm">
+        <a href="peptides/index.html" class="nav-link">Peptide Library</a>
+        <a href="vibe-finder.html" class="nav-link active">Vibe Finder</a>
+        <a href="vault.html" class="nav-link">Vial Vault</a>
+        <a href="research/index.html" class="nav-link">Research</a>
+      </div>
+      <a href="cart.html" class="vv-btn-ghost !py-2 !px-4 text-sm">Cart</a>
+    </div>
+  </nav>
+  <div class="ruo-banner">
+    <div class="max-w-screen-2xl mx-auto px-4 py-2.5 text-center text-xs">
+      <strong>Research Use Only.</strong> This quiz personalizes discovery for laboratory study focus areas — not human use guidance.
+    </div>
+  </div>
+
+  <main class="flex-1 max-w-3xl mx-auto px-4 sm:px-8 py-12 w-full">
+    <div class="vv-chip mb-4">Signature experience</div>
+    <h1 class="heading-font text-4xl sm:text-5xl tracking-tighter mb-3">What’s your research vibe?</h1>
+    <p class="mb-10" style="color:var(--vv-text-muted)">Answer a few questions. We’ll point you to categories and compounds worth exploring for <em>laboratory</em> research — then you verify, compare, and decide.</p>
+
+    <div id="quiz" class="space-y-8"></div>
+    <div id="result" class="hidden mt-10"></div>
+  </main>
+
+  <footer class="py-8 text-center text-xs" style="color:var(--vv-text-dim)">
+    © 2026 VialVibes · operated by APEX Research, LLC · RUO
+  </footer>
+
+  <script src="js/products.js"></script>
+  <script>
+    var steps = [
+      {
+        id: 'focus',
+        q: 'What kind of study focus are you exploring?',
+        options: [
+          { id: 'tissue', label: 'Tissue & barrier models', cat: 'recovery', icon: 'fa-dna' },
+          { id: 'meta', label: 'Metabolic pathway research', cat: 'metabolic', icon: 'fa-flask' },
+          { id: 'gh', label: 'GH axis / endocrine models', cat: 'gh', icon: 'fa-wave-square' },
+          { id: 'ecm', label: 'Skin / ECM research', cat: 'cosmetic', icon: 'fa-sparkles' }
+        ]
+      },
+      {
+        id: 'depth',
+        q: 'How do you like to start?',
+        options: [
+          { id: 'learn', label: 'Learn first — literature & education', path: 'learn' },
+          { id: 'compare', label: 'Compare compounds side by side', path: 'compare' },
+          { id: 'verify', label: 'Verify lots / documentation', path: 'verify' },
+          { id: 'browse', label: 'Browse the Peptide Library', path: 'browse' }
+        ]
+      },
+      {
+        id: 'energy',
+        q: 'Pick a discovery energy (UI vibe only)',
+        options: [
+          { id: 'cyan', label: 'Electric cyan — clean & precise', tone: 'cyan' },
+          { id: 'mint', label: 'Neon mint — fresh & exploratory', tone: 'mint' },
+          { id: 'violet', label: 'Violet — deep focus', tone: 'violet' }
+        ]
+      }
+    ];
+
+    var answers = {};
+    var stepIdx = 0;
+
+    function render() {
+      var root = document.getElementById('quiz');
+      var result = document.getElementById('result');
+      if (stepIdx >= steps.length) {
+        root.classList.add('hidden');
+        showResult();
+        return;
+      }
+      result.classList.add('hidden');
+      root.classList.remove('hidden');
+      var s = steps[stepIdx];
+      var html = '<div class="text-xs font-semibold tracking-widest mb-2" style="color:var(--vv-cyan)">STEP ' + (stepIdx + 1) + ' / ' + steps.length + '</div>';
+      html += '<h2 class="heading-font text-2xl mb-5">' + s.q + '</h2><div class="grid sm:grid-cols-2 gap-3">';
+      s.options.forEach(function (o) {
+        html += '<button type="button" class="vibe-option" data-id="' + o.id + '">' +
+          '<div class="flex items-start gap-3"><i class="fa-solid ' + (o.icon || 'fa-circle') + ' mt-1" style="color:var(--vv-cyan)"></i>' +
+          '<span class="font-semibold">' + o.label + '</span></div></button>';
+      });
+      html += '</div>';
+      root.innerHTML = html;
+      root.querySelectorAll('.vibe-option').forEach(function (btn) {
+        btn.onclick = function () {
+          var opt = s.options.find(function (x) { return x.id === btn.dataset.id; });
+          answers[s.id] = opt;
+          stepIdx++;
+          render();
+        };
+      });
+    }
+
+    function showResult() {
+      var result = document.getElementById('result');
+      result.classList.remove('hidden');
+      var cat = (answers.focus && answers.focus.cat) || 'metabolic';
+      var products = (window.TPL_PRODUCTS || []).filter(function (p) { return p.category === cat; });
+      var path = (answers.depth && answers.depth.path) || 'browse';
+      var nextLinks = {
+        learn: { href: 'research/index.html', label: 'Open Research Hub' },
+        compare: { href: 'research/compare.html', label: 'Compare compounds' },
+        verify: { href: 'vault.html', label: 'Open Vial Vault' },
+        browse: { href: 'peptides/index.html', label: 'Peptide Library' }
+      };
+      var next = nextLinks[path] || nextLinks.browse;
+      var catLabel = products[0] ? products[0].categoryLabel : 'Research catalog';
+      var cards = products.map(function (p) {
+        return '<a href="peptides/' + p.slug + '.html" class="block vv-glass rounded-2xl p-4 hover:border-cyan-400/40 border border-white/10 transition">' +
+          '<div class="font-semibold">' + p.shortName + '</div>' +
+          '<div class="text-xs mt-1" style="color:var(--vv-text-muted)">' + p.vialSize + ' · $' + p.price + '</div></a>';
+      }).join('');
+      result.innerHTML =
+        '<div class="vv-glass rounded-3xl p-8 border border-white/10">' +
+        '<div class="vv-chip mb-4">Your research vibe</div>' +
+        '<h2 class="heading-font text-3xl mb-2">' + catLabel + '</h2>' +
+        '<p class="mb-6 text-sm" style="color:var(--vv-text-muted)">Suggested laboratory materials in this focus area. Always review literature, CoAs, and RUO terms before ordering.</p>' +
+        '<div class="grid sm:grid-cols-2 gap-3 mb-8">' + cards + '</div>' +
+        '<div class="flex flex-wrap gap-3">' +
+          '<a class="vv-btn-primary" href="' + next.href + '">' + next.label + '</a>' +
+          '<a class="vv-btn-ghost" href="research/compare.html">Compare</a>' +
+          '<a class="vv-btn-ghost" href="vault.html">Verify a lot</a>' +
+          '<button type="button" class="vv-btn-ghost" id="restart">Restart quiz</button>' +
+        '</div>' +
+        '<p class="mt-6 text-xs" style="color:var(--vv-text-dim)">Not medical advice. Not for human use. Research professionals only.</p>' +
+        '</div>';
+      document.getElementById('restart').onclick = function () {
+        answers = {};
+        stepIdx = 0;
+        render();
+      };
+    }
+
+    render();
+  </script>
+</body>
+</html>

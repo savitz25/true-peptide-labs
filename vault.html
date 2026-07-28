@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vial Vault | Lot verification | VialVibes</title>
+  <meta name="description" content="Enter a lot number to request CoA documentation. Futuristic vault experience — real verification is documentation on request. Research use only.">
+  <link rel="canonical" href="https://www.peptidetrue.com/vault.html">
+  <link rel="icon" type="image/svg+xml" href="assets/logo-vialvibes-mark.svg">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/site.css">
+</head>
+<body class="min-h-screen flex flex-col">
+  <nav class="vv-nav sticky top-0 z-50">
+    <div class="max-w-screen-2xl mx-auto px-4 sm:px-8 py-3.5 flex items-center justify-between">
+      <a href="index.html"><img src="assets/logo-vialvibes.svg" alt="VialVibes" class="h-10 sm:h-12"></a>
+      <div class="hidden md:flex gap-6 text-sm">
+        <a href="peptides/index.html" class="nav-link">Peptide Library</a>
+        <a href="coa.html" class="nav-link">CoA</a>
+        <a href="vault.html" class="nav-link active">Vial Vault</a>
+        <a href="research/how-to-read-a-coa.html" class="nav-link">How to read a CoA</a>
+      </div>
+      <a href="index.html" class="vv-btn-ghost !py-2 !px-4 text-sm">Home</a>
+    </div>
+  </nav>
+  <div class="ruo-banner">
+    <div class="max-w-screen-2xl mx-auto px-4 py-2.5 text-center text-xs">
+      <strong>Honest vault:</strong> We don’t invent purity results. This flow prepares a CoA request and confirms your lot was logged for research documentation.
+    </div>
+  </div>
+
+  <main class="flex-1 px-4 sm:px-8 py-14">
+    <div class="text-center mb-10">
+      <div class="vv-chip mb-4">Secure documentation</div>
+      <h1 class="heading-font text-4xl sm:text-5xl tracking-tighter mb-3">Vial Vault</h1>
+      <p class="max-w-xl mx-auto" style="color:var(--vv-text-muted)">Enter the lot on your vial. Unlock a research documentation request — not a fake instant purity score.</p>
+    </div>
+
+    <div class="vault-panel relative z-10">
+      <div id="vault-lock" class="vault-lock" aria-hidden="true"><i class="fa-solid fa-lock"></i></div>
+      <form id="vault-form" class="space-y-4 relative z-10">
+        <div>
+          <label class="block text-xs font-semibold tracking-wider mb-1.5" style="color:var(--vv-text-muted)">LOT NUMBER</label>
+          <input id="lot" type="text" required placeholder="e.g. VV-250728-01" class="w-full rounded-2xl px-4 py-3 text-sm">
+        </div>
+        <div class="grid sm:grid-cols-2 gap-3">
+          <div>
+            <label class="block text-xs font-semibold tracking-wider mb-1.5" style="color:var(--vv-text-muted)">PRODUCT (optional)</label>
+            <input id="product" type="text" placeholder="BPC-157" class="w-full rounded-2xl px-4 py-3 text-sm">
+          </div>
+          <div>
+            <label class="block text-xs font-semibold tracking-wider mb-1.5" style="color:var(--vv-text-muted)">EMAIL (optional)</label>
+            <input id="email" type="email" placeholder="you@lab.edu" class="w-full rounded-2xl px-4 py-3 text-sm">
+          </div>
+        </div>
+        <button type="submit" class="vv-btn-primary w-full">Unlock documentation request</button>
+      </form>
+
+      <div id="vault-ok" class="vault-verified relative z-10 mt-6">
+        <div class="badge mb-4"><i class="fa-solid fa-shield-halved"></i> VIAL VERIFIED · REQUEST LOGGED</div>
+        <p class="text-sm mb-4" style="color:var(--vv-text-muted)">Lot <strong id="lot-out" class="font-mono" style="color:var(--vv-cyan)"></strong> was recorded for a CoA follow-up. Documentation is provided when available for that lot — we do not display fabricated analytical results.</p>
+        <div class="flex flex-wrap justify-center gap-3">
+          <a id="mailto-link" class="vv-btn-primary" href="#">Open email to research@</a>
+          <a href="research/how-to-read-a-coa.html" class="vv-btn-ghost">How to read a CoA</a>
+          <a href="coa.html" class="vv-btn-ghost">Full CoA center</a>
+        </div>
+      </div>
+    </div>
+
+    <p class="text-center text-xs mt-10 max-w-lg mx-auto" style="color:var(--vv-text-dim)">
+      Fun outside, serious inside. Public PDF archive is coming later. Until then, email remains the reliable path.
+      <a href="research-use-only.html" class="underline" style="color:var(--vv-cyan)">RUO policy</a>
+    </p>
+  </main>
+
+  <script>
+    (function () {
+      var params = new URLSearchParams(location.search);
+      if (params.get('lot')) document.getElementById('lot').value = params.get('lot');
+      if (params.get('product')) document.getElementById('product').value = params.get('product');
+
+      document.getElementById('vault-form').addEventListener('submit', function (e) {
+        e.preventDefault();
+        var lot = document.getElementById('lot').value.trim();
+        var product = document.getElementById('product').value.trim();
+        var email = document.getElementById('email').value.trim();
+        if (!lot) return;
+
+        var lock = document.getElementById('vault-lock');
+        lock.classList.add('unlocked');
+        lock.innerHTML = '<i class="fa-solid fa-lock-open"></i>';
+
+        document.getElementById('lot-out').textContent = lot;
+        document.getElementById('vault-ok').classList.add('show');
+
+        var subject = encodeURIComponent('CoA request — lot ' + lot);
+        var body = encodeURIComponent(
+          'Lot number: ' + lot + '\n' +
+          'Product: ' + (product || '(not specified)') + '\n' +
+          'Researcher email: ' + (email || '(not specified)') + '\n\n' +
+          'Please provide Certificate of Analysis documentation if available for this research lot.\n'
+        );
+        document.getElementById('mailto-link').href =
+          'mailto:research@truepeptidelabs.com?subject=' + subject + '&body=' + body;
+
+        try {
+          var log = JSON.parse(localStorage.getItem('vv_vault_requests') || '[]');
+          log.unshift({ lot: lot, product: product, email: email, at: new Date().toISOString() });
+          localStorage.setItem('vv_vault_requests', JSON.stringify(log.slice(0, 20)));
+        } catch (err) {}
+      });
+    })();
+  </script>
+</body>
+</html>

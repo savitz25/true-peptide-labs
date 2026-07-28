@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -48,8 +48,10 @@
                     <img src="assets/logo-vialvibes.svg" alt="VialVibes" class="h-10 sm:h-12 w-auto">
                 </a>
                 <div class="hidden lg:flex items-center gap-x-7 text-sm font-medium">
-                    <a href="peptides/index.html" class="nav-link">Peptides</a>
+                    <a href="peptides/index.html" class="nav-link">Peptide Library</a>
                     <a href="research/index.html" class="nav-link">Research</a>
+                    <a href="vibe-finder.html" class="nav-link">Vibe Finder</a>
+                    <a href="vault.html" class="nav-link">Vault</a>
                     <a href="quality.html" class="nav-link">Quality</a>
                     <div class="relative group">
                         <button type="button" class="nav-link flex items-center gap-1">Tools <i class="fa-solid fa-chevron-down text-[10px]"></i></button>
@@ -77,8 +79,10 @@
         </div>
         <div id="mobile-menu" class="hidden lg:hidden border-t border-white/10 px-6 py-4 text-sm bg-[#0F0C29]/95 backdrop-blur">
             <div class="flex flex-col gap-y-3">
-                <a href="peptides/index.html" class="py-1 text-slate-200 font-medium">Peptides</a>
+                <a href="peptides/index.html" class="py-1 text-slate-200 font-medium">Peptide Library</a>
                 <a href="research/index.html" class="py-1 text-slate-200 font-medium">Research Hub</a>
+                <a href="vibe-finder.html" class="py-1 text-slate-200 font-medium">Vibe Finder</a>
+                <a href="vault.html" class="py-1 text-slate-200 font-medium">Vault</a>
                 <a href="quality.html" class="py-1 text-slate-200 font-medium">Quality</a>
                 <a href="coa.html" class="py-1 text-slate-200 font-medium">CoA / Lot Lookup</a>
                 <a href="tools/peptide-calculator.html" class="py-1 text-slate-200 font-medium">Reconstitution Calculator</a>
@@ -105,7 +109,7 @@
                 <div class="lg:col-span-7 max-w-3xl">
                     <div class="vv-chip mb-6">
                         <span class="w-2 h-2 rounded-full bg-[#00FFAA] animate-pulse"></span>
-                        RUO · U.S. Supplier · Lot Documentation
+                        RUO Â· U.S. Supplier Â· Lot Documentation
                     </div>
                     <h1 class="heading-font text-5xl sm:text-6xl lg:text-7xl font-semibold tracking-tighter leading-[1.05] mb-6">
                         Peptides with<br>
@@ -116,12 +120,15 @@
                         Good Vibes. Serious Science.
                     </p>
                     <p class="text-base text-slate-400 max-w-xl mb-9">
-                        VialVibes supplies research-use-only materials for qualified laboratories—with lot-level documentation on request and practical lab tools. No hype. No therapeutic claims. Just transparent RUO catalog and workflow utilities.
+                        VialVibes supplies research-use-only materials for qualified laboratoriesâ€”with lot-level documentation on request and practical lab tools. No hype. No therapeutic claims. Just transparent RUO catalog and workflow utilities.
                     </p>
                     <div class="flex flex-wrap gap-4">
                         <a href="peptides/index.html" class="vv-btn-primary text-lg !h-14 !px-8">
-                            Browse Catalog
+                            Peptide Library
                             <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                        <a href="vibe-finder.html" class="vv-btn-ghost text-lg !h-14 !px-8">
+                            Vibe Finder
                         </a>
                         <a href="coa.html" class="vv-btn-ghost text-lg !h-14 !px-8">
                             Request CoA
@@ -131,6 +138,7 @@
                         <span class="vv-chip"><i class="fa-solid fa-file-lines text-[10px]"></i> Lot CoA on request</span>
                         <span class="vv-chip"><i class="fa-solid fa-flask text-[10px]"></i> Research-safe specs</span>
                         <span class="vv-chip"><i class="fa-solid fa-shield-halved text-[10px]"></i> Strict RUO language</span>
+                        <a href="vault.html" class="vv-chip hover:border-cyan-400/50"><i class="fa-solid fa-vault text-[10px]"></i> Vial Vault</a>
                     </div>
                     <p class="mt-6 text-sm text-slate-500 max-w-lg">
                         Operated by <span class="text-slate-300">APEX Research, LLC</span>. Not for human use. Not FDA-approved drugs.
@@ -140,7 +148,7 @@
                     <div class="w-full max-w-md vv-glass rounded-3xl p-8">
                         <div class="text-[#00E5FF] text-xs font-bold tracking-widest mb-4">PROOF-FIRST APPROACH</div>
                         <ul class="space-y-4 text-sm text-slate-300">
-                            <li class="flex gap-3"><i class="fa-solid fa-file-lines text-[#00E5FF] mt-0.5"></i><span>Lot CoA available on request—no fabricated download links</span></li>
+                            <li class="flex gap-3"><i class="fa-solid fa-file-lines text-[#00E5FF] mt-0.5"></i><span>Lot CoA available on requestâ€”no fabricated download links</span></li>
                             <li class="flex gap-3"><i class="fa-solid fa-flask text-[#A855F7] mt-0.5"></i><span>Dedicated product pages with research-safe specs</span></li>
                             <li class="flex gap-3"><i class="fa-solid fa-calculator text-[#00FFAA] mt-0.5"></i><span>Lab tools for reconstitution &amp; study combination planning</span></li>
                             <li class="flex gap-3"><i class="fa-solid fa-shield-halved text-[#00E5FF] mt-0.5"></i><span>Strict RUO language across catalog, tools, and checkout</span></li>
@@ -187,7 +195,7 @@
                 <div class="uppercase tracking-[2px] text-xs font-semibold text-[#00E5FF] mb-1">CATALOG</div>
                 <h2 class="heading-font text-4xl sm:text-5xl font-semibold tracking-tighter text-white">Research materials</h2>
             </div>
-            <a href="peptides/index.html" class="text-[#00E5FF] font-semibold hover:underline">View full catalog →</a>
+            <a href="peptides/index.html" class="text-[#00E5FF] font-semibold hover:underline">View full catalog â†’</a>
         </div>
 
         <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
@@ -219,7 +227,7 @@
         <div class="max-w-screen-2xl mx-auto px-4 sm:px-8">
             <div class="text-[#00E5FF] text-sm font-semibold tracking-[2px] mb-3">LABORATORY TOOLS</div>
             <h2 class="heading-font text-4xl sm:text-5xl font-semibold tracking-tighter mb-4 text-white">Research utilities</h2>
-            <p class="text-slate-400 max-w-2xl mb-10">Free tools for laboratory workflow planning—reconstitution volumes for in-vitro assays and research combination design. Not for human use.</p>
+            <p class="text-slate-400 max-w-2xl mb-10">Free tools for laboratory workflow planningâ€”reconstitution volumes for in-vitro assays and research combination design. Not for human use.</p>
             <div class="grid md:grid-cols-2 gap-5">
                 <a href="tools/peptide-calculator.html" class="vv-glass rounded-3xl p-8 hover:border-[#00E5FF]/50 transition group border border-white/10">
                     <i class="fa-solid fa-calculator text-3xl text-[#00E5FF] mb-4"></i>
@@ -242,7 +250,7 @@
                 <div class="uppercase tracking-[2px] text-xs font-semibold text-[#A855F7] mb-2">RESEARCH HUB</div>
                 <h2 class="heading-font text-4xl font-semibold tracking-tighter mb-4 text-white">A structural home for research reference</h2>
                 <p class="text-slate-400 leading-relaxed mb-6">
-                    Literature-framed compound overviews, educational lab guides, peptide comparison, and CoA literacy—built for research professionals. Scientific reference only.
+                    Literature-framed compound overviews, educational lab guides, peptide comparison, and CoA literacyâ€”built for research professionals. Scientific reference only.
                 </p>
                 <a href="research/index.html" class="vv-btn-primary">
                     Open Research Hub <i class="fa-solid fa-arrow-right"></i>
@@ -339,7 +347,7 @@
                     <a href="index.html" class="inline-flex items-center gap-x-2 text-white mb-4" aria-label="VialVibes home">
                         <img src="assets/logo-vialvibes.svg" alt="VialVibes" class="h-11 w-auto">
                     </a>
-                    <p class="text-xs max-w-xs text-slate-400"><strong class="text-slate-200">VialVibes</strong> — Good Vibes. Serious Science. Research-use-only peptides for qualified laboratories. Operated by <strong class="text-slate-300">APEX Research, LLC</strong>.</p>
+                    <p class="text-xs max-w-xs text-slate-400"><strong class="text-slate-200">VialVibes</strong> â€” Good Vibes. Serious Science. Research-use-only peptides for qualified laboratories. Operated by <strong class="text-slate-300">APEX Research, LLC</strong>.</p>
                     <p class="text-xs mt-3"><a href="mailto:research@truepeptidelabs.com" class="hover:text-[#00E5FF] text-slate-400">research@truepeptidelabs.com</a></p>
                 </div>
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-x-10 gap-y-8 text-xs">
@@ -388,12 +396,13 @@
                     <strong class="text-white">IMPORTANT DISCLAIMER:</strong> All products sold by VialVibes (operated by APEX Research, LLC) are intended <span class="text-red-400 font-semibold">strictly for in vitro laboratory research purposes only</span>. They are not approved by the FDA for human use, are not drugs, and are not intended to diagnose, treat, cure, or prevent any disease. These products are not for human consumption, injection, or any form of bodily introduction. By purchasing you certify you are a qualified researcher, institution, or laboratory professional. Misuse may be illegal. All sales are final.
                     <a href="research-use-only.html" class="underline text-[#00E5FF]">Full RUO policy</a>.
                 </div>
-                <div class="text-center mt-8 text-[10px] tracking-wider text-slate-500">© 2026 VialVibes, operated by APEX Research, LLC. All rights reserved.</div>
+                <div class="text-center mt-8 text-[10px] tracking-wider text-slate-500">&copy; 2026 VialVibes, operated by APEX Research, LLC. All rights reserved.</div>
             </div>
         </div>
     </footer>
 
     <script src="js/products.js"></script>
+    <script src="js/vial-ui.js"></script>
     <script>
         function toggleFaq(button) {
             var answer = button.nextElementSibling;
@@ -420,6 +429,11 @@
         function renderHomeProducts() {
             var grid = document.getElementById('home-product-grid');
             if (!grid || !window.TPL_PRODUCTS) return;
+            if (window.VV && typeof VV.renderVialGrid === 'function') {
+                VV.renderVialGrid(grid, window.TPL_PRODUCTS, { basePath: '' });
+                return;
+            }
+            // Fallback if vial-ui.js failed to load
             grid.innerHTML = window.TPL_PRODUCTS.map(function (p) {
                 return (
                     '<article class="peptide-card flex flex-col">' +
@@ -447,3 +461,5 @@
     </script>
 </body>
 </html>
+
+

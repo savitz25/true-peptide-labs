@@ -1,35 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 64" role="img" aria-label="VialVibes">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 72" role="img" aria-label="VialVibes">
   <defs>
-    <linearGradient id="vvWave" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#00E5FF"/>
-      <stop offset="50%" stop-color="#A855F7"/>
-      <stop offset="100%" stop-color="#00FFAA"/>
+    <linearGradient id="wordGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00FFAA"/>
+      <stop offset="100%" stop-color="#00E5FF"/>
     </linearGradient>
-    <linearGradient id="vvVial" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#22D3EE" stop-opacity="0.9"/>
-      <stop offset="100%" stop-color="#A855F7" stop-opacity="0.85"/>
+    <linearGradient id="mStroke" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00FFAA"/>
+      <stop offset="100%" stop-color="#00E5FF"/>
     </linearGradient>
-    <filter id="vvGlow" x="-40%" y="-40%" width="180%" height="180%">
-      <feGaussianBlur stdDeviation="1.2" result="b"/>
+    <linearGradient id="mFill" x1="50%" y1="20%" x2="50%" y2="100%">
+      <stop offset="0%" stop-color="#00E5FF" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#00FFAA" stop-opacity="0.4"/>
+    </linearGradient>
+    <filter id="g" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="1.4" result="b"/>
       <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
     </filter>
   </defs>
-  <!-- Waveform Vial mark -->
-  <g transform="translate(4,4)" filter="url(#vvGlow)">
-    <!-- Cap -->
-    <rect x="18" y="4" width="20" height="6" rx="2" fill="#F8F9FA" opacity="0.9"/>
-    <rect x="20" y="10" width="16" height="4" rx="1" fill="#94A3B8"/>
-    <!-- Neck -->
-    <path d="M24 14 h8 v8 h-8 z" fill="#22D3EE" opacity="0.5"/>
-    <!-- Body -->
-    <path d="M16 22 C16 22 14 26 14 34 L14 48 C14 52 18 56 28 56 C38 56 42 52 42 48 L42 34 C42 26 40 22 40 22 Z" fill="none" stroke="url(#vvWave)" stroke-width="2.2"/>
-    <!-- Liquid fill -->
-    <path d="M17 36 L17 48 C17 51 20 54 28 54 C36 54 39 51 39 48 L39 36 Z" fill="url(#vvVial)" opacity="0.55"/>
-    <!-- Waveform inside vial -->
-    <path d="M18 40 Q22 34 26 40 T34 40 T40 40" fill="none" stroke="#00FFAA" stroke-width="1.8" stroke-linecap="round"/>
-    <path d="M18 44 Q22 41 26 44 T34 44 T40 44" fill="none" stroke="#00E5FF" stroke-width="1.2" stroke-linecap="round" opacity="0.8"/>
+  <!-- Monogram -->
+  <g transform="translate(2,4) scale(0.9)" filter="url(#g)">
+    <rect x="46" y="14" width="28" height="7" rx="2" fill="none" stroke="url(#mStroke)" stroke-width="2.2"/>
+    <rect x="50" y="21" width="20" height="4" rx="1" fill="none" stroke="url(#mStroke)" stroke-width="1.6"/>
+    <path d="M54 25 v8 M66 25 v8" stroke="url(#mStroke)" stroke-width="1.8" stroke-linecap="round"/>
+    <path d="M42 36 C42 36 38 42 38 54 L38 82 C38 90 46 96 60 96 C74 96 82 90 82 82 L82 54 C82 42 78 36 78 36 Z"
+          fill="url(#mFill)" stroke="url(#mStroke)" stroke-width="2.4" stroke-linejoin="round"/>
+    <circle cx="44" cy="48" r="1.8" fill="#00FFAA"/>
+    <circle cx="41" cy="60" r="1.6" fill="#00E5FF"/>
+    <circle cx="43" cy="72" r="1.7" fill="#00FFAA"/>
+    <path d="M44 48 L41 60 L43 72" fill="none" stroke="url(#mStroke)" stroke-width="1" opacity="0.5"/>
+    <path d="M46 62 C50 52 54 72 58 62 S66 52 70 62 S78 72 80 64" fill="none" stroke="url(#mStroke)" stroke-width="2.4" stroke-linecap="round"/>
   </g>
-  <!-- Wordmark -->
-  <text x="72" y="42" font-family="Space Grotesk, Inter, system-ui, sans-serif" font-size="28" font-weight="700" letter-spacing="-0.04em" fill="#F8F9FA">Vial<tspan fill="url(#vvWave)">Vibes</tspan></text>
+  <!-- Wordmark: VIAL VIBES -->
+  <g font-family="Space Grotesk, Inter, system-ui, sans-serif" font-weight="700" letter-spacing="0.04em">
+    <text x="100" y="32" font-size="18" fill="#F8F9FA">VIAL</text>
+    <text x="100" y="54" font-size="18" fill="url(#wordGrad)">VIBES</text>
+  </g>
 </svg>

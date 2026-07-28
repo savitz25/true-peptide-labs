@@ -500,3 +500,381 @@ footer {
   background: rgba(0, 229, 255, 0.08) !important;
   color: var(--vv-cyan) !important;
 }
+
+/* ==========================================================================
+   Signature components: Vial Cards, 3D Vial, Vault, Finder, Visual Calc
+   ========================================================================== */
+
+@keyframes vv-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+@keyframes vv-pulse-glow {
+  0%, 100% { opacity: 0.45; }
+  50% { opacity: 0.9; }
+}
+@keyframes vv-spin-y {
+  from { transform: rotateY(0deg); }
+  to { transform: rotateY(360deg); }
+}
+@keyframes vv-shimmer {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
+}
+@keyframes vv-vault-unlock {
+  0% { transform: scale(0.9); opacity: 0; }
+  60% { transform: scale(1.04); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* Energy by category */
+.energy-tissue { --vv-energy: #F97316; --vv-energy-soft: rgba(249, 115, 22, 0.35); }
+.energy-metabolic { --vv-energy: #22C55E; --vv-energy-soft: rgba(34, 197, 94, 0.35); }
+.energy-gh { --vv-energy: #A855F7; --vv-energy-soft: rgba(168, 85, 247, 0.4); }
+.energy-cosmetic { --vv-energy: #F472B6; --vv-energy-soft: rgba(244, 114, 182, 0.4); }
+.energy-default { --vv-energy: #00E5FF; --vv-energy-soft: rgba(0, 229, 255, 0.35); }
+
+/* ---- Vial Card ---- */
+.vial-card {
+  position: relative;
+  border-radius: 1.75rem;
+  background: linear-gradient(160deg, rgba(30, 27, 75, 0.75) 0%, rgba(15, 12, 41, 0.9) 100%);
+  border: 1px solid rgba(248, 249, 250, 0.08);
+  overflow: hidden;
+  transition: transform 0.35s cubic-bezier(0.34, 1.2, 0.64, 1), border-color 0.25s ease, box-shadow 0.35s ease;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+.vial-card::before {
+  content: '';
+  position: absolute;
+  inset: -40% -20% auto;
+  height: 70%;
+  background: radial-gradient(ellipse at center, var(--vv-energy-soft, rgba(0,229,255,0.25)), transparent 65%);
+  pointer-events: none;
+  opacity: 0.7;
+}
+.vial-card:hover {
+  transform: translateY(-8px) scale(1.01);
+  border-color: color-mix(in srgb, var(--vv-energy, #00E5FF) 50%, transparent);
+  box-shadow: 0 0 40px var(--vv-energy-soft, rgba(0,229,255,0.2)), 0 20px 40px rgba(0,0,0,0.35);
+}
+.vial-stage {
+  position: relative;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 600px;
+}
+.glass-vial {
+  width: 72px;
+  height: 140px;
+  position: relative;
+  transform-style: preserve-3d;
+  animation: vv-float 5s ease-in-out infinite;
+}
+.glass-vial .vial-cap {
+  position: absolute;
+  top: 0; left: 50%;
+  transform: translateX(-50%);
+  width: 34px; height: 12px;
+  border-radius: 4px 4px 2px 2px;
+  background: linear-gradient(180deg, #E2E8F0, #94A3B8);
+  box-shadow: 0 0 12px rgba(0, 229, 255, 0.25);
+  z-index: 3;
+}
+.glass-vial .vial-neck {
+  position: absolute;
+  top: 10px; left: 50%;
+  transform: translateX(-50%);
+  width: 18px; height: 18px;
+  background: linear-gradient(90deg, rgba(255,255,255,0.08), rgba(0,229,255,0.2), rgba(255,255,255,0.08));
+  border-left: 1px solid rgba(255,255,255,0.25);
+  border-right: 1px solid rgba(255,255,255,0.25);
+  z-index: 2;
+}
+.glass-vial .vial-body {
+  position: absolute;
+  top: 26px; left: 50%;
+  transform: translateX(-50%);
+  width: 56px; height: 100px;
+  border-radius: 8px 8px 18px 18px;
+  background: linear-gradient(135deg, rgba(255,255,255,0.12) 0%, rgba(0,229,255,0.06) 40%, rgba(0,255,170,0.08) 100%);
+  border: 1.5px solid rgba(255,255,255,0.28);
+  box-shadow: inset 0 0 20px rgba(0,229,255,0.12), 0 8px 24px rgba(0,0,0,0.35);
+  overflow: hidden;
+  z-index: 1;
+}
+.glass-vial .vial-body::after {
+  content: '';
+  position: absolute;
+  top: 8%; left: 12%;
+  width: 18%; height: 55%;
+  border-radius: 40px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.45), transparent);
+  opacity: 0.5;
+}
+.glass-vial .vial-liquid {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 42%;
+  background: linear-gradient(180deg, color-mix(in srgb, var(--vv-energy, #00E5FF) 70%, transparent), var(--vv-energy, #00E5FF));
+  opacity: 0.55;
+  box-shadow: 0 0 20px var(--vv-energy-soft, rgba(0,229,255,0.4));
+}
+.glass-vial .vial-wave {
+  position: absolute;
+  left: 10%; right: 10%;
+  top: 48%;
+  height: 16px;
+  opacity: 0.9;
+}
+.glass-vial .vial-wave path {
+  fill: none;
+  stroke: #F8F9FA;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+}
+.vial-card-body { padding: 0 1.25rem 1.35rem; position: relative; z-index: 1; flex: 1; display: flex; flex-direction: column; }
+.vial-card .energy-tag {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--vv-energy, #00E5FF);
+  margin-bottom: 0.35rem;
+}
+.vial-card h3 { font-family: var(--font-display); font-size: 1.2rem; letter-spacing: -0.03em; margin: 0 0 0.4rem; }
+.vial-card h3 a { color: var(--vv-text); text-decoration: none; }
+.vial-card h3 a:hover { color: var(--vv-cyan); }
+.vial-card .vial-meta { font-size: 0.8rem; color: var(--vv-text-muted); margin-bottom: 0.75rem; flex: 1; }
+.vial-card .vial-footer { display: flex; align-items: flex-end; justify-content: space-between; gap: 0.75rem; }
+.vial-card .vial-price { font-family: var(--font-display); font-size: 1.65rem; letter-spacing: -0.03em; }
+
+/* ---- Interactive 3D vial stage ---- */
+.vial-3d-scene {
+  perspective: 900px;
+  width: 100%;
+  min-height: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.vial-3d-scene .orbit-ring {
+  position: absolute;
+  width: 220px; height: 220px;
+  border-radius: 50%;
+  border: 1px dashed rgba(0, 229, 255, 0.2);
+  animation: vv-spin-y 24s linear infinite;
+}
+.vial-3d {
+  width: 100px;
+  height: 200px;
+  position: relative;
+  transform-style: preserve-3d;
+  animation: vv-spin-y 14s linear infinite;
+  cursor: grab;
+}
+.vial-3d:hover { animation-play-state: paused; }
+.vial-3d .glass-vial { width: 100px; height: 200px; animation: none; }
+.vial-3d .vial-cap { width: 48px; height: 16px; }
+.vial-3d .vial-neck { width: 26px; height: 24px; top: 14px; }
+.vial-3d .vial-body { width: 78px; height: 140px; top: 36px; border-radius: 12px 12px 26px 26px; }
+.info-orbit {
+  position: absolute;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.45rem 0.75rem;
+  border-radius: 999px;
+  background: rgba(15, 12, 41, 0.75);
+  border: 1px solid rgba(0, 229, 255, 0.3);
+  color: var(--vv-cyan);
+  backdrop-filter: blur(8px);
+}
+.info-orbit.a { top: 12%; left: 4%; }
+.info-orbit.b { top: 40%; right: 2%; }
+.info-orbit.c { bottom: 18%; left: 8%; }
+
+/* ---- Vial Vault ---- */
+.vault-panel {
+  max-width: 520px;
+  margin: 0 auto;
+  border-radius: 1.75rem;
+  padding: 2rem;
+  background: linear-gradient(160deg, rgba(30,27,75,0.9), rgba(15,12,41,0.95));
+  border: 1px solid rgba(0, 229, 255, 0.2);
+  box-shadow: 0 0 60px rgba(0, 229, 255, 0.08);
+  position: relative;
+  overflow: hidden;
+}
+.vault-panel::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 0%, rgba(0,255,170,0.12), transparent 55%);
+  pointer-events: none;
+}
+.vault-lock {
+  width: 88px; height: 88px;
+  margin: 0 auto 1.25rem;
+  border-radius: 50%;
+  border: 2px solid rgba(0, 229, 255, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  color: var(--vv-cyan);
+  box-shadow: 0 0 30px rgba(0, 229, 255, 0.2);
+  transition: all 0.4s ease;
+}
+.vault-lock.unlocked {
+  border-color: var(--vv-mint);
+  color: var(--vv-mint);
+  box-shadow: 0 0 40px rgba(0, 255, 170, 0.35);
+  animation: vv-vault-unlock 0.55s ease;
+}
+.vault-verified {
+  display: none;
+  text-align: center;
+  animation: vv-vault-unlock 0.5s ease;
+}
+.vault-verified.show { display: block; }
+.vault-verified .badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.25rem;
+  border-radius: 999px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  font-size: 0.8rem;
+  background: linear-gradient(135deg, rgba(0,255,170,0.2), rgba(0,229,255,0.2));
+  border: 1px solid rgba(0, 255, 170, 0.5);
+  color: var(--vv-mint);
+  text-transform: uppercase;
+}
+
+/* ---- Vibe Finder ---- */
+.vibe-option {
+  cursor: pointer;
+  border-radius: 1.25rem;
+  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(30, 27, 75, 0.5);
+  padding: 1.25rem;
+  transition: all 0.2s ease;
+  text-align: left;
+  width: 100%;
+  color: inherit;
+}
+.vibe-option:hover, .vibe-option.selected {
+  border-color: rgba(0, 229, 255, 0.45);
+  background: rgba(0, 229, 255, 0.08);
+  box-shadow: 0 0 24px rgba(0, 229, 255, 0.12);
+}
+.vibe-option.selected { outline: 1px solid rgba(0, 255, 170, 0.4); }
+
+/* ---- Visual beaker calculator ---- */
+.beaker-stage {
+  position: relative;
+  width: 100%;
+  max-width: 280px;
+  margin: 0 auto;
+  height: 280px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+.beaker {
+  width: 140px;
+  height: 220px;
+  position: relative;
+}
+.beaker-glass {
+  position: absolute;
+  inset: 0;
+  border: 2px solid rgba(255,255,255,0.28);
+  border-top: none;
+  border-radius: 0 0 28px 28px;
+  background: linear-gradient(90deg, rgba(255,255,255,0.06), rgba(0,229,255,0.05));
+  overflow: hidden;
+  box-shadow: inset 0 0 30px rgba(0,229,255,0.1), 0 12px 40px rgba(0,0,0,0.3);
+}
+.beaker-rim {
+  position: absolute;
+  top: -8px; left: -10px; right: -10px;
+  height: 14px;
+  border: 2px solid rgba(255,255,255,0.3);
+  border-radius: 8px;
+  background: rgba(30, 27, 75, 0.8);
+}
+.beaker-fill {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 0%;
+  background: linear-gradient(180deg, rgba(0,255,170,0.55), rgba(0,229,255,0.75));
+  transition: height 0.45s cubic-bezier(0.34, 1.2, 0.64, 1);
+  box-shadow: 0 0 30px rgba(0, 255, 170, 0.35);
+}
+.beaker-fill::before {
+  content: '';
+  position: absolute;
+  top: -6px; left: 0; right: 0;
+  height: 12px;
+  background: radial-gradient(ellipse at center, rgba(255,255,255,0.35), transparent 70%);
+  animation: vv-pulse-glow 2.5s ease-in-out infinite;
+}
+.beaker-label {
+  position: absolute;
+  bottom: -2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--vv-cyan);
+  white-space: nowrap;
+}
+.calc-btn.active {
+  background: linear-gradient(135deg, #00E5FF, #00FFAA) !important;
+  color: #0F0C29 !important;
+  border-color: transparent !important;
+  box-shadow: 0 0 20px rgba(0, 229, 255, 0.3);
+}
+
+/* Library filters */
+.library-filter {
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.1);
+  background: transparent;
+  color: var(--vv-text-muted);
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.library-filter:hover, .library-filter.active {
+  color: #0F0C29;
+  background: linear-gradient(135deg, #00E5FF, #00FFAA);
+  border-color: transparent;
+}
+
+/* Particles backdrop */
+.vv-particles {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+.vv-particles span {
+  position: absolute;
+  width: 3px; height: 3px;
+  border-radius: 50%;
+  background: #00E5FF;
+  opacity: 0.35;
+  animation: vv-float 6s ease-in-out infinite;
+}
