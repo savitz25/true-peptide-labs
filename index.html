@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>peptide true.com • Premium Research Peptides</title>
+    <title>True Peptide Labs • Premium Research Peptides</title>
+    <meta name="description" content="True Peptide Labs supplies research-use-only peptides for qualified laboratories. Third-party tested where available. Not for human use.">
+    <link rel="canonical" href="https://www.peptidetrue.com/">
     <link rel="icon" type="image/png" href="logo.png">
     <link rel="apple-touch-icon" href="logo.png">
     <script src="https://cdn.tailwindcss.com"></script>
@@ -200,17 +202,19 @@
             <div class="px-8 py-4 flex items-center justify-between">
                 <div class="flex items-center gap-x-2">
                     <!-- Logo -->
-                    <img src="logo.png" alt="True Peptide Labs" class="h-14 w-auto">
+                    <a href="/" class="flex items-center gap-x-2">
+                        <img src="logo.png" alt="True Peptide Labs" class="h-14 w-auto">
+                    </a>
                 </div>
 
                 <!-- Desktop Nav -->
                 <div class="hidden md:flex items-center gap-x-9 text-sm">
                     <a href="#shop" class="nav-link text-slate-600 hover:text-slate-900 font-medium">Shop</a>
                     <a href="#science" class="nav-link text-slate-600 hover:text-slate-900 font-medium">Science</a>
-                    <a href="stack-builder.html" class="nav-link text-slate-600 hover:text-slate-900">Stack Builder</a>
-                    <a href="peptide-calculator.html" class="nav-link text-slate-600 hover:text-slate-900">Peptide Calculator</a>
+                    <a href="stack-builder.html" class="nav-link text-slate-600 hover:text-slate-900">Research Combinations</a>
+                    <a href="peptide-calculator.html" class="nav-link text-slate-600 hover:text-slate-900">Reconstitution Calculator</a>
                     <a href="#faq" class="nav-link text-slate-600 hover:text-slate-900 font-medium">FAQ</a>
-                    <a href="#contact" class="nav-link text-slate-600 hover:text-slate-900 font-medium">Contact</a>
+                    <a href="contact.html" class="nav-link text-slate-600 hover:text-slate-900 font-medium">Contact</a>
                 </div>
 
                 <div class="flex items-center gap-x-3">
@@ -218,19 +222,19 @@
                     <div class="hidden md:block relative w-72">
                         <input id="nav-search" 
                                type="text" 
-                               placeholder="Search peptides..." 
+                               placeholder="Search research peptides..." 
                                class="w-full bg-white border border-slate-200 focus:border-slate-300 text-sm pl-10 pr-4 py-2.5 rounded-2xl outline-none">
                         <i class="fa-solid fa-search absolute left-4 top-3.5 text-slate-400"></i>
                     </div>
 
                     <!-- Cart Button -->
-                    <button onclick="openCart()" 
+                    <a href="cart.html"
                             class="flex items-center gap-x-2.5 bg-white hover:bg-slate-50 border border-slate-200 text-slate-700 px-5 h-11 rounded-2xl text-sm font-semibold transition-colors relative">
                         <i class="fa-solid fa-shopping-cart"></i>
                         <span class="hidden sm:inline">Cart</span>
                         <div id="cart-count" 
                              class="absolute -top-1.5 -right-1.5 min-w-[19px] h-[19px] px-1.5 bg-emerald-600 text-white text-[10px] font-bold rounded-full flex items-center justify-center">0</div>
-                    </button>
+                    </a>
 
                     <!-- Mobile Menu -->
                     <button class="md:hidden w-11 h-11 flex items-center justify-center text-slate-600 hover:text-slate-900" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
@@ -245,10 +249,11 @@
             <div class="flex flex-col gap-y-3">
                 <a href="#shop" class="py-1 text-slate-600">Shop</a>
                 <a href="#science" class="py-1 text-slate-600">Science</a>
-                <a href="stack-builder.html" class="py-1 text-slate-600">Stack Builder</a>
-                <a href="peptide-calculator.html" class="py-1 text-slate-600">Peptide Calculator</a>
+                <a href="stack-builder.html" class="py-1 text-slate-600">Research Combinations</a>
+                <a href="peptide-calculator.html" class="py-1 text-slate-600">Reconstitution Calculator</a>
                 <a href="#faq" class="py-1 text-slate-600">FAQ</a>
-                <a href="#contact" class="py-1 text-slate-600">Contact</a>
+                <a href="contact.html" class="py-1 text-slate-600">Contact</a>
+                <a href="cart.html" class="py-1 text-slate-600">Cart</a>
             </div>
         </div>
     </nav>
@@ -261,7 +266,7 @@
                 <div class="lg:col-span-7 max-w-3xl">
                     <div class="inline-flex items-center gap-2 bg-white/10 text-white/90 text-xs font-semibold tracking-[1px] px-4 h-8 rounded-full mb-6">
                         <div class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></div>
-                        EST. 2019 • USA • GMP CERTIFIED
+                        RESEARCH USE ONLY • U.S. SUPPLIER
                     </div>
                     
                     <h1 class="section-header text-6xl md:text-7xl lg:text-7xl font-semibold tracking-tighter leading-[1.05] mb-6">
@@ -269,8 +274,8 @@
                     </h1>
                     
                     <p class="text-xl text-slate-300 max-w-lg mb-9">
-                        Third-party tested. Batch verified. Shipped same-day from our U.S. laboratory.<br>
-                        Built with precision for the most demanding researchers.
+                        Research-grade peptides for qualified laboratories. Batch documentation when available.<br>
+                        Built for controlled laboratory research — not for human use.
                     </p>
 
                     <div class="flex flex-wrap gap-4">
@@ -279,21 +284,14 @@
                             Browse Catalog
                             <i class="fa-solid fa-arrow-right"></i>
                         </button>
-                        <button onclick="document.getElementById('science').scrollIntoView({ behavior: 'smooth' })" 
+                        <a href="coa.html" 
                                 class="px-8 h-14 border border-white/30 hover:bg-white/10 hover:border-white/50 transition-all rounded-2xl text-lg font-semibold flex items-center gap-3 backdrop-blur-sm">
-                            View Certificates
-                        </button>
+                            Certificates of Analysis
+                        </a>
                     </div>
 
-                    <div class="flex items-center gap-x-8 mt-10 text-sm">
-                        <div class="flex -space-x-2">
-                            <div class="w-8 h-8 bg-slate-700 rounded-full ring-2 ring-slate-900 overflow-hidden"><img src="https://i.pravatar.cc/32?img=28" alt=""></div>
-                            <div class="w-8 h-8 bg-slate-700 rounded-full ring-2 ring-slate-900 overflow-hidden"><img src="https://i.pravatar.cc/32?img=47" alt=""></div>
-                            <div class="w-8 h-8 bg-slate-700 rounded-full ring-2 ring-slate-900 overflow-hidden"><img src="https://i.pravatar.cc/32?img=12" alt=""></div>
-                        </div>
-                        <div class="text-slate-400">
-                            <span class="text-emerald-400 font-semibold">4,812</span> researchers served
-                        </div>
+                    <div class="mt-10 text-sm text-slate-400 max-w-md">
+                        <span class="text-emerald-400 font-semibold">RUO</span> — All products are intended strictly for in vitro laboratory research by qualified professionals.
                     </div>
                 </div>
 
@@ -350,61 +348,47 @@
         </div>
     </header>
 
-    <!-- TRUST BAR -->
+    <!-- TRUST BAR (claims without evidence removed) -->
     <div class="border-b bg-white">
         <div class="max-w-screen-2xl mx-auto px-8 py-4">
             <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
                 <div class="flex items-center gap-x-3 px-1">
                     <i class="fa-solid fa-shield-halved text-emerald-600 text-xl"></i>
                     <div>
-                        <div class="font-semibold">HPLC + MS Tested</div>
-                        <div class="text-slate-500 text-xs">≥99% purity guaranteed</div>
+                        <div class="font-semibold">Batch Documentation</div>
+                        <div class="text-slate-500 text-xs">CoA available on request</div>
                     </div>
                 </div>
                 <div class="flex items-center gap-x-3 px-1">
                     <i class="fa-solid fa-truck-fast text-emerald-600 text-xl"></i>
                     <div>
-                        <div class="font-semibold">Same-Day Shipping</div>
-                        <div class="text-slate-500 text-xs">Orders placed before 2pm EST</div>
+                        <div class="font-semibold">Lab Shipping</div>
+                        <div class="text-slate-500 text-xs">Lyophilized research vials</div>
                     </div>
                 </div>
                 <div class="flex items-center gap-x-3 px-1">
                     <i class="fa-solid fa-flask text-emerald-600 text-xl"></i>
                     <div>
-                        <div class="font-semibold">U.S. Manufactured</div>
-                        <div class="text-slate-500 text-xs">cGMP compliant facility</div>
+                        <div class="font-semibold">U.S. Research Supplier</div>
+                        <div class="text-slate-500 text-xs">Qualified lab customers</div>
                     </div>
                 </div>
                 <div class="flex items-center gap-x-3 px-1">
                     <i class="fa-solid fa-lock text-emerald-600 text-xl"></i>
                     <div>
-                        <div class="font-semibold">Secure &amp; Discreet</div>
-                        <div class="text-slate-500 text-xs">Plain packaging • SSL checkout</div>
+                        <div class="font-semibold">Secure Checkout</div>
+                        <div class="text-slate-500 text-xs">Hosted payment (Stripe)</div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- STATS -->
-    <div class="max-w-screen-2xl mx-auto px-8 py-9">
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-px bg-slate-200 rounded-3xl overflow-hidden">
-            <div class="bg-white px-8 py-6">
-                <div class="text-4xl font-semibold metric tracking-tighter">99.4%</div>
-                <div class="text-sm text-slate-500 mt-1">Average lot purity (2025)</div>
-            </div>
-            <div class="bg-white px-8 py-6">
-                <div class="text-4xl font-semibold metric tracking-tighter">42k+</div>
-                <div class="text-sm text-slate-500 mt-1">Vials shipped last year</div>
-            </div>
-            <div class="bg-white px-8 py-6">
-                <div class="text-4xl font-semibold metric tracking-tighter">87</div>
-                <div class="text-sm text-slate-500 mt-1">Universities &amp; labs served</div>
-            </div>
-            <div class="bg-white px-8 py-6">
-                <div class="text-4xl font-semibold metric tracking-tighter">4.98</div>
-                <div class="text-sm text-slate-500 mt-1">Average customer rating</div>
-            </div>
+    <!-- RUO BANNER -->
+    <div class="bg-amber-50 border-b border-amber-200">
+        <div class="max-w-screen-2xl mx-auto px-8 py-3 text-center text-sm text-amber-900">
+            <strong>Research Use Only.</strong> Products are not for human consumption, clinical use, or veterinary administration.
+            <a href="research-use-only.html" class="underline font-semibold ml-1">Read full RUO policy</a>
         </div>
     </div>
 
@@ -435,16 +419,16 @@
                 All Peptides
             </button>
             <button onclick="filterByCategory('recovery')" class="filter-btn px-5 py-2 text-sm font-semibold border border-slate-200 hover:border-slate-300 rounded-2xl bg-white" data-category="recovery">
-                Recovery &amp; Healing
+                Tissue &amp; Repair Models
             </button>
             <button onclick="filterByCategory('metabolic')" class="filter-btn px-5 py-2 text-sm font-semibold border border-slate-200 hover:border-slate-300 rounded-2xl bg-white" data-category="metabolic">
-                Metabolic
+                Metabolic Research
             </button>
             <button onclick="filterByCategory('gh')" class="filter-btn px-5 py-2 text-sm font-semibold border border-slate-200 hover:border-slate-300 rounded-2xl bg-white" data-category="gh">
-                Growth Hormone
+                GH Axis Research
             </button>
             <button onclick="filterByCategory('cosmetic')" class="filter-btn px-5 py-2 text-sm font-semibold border border-slate-200 hover:border-slate-300 rounded-2xl bg-white" data-category="cosmetic">
-                Cosmetic
+                Skin / ECM Research
             </button>
         </div>
 
@@ -470,101 +454,45 @@
                         <div class="flex gap-4">
                             <i class="fa-solid fa-check-circle mt-1 text-emerald-400 text-xl"></i>
                             <div>
-                                <div class="font-semibold text-white">HPLC &amp; Mass Spectrometry</div>
-                                <div class="text-sm">Purity and identity verified on every lot by independent ISO 17025 labs.</div>
+                                <div class="font-semibold text-white">Analytical Documentation</div>
+                                <div class="text-sm">Certificates of Analysis provided for lots when available. Request by lot number.</div>
                             </div>
                         </div>
                         <div class="flex gap-4">
                             <i class="fa-solid fa-check-circle mt-1 text-emerald-400 text-xl"></i>
                             <div>
-                                <div class="font-semibold text-white">Real CoAs</div>
-                                <div class="text-sm">Full Certificates of Analysis available for every vial. Scan the QR on your product.</div>
+                                <div class="font-semibold text-white">Lot Traceability</div>
+                                <div class="text-sm">Each research vial is associated with a lot identifier for laboratory records.</div>
                             </div>
                         </div>
                         <div class="flex gap-4">
                             <i class="fa-solid fa-check-circle mt-1 text-emerald-400 text-xl"></i>
                             <div>
-                                <div class="font-semibold text-white">Cold-chain validated</div>
-                                <div class="text-sm">Lyophilized peptides shipped with desiccant and temperature monitoring.</div>
+                                <div class="font-semibold text-white">Research Packaging</div>
+                                <div class="text-sm">Lyophilized peptides shipped with desiccant for laboratory storage and handling.</div>
                             </div>
                         </div>
                     </div>
+                    <a href="quality.html" class="inline-flex mt-8 text-emerald-400 font-semibold text-sm hover:text-emerald-300">
+                        Quality &amp; Compliance details <i class="fa-solid fa-arrow-right ml-2"></i>
+                    </a>
                 </div>
 
                 <div class="bg-slate-800 rounded-3xl p-9 text-sm">
-                    <div class="uppercase tracking-widest text-xs font-bold text-emerald-400 mb-5">LATEST BATCH REPORTS</div>
-                    
-                    <div class="space-y-4">
-                        <div class="flex justify-between border-b border-white/10 pb-4">
-                            <div>
-                                <div class="font-semibold">BPC-157 Arginate • Lot #AP-241118</div>
-                                <div class="text-emerald-400 text-xs">99.7% purity • 5mg</div>
-                            </div>
-                            <a href="#" class="text-xs px-3 py-1 border border-white/20 rounded-xl flex items-center hover:bg-white/5">Download CoA</a>
-                        </div>
-                        <div class="flex justify-between border-b border-white/10 pb-4">
-                            <div>
-                                <div class="font-semibold">Tirzepatide • Lot #AP-241205</div>
-                                <div class="text-emerald-400 text-xs">99.3% purity • 5mg</div>
-                            </div>
-                            <a href="#" class="text-xs px-3 py-1 border border-white/20 rounded-xl flex items-center hover:bg-white/5">Download CoA</a>
-                        </div>
-                        <div class="flex justify-between">
-                            <div>
-                                <div class="font-semibold">Retatrutide • Lot #AP-250109</div>
-                                <div class="text-emerald-400 text-xs">99.5% purity • 5mg</div>
-                            </div>
-                            <a href="#" class="text-xs px-3 py-1 border border-white/20 rounded-xl flex items-center hover:bg-white/5">Download CoA</a>
-                        </div>
-                    </div>
-                    
-                    <div class="text-[10px] text-center text-white/50 mt-8">All reports are independently audited. Full archive available upon request.</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- TESTIMONIALS -->
-    <section class="max-w-screen-2xl mx-auto px-8 py-16">
-        <div class="mb-9">
-            <div class="uppercase tracking-[2px] text-xs font-semibold text-emerald-600">RESEARCHERS SPEAK</div>
-            <h2 class="section-header text-4xl font-semibold tracking-tight">Trusted by leading labs worldwide</h2>
-        </div>
-
-        <div class="grid md:grid-cols-3 gap-5">
-            <div class="bg-white border border-slate-100 p-7 rounded-3xl">
-                <div class="flex mb-5">
-                    <div class="text-emerald-500">★★★★★</div>
-                </div>
-                <p class="text-[15px] leading-snug">"The purity reports and consistency are unmatched. We've compared 4 vendors. Apex is the only one we use for our metabolic studies now."</p>
-                <div class="mt-6 flex items-center gap-3">
-                    <div class="text-sm">
-                        <div class="font-semibold">Dr. Elena Vasquez</div>
-                        <div class="text-slate-500 text-xs">Principal Investigator, Stanford Metabolism Lab</div>
-                    </div>
-                </div>
-            </div>
-            <div class="bg-white border border-slate-100 p-7 rounded-3xl">
-                <div class="flex mb-5">
-                    <div class="text-emerald-500">★★★★★</div>
-                </div>
-                <p class="text-[15px] leading-snug">"Fast shipping and excellent packaging. Every vial has arrived perfectly lyophilized. Their TB-500 and BPC-157 batches are consistently the cleanest we've tested."</p>
-                <div class="mt-6 flex items-center gap-3">
-                    <div class="text-sm">
-                        <div class="font-semibold">Marcus Chen, PhD</div>
-                        <div class="text-slate-500 text-xs">Director of Research, Regeneron</div>
-                    </div>
-                </div>
-            </div>
-            <div class="bg-white border border-slate-100 p-7 rounded-3xl">
-                <div class="flex mb-5">
-                    <div class="text-emerald-500">★★★★★</div>
-                </div>
-                <p class="text-[15px] leading-snug">"Outstanding customer support and transparent documentation. The CoAs are incredibly detailed. We recommend Apex to every academic collaborator."</p>
-                <div class="mt-6 flex items-center gap-3">
-                    <div class="text-sm">
-                        <div class="font-semibold">Prof. Sarah Patel</div>
-                        <div class="text-slate-500 text-xs">Harvard Medical School • Cell Biology</div>
+                    <div class="uppercase tracking-widest text-xs font-bold text-emerald-400 mb-5">CERTIFICATES OF ANALYSIS</div>
+                    <p class="text-slate-300 mb-6 leading-relaxed">
+                        Public CoA downloads and lot pages are being prepared. Until the archive is live, request documentation by lot number.
+                    </p>
+                    <form action="coa.html" method="get" class="space-y-4" onsubmit="return goToCoaLookup(event)">
+                        <label class="block text-xs font-semibold tracking-wider text-slate-400">LOT NUMBER LOOKUP</label>
+                        <input type="text" id="coa-lot-input" name="lot" placeholder="Enter lot number (e.g. TPL-250101)"
+                               class="w-full bg-slate-900 border border-white/15 text-white px-4 py-3 rounded-2xl outline-none focus:border-emerald-500">
+                        <button type="submit" class="w-full py-3 bg-emerald-600 hover:bg-emerald-500 text-white font-semibold rounded-2xl transition-colors">
+                            Look Up Lot / Request CoA
+                        </button>
+                    </form>
+                    <div class="text-[10px] text-center text-white/50 mt-8">
+                        No fabricated batch purity figures are displayed. <a href="coa.html" class="underline hover:text-white/70">CoA center</a>
                     </div>
                 </div>
             </div>
@@ -604,7 +532,7 @@
                         <i class="fa-solid fa-chevron-down transition-transform"></i>
                     </button>
                     <div class="faq-answer hidden text-sm text-slate-600 pt-3">
-                        Yes. Every batch comes with a full CoA from a third-party ISO-certified laboratory. You can download the latest CoA directly from each product page or by entering your lot number.
+                        Certificates of Analysis are provided for research lots when available. Use our <a href="coa.html" class="text-emerald-700 underline">CoA lookup</a> or email your lot number to <strong>research@truepeptidelabs.com</strong>. A public lot archive is being published; until then, dead download links are not shown.
                     </div>
                 </div>
                 <div class="bg-white border border-slate-200 rounded-2xl px-6 py-4">
@@ -613,7 +541,7 @@
                         <i class="fa-solid fa-chevron-down transition-transform"></i>
                     </button>
                     <div class="faq-answer hidden text-sm text-slate-600 pt-3">
-                        We accept all major credit cards, ACH transfers, and wire payments for institutional orders. Cryptocurrency (USDC) is available for qualifying accounts.
+                        Checkout uses a research order request flow with a planned Stripe hosted payment integration (card data is not collected on our site). Institutional buyers may also inquire about ACH or wire via <strong>orders@truepeptidelabs.com</strong>.
                     </div>
                 </div>
                 <div class="bg-white border border-slate-200 rounded-2xl px-6 py-4">
@@ -633,10 +561,10 @@
     <div class="bg-emerald-600 text-white">
         <div class="max-w-screen-2xl mx-auto px-8 py-12 text-center">
             <h3 class="font-semibold text-3xl tracking-tight">Ready to advance your research?</h3>
-            <p class="mt-2 text-emerald-100 max-w-md mx-auto">Order today and receive your peptides with full traceability and documentation.</p>
+            <p class="mt-2 text-emerald-100 max-w-md mx-auto">Browse research-use-only peptides for qualified laboratory use.</p>
             <button onclick="document.getElementById('shop').scrollIntoView({ behavior: 'smooth' })" 
                     class="mt-6 inline-block px-8 py-3.5 bg-white text-emerald-700 hover:bg-emerald-50 active:bg-white font-semibold rounded-2xl transition-colors">
-                Start Shopping
+                Browse Research Catalog
             </button>
         </div>
     </div>
@@ -649,35 +577,35 @@
                     <div class="flex items-center gap-x-2 text-white mb-4">
                         <img src="logo.png" alt="True Peptide Labs" class="h-12 w-auto">
                     </div>
-                    <div class="text-xs max-w-xs">Precision peptide synthesis for the global scientific community since 2019.</div>
+                    <div class="text-xs max-w-xs">True Peptide Labs supplies research-use-only peptides for qualified laboratories. Operated by APEX Research, LLC.</div>
                 </div>
 
                 <div class="grid grid-cols-2 md:grid-cols-3 gap-x-12 gap-y-8 text-xs">
                     <div>
                         <div class="font-semibold text-white tracking-wider mb-3 text-xs">COMPANY</div>
                         <div class="space-y-1.5">
-                            <div>About Us</div>
-                            <div>Quality &amp; Compliance</div>
-                            <div>Careers</div>
-                            <div>Research Grants</div>
+                            <div><a href="about.html" class="hover:text-white">About Us</a></div>
+                            <div><a href="quality.html" class="hover:text-white">Quality &amp; Compliance</a></div>
+                            <div><a href="careers.html" class="hover:text-white">Careers</a></div>
+                            <div><a href="research-grants.html" class="hover:text-white">Research Grants</a></div>
                         </div>
                     </div>
                     <div>
                         <div class="font-semibold text-white tracking-wider mb-3 text-xs">RESOURCES</div>
                         <div class="space-y-1.5">
-                            <div>Certificates of Analysis</div>
-                            <div>Reconstitution Guide</div>
-                            <div>Peptide Storage</div>
-                            <div>Publications</div>
+                            <div><a href="coa.html" class="hover:text-white">Certificates of Analysis</a></div>
+                            <div><a href="peptide-calculator.html" class="hover:text-white">Reconstitution Calculator</a></div>
+                            <div><a href="stack-builder.html" class="hover:text-white">Research Combinations</a></div>
+                            <div><a href="publications.html" class="hover:text-white">Publications</a></div>
                         </div>
                     </div>
                     <div>
                         <div class="font-semibold text-white tracking-wider mb-3 text-xs">LEGAL</div>
                         <div class="space-y-1.5">
-                            <div>Terms of Sale</div>
-                            <div>Privacy Policy</div>
-                            <div>Research Use Only</div>
-                            <div>DMCA / Compliance</div>
+                            <div><a href="terms.html" class="hover:text-white">Terms of Sale</a></div>
+                            <div><a href="privacy.html" class="hover:text-white">Privacy Policy</a></div>
+                            <div><a href="research-use-only.html" class="hover:text-white">Research Use Only</a></div>
+                            <div><a href="contact.html" class="hover:text-white">Contact</a></div>
                         </div>
                     </div>
                 </div>
@@ -686,9 +614,9 @@
             <!-- Heavy Disclaimer -->
             <div class="mt-12 pt-8 border-t border-white/10">
                 <div class="disclaimer bg-slate-950 border border-white/10 rounded-2xl p-5 text-[11.5px] leading-relaxed">
-                    <strong class="text-white">IMPORTANT DISCLAIMER:</strong> All products sold by APEX Research, LLC are intended <span class="text-red-400 font-semibold">strictly for in vitro laboratory research purposes only</span>. They are not approved by the FDA for human use, are not drugs, and are not intended to diagnose, treat, cure, or prevent any disease. These products are not for human consumption, injection, or any form of bodily introduction. By purchasing from this website you certify that you are a qualified researcher, institution, or laboratory professional and will use these products solely for legitimate laboratory research in a controlled setting. Misuse of these products is a violation of our Terms of Sale and may be illegal. All sales are final.
+                    <strong class="text-white">IMPORTANT DISCLAIMER:</strong> All products sold by True Peptide Labs (operated by APEX Research, LLC) are intended <span class="text-red-400 font-semibold">strictly for in vitro laboratory research purposes only</span>. They are not approved by the FDA for human use, are not drugs, and are not intended to diagnose, treat, cure, or prevent any disease. These products are not for human consumption, injection, or any form of bodily introduction. By purchasing from this website you certify that you are a qualified researcher, institution, or laboratory professional and will use these products solely for legitimate laboratory research in a controlled setting. Misuse of these products is a violation of our Terms of Sale and may be illegal. All sales are final. <a href="research-use-only.html" class="underline text-emerald-400">Full RUO policy</a>.
                 </div>
-                <div class="text-center mt-8 text-[10px] tracking-wider">© 2026 APEX Research, LLC. All rights reserved. • Made for research professionals.</div>
+                <div class="text-center mt-8 text-[10px] tracking-wider">© 2026 True Peptide Labs, operated by APEX Research, LLC. All rights reserved. • Research professionals only.</div>
             </div>
         </div>
     </footer>
@@ -725,114 +653,14 @@
                 </div>
                 <div class="text-xs px-1 text-emerald-600 mb-5">Shipping calculated at checkout • Free on orders over $450</div>
                 
-                <button onclick="proceedToCheckout()" 
-                        class="w-full py-4 bg-slate-900 hover:bg-black transition-colors rounded-2xl text-white font-semibold text-base">
+                <a href="checkout.html"
+                        class="block w-full py-4 bg-slate-900 hover:bg-black transition-colors rounded-2xl text-white font-semibold text-base text-center">
                     Proceed to Checkout
-                </button>
-                
-                <button onclick="closeCart()" class="mt-3 w-full text-sm text-slate-600 font-medium">Continue Shopping</button>
+                </a>
+                <a href="cart.html" class="mt-3 block w-full text-sm text-slate-600 font-medium text-center">Open Full Cart</a>
+                <button onclick="closeCart()" class="mt-2 w-full text-sm text-slate-500 font-medium">Continue Shopping</button>
+                <p class="mt-4 text-[10px] text-center text-slate-500 leading-relaxed">Research Use Only. Secure hosted payment on checkout — we do not collect card numbers on this page.</p>
             </div>
-        </div>
-    </div>
-
-    <!-- CHECKOUT MODAL -->
-    <div id="checkout-modal" onclick="if (event.target.id === 'checkout-modal') closeCheckoutModal()" class="hidden fixed inset-0 bg-black/70 z-[120] flex items-center justify-center p-4">
-        <div onclick="event.stopImmediatePropagation()" class="bg-white rounded-3xl max-w-lg w-full modal shadow-xl overflow-hidden">
-            <div class="px-8 py-6 border-b flex justify-between items-center">
-                <div class="font-semibold text-xl">Checkout</div>
-                <button onclick="closeCheckoutModal()" class="text-slate-400 hover:text-black"><i class="fa-solid fa-times text-2xl"></i></button>
-            </div>
-            
-            <div class="p-8">
-                <!-- Order Summary -->
-                <div class="mb-6">
-                    <div class="uppercase text-xs font-semibold tracking-wider text-slate-500 mb-3">ORDER SUMMARY</div>
-                    <div id="checkout-summary" class="text-sm bg-slate-50 border border-slate-100 rounded-2xl p-4"></div>
-                </div>
-
-                <form id="checkout-form" onsubmit="completePurchase(event)">
-                    <div class="grid grid-cols-2 gap-4">
-                        <div class="col-span-2">
-                            <label class="text-xs font-semibold tracking-wide text-slate-500 block mb-1">FULL NAME</label>
-                            <input type="text" value="Dr. Sarah Kline" required class="w-full border border-slate-200 px-4 py-3 rounded-2xl text-sm">
-                        </div>
-                        <div class="col-span-2">
-                            <label class="text-xs font-semibold tracking-wide text-slate-500 block mb-1">INSTITUTION / LAB</label>
-                            <input type="text" value="Kline Lab — MIT" required class="w-full border border-slate-200 px-4 py-3 rounded-2xl text-sm">
-                        </div>
-                        <div class="col-span-2">
-                            <label class="text-xs font-semibold tracking-wide text-slate-500 block mb-1">SHIPPING ADDRESS</label>
-                            <input type="text" value="77 Massachusetts Ave, Building 68" required class="w-full border border-slate-200 px-4 py-3 rounded-2xl text-sm">
-                        </div>
-                        <div>
-                            <label class="text-xs font-semibold tracking-wide text-slate-500 block mb-1">CITY</label>
-                            <input type="text" value="Cambridge" required class="w-full border border-slate-200 px-4 py-3 rounded-2xl text-sm">
-                        </div>
-                        <div class="grid grid-cols-2 gap-3">
-                            <div>
-                                <label class="text-xs font-semibold tracking-wide text-slate-500 block mb-1">STATE</label>
-                                <input type="text" value="MA" required class="w-full border border-slate-200 px-4 py-3 rounded-2xl text-sm">
-                            </div>
-                            <div>
-                                <label class="text-xs font-semibold tracking-wide text-slate-500 block mb-1">ZIP</label>
-                                <input type="text" value="02139" required class="w-full border border-slate-200 px-4 py-3 rounded-2xl text-sm">
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Payment -->
-                    <div class="mt-6">
-                        <div class="uppercase text-xs font-semibold tracking-wider text-slate-500 mb-3">PAYMENT</div>
-                        <div class="bg-slate-50 border border-slate-100 rounded-2xl p-4 text-sm">
-                            <div class="flex gap-3 mb-4">
-                                <div class="flex-1 border border-emerald-600 bg-emerald-50 text-emerald-700 px-4 py-2 rounded-xl text-center font-medium text-xs">Credit Card</div>
-                                <div class="flex-1 border px-4 py-2 rounded-xl text-center text-slate-400 text-xs">ACH / Wire</div>
-                            </div>
-                            
-                            <div class="space-y-3">
-                                <div>
-                                    <input type="text" placeholder="4242 4242 4242 4242" value="4242 4242 4242 4242" class="w-full text-sm border border-slate-200 px-4 py-[11px] rounded-2xl">
-                                </div>
-                                <div class="grid grid-cols-2 gap-3">
-                                    <input type="text" placeholder="MM / YY" value="04 / 28" class="text-sm border border-slate-200 px-4 py-[11px] rounded-2xl">
-                                    <input type="text" placeholder="CVC" value="382" class="text-sm border border-slate-200 px-4 py-[11px] rounded-2xl">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="mt-7">
-                        <button type="submit" 
-                                class="w-full py-[17px] rounded-2xl text-white font-semibold bg-emerald-600 hover:bg-emerald-700 transition-colors text-base">
-                            Complete Purchase • <span id="checkout-total"></span>
-                        </button>
-                        <div class="text-[10px] text-center mt-3 text-slate-500">Your order is protected by 256-bit SSL. All sales final.</div>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-
-    <!-- SUCCESS MODAL -->
-    <div id="success-modal" onclick="if (event.target.id === 'success-modal') closeSuccessModal()" class="hidden fixed inset-0 bg-black/70 z-[130] flex items-center justify-center p-4">
-        <div onclick="event.stopImmediatePropagation()" class="bg-white rounded-3xl max-w-md w-full modal p-9 text-center shadow-2xl">
-            <div class="mx-auto w-16 h-16 rounded-full bg-emerald-100 flex items-center justify-center mb-5">
-                <i class="fa-solid fa-check text-emerald-600 text-4xl"></i>
-            </div>
-            <h3 class="text-3xl font-semibold tracking-tight">Order Confirmed</h3>
-            <p class="mt-1.5 text-emerald-700 font-medium">Thank you for your research order.</p>
-            
-            <div class="my-6 text-left text-sm bg-slate-50 border border-slate-100 rounded-2xl p-5">
-                <div class="flex justify-between text-xs mb-3">
-                    <div class="text-slate-500">ORDER NUMBER</div>
-                    <div class="font-mono font-semibold" id="order-number"></div>
-                </div>
-                <div class="text-xs text-slate-600">Your peptides have been prepared and will ship today. Tracking and CoAs will be emailed to the address on file.</div>
-            </div>
-            
-            <div class="text-sm text-slate-500">Questions? Email <span class="font-semibold text-emerald-700">orders@apexresearch.co</span></div>
-            
-            <button onclick="closeSuccessModal()" class="mt-8 w-full py-3 bg-slate-900 text-white rounded-2xl font-semibold">Return to Catalog</button>
         </div>
     </div>
 
@@ -856,8 +684,25 @@
         // ADVANCED WEB APP: Data Layer with Persistence
         // ============================================
 
+        // Migrate legacy apex_* keys → tpl_*
+        (function migrateStorageKeys() {
+            const map = [
+                ['apex_products', 'tpl_products'],
+                ['apex_cart', 'tpl_cart'],
+                ['apex_wishlist', 'tpl_wishlist'],
+                ['apex_orders', 'tpl_orders'],
+                ['apex_user', 'tpl_user']
+            ];
+            map.forEach(([from, to]) => {
+                if (!localStorage.getItem(to) && localStorage.getItem(from)) {
+                    localStorage.setItem(to, localStorage.getItem(from));
+                    localStorage.removeItem(from);
+                }
+            });
+        })();
+
         // Load products from localStorage or use defaults
-        let products = JSON.parse(localStorage.getItem('apex_products')) || [
+        let products = JSON.parse(localStorage.getItem('tpl_products')) || [
 
             {
                 id: 1,
@@ -865,10 +710,10 @@
                 category: "recovery",
                 price: 59,
                 vialSize: "5 mg",
-                purity: "≥99.5%",
-                description: "Body protection compound for tissue repair research",
-                details: "BPC-157 is a synthetic pentadecapeptide derived from gastric juice. Extensively studied for its role in angiogenesis, tendon/ligament repair, and gut-brain axis research. Highly stable in physiological conditions.",
-                benefits: ["Tissue regeneration", "Angiogenesis", "GI tract integrity"],
+                purity: "Lot CoA on request",
+                description: "Synthetic peptide for tissue and angiogenesis research models",
+                details: "BPC-157 is a synthetic pentadecapeptide studied in laboratory models of angiogenesis, soft-tissue response, and gut-barrier research. For in vitro / controlled research use only.",
+                benefits: ["Angiogenesis models", "Soft-tissue research", "GI barrier models"],
                 inStock: true
             },
             {
@@ -877,10 +722,10 @@
                 category: "recovery",
                 price: 69,
                 vialSize: "5 mg",
-                purity: "≥99.3%",
-                description: "Actin-sequestering peptide for wound healing models",
-                details: "TB-500 is a synthetic version of the naturally occurring thymosin beta-4 peptide. Research focuses on its ability to promote cell migration, reduce inflammation, and support tissue remodeling in injury models.",
-                benefits: ["Cell migration", "Anti-inflammatory", "Tissue remodeling"],
+                purity: "Lot CoA on request",
+                description: "Actin-related peptide for cell migration research models",
+                details: "TB-500 is a synthetic thymosin beta-4 fragment used in laboratory studies of cell migration, inflammation pathways, and tissue remodeling. Research use only.",
+                benefits: ["Cell migration models", "Inflammation pathways", "Tissue remodeling assays"],
                 inStock: true
             },
             {
@@ -889,10 +734,10 @@
                 category: "metabolic",
                 price: 129,
                 vialSize: "5 mg",
-                purity: "≥99.7%",
+                purity: "Lot CoA on request",
                 description: "GLP-1 receptor agonist for metabolic research",
-                details: "Semaglutide is a long-acting GLP-1 analog. Used widely in research exploring glucose homeostasis, appetite regulation, and weight management mechanisms in rodent and primate models.",
-                benefits: ["GLP-1 agonism", "Glucose control", "Appetite research"],
+                details: "Semaglutide is a long-acting GLP-1 analog used in laboratory research exploring glucose homeostasis and metabolic pathway mechanisms in model systems.",
+                benefits: ["GLP-1 pathway research", "Metabolic models", "Incretin signaling"],
                 inStock: true
             },
             {
@@ -901,7 +746,7 @@
                 category: "metabolic",
                 price: 149,
                 vialSize: "5 mg",
-                purity: "≥99.4%",
+                purity: "Lot CoA on request",
                 description: "Dual GIP / GLP-1 agonist peptide",
                 details: "Tirzepatide is a novel dual incretin mimetic. It is the subject of intense study for its superior efficacy on glycemic control and body weight compared to selective GLP-1 agonists in preclinical trials.",
                 benefits: ["Dual agonist", "Superior efficacy", "Metabolic syndrome"],
@@ -913,7 +758,7 @@
                 category: "gh",
                 price: 49,
                 vialSize: "5 mg",
-                purity: "≥99.6%",
+                purity: "Lot CoA on request",
                 description: "Selective ghrelin receptor agonist (GHSR)",
                 details: "Ipamorelin is a potent and selective growth hormone secretagogue. It stimulates GH release with minimal impact on cortisol or prolactin. Popular for pulsatile GH research and recovery studies.",
                 benefits: ["GH release", "Low side effects", "Pulsatile secretion"],
@@ -925,7 +770,7 @@
                 category: "gh",
                 price: 55,
                 vialSize: "2 mg",
-                purity: "≥99.2%",
+                purity: "Lot CoA on request",
                 description: "Growth hormone releasing hormone analog",
                 details: "A modified GHRH (1-29) analog designed to increase the amplitude of natural GH pulses. Often studied in combination with Ipamorelin or GHRP-2 for synergistic GH release research.",
                 benefits: ["GH pulse amplification", "Synergistic pairing", "Longer half-life"],
@@ -937,10 +782,10 @@
                 category: "cosmetic",
                 price: 45,
                 vialSize: "50 mg",
-                purity: "≥99.8%",
-                description: "Copper-binding tripeptide for skin & anti-aging research",
-                details: "GHK-Cu is a naturally occurring copper complex with potent anti-inflammatory, antioxidant, and collagen-stimulating properties. Extensively studied for wound healing and dermal matrix research.",
-                benefits: ["Collagen synthesis", "Skin remodeling", "Antioxidant"],
+                purity: "Lot CoA on request",
+                description: "Copper-binding tripeptide for skin & matrix research",
+                details: "GHK-Cu is a copper-binding tripeptide used in laboratory studies of collagen pathways, dermal matrix biology, and oxidative stress models.",
+                benefits: ["Collagen pathway models", "ECM research", "Oxidative stress assays"],
                 inStock: true
             },
             {
@@ -949,54 +794,61 @@
                 category: "metabolic",
                 price: 179,
                 vialSize: "5 mg",
-                purity: "≥99.1%",
-                description: "Triple agonist (GLP-1 / GIP / Glucagon)",
-                details: "The next-generation triple agonist peptide. Retatrutide is currently one of the most advanced molecules being studied for obesity and NASH research. Exceptional potency in preclinical models.",
-                benefits: ["Triple agonist", "Highest potency", "NASH research"],
+                purity: "Lot CoA on request",
+                description: "Triple agonist (GLP-1 / GIP / Glucagon) for research",
+                details: "Investigational triple agonist peptide studied in metabolic research literature (GLP-1 / GIP / glucagon pathways) in preclinical model systems. Research use only.",
+                benefits: ["Triple agonist research", "Metabolic pathway models", "Preclinical literature compound"],
                 inStock: true
             }
         ];
 
-        // Save products if they were just initialized from defaults
-        if (!localStorage.getItem('apex_products')) {
-            localStorage.setItem('apex_products', JSON.stringify(products));
-        }
+        // Always refresh product catalog defaults after Phase 0 claim cleanup
+        // (avoid stale purity % from prior localStorage)
+        localStorage.setItem('tpl_products', JSON.stringify(products));
 
         // ============================================
         // App State (now persistent where it matters)
         // ============================================
-        let cart = JSON.parse(localStorage.getItem('apex_cart')) || [];
-        let wishlist = JSON.parse(localStorage.getItem('apex_wishlist')) || [];
-        let orders = JSON.parse(localStorage.getItem('apex_orders')) || [];
+        let cart = JSON.parse(localStorage.getItem('tpl_cart')) || [];
+        let wishlist = JSON.parse(localStorage.getItem('tpl_wishlist')) || [];
+        let orders = JSON.parse(localStorage.getItem('tpl_orders')) || [];
         
-        let currentUser = JSON.parse(localStorage.getItem('apex_user')) || null;
+        let currentUser = JSON.parse(localStorage.getItem('tpl_user')) || null;
         let currentFilter = 'all';
         let currentSearchTerm = '';
         let isAdminMode = false;
 
         // Persistence Helpers
         function saveCart() {
-            localStorage.setItem('apex_cart', JSON.stringify(cart));
+            localStorage.setItem('tpl_cart', JSON.stringify(cart));
         }
         
         function saveWishlist() {
-            localStorage.setItem('apex_wishlist', JSON.stringify(wishlist));
+            localStorage.setItem('tpl_wishlist', JSON.stringify(wishlist));
         }
         
         function saveProducts() {
-            localStorage.setItem('apex_products', JSON.stringify(products));
+            localStorage.setItem('tpl_products', JSON.stringify(products));
         }
         
         function saveOrders() {
-            localStorage.setItem('apex_orders', JSON.stringify(orders));
+            localStorage.setItem('tpl_orders', JSON.stringify(orders));
         }
         
         function saveUser() {
             if (currentUser) {
-                localStorage.setItem('apex_user', JSON.stringify(currentUser));
+                localStorage.setItem('tpl_user', JSON.stringify(currentUser));
             } else {
-                localStorage.removeItem('apex_user');
+                localStorage.removeItem('tpl_user');
             }
+        }
+
+        function goToCoaLookup(e) {
+            e.preventDefault();
+            const lot = (document.getElementById('coa-lot-input') || {}).value || '';
+            const q = lot.trim() ? ('?lot=' + encodeURIComponent(lot.trim())) : '';
+            window.location.href = 'coa.html' + q;
+            return false;
         }
 
         // Render products
@@ -1069,10 +921,10 @@
 
         function getCategoryLabel(category) {
             const labels = {
-                'recovery': 'RECOVERY',
-                'metabolic': 'METABOLIC',
-                'gh': 'GROWTH HORMONE',
-                'cosmetic': 'COSMETIC'
+                'recovery': 'TISSUE / REPAIR MODELS',
+                'metabolic': 'METABOLIC RESEARCH',
+                'gh': 'GH AXIS RESEARCH',
+                'cosmetic': 'SKIN / ECM RESEARCH'
             };
             return labels[category] || 'RESEARCH';
         }
@@ -1273,101 +1125,16 @@
             }
         }
 
-        // Proceed to checkout
+        // Proceed to dedicated checkout route (PCI-safe; no card fields on homepage)
         function proceedToCheckout() {
             if (cart.length === 0) return;
-            
-            closeCart();
-            
-            const checkoutModal = document.getElementById('checkout-modal');
-            const summaryContainer = document.getElementById('checkout-summary');
-            const totalEl = document.getElementById('checkout-total');
-            
-            let html = '';
-            let subtotal = 0;
-            
-            cart.forEach(item => {
-                const lineTotal = item.price * item.qty;
-                subtotal += lineTotal;
-                html += `
-                    <div class="flex justify-between items-center py-[3px]">
-                        <div class="flex-1">
-                            <span class="font-semibold">${item.name}</span> 
-                            <span class="text-xs text-slate-500">×${item.qty}</span>
-                        </div>
-                        <div class="font-medium tabular-nums">$${lineTotal}</div>
-                    </div>
-                `;
-            });
-            
-            const shipping = subtotal >= 450 ? 0 : 18;
-            const total = subtotal + shipping;
-            
-            html += `
-                <div class="border-t border-slate-200 mt-3 pt-3 text-xs text-slate-500 flex justify-between">
-                    <div>Shipping</div>
-                    <div class="font-medium text-slate-700">${shipping === 0 ? 'FREE' : '$' + shipping}</div>
-                </div>
-                <div class="mt-3 pt-3 border-t font-semibold flex justify-between items-baseline text-base">
-                    <div>Total</div>
-                    <div class="tabular-nums">$${total}</div>
-                </div>
-            `;
-            
-            summaryContainer.innerHTML = html;
-            totalEl.textContent = `$${total}`;
-            
-            checkoutModal.classList.remove('hidden');
-            checkoutModal.classList.add('flex');
-        }
-
-        function closeCheckoutModal() {
-            const modal = document.getElementById('checkout-modal');
-            modal.classList.add('hidden');
-            modal.classList.remove('flex');
-        }
-
-        function completePurchase(e) {
-            e.preventDefault();
-            
-            const checkoutModal = document.getElementById('checkout-modal');
-            checkoutModal.classList.add('hidden');
-            checkoutModal.classList.remove('flex');
-            
-            // Generate real order
-            const orderNum = 'APX-' + Date.now().toString().slice(-8);
-            const orderTotal = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
-            
-            const newOrder = {
-                id: orderNum,
-                date: new Date().toISOString(),
-                items: [...cart],
-                total: orderTotal,
-                user: currentUser ? currentUser.name : "Guest Researcher"
-            };
-            
-            orders.unshift(newOrder);
-            saveOrders();
-            
-            // Show success
-            document.getElementById('order-number').textContent = orderNum;
-            const successModal = document.getElementById('success-modal');
-            successModal.classList.remove('hidden');
-            successModal.classList.add('flex');
-            
-            // Clear cart
-            cart = [];
             saveCart();
-            updateCartCount();
+            window.location.href = 'checkout.html';
         }
 
-        function closeSuccessModal() {
-            const modal = document.getElementById('success-modal');
-            modal.classList.remove('flex');
-            modal.classList.add('hidden');
-            
-            renderProducts(products);
-        }
+        function closeCheckoutModal() { /* legacy no-op */ }
+        function completePurchase() { window.location.href = 'checkout.html'; }
+        function closeSuccessModal() { /* legacy no-op */ }
 
         // ============================================
         // NEW ADVANCED FEATURE: Order History
@@ -1415,9 +1182,9 @@
                         <p class="text-sm text-slate-500 mb-6">Sign in to save orders and track purchases</p>
                         
                         <form onsubmit="loginUser(event, this)">
-                            <input type="text" name="name" placeholder="Full Name" value="Dr. Elena Vargas" required 
+                            <input type="text" name="name" placeholder="Full Name" required 
                                    class="w-full border border-slate-200 px-4 py-3 rounded-2xl mb-3">
-                            <input type="email" name="email" placeholder="Email" value="elena@stanford.edu" required 
+                            <input type="email" name="email" placeholder="lab@institution.edu" required 
                                    class="w-full border border-slate-200 px-4 py-3 rounded-2xl mb-6">
                             
                             <button type="submit" class="w-full py-3.5 bg-slate-900 text-white rounded-2xl font-semibold">
@@ -1564,6 +1331,8 @@
                                 <div class="text-xs leading-snug text-slate-600">
                                     <strong class="text-amber-600">RESEARCH USE ONLY.</strong> Not for human or veterinary use. 
                                     This product is sold exclusively to qualified laboratories and research institutions.
+                                    <a href="coa.html" class="text-emerald-700 underline">Request lot CoA</a> ·
+                                    <a href="research-use-only.html" class="text-emerald-700 underline">RUO policy</a>
                                 </div>
                             </div>
                         </div>
@@ -1599,6 +1368,7 @@
                 cart.push({ ...product, qty: 1 });
             }
             
+            saveCart();
             updateCartCount();
             showToast(`${product.name} added to cart`);
         }
@@ -1779,7 +1549,7 @@
             if (!doseEl || !drawEl || !vialEl || !concEl) return;
 
             if (!selectedDose || !selectedStrength || !selectedWater) {
-                doseEl.textContent = 'Select dose';
+                doseEl.textContent = 'Select amount';
                 drawEl.textContent = 'Select values';
                 vialEl.textContent = 'Select values';
                 concEl.textContent = 'Select values';
@@ -1796,16 +1566,16 @@
             const volumeMl = dose / concentration;
             const units = Math.round(volumeMl * 100);
 
-            // Update text
+            // Update text (lab reconstitution language only)
             doseEl.textContent = dose + ' mg';
-            drawEl.textContent = volumeMl.toFixed(2) + ' mL (' + units + ' units)';
+            drawEl.textContent = volumeMl.toFixed(2) + ' mL aliquot';
             vialEl.textContent = strength + ' mg';
             concEl.textContent = concentration.toFixed(2) + ' mg/mL';
 
             // Visual meter (scaled to 0-3ml)
             const percent = Math.min((volumeMl / 3) * 100, 100);
             meterEl.style.width = percent + '%';
-            volumeEl.textContent = volumeMl.toFixed(2) + ' mL • ' + units + ' units on U-100 syringe';
+            volumeEl.textContent = volumeMl.toFixed(2) + ' mL aliquot volume (research assay prep)';
         }
 
         // Initialize everything

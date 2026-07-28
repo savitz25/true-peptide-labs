@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certificates of Analysis • True Peptide Labs</title>
+    <link rel="canonical" href="/coa.html">
+    <link rel="icon" type="image/png" href="logo.png">
+    <link rel="apple-touch-icon" href="logo.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@500;600&display=swap');
+        body { font-family: 'Inter', system-ui, sans-serif; }
+        .heading-font { font-family: 'Space Grotesk', 'Inter', system-ui, sans-serif; font-weight: 600; letter-spacing: -0.03em; }
+        .nav-link { transition: color 0.2s ease; }
+        .nav-link:hover { color: #10b981; }
+        .disclaimer { font-size: 0.75rem; line-height: 1.4; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+    <nav class="bg-white border-b border-slate-200 sticky top-0 z-50">
+        <div class="max-w-screen-2xl mx-auto">
+            <div class="px-4 sm:px-8 py-4 flex items-center justify-between">
+                <a href="index.html" class="flex items-center gap-x-2">
+                    <img src="logo.png" alt="True Peptide Labs" class="h-14 w-auto">
+                </a>
+                <div class="hidden lg:flex items-center gap-x-7 text-sm font-medium">
+                    <a href="index.html#shop" class="nav-link text-slate-600">Shop</a>
+                    <a href="index.html#science" class="nav-link text-slate-600">Science</a>
+                    <a href="stack-builder.html" class="nav-link text-slate-600">Research Combinations</a>
+                    <a href="peptide-calculator.html" class="nav-link text-slate-600">Reconstitution Calculator</a>
+                    <a href="index.html#faq" class="nav-link text-slate-600">FAQ</a>
+                    <a href="contact.html" class="nav-link text-slate-600">Contact</a>
+                </div>
+                <div class="flex items-center gap-x-3">
+                    <a href="index.html#shop" class="hidden sm:inline-flex px-5 py-2.5 text-sm font-semibold bg-emerald-600 hover:bg-emerald-700 text-white rounded-2xl">Shop</a>
+                    <button type="button" class="lg:hidden w-11 h-11 flex items-center justify-center text-slate-600" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')" aria-label="Open menu">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden lg:hidden border-t bg-white px-6 py-4 text-sm">
+            <div class="flex flex-col gap-y-3">
+                <a href="index.html#shop" class="py-1 text-slate-600">Shop</a>
+                <a href="index.html#science" class="py-1 text-slate-600">Science</a>
+                <a href="stack-builder.html" class="py-1 text-slate-600">Research Combinations</a>
+                <a href="peptide-calculator.html" class="py-1 text-slate-600">Reconstitution Calculator</a>
+                <a href="index.html#faq" class="py-1 text-slate-600">FAQ</a>
+                <a href="contact.html" class="py-1 text-slate-600">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="bg-slate-900 text-white py-12 sm:py-16">
+        <div class="max-w-screen-2xl mx-auto px-4 sm:px-8">
+            <p class="text-emerald-400 text-sm font-semibold tracking-wider uppercase mb-3">Resources</p>
+            <h1 class="heading-font text-4xl sm:text-5xl font-semibold tracking-tighter">Certificates of Analysis</h1>
+            <p class="mt-4 text-lg text-white/80 max-w-2xl">Request lot documentation for research materials. Full online archive is being prepared.</p>
+        </div>
+    </div>
+
+    <main class="max-w-3xl mx-auto px-4 sm:px-8 py-12 sm:py-16 space-y-10">
+        <section class="bg-white border border-slate-200 rounded-3xl p-6 sm:p-8">
+            <h2 class="heading-font text-2xl text-slate-900 mb-4">Lot number lookup</h2>
+            <p class="text-slate-600 leading-relaxed mb-6">
+                Enter the lot number printed on your vial or packaging. This form prepares an email request—it does not download files automatically and does not return fabricated purity data.
+            </p>
+
+            <form id="coa-form" class="space-y-4" action="mailto:research@truepeptidelabs.com" method="get" enctype="text/plain">
+                <input type="hidden" name="subject" id="coa-subject" value="CoA request">
+                <div>
+                    <label for="lot-number" class="block text-sm font-semibold text-slate-800 mb-1.5">Lot number <span class="text-red-500">*</span></label>
+                    <input type="text" id="lot-number" name="body" required autocomplete="off"
+                           placeholder="e.g. LOT printed on label"
+                           class="w-full border border-slate-200 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-100 rounded-2xl px-4 py-3 text-sm outline-none">
+                </div>
+                <div class="grid sm:grid-cols-2 gap-4">
+                    <div>
+                        <label for="product-name" class="block text-sm font-semibold text-slate-800 mb-1.5">Product name (optional)</label>
+                        <input type="text" id="product-name" autocomplete="off"
+                               placeholder="Product name"
+                               class="w-full border border-slate-200 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-100 rounded-2xl px-4 py-3 text-sm outline-none">
+                    </div>
+                    <div>
+                        <label for="researcher-email" class="block text-sm font-semibold text-slate-800 mb-1.5">Your email (optional)</label>
+                        <input type="email" id="researcher-email" autocomplete="email"
+                               placeholder="you@institution.edu"
+                               class="w-full border border-slate-200 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-100 rounded-2xl px-4 py-3 text-sm outline-none">
+                    </div>
+                </div>
+                <button type="submit"
+                        class="w-full sm:w-auto px-8 py-3 bg-emerald-600 hover:bg-emerald-700 text-white text-sm font-semibold rounded-2xl inline-flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-envelope"></i>
+                    Request CoA by email
+                </button>
+            </form>
+
+            <div id="coa-message" class="hidden mt-5 bg-emerald-50 border border-emerald-100 rounded-2xl p-4 text-sm text-emerald-900"></div>
+        </section>
+
+        <section class="bg-white border border-slate-200 rounded-3xl p-6 sm:p-8">
+            <h2 class="heading-font text-2xl text-slate-900 mb-4">Archive status</h2>
+            <p class="text-slate-600 leading-relaxed mb-4">
+                A full online CoA archive is being published. Until self-serve downloads are available, researchers can email the lot number and we will provide the Certificate of Analysis <strong class="text-slate-800">when available</strong> for that lot.
+            </p>
+            <ul class="space-y-3 text-slate-600">
+                <li class="flex gap-3"><i class="fa-solid fa-circle-info text-emerald-600 mt-1"></i><span>Documentation availability can vary by product and lot.</span></li>
+                <li class="flex gap-3"><i class="fa-solid fa-circle-info text-emerald-600 mt-1"></i><span>We do not host fake downloadable PDFs or display unverified purity statistics on this page.</span></li>
+                <li class="flex gap-3"><i class="fa-solid fa-circle-info text-emerald-600 mt-1"></i><span>For fastest service, include lot number, product name, and order reference if you have one.</span></li>
+            </ul>
+            <p class="mt-5 text-slate-700">
+                Email directly: <a href="mailto:research@truepeptidelabs.com?subject=CoA%20request" class="text-emerald-700 font-semibold hover:underline">research@truepeptidelabs.com</a>
+            </p>
+        </section>
+
+        <section class="bg-white border border-slate-200 rounded-3xl p-6 sm:p-8">
+            <h2 class="heading-font text-2xl text-slate-900 mb-4">How to use CoA data</h2>
+            <p class="text-slate-600 leading-relaxed mb-3">
+                When a CoA is provided, review it carefully for lot number match, test methods, dates, and any limitations noted by the testing laboratory. Analytical results apply to the tested lot under the conditions described. Researchers remain responsible for determining suitability for their experimental protocols.
+            </p>
+            <p class="text-slate-600 leading-relaxed text-sm">
+                Learn more about our cautious quality stance on the <a href="quality.html" class="text-emerald-700 font-medium underline">Quality &amp; Compliance</a> page.
+            </p>
+        </section>
+
+        <div class="bg-amber-50 border border-amber-200 rounded-2xl p-5 text-sm text-amber-950 leading-relaxed">
+            <strong>Research Use Only.</strong> Certificates of Analysis document research materials only. Products from True Peptide Labs (operated by APEX Research, LLC) are not for human use and are not intended to diagnose, treat, cure, or prevent any disease.
+        </div>
+    </main>
+
+    <footer class="bg-slate-900 text-slate-400 text-sm">
+        <div class="max-w-screen-2xl mx-auto px-4 sm:px-8 pt-14 pb-9">
+            <div class="flex flex-col md:flex-row justify-between gap-y-10">
+                <div>
+                    <div class="flex items-center gap-x-2 text-white mb-4">
+                        <img src="logo.png" alt="True Peptide Labs" class="h-12 w-auto">
+                    </div>
+                    <p class="text-xs max-w-xs">True Peptide Labs is operated by APEX Research, LLC. Research peptides for qualified laboratory use only.</p>
+                    <p class="text-xs mt-3"><a href="mailto:research@truepeptidelabs.com" class="hover:text-white">research@truepeptidelabs.com</a></p>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-x-12 gap-y-8 text-xs">
+                    <div>
+                        <div class="font-semibold text-white tracking-wider mb-3 text-xs">COMPANY</div>
+                        <div class="space-y-1.5">
+                            <a href="about.html" class="block hover:text-white">About Us</a>
+                            <a href="quality.html" class="block hover:text-white">Quality &amp; Compliance</a>
+                            <a href="careers.html" class="block hover:text-white">Careers</a>
+                            <a href="research-grants.html" class="block hover:text-white">Research Grants</a>
+                            <a href="contact.html" class="block hover:text-white">Contact</a>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="font-semibold text-white tracking-wider mb-3 text-xs">RESOURCES</div>
+                        <div class="space-y-1.5">
+                            <a href="coa.html" class="block hover:text-white">Certificates of Analysis</a>
+                            <a href="peptide-calculator.html" class="block hover:text-white">Reconstitution Calculator</a>
+                            <a href="stack-builder.html" class="block hover:text-white">Research Combinations</a>
+                            <a href="publications.html" class="block hover:text-white">Publications</a>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="font-semibold text-white tracking-wider mb-3 text-xs">LEGAL</div>
+                        <div class="space-y-1.5">
+                            <a href="terms.html" class="block hover:text-white">Terms of Sale</a>
+                            <a href="privacy.html" class="block hover:text-white">Privacy Policy</a>
+                            <a href="research-use-only.html" class="block hover:text-white">Research Use Only</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-12 pt-8 border-t border-white/10">
+                <div class="disclaimer bg-slate-950 border border-white/10 rounded-2xl p-5 text-[11.5px] leading-relaxed">
+                    <strong class="text-white">IMPORTANT DISCLAIMER:</strong> All products sold by True Peptide Labs (operated by APEX Research, LLC) are intended <span class="text-red-400 font-semibold">strictly for in vitro laboratory research purposes only</span>. They are not approved by the FDA for human use, are not drugs, and are not intended to diagnose, treat, cure, or prevent any disease. These products are not for human consumption, injection, or any form of bodily introduction. By purchasing from this website you certify that you are a qualified researcher, institution, or laboratory professional and will use these products solely for legitimate laboratory research in a controlled setting. Misuse of these products is a violation of our Terms of Sale and may be illegal. All sales are final.
+                </div>
+                <div class="text-center mt-8 text-[10px] tracking-wider">© 2026 True Peptide Labs, operated by APEX Research, LLC. All rights reserved.</div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('coa-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+            var lot = document.getElementById('lot-number').value.trim();
+            var product = document.getElementById('product-name').value.trim();
+            var email = document.getElementById('researcher-email').value.trim();
+            if (!lot) return;
+
+            var subject = 'CoA request — lot ' + lot;
+            var body = [
+                'Hello True Peptide Labs,',
+                '',
+                'Please send the Certificate of Analysis (if available) for the following research lot:',
+                '',
+                'Lot number: ' + lot,
+                'Product name: ' + (product || '(not provided)'),
+                'Reply-to email: ' + (email || '(not provided)'),
+                '',
+                'I confirm this request is for laboratory research documentation only.',
+                '',
+                'Thank you.'
+            ].join('\n');
+
+            var mailto = 'mailto:research@truepeptidelabs.com'
+                + '?subject=' + encodeURIComponent(subject)
+                + '&body=' + encodeURIComponent(body);
+            window.location.href = mailto;
+
+            var msg = document.getElementById('coa-message');
+            msg.classList.remove('hidden');
+            msg.innerHTML = '<strong>Email draft opened.</strong> If your mail client did not open, write to '
+                + '<a class="underline font-semibold" href="mailto:research@truepeptidelabs.com">research@truepeptidelabs.com</a> '
+                + 'with lot number <strong>' + lot.replace(/</g, '&lt;') + '</strong>. '
+                + 'A full CoA archive is being published; we provide CoAs when available for the requested lot.';
+        });
+    </script>
+</body>
+</html>

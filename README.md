@@ -1,73 +1,40 @@
 # True Peptide Labs
 
-Premium research peptides site, deployed on Vercel.
+Research-use-only (RUO) peptide supplier site. Static HTML, deployed on Vercel.
 
-## Current Status
+**Brand:** True Peptide Labs (operated by APEX Research, LLC)  
+**Domain:** peptidetrue.com (Vercel: true-peptide-labs)
 
-The site is a self-contained static HTML (index.html) using Tailwind via CDN.
+## Phase 0 status
 
-## Vercel Deployment Fix (DEPLOYMENT_NOT_FOUND / Missing Branch)
+Critical trust, brand, and compliance fixes are complete. See [PHASE0-CHANGELOG.md](./PHASE0-CHANGELOG.md).
 
-This error usually happens for one of these reasons:
+- Unified brand (no “peptide true.com” / fabricated Apex testimonials)
+- Unverified GMP/ISO/stats removed
+- CoA: lot lookup / request only (no fake PDFs)
+- RUO language on calculator & research combination builder
+- Real legal pages (About, Terms, Privacy, Quality, RUO, Contact, etc.)
+- `/cart` + `/checkout` without client-side card capture
+- `robots.txt`, `sitemap.xml`, `vercel.json` 301 for index.html → /
 
-1. **Wrong Production Branch** in Vercel (most common)
-2. Root Directory set incorrectly
-3. Framework detection trying to build a non-existent app
+## Local testing
 
-### Step-by-step Fix
-
-**1. Push the latest code to GitHub**
-
-Run this in PowerShell from the project folder:
-
-```powershell
-cd "C:\Users\Michael.Savitsky\true-peptide-labs"
-.\push-to-github.ps1
-```
-
-When asked, paste your full GitHub repo URL (example: `https://github.com/yourname/true-peptide-labs.git`)
-
-**Manual commands (if script doesn't work):**
+Open `index.html` in a browser, or serve the folder:
 
 ```powershell
-cd "C:\Users\Michael.Savitsky\true-peptide-labs"
-git remote add origin https://github.com/YOUR_USERNAME/true-peptide-labs.git
-git branch -M main
-git push -u origin main
+cd C:\Users\Michael.Savitsky\true-peptide-labs
+npx --yes serve .
 ```
 
-**2. Fix Vercel Project Settings**
+## Deploy
 
-Go to your Vercel dashboard → true-peptide-labs project → **Settings** (top tab) → **Git**
+Push to GitHub `true-peptide-labs` (branch `main`). Vercel settings:
 
-Set these values:
+- Production Branch: `main`
+- Framework: Other / None
+- Build Command: empty
+- Output Directory: `.`
 
-- **Production Branch**: `main`   ← Very important
-- **Root Directory**: `.`        ← Leave as root / dot
-- **Framework Preset**: **Other** (or None)
-- **Build Command**: (leave completely empty)
-- **Output Directory**: `.`      ← Very important for static HTML
+## Important compliance notes
 
-Scroll down and click **Save**.
-
-**3. Redeploy**
-
-- Go back to the **Deployments** tab
-- Find the latest deployment
-- Click the three dots → **Redeploy**
-
-This should fix the 404 / DEPLOYMENT_NOT_FOUND.
-
-### After Deployment Works
-
-The site should load at https://true-peptide-labs.vercel.app
-
-If you still get issues, take a screenshot of your Vercel **Git** settings page and share it.
-
-## Local Testing
-
-Just open `index.html` in your browser.
-
-## Want to Upgrade?
-
-This is currently the old static version. If you want a more advanced version (React + proper routing, admin panel, real backend, etc.), tell me and I can rebuild it as a Next.js or Vite project.
+Products are **research use only**. Recommend legal review before traffic scaling. Do not reintroduce unverified certificates, institutional testimonials, or human-use language.

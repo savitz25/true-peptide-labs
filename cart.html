@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart • True Peptide Labs</title>
+    <meta name="description" content="Review your research peptide cart. Research Use Only products from True Peptide Labs (APEX Research, LLC).">
+    <link rel="icon" type="image/png" href="logo.png">
+    <link rel="apple-touch-icon" href="logo.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@500;600&display=swap');
+
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+        }
+
+        .heading-font {
+            font-family: 'Space Grotesk', 'Inter', system-ui, sans-serif;
+            font-weight: 600;
+            letter-spacing: -0.03em;
+        }
+
+        .nav-link {
+            transition: color 0.2s ease;
+        }
+
+        .nav-link:hover {
+            color: #0F172A;
+        }
+
+        .disclaimer {
+            font-size: 0.75rem;
+            line-height: 1.4;
+        }
+
+        .price {
+            font-variant-numeric: tabular-nums;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+    <!-- NAVBAR -->
+    <nav class="bg-white border-b border-slate-200 sticky top-0 z-50">
+        <div class="max-w-screen-2xl mx-auto">
+            <div class="px-8 py-4 flex items-center justify-between">
+                <div class="flex items-center gap-x-2">
+                    <a href="index.html" class="flex items-center gap-x-2">
+                        <img src="logo.png" alt="True Peptide Labs" class="h-14 w-auto">
+                    </a>
+                </div>
+
+                <div class="hidden md:flex items-center gap-x-8 text-sm font-medium">
+                    <a href="index.html#shop" class="nav-link text-slate-600 hover:text-slate-900">Shop</a>
+                    <a href="index.html#science" class="nav-link text-slate-600 hover:text-slate-900">Science</a>
+                    <a href="stack-builder.html" class="nav-link text-slate-600 hover:text-slate-900">Stack Builder</a>
+                    <a href="peptide-calculator.html" class="nav-link text-slate-600 hover:text-slate-900">Peptide Calculator</a>
+                    <a href="contact.html" class="nav-link text-slate-600 hover:text-slate-900">Contact</a>
+                </div>
+
+                <div class="flex items-center gap-x-3">
+                    <a href="cart.html"
+                       class="flex items-center gap-x-2.5 bg-slate-900 text-white px-5 h-11 rounded-2xl text-sm font-semibold relative">
+                        <i class="fa-solid fa-shopping-cart"></i>
+                        <span class="hidden sm:inline">Cart</span>
+                        <div id="cart-count"
+                             class="absolute -top-1.5 -right-1.5 min-w-[19px] h-[19px] px-1.5 bg-emerald-600 text-white text-[10px] font-bold rounded-full flex items-center justify-center">0</div>
+                    </a>
+                    <button class="md:hidden w-11 h-11 flex items-center justify-center text-slate-600 hover:text-slate-900"
+                            onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden border-t bg-white px-6 py-4 text-sm">
+            <div class="flex flex-col gap-y-3">
+                <a href="index.html#shop" class="py-1 text-slate-600">Shop</a>
+                <a href="index.html#science" class="py-1 text-slate-600">Science</a>
+                <a href="stack-builder.html" class="py-1 text-slate-600">Stack Builder</a>
+                <a href="peptide-calculator.html" class="py-1 text-slate-600">Peptide Calculator</a>
+                <a href="contact.html" class="py-1 text-slate-600">Contact</a>
+                <a href="cart.html" class="py-1 text-emerald-700 font-semibold">Cart</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- RUO BANNER -->
+    <div class="bg-amber-50 border-b border-amber-200">
+        <div class="max-w-screen-2xl mx-auto px-8 py-3 text-xs sm:text-sm text-amber-900 flex items-start gap-2">
+            <i class="fa-solid fa-flask mt-0.5 text-amber-600"></i>
+            <p>
+                <strong>RESEARCH USE ONLY (RUO).</strong>
+                All products are for in vitro laboratory research only — not for human consumption, clinical use, or veterinary use.
+                Operated by APEX Research, LLC.
+            </p>
+        </div>
+    </div>
+
+    <main class="max-w-screen-2xl mx-auto px-8 py-10">
+        <div class="mb-8">
+            <div class="text-emerald-600 text-sm font-semibold tracking-[1.5px] uppercase">Your Order</div>
+            <h1 class="heading-font text-4xl sm:text-5xl tracking-tight mt-1">Shopping Cart</h1>
+            <p class="text-slate-600 mt-2">Review research materials before checkout. Free shipping on orders over $450.</p>
+        </div>
+
+        <div id="cart-empty" class="hidden">
+            <div class="bg-white border border-slate-200 rounded-3xl p-12 text-center max-w-xl mx-auto">
+                <div class="w-16 h-16 mx-auto rounded-full bg-slate-100 flex items-center justify-center mb-5">
+                    <i class="fa-solid fa-shopping-cart text-2xl text-slate-400"></i>
+                </div>
+                <h2 class="heading-font text-2xl tracking-tight">Your cart is empty</h2>
+                <p class="text-slate-500 mt-2 mb-8">Add research peptides from the catalog to get started.</p>
+                <a href="index.html#shop"
+                   class="inline-flex items-center gap-2 px-6 py-3.5 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold rounded-2xl transition-colors">
+                    <i class="fa-solid fa-flask"></i>
+                    Browse Catalog
+                </a>
+            </div>
+        </div>
+
+        <div id="cart-content" class="hidden grid lg:grid-cols-12 gap-8">
+            <!-- Line items -->
+            <div class="lg:col-span-8">
+                <div class="bg-white border border-slate-200 rounded-3xl overflow-hidden">
+                    <div class="px-6 py-4 border-b border-slate-100 flex items-center justify-between">
+                        <div class="font-semibold text-lg">Line Items</div>
+                        <div id="item-count" class="text-sm text-slate-500"></div>
+                    </div>
+                    <div id="cart-items" class="divide-y divide-slate-100">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Summary -->
+            <div class="lg:col-span-4">
+                <div class="bg-white border border-slate-200 rounded-3xl p-6 sticky top-28">
+                    <div class="font-semibold text-lg mb-5">Order Summary</div>
+
+                    <div class="space-y-3 text-sm">
+                        <div class="flex justify-between">
+                            <span class="text-slate-600">Subtotal</span>
+                            <span id="cart-subtotal" class="font-semibold price">$0.00</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-slate-600">Shipping</span>
+                            <span id="cart-shipping" class="font-semibold price text-emerald-700">$18.00</span>
+                        </div>
+                        <div id="shipping-note" class="text-xs text-slate-500 bg-slate-50 rounded-xl px-3 py-2">
+                            Free shipping on orders over $450. Standard shipping is $18.
+                        </div>
+                        <div class="border-t border-slate-200 pt-3 flex justify-between items-baseline">
+                            <span class="font-semibold">Estimated Total</span>
+                            <span id="cart-total" class="text-2xl font-semibold tracking-tight price">$0.00</span>
+                        </div>
+                    </div>
+
+                    <a href="checkout.html"
+                       id="checkout-cta"
+                       class="mt-6 w-full inline-flex items-center justify-center gap-2 py-4 bg-slate-900 hover:bg-black text-white font-semibold rounded-2xl transition-colors">
+                        Proceed to Checkout
+                        <i class="fa-solid fa-arrow-right text-sm"></i>
+                    </a>
+
+                    <a href="index.html#shop"
+                       class="mt-3 w-full inline-flex items-center justify-center py-3 text-sm font-medium text-slate-600 hover:text-slate-900">
+                        Continue Shopping
+                    </a>
+
+                    <div class="mt-6 border border-amber-200 bg-amber-50 rounded-2xl p-4 text-xs leading-relaxed text-amber-950">
+                        <strong class="text-amber-800">RESEARCH USE ONLY.</strong>
+                        Products sold by True Peptide Labs (APEX Research, LLC) are intended strictly for in vitro laboratory research.
+                        Not for human consumption, injection, medical, or veterinary use. Not FDA-approved as drugs.
+                        See <a href="research-use-only.html" class="underline font-medium">Research Use Only</a> policy.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-900 text-slate-400 text-sm mt-16">
+        <div class="max-w-screen-2xl mx-auto px-8 pt-14 pb-9">
+            <div class="flex flex-col md:flex-row justify-between gap-y-10">
+                <div>
+                    <div class="flex items-center gap-x-2 text-white mb-4">
+                        <img src="logo.png" alt="True Peptide Labs" class="h-12 w-auto">
+                    </div>
+                    <div class="text-xs max-w-xs">True Peptide Labs — precision research peptides. Operated by APEX Research, LLC.</div>
+                    <div class="text-xs mt-3 space-y-1">
+                        <div><a href="mailto:orders@truepeptidelabs.com" class="hover:text-white">orders@truepeptidelabs.com</a></div>
+                        <div><a href="mailto:research@truepeptidelabs.com" class="hover:text-white">research@truepeptidelabs.com</a></div>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-x-12 gap-y-8 text-xs">
+                    <div>
+                        <div class="font-semibold text-white tracking-wider mb-3 text-xs">SHOP</div>
+                        <div class="space-y-1.5">
+                            <div><a href="index.html#shop" class="hover:text-white">Catalog</a></div>
+                            <div><a href="cart.html" class="hover:text-white">Cart</a></div>
+                            <div><a href="checkout.html" class="hover:text-white">Checkout</a></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="font-semibold text-white tracking-wider mb-3 text-xs">TOOLS</div>
+                        <div class="space-y-1.5">
+                            <div><a href="stack-builder.html" class="hover:text-white">Stack Builder</a></div>
+                            <div><a href="peptide-calculator.html" class="hover:text-white">Peptide Calculator</a></div>
+                            <div><a href="contact.html" class="hover:text-white">Contact</a></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="font-semibold text-white tracking-wider mb-3 text-xs">LEGAL</div>
+                        <div class="space-y-1.5">
+                            <div><a href="terms.html" class="hover:text-white">Terms of Sale</a></div>
+                            <div><a href="research-use-only.html" class="hover:text-white">Research Use Only</a></div>
+                            <div><a href="privacy.html" class="hover:text-white">Privacy Policy</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-12 pt-8 border-t border-white/10">
+                <div class="disclaimer bg-slate-950 border border-white/10 rounded-2xl p-5 text-[11.5px] leading-relaxed">
+                    <strong class="text-white">IMPORTANT DISCLAIMER:</strong>
+                    All products sold by APEX Research, LLC d/b/a True Peptide Labs are intended
+                    <span class="text-red-400 font-semibold">strictly for in vitro laboratory research purposes only</span>.
+                    They are not approved by the FDA for human use, are not drugs, and are not intended to diagnose, treat, cure, or prevent any disease.
+                    Not for human consumption, injection, or any form of bodily introduction.
+                </div>
+                <div class="text-center mt-8 text-[10px] tracking-wider">© 2026 APEX Research, LLC. All rights reserved. • True Peptide Labs</div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const CART_KEY = 'tpl_cart';
+        const LEGACY_CART_KEY = 'apex_cart';
+        const FREE_SHIP_THRESHOLD = 450;
+        const SHIPPING_FLAT = 18;
+
+        function loadCart() {
+            let cart = [];
+            try {
+                const primary = localStorage.getItem(CART_KEY);
+                if (primary) {
+                    cart = JSON.parse(primary) || [];
+                } else {
+                    const legacy = localStorage.getItem(LEGACY_CART_KEY);
+                    if (legacy) {
+                        cart = JSON.parse(legacy) || [];
+                        // Migrate legacy cart to tpl_cart
+                        localStorage.setItem(CART_KEY, JSON.stringify(cart));
+                    }
+                }
+            } catch (e) {
+                cart = [];
+            }
+            if (!Array.isArray(cart)) cart = [];
+            return cart;
+        }
+
+        function saveCart(cart) {
+            localStorage.setItem(CART_KEY, JSON.stringify(cart));
+            // Keep legacy key in sync so index.html drawer still works until fully migrated
+            localStorage.setItem(LEGACY_CART_KEY, JSON.stringify(cart));
+        }
+
+        function money(n) {
+            return '$' + Number(n).toFixed(2);
+        }
+
+        function getSubtotal(cart) {
+            return cart.reduce((sum, item) => sum + (Number(item.price) || 0) * (Number(item.qty) || 0), 0);
+        }
+
+        function getShipping(subtotal) {
+            return subtotal >= FREE_SHIP_THRESHOLD ? 0 : SHIPPING_FLAT;
+        }
+
+        function updateCartCount(cart) {
+            const count = cart.reduce((sum, item) => sum + (Number(item.qty) || 0), 0);
+            const el = document.getElementById('cart-count');
+            if (el) el.textContent = String(count);
+        }
+
+        function changeQty(index, delta) {
+            const cart = loadCart();
+            if (!cart[index]) return;
+            cart[index].qty = Math.max(1, (Number(cart[index].qty) || 1) + delta);
+            saveCart(cart);
+            render();
+        }
+
+        function removeItem(index) {
+            const cart = loadCart();
+            cart.splice(index, 1);
+            saveCart(cart);
+            render();
+        }
+
+        function render() {
+            const cart = loadCart();
+            updateCartCount(cart);
+
+            const emptyEl = document.getElementById('cart-empty');
+            const contentEl = document.getElementById('cart-content');
+            const itemsEl = document.getElementById('cart-items');
+
+            if (cart.length === 0) {
+                emptyEl.classList.remove('hidden');
+                contentEl.classList.add('hidden');
+                return;
+            }
+
+            emptyEl.classList.add('hidden');
+            contentEl.classList.remove('hidden');
+
+            const subtotal = getSubtotal(cart);
+            const shipping = getShipping(subtotal);
+            const total = subtotal + shipping;
+            const unitCount = cart.reduce((s, i) => s + (Number(i.qty) || 0), 0);
+
+            document.getElementById('item-count').textContent = unitCount + (unitCount === 1 ? ' item' : ' items');
+            document.getElementById('cart-subtotal').textContent = money(subtotal);
+            document.getElementById('cart-shipping').textContent = shipping === 0 ? 'FREE' : money(shipping);
+            document.getElementById('cart-shipping').className = shipping === 0
+                ? 'font-semibold price text-emerald-700'
+                : 'font-semibold price';
+            document.getElementById('cart-total').textContent = money(total);
+
+            const note = document.getElementById('shipping-note');
+            if (shipping === 0) {
+                note.textContent = 'You qualify for free shipping on this order.';
+                note.className = 'text-xs text-emerald-700 bg-emerald-50 rounded-xl px-3 py-2';
+            } else {
+                const remaining = FREE_SHIP_THRESHOLD - subtotal;
+                note.textContent = 'Add ' + money(remaining) + ' more for free shipping (orders over $450). Standard shipping is $18.';
+                note.className = 'text-xs text-slate-500 bg-slate-50 rounded-xl px-3 py-2';
+            }
+
+            let html = '';
+            cart.forEach((item, index) => {
+                const qty = Number(item.qty) || 1;
+                const price = Number(item.price) || 0;
+                const lineTotal = price * qty;
+                const meta = [item.vialSize, item.purity].filter(Boolean).join(' • ') || 'Research peptide';
+
+                html += `
+                    <div class="p-6 flex gap-4">
+                        <div class="w-16 h-16 flex-shrink-0 bg-slate-800 rounded-2xl flex items-center justify-center">
+                            <i class="fa-solid fa-flask text-white/70 text-xl"></i>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <div class="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2">
+                                <div>
+                                    <div class="font-semibold text-lg tracking-tight">${escapeHtml(item.name || 'Research Peptide')}</div>
+                                    <div class="text-xs text-slate-500 mt-0.5">${escapeHtml(meta)}</div>
+                                    <div class="text-sm text-slate-600 mt-1 price">${money(price)} each</div>
+                                </div>
+                                <div class="font-semibold text-lg price">${money(lineTotal)}</div>
+                            </div>
+                            <div class="flex items-center justify-between mt-4">
+                                <div class="flex items-center border border-slate-200 rounded-xl bg-white">
+                                    <button type="button" onclick="changeQty(${index}, -1)"
+                                            class="w-9 h-9 flex items-center justify-center hover:bg-slate-100 rounded-l-xl text-xl leading-none"
+                                            aria-label="Decrease quantity">−</button>
+                                    <div class="px-4 font-medium tabular-nums min-w-[2.5rem] text-center">${qty}</div>
+                                    <button type="button" onclick="changeQty(${index}, 1)"
+                                            class="w-9 h-9 flex items-center justify-center hover:bg-slate-100 rounded-r-xl text-xl leading-none"
+                                            aria-label="Increase quantity">+</button>
+                                </div>
+                                <button type="button" onclick="removeItem(${index})"
+                                        class="text-sm text-red-500 hover:text-red-600 font-medium px-2">
+                                    Remove
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+
+            itemsEl.innerHTML = html;
+        }
+
+        function escapeHtml(str) {
+            return String(str)
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;');
+        }
+
+        document.addEventListener('DOMContentLoaded', render);
+        window.addEventListener('storage', function (e) {
+            if (e.key === CART_KEY || e.key === LEGACY_CART_KEY) render();
+        });
+    </script>
+</body>
+</html>

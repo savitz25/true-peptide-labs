@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout • True Peptide Labs</title>
+    <meta name="description" content="Submit a research order request. Secure payment via Stripe (hosted) — integration pending. RUO only.">
+    <link rel="icon" type="image/png" href="logo.png">
+    <link rel="apple-touch-icon" href="logo.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@500;600&display=swap');
+
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+        }
+
+        .heading-font {
+            font-family: 'Space Grotesk', 'Inter', system-ui, sans-serif;
+            font-weight: 600;
+            letter-spacing: -0.03em;
+        }
+
+        .nav-link {
+            transition: color 0.2s ease;
+        }
+
+        .nav-link:hover {
+            color: #0F172A;
+        }
+
+        .disclaimer {
+            font-size: 0.75rem;
+            line-height: 1.4;
+        }
+
+        .price {
+            font-variant-numeric: tabular-nums;
+        }
+
+        .field-label {
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            color: #64748b;
+            text-transform: uppercase;
+            display: block;
+            margin-bottom: 0.35rem;
+        }
+
+        .field-input {
+            width: 100%;
+            border: 1px solid #e2e8f0;
+            padding: 0.75rem 1rem;
+            border-radius: 1rem;
+            font-size: 0.875rem;
+            outline: none;
+            background: #fff;
+        }
+
+        .field-input:focus {
+            border-color: #94a3b8;
+            box-shadow: 0 0 0 3px rgba(148, 163, 184, 0.2);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+    <!-- NAVBAR -->
+    <nav class="bg-white border-b border-slate-200 sticky top-0 z-50">
+        <div class="max-w-screen-2xl mx-auto">
+            <div class="px-8 py-4 flex items-center justify-between">
+                <div class="flex items-center gap-x-2">
+                    <a href="index.html" class="flex items-center gap-x-2">
+                        <img src="logo.png" alt="True Peptide Labs" class="h-14 w-auto">
+                    </a>
+                </div>
+
+                <div class="hidden md:flex items-center gap-x-8 text-sm font-medium">
+                    <a href="index.html#shop" class="nav-link text-slate-600 hover:text-slate-900">Shop</a>
+                    <a href="index.html#science" class="nav-link text-slate-600 hover:text-slate-900">Science</a>
+                    <a href="stack-builder.html" class="nav-link text-slate-600 hover:text-slate-900">Stack Builder</a>
+                    <a href="peptide-calculator.html" class="nav-link text-slate-600 hover:text-slate-900">Peptide Calculator</a>
+                    <a href="contact.html" class="nav-link text-slate-600 hover:text-slate-900">Contact</a>
+                </div>
+
+                <div class="flex items-center gap-x-3">
+                    <a href="cart.html"
+                       class="flex items-center gap-x-2.5 bg-white hover:bg-slate-50 border border-slate-200 text-slate-700 px-5 h-11 rounded-2xl text-sm font-semibold transition-colors relative">
+                        <i class="fa-solid fa-shopping-cart"></i>
+                        <span class="hidden sm:inline">Cart</span>
+                        <div id="cart-count"
+                             class="absolute -top-1.5 -right-1.5 min-w-[19px] h-[19px] px-1.5 bg-emerald-600 text-white text-[10px] font-bold rounded-full flex items-center justify-center">0</div>
+                    </a>
+                    <button class="md:hidden w-11 h-11 flex items-center justify-center text-slate-600 hover:text-slate-900"
+                            onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden border-t bg-white px-6 py-4 text-sm">
+            <div class="flex flex-col gap-y-3">
+                <a href="index.html#shop" class="py-1 text-slate-600">Shop</a>
+                <a href="index.html#science" class="py-1 text-slate-600">Science</a>
+                <a href="stack-builder.html" class="py-1 text-slate-600">Stack Builder</a>
+                <a href="peptide-calculator.html" class="py-1 text-slate-600">Peptide Calculator</a>
+                <a href="contact.html" class="py-1 text-slate-600">Contact</a>
+                <a href="cart.html" class="py-1 text-slate-600">Cart</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- RUO BANNER -->
+    <div class="bg-amber-50 border-b border-amber-200">
+        <div class="max-w-screen-2xl mx-auto px-8 py-3 text-xs sm:text-sm text-amber-900 flex items-start gap-2">
+            <i class="fa-solid fa-shield-halved mt-0.5 text-amber-600"></i>
+            <p>
+                <strong>PCI notice:</strong> We do not collect credit card numbers, CVC, or full card data on this page.
+                Card payments will use Stripe hosted checkout when integration is live. This form is a research order request demo only.
+            </p>
+        </div>
+    </div>
+
+    <main class="max-w-screen-2xl mx-auto px-8 py-10">
+        <!-- Empty cart state -->
+        <div id="empty-state" class="hidden max-w-xl mx-auto text-center bg-white border border-slate-200 rounded-3xl p-12">
+            <div class="w-16 h-16 mx-auto rounded-full bg-slate-100 flex items-center justify-center mb-5">
+                <i class="fa-solid fa-cart-shopping text-2xl text-slate-400"></i>
+            </div>
+            <h1 class="heading-font text-2xl tracking-tight">Nothing to check out</h1>
+            <p class="text-slate-500 mt-2 mb-8">Your cart is empty. Add research peptides before submitting an order request.</p>
+            <a href="index.html#shop" class="inline-flex items-center gap-2 px-6 py-3.5 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold rounded-2xl">
+                Browse Catalog
+            </a>
+        </div>
+
+        <!-- Success state -->
+        <div id="success-state" class="hidden max-w-lg mx-auto">
+            <div class="bg-white border border-slate-200 rounded-3xl p-10 text-center shadow-sm">
+                <div class="mx-auto w-16 h-16 rounded-full bg-emerald-100 flex items-center justify-center mb-5">
+                    <i class="fa-solid fa-check text-emerald-600 text-3xl"></i>
+                </div>
+                <h1 class="heading-font text-3xl tracking-tight">Order Request Received</h1>
+                <p class="mt-2 text-emerald-700 font-medium">Thank you for your research order request.</p>
+
+                <div class="my-6 text-left text-sm bg-slate-50 border border-slate-100 rounded-2xl p-5">
+                    <div class="flex justify-between text-xs mb-3">
+                        <div class="text-slate-500 uppercase tracking-wider">Order Number</div>
+                        <div class="font-mono font-semibold text-emerald-700" id="order-number"></div>
+                    </div>
+                    <div class="text-xs text-slate-600 leading-relaxed">
+                        This is a demo confirmation — no payment was processed and no card data was collected.
+                        When Stripe hosted checkout is integrated, you will complete payment on Stripe’s secure page.
+                        Questions: <a href="mailto:orders@truepeptidelabs.com" class="text-emerald-700 font-semibold">orders@truepeptidelabs.com</a>
+                    </div>
+                </div>
+
+                <div class="flex flex-col sm:flex-row gap-3">
+                    <a href="index.html#shop" class="flex-1 py-3 bg-slate-900 text-white rounded-2xl font-semibold text-center">Return to Catalog</a>
+                    <a href="cart.html" class="flex-1 py-3 border border-slate-200 rounded-2xl font-semibold text-center hover:bg-slate-50">View Cart</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Checkout form -->
+        <div id="checkout-state" class="hidden">
+            <div class="mb-8">
+                <div class="text-emerald-600 text-sm font-semibold tracking-[1.5px] uppercase">Checkout</div>
+                <h1 class="heading-font text-4xl sm:text-5xl tracking-tight mt-1">Research Order Request</h1>
+                <p class="text-slate-600 mt-2 max-w-2xl">
+                    Provide shipping and billing contact details. Payment is not collected on this page.
+                    See <a href="research-use-only.html" class="text-emerald-700 underline font-medium">Research Use Only</a>
+                    and <a href="terms.html" class="text-emerald-700 underline font-medium">Terms of Sale</a>.
+                </p>
+            </div>
+
+            <form id="checkout-form" class="grid lg:grid-cols-12 gap-8" novalidate>
+                <div class="lg:col-span-7 space-y-6">
+                    <!-- Contact / shipping -->
+                    <section class="bg-white border border-slate-200 rounded-3xl p-6 sm:p-8">
+                        <h2 class="font-semibold text-lg mb-5">Shipping &amp; Contact</h2>
+                        <div class="grid sm:grid-cols-2 gap-4">
+                            <div class="sm:col-span-2">
+                                <label class="field-label" for="fullName">Full Name</label>
+                                <input class="field-input" type="text" id="fullName" name="fullName" required autocomplete="name" placeholder="Dr. Jane Researcher">
+                            </div>
+                            <div class="sm:col-span-2">
+                                <label class="field-label" for="institution">Institution / Lab</label>
+                                <input class="field-input" type="text" id="institution" name="institution" required placeholder="University Research Lab">
+                            </div>
+                            <div class="sm:col-span-2">
+                                <label class="field-label" for="email">Email</label>
+                                <input class="field-input" type="email" id="email" name="email" required autocomplete="email" placeholder="you@institution.edu">
+                            </div>
+                            <div class="sm:col-span-2">
+                                <label class="field-label" for="phone">Phone (optional)</label>
+                                <input class="field-input" type="tel" id="phone" name="phone" autocomplete="tel" placeholder="+1 (555) 000-0000">
+                            </div>
+                            <div class="sm:col-span-2">
+                                <label class="field-label" for="address1">Street Address</label>
+                                <input class="field-input" type="text" id="address1" name="address1" required autocomplete="address-line1" placeholder="123 Research Way">
+                            </div>
+                            <div class="sm:col-span-2">
+                                <label class="field-label" for="address2">Address Line 2 (optional)</label>
+                                <input class="field-input" type="text" id="address2" name="address2" autocomplete="address-line2" placeholder="Building, suite, room">
+                            </div>
+                            <div>
+                                <label class="field-label" for="city">City</label>
+                                <input class="field-input" type="text" id="city" name="city" required autocomplete="address-level2">
+                            </div>
+                            <div class="grid grid-cols-2 gap-3">
+                                <div>
+                                    <label class="field-label" for="state">State</label>
+                                    <input class="field-input" type="text" id="state" name="state" required autocomplete="address-level1" placeholder="CA">
+                                </div>
+                                <div>
+                                    <label class="field-label" for="zip">ZIP</label>
+                                    <input class="field-input" type="text" id="zip" name="zip" required autocomplete="postal-code" placeholder="94105">
+                                </div>
+                            </div>
+                            <div class="sm:col-span-2">
+                                <label class="field-label" for="country">Country</label>
+                                <input class="field-input" type="text" id="country" name="country" required autocomplete="country-name" value="United States">
+                            </div>
+                            <div class="sm:col-span-2">
+                                <label class="field-label" for="notes">Order Notes (optional)</label>
+                                <textarea class="field-input" id="notes" name="notes" rows="3" placeholder="PO number, receiving hours, special lab instructions…"></textarea>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Payment placeholder — NO card fields -->
+                    <section class="bg-white border border-slate-200 rounded-3xl p-6 sm:p-8">
+                        <h2 class="font-semibold text-lg mb-2">Payment</h2>
+                        <p class="text-sm text-slate-600 mb-5">
+                            Secure payment via Stripe (hosted) — integration pending.
+                            Card numbers, CVC, and expiration are never entered on True Peptide Labs pages.
+                        </p>
+                        <div class="rounded-2xl border border-dashed border-slate-300 bg-slate-50 p-5">
+                            <div class="flex items-start gap-3">
+                                <div class="w-10 h-10 rounded-xl bg-white border border-slate-200 flex items-center justify-center flex-shrink-0">
+                                    <i class="fa-brands fa-stripe text-slate-700 text-xl"></i>
+                                </div>
+                                <div class="text-sm">
+                                    <div class="font-semibold text-slate-800">Stripe Hosted Checkout</div>
+                                    <div class="text-slate-500 mt-1 leading-relaxed">
+                                        When enabled, you will be redirected to Stripe’s PCI-compliant hosted page to pay.
+                                        This demo does not charge cards or store payment credentials.
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="button" disabled
+                                    class="mt-4 w-full py-3 rounded-2xl border border-slate-200 bg-white text-slate-400 text-sm font-semibold cursor-not-allowed"
+                                    title="Stripe integration pending">
+                                Pay with Stripe (coming soon)
+                            </button>
+                        </div>
+                    </section>
+
+                    <!-- Mandatory RUO certification -->
+                    <section class="bg-white border border-red-200 rounded-3xl p-6 sm:p-8">
+                        <h2 class="font-semibold text-lg mb-4 text-red-900">Research Use Certification</h2>
+                        <label class="flex items-start gap-3 cursor-pointer">
+                            <input type="checkbox" id="ruo-cert" name="ruoCert" required
+                                   class="mt-1 w-5 h-5 rounded border-slate-300 text-emerald-600 focus:ring-emerald-500 flex-shrink-0">
+                            <span class="text-sm leading-relaxed text-slate-700">
+                                I certify that I am a qualified researcher and will use these products solely for laboratory research use only
+                                (not for human consumption or clinical use).
+                            </span>
+                        </label>
+                        <p id="ruo-error" class="hidden mt-3 text-xs text-red-600 font-medium">
+                            You must accept the Research Use Only certification before submitting.
+                        </p>
+                        <div class="mt-4 text-xs text-slate-500 leading-relaxed">
+                            By submitting you also agree to our
+                            <a href="terms.html" class="underline text-slate-700">Terms of Sale</a>
+                            and acknowledge the
+                            <a href="research-use-only.html" class="underline text-slate-700">Research Use Only</a> policy.
+                        </div>
+                    </section>
+                </div>
+
+                <!-- Order summary sidebar -->
+                <div class="lg:col-span-5">
+                    <div class="bg-white border border-slate-200 rounded-3xl p-6 sticky top-28">
+                        <div class="flex items-center justify-between mb-5">
+                            <h2 class="font-semibold text-lg">Order Summary</h2>
+                            <a href="cart.html" class="text-sm text-emerald-700 font-medium hover:underline">Edit cart</a>
+                        </div>
+
+                        <div id="order-summary" class="space-y-3 text-sm mb-5 max-h-64 overflow-y-auto">
+                            <!-- Filled by JS -->
+                        </div>
+
+                        <div class="border-t border-slate-200 pt-4 space-y-2 text-sm">
+                            <div class="flex justify-between">
+                                <span class="text-slate-600">Subtotal</span>
+                                <span id="summary-subtotal" class="font-semibold price">$0.00</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-slate-600">Shipping</span>
+                                <span id="summary-shipping" class="font-semibold price">$18.00</span>
+                            </div>
+                            <div class="text-xs text-slate-500">Free shipping on orders over $450; otherwise $18.</div>
+                            <div class="border-t border-slate-200 pt-3 flex justify-between items-baseline">
+                                <span class="font-semibold">Total</span>
+                                <span id="summary-total" class="text-2xl font-semibold tracking-tight price">$0.00</span>
+                            </div>
+                        </div>
+
+                        <button type="submit"
+                                class="mt-6 w-full py-4 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold rounded-2xl transition-colors text-base">
+                            Submit Research Order Request
+                        </button>
+
+                        <p class="mt-3 text-[11px] text-center text-slate-500 leading-relaxed">
+                            Demo only — saves order request locally. No card processing.
+                            Contact <a href="mailto:orders@truepeptidelabs.com" class="text-emerald-700">orders@truepeptidelabs.com</a>.
+                        </p>
+
+                        <div class="mt-5 border border-amber-200 bg-amber-50 rounded-2xl p-4 text-xs leading-relaxed text-amber-950">
+                            <strong class="text-amber-800">RESEARCH USE ONLY.</strong>
+                            True Peptide Labs products (APEX Research, LLC) are for in vitro laboratory research only.
+                            Not for human or veterinary use.
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-900 text-slate-400 text-sm mt-16">
+        <div class="max-w-screen-2xl mx-auto px-8 pt-14 pb-9">
+            <div class="flex flex-col md:flex-row justify-between gap-y-10">
+                <div>
+                    <div class="flex items-center gap-x-2 text-white mb-4">
+                        <img src="logo.png" alt="True Peptide Labs" class="h-12 w-auto">
+                    </div>
+                    <div class="text-xs max-w-xs">True Peptide Labs — precision research peptides. Operated by APEX Research, LLC.</div>
+                    <div class="text-xs mt-3 space-y-1">
+                        <div><a href="mailto:orders@truepeptidelabs.com" class="hover:text-white">orders@truepeptidelabs.com</a></div>
+                        <div><a href="mailto:research@truepeptidelabs.com" class="hover:text-white">research@truepeptidelabs.com</a></div>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-x-12 gap-y-8 text-xs">
+                    <div>
+                        <div class="font-semibold text-white tracking-wider mb-3 text-xs">LEGAL</div>
+                        <div class="space-y-1.5">
+                            <div><a href="terms.html" class="hover:text-white">Terms of Sale</a></div>
+                            <div><a href="research-use-only.html" class="hover:text-white">Research Use Only</a></div>
+                            <div><a href="privacy.html" class="hover:text-white">Privacy Policy</a></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="font-semibold text-white tracking-wider mb-3 text-xs">SUPPORT</div>
+                        <div class="space-y-1.5">
+                            <div><a href="contact.html" class="hover:text-white">Contact</a></div>
+                            <div><a href="cart.html" class="hover:text-white">Cart</a></div>
+                            <div><a href="index.html#shop" class="hover:text-white">Shop</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-12 pt-8 border-t border-white/10">
+                <div class="disclaimer bg-slate-950 border border-white/10 rounded-2xl p-5 text-[11.5px] leading-relaxed">
+                    <strong class="text-white">IMPORTANT DISCLAIMER:</strong>
+                    All products sold by APEX Research, LLC d/b/a True Peptide Labs are intended
+                    <span class="text-red-400 font-semibold">strictly for in vitro laboratory research purposes only</span>.
+                    Not FDA-approved for human use. Not for human consumption or clinical use.
+                </div>
+                <div class="text-center mt-8 text-[10px] tracking-wider">© 2026 APEX Research, LLC. All rights reserved. • True Peptide Labs</div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const CART_KEY = 'tpl_cart';
+        const LEGACY_CART_KEY = 'apex_cart';
+        const ORDERS_KEY = 'tpl_orders';
+        const LEGACY_ORDERS_KEY = 'apex_orders';
+        const FREE_SHIP_THRESHOLD = 450;
+        const SHIPPING_FLAT = 18;
+
+        function loadCart() {
+            let cart = [];
+            try {
+                const primary = localStorage.getItem(CART_KEY);
+                if (primary) {
+                    cart = JSON.parse(primary) || [];
+                } else {
+                    const legacy = localStorage.getItem(LEGACY_CART_KEY);
+                    if (legacy) {
+                        cart = JSON.parse(legacy) || [];
+                        localStorage.setItem(CART_KEY, JSON.stringify(cart));
+                    }
+                }
+            } catch (e) {
+                cart = [];
+            }
+            return Array.isArray(cart) ? cart : [];
+        }
+
+        function saveCart(cart) {
+            localStorage.setItem(CART_KEY, JSON.stringify(cart));
+            localStorage.setItem(LEGACY_CART_KEY, JSON.stringify(cart));
+        }
+
+        function loadOrders() {
+            try {
+                const primary = localStorage.getItem(ORDERS_KEY);
+                if (primary) return JSON.parse(primary) || [];
+                const legacy = localStorage.getItem(LEGACY_ORDERS_KEY);
+                if (legacy) {
+                    const orders = JSON.parse(legacy) || [];
+                    localStorage.setItem(ORDERS_KEY, JSON.stringify(orders));
+                    return orders;
+                }
+            } catch (e) { /* ignore */ }
+            return [];
+        }
+
+        function saveOrders(orders) {
+            localStorage.setItem(ORDERS_KEY, JSON.stringify(orders));
+        }
+
+        function money(n) {
+            return '$' + Number(n).toFixed(2);
+        }
+
+        function getSubtotal(cart) {
+            return cart.reduce((sum, item) => sum + (Number(item.price) || 0) * (Number(item.qty) || 0), 0);
+        }
+
+        function getShipping(subtotal) {
+            return subtotal >= FREE_SHIP_THRESHOLD ? 0 : SHIPPING_FLAT;
+        }
+
+        function escapeHtml(str) {
+            return String(str)
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;');
+        }
+
+        function updateCartCount(cart) {
+            const count = cart.reduce((sum, item) => sum + (Number(item.qty) || 0), 0);
+            const el = document.getElementById('cart-count');
+            if (el) el.textContent = String(count);
+        }
+
+        function renderSummary(cart) {
+            const subtotal = getSubtotal(cart);
+            const shipping = getShipping(subtotal);
+            const total = subtotal + shipping;
+
+            const container = document.getElementById('order-summary');
+            container.innerHTML = cart.map(item => {
+                const qty = Number(item.qty) || 1;
+                const line = (Number(item.price) || 0) * qty;
+                return `
+                    <div class="flex justify-between gap-3 py-1">
+                        <div class="min-w-0">
+                            <div class="font-medium truncate">${escapeHtml(item.name || 'Item')}</div>
+                            <div class="text-xs text-slate-500">×${qty}${item.vialSize ? ' · ' + escapeHtml(item.vialSize) : ''}</div>
+                        </div>
+                        <div class="font-medium price flex-shrink-0">${money(line)}</div>
+                    </div>
+                `;
+            }).join('');
+
+            document.getElementById('summary-subtotal').textContent = money(subtotal);
+            const shipEl = document.getElementById('summary-shipping');
+            shipEl.textContent = shipping === 0 ? 'FREE' : money(shipping);
+            shipEl.className = shipping === 0 ? 'font-semibold price text-emerald-700' : 'font-semibold price';
+            document.getElementById('summary-total').textContent = money(total);
+
+            return { subtotal, shipping, total };
+        }
+
+        function showState(name) {
+            ['empty-state', 'success-state', 'checkout-state'].forEach(id => {
+                document.getElementById(id).classList.toggle('hidden', id !== name);
+            });
+        }
+
+        function generateOrderId() {
+            const stamp = Date.now().toString(36).toUpperCase();
+            const rand = Math.random().toString(36).slice(2, 6).toUpperCase();
+            return 'TPL-' + stamp.slice(-6) + rand;
+        }
+
+        function onSubmit(e) {
+            e.preventDefault();
+
+            const cart = loadCart();
+            if (cart.length === 0) {
+                showState('empty-state');
+                return;
+            }
+
+            const ruo = document.getElementById('ruo-cert');
+            const ruoError = document.getElementById('ruo-error');
+            if (!ruo.checked) {
+                ruoError.classList.remove('hidden');
+                ruo.focus();
+                return;
+            }
+            ruoError.classList.add('hidden');
+
+            const form = e.target;
+            if (!form.checkValidity()) {
+                form.reportValidity();
+                return;
+            }
+
+            const { subtotal, shipping, total } = renderSummary(cart);
+            const orderId = generateOrderId();
+
+            const order = {
+                id: orderId,
+                date: new Date().toISOString(),
+                status: 'request_received',
+                payment: 'pending_stripe_hosted',
+                items: cart.map(item => ({
+                    id: item.id,
+                    name: item.name,
+                    price: item.price,
+                    qty: item.qty,
+                    vialSize: item.vialSize,
+                    purity: item.purity
+                })),
+                subtotal: subtotal,
+                shipping: shipping,
+                total: total,
+                customer: {
+                    fullName: form.fullName.value.trim(),
+                    institution: form.institution.value.trim(),
+                    email: form.email.value.trim(),
+                    phone: form.phone.value.trim(),
+                    address1: form.address1.value.trim(),
+                    address2: form.address2.value.trim(),
+                    city: form.city.value.trim(),
+                    state: form.state.value.trim(),
+                    zip: form.zip.value.trim(),
+                    country: form.country.value.trim(),
+                    notes: form.notes.value.trim()
+                },
+                ruoCertified: true,
+                // Explicit: no card data ever stored
+                cardData: null
+            };
+
+            const orders = loadOrders();
+            orders.unshift(order);
+            saveOrders(orders);
+
+            // Clear cart
+            saveCart([]);
+            updateCartCount([]);
+
+            document.getElementById('order-number').textContent = orderId;
+            showState('success-state');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function init() {
+            const cart = loadCart();
+            updateCartCount(cart);
+
+            if (cart.length === 0) {
+                showState('empty-state');
+                return;
+            }
+
+            showState('checkout-state');
+            renderSummary(cart);
+            document.getElementById('checkout-form').addEventListener('submit', onSubmit);
+
+            document.getElementById('ruo-cert').addEventListener('change', function () {
+                if (this.checked) {
+                    document.getElementById('ruo-error').classList.add('hidden');
+                }
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', init);
+    </script>
+</body>
+</html>
