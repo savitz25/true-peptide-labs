@@ -197,6 +197,6 @@ window.TPL_SITE = {
   brand: "VialVibes",
   legal: "VialVibes is operated by APEX Research, LLC",
   domain: "https://www.peptidetrue.com",
-  emailResearch: "research@truepeptidelabs.com",
-  emailOrders: "orders@truepeptidelabs.com"
+  emailResearch: "research@vialvibes.com",
+  emailOrders: "orders@vialvibes.com"
 };

@@ -3,76 +3,191 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vial Vault | Lot verification | VialVibes</title>
-  <meta name="description" content="Enter a lot number to request CoA documentation. Futuristic vault experience — real verification is documentation on request. Research use only.">
+  <title>The Vial Vault | Lot verification | VialVibes</title>
+  <meta name="description" content="The Vial Vault — unlock a research documentation request by lot number. Honest CoA flow, no invented purity scores. Research use only. VialVibes.">
   <link rel="canonical" href="https://www.peptidetrue.com/vault.html">
   <link rel="icon" type="image/svg+xml" href="assets/logo-vialvibes-mark.svg">
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="css/site.css">
+  <style>
+    .vault-hero-bg {
+      background:
+        radial-gradient(ellipse 60% 50% at 50% 0%, rgba(0, 229, 255, 0.14), transparent 55%),
+        radial-gradient(ellipse 40% 40% at 80% 80%, rgba(168, 85, 247, 0.12), transparent 50%),
+        linear-gradient(180deg, #0F0C29 0%, #121212 100%);
+    }
+    .vault-panel {
+      max-width: 540px;
+      margin: 0 auto;
+      border-radius: 1.85rem;
+      padding: 2.25rem 2rem 2rem;
+      background: linear-gradient(165deg, rgba(30, 27, 75, 0.92), rgba(10, 8, 28, 0.96));
+      border: 1px solid rgba(0, 229, 255, 0.28);
+      box-shadow: 0 0 80px rgba(0, 229, 255, 0.1), 0 24px 60px rgba(0, 0, 0, 0.45);
+      position: relative;
+      overflow: hidden;
+    }
+    .vault-panel::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(135deg, transparent 40%, rgba(0, 255, 170, 0.06) 50%, transparent 60%),
+        radial-gradient(circle at 50% 0%, rgba(0, 229, 255, 0.15), transparent 50%);
+      pointer-events: none;
+    }
+    .vault-scanline {
+      position: absolute;
+      left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #00E5FF, transparent);
+      opacity: 0.35;
+      animation: scan 3.5s linear infinite;
+      pointer-events: none;
+    }
+    @keyframes scan {
+      0% { top: 8%; opacity: 0; }
+      10% { opacity: 0.4; }
+      90% { opacity: 0.4; }
+      100% { top: 92%; opacity: 0; }
+    }
+    .vault-lock {
+      width: 100px; height: 100px;
+      margin: 0 auto 1.5rem;
+      border-radius: 50%;
+      border: 2px solid rgba(0, 229, 255, 0.45);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.25rem;
+      color: #00E5FF;
+      box-shadow: 0 0 40px rgba(0, 229, 255, 0.25), inset 0 0 30px rgba(0, 229, 255, 0.08);
+      transition: all 0.5s cubic-bezier(0.34, 1.4, 0.64, 1);
+      position: relative;
+      z-index: 2;
+    }
+    .vault-lock.unlocked {
+      border-color: #00FFAA;
+      color: #00FFAA;
+      box-shadow: 0 0 50px rgba(0, 255, 170, 0.4);
+      transform: scale(1.06);
+    }
+    .vault-rings {
+      position: absolute;
+      inset: -12px;
+      border-radius: 50%;
+      border: 1px dashed rgba(0, 229, 255, 0.25);
+      animation: spin 20s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .vault-verified {
+      display: none;
+      text-align: center;
+      animation: vv-vault-unlock 0.55s ease;
+      position: relative;
+      z-index: 2;
+    }
+    .vault-verified.show { display: block; }
+    .vault-verified .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      padding: 0.75rem 1.4rem;
+      border-radius: 999px;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      font-size: 0.78rem;
+      background: linear-gradient(135deg, rgba(0, 255, 170, 0.22), rgba(0, 229, 255, 0.18));
+      border: 1px solid rgba(0, 255, 170, 0.55);
+      color: #00FFAA;
+      text-transform: uppercase;
+      box-shadow: 0 0 30px rgba(0, 255, 170, 0.2);
+    }
+  </style>
 </head>
-<body class="min-h-screen flex flex-col">
+<body class="min-h-screen flex flex-col vault-hero-bg">
   <nav class="vv-nav sticky top-0 z-50">
-    <div class="max-w-screen-2xl mx-auto px-4 sm:px-8 py-3.5 flex items-center justify-between">
+    <div class="max-w-screen-2xl mx-auto px-4 sm:px-8 py-3.5 flex items-center justify-between gap-4">
       <a href="index.html"><img src="assets/logo-vialvibes.svg" alt="VialVibes" class="h-10 sm:h-12"></a>
-      <div class="hidden md:flex gap-6 text-sm">
+      <div class="hidden lg:flex items-center gap-x-6 text-sm font-medium">
         <a href="peptides/index.html" class="nav-link">Peptide Library</a>
-        <a href="coa.html" class="nav-link">CoA</a>
-        <a href="vault.html" class="nav-link active">Vial Vault</a>
-        <a href="research/how-to-read-a-coa.html" class="nav-link">How to read a CoA</a>
+        <a href="research/index.html" class="nav-link">Research</a>
+        <a href="vibe-finder.html" class="nav-link">Vibe Finder</a>
+        <a href="vault.html" class="nav-link active">Vault</a>
+        <a href="tools/peptide-calculator.html" class="nav-link">Calculator</a>
+        <a href="contact.html" class="nav-link">Contact</a>
       </div>
-      <a href="index.html" class="vv-btn-ghost !py-2 !px-4 text-sm">Home</a>
+      <a href="cart.html" class="vv-btn-ghost !py-2 !px-4 text-sm">Cart</a>
     </div>
   </nav>
   <div class="ruo-banner">
     <div class="max-w-screen-2xl mx-auto px-4 py-2.5 text-center text-xs">
-      <strong>Honest vault:</strong> We don’t invent purity results. This flow prepares a CoA request and confirms your lot was logged for research documentation.
+      <strong>Honest vault.</strong> We never invent purity results. Unlock prepares a CoA documentation request for your lot.
     </div>
   </div>
 
-  <main class="flex-1 px-4 sm:px-8 py-14">
-    <div class="text-center mb-10">
-      <div class="vv-chip mb-4">Secure documentation</div>
-      <h1 class="heading-font text-4xl sm:text-5xl tracking-tighter mb-3">Vial Vault</h1>
-      <p class="max-w-xl mx-auto" style="color:var(--vv-text-muted)">Enter the lot on your vial. Unlock a research documentation request — not a fake instant purity score.</p>
+  <main class="flex-1 px-4 sm:px-8 py-14 sm:py-20">
+    <div class="text-center mb-12 max-w-2xl mx-auto">
+      <div class="vv-chip mb-4"><i class="fa-solid fa-shield-halved text-[10px]"></i> Secure documentation</div>
+      <h1 class="heading-font text-4xl sm:text-6xl tracking-tighter mb-4">The Vial Vault</h1>
+      <p class="text-lg" style="color:var(--vv-text-muted)">Enter the lot printed on your vial. Unlock a research documentation request — not a fake instant scoreboard.</p>
     </div>
 
-    <div class="vault-panel relative z-10">
-      <div id="vault-lock" class="vault-lock" aria-hidden="true"><i class="fa-solid fa-lock"></i></div>
+    <div class="vault-panel">
+      <div class="vault-scanline" aria-hidden="true"></div>
+      <div class="relative mx-auto w-[100px] h-[100px] mb-6">
+        <div class="vault-rings" aria-hidden="true"></div>
+        <div id="vault-lock" class="vault-lock" style="margin:0"><i class="fa-solid fa-lock"></i></div>
+      </div>
+
       <form id="vault-form" class="space-y-4 relative z-10">
         <div>
-          <label class="block text-xs font-semibold tracking-wider mb-1.5" style="color:var(--vv-text-muted)">LOT NUMBER</label>
-          <input id="lot" type="text" required placeholder="e.g. VV-250728-01" class="w-full rounded-2xl px-4 py-3 text-sm">
+          <label class="block text-xs font-bold tracking-[0.14em] mb-1.5" style="color:var(--vv-cyan)">LOT NUMBER</label>
+          <input id="lot" type="text" required autocomplete="off" placeholder="e.g. VV-250728-01"
+                 class="w-full rounded-2xl px-4 py-3.5 text-sm font-mono">
         </div>
         <div class="grid sm:grid-cols-2 gap-3">
           <div>
-            <label class="block text-xs font-semibold tracking-wider mb-1.5" style="color:var(--vv-text-muted)">PRODUCT (optional)</label>
-            <input id="product" type="text" placeholder="BPC-157" class="w-full rounded-2xl px-4 py-3 text-sm">
+            <label class="block text-xs font-semibold tracking-wider mb-1.5" style="color:var(--vv-text-muted)">PRODUCT</label>
+            <input id="product" type="text" placeholder="Optional" class="w-full rounded-2xl px-4 py-3 text-sm">
           </div>
           <div>
-            <label class="block text-xs font-semibold tracking-wider mb-1.5" style="color:var(--vv-text-muted)">EMAIL (optional)</label>
+            <label class="block text-xs font-semibold tracking-wider mb-1.5" style="color:var(--vv-text-muted)">LAB EMAIL</label>
             <input id="email" type="email" placeholder="you@lab.edu" class="w-full rounded-2xl px-4 py-3 text-sm">
           </div>
         </div>
-        <button type="submit" class="vv-btn-primary w-full">Unlock documentation request</button>
+        <button type="submit" class="vv-btn-primary w-full !py-4 text-base">
+          <i class="fa-solid fa-key"></i> Unlock documentation request
+        </button>
       </form>
 
-      <div id="vault-ok" class="vault-verified relative z-10 mt-6">
-        <div class="badge mb-4"><i class="fa-solid fa-shield-halved"></i> VIAL VERIFIED · REQUEST LOGGED</div>
-        <p class="text-sm mb-4" style="color:var(--vv-text-muted)">Lot <strong id="lot-out" class="font-mono" style="color:var(--vv-cyan)"></strong> was recorded for a CoA follow-up. Documentation is provided when available for that lot — we do not display fabricated analytical results.</p>
+      <div id="vault-ok" class="vault-verified mt-8">
+        <div class="badge mb-5"><i class="fa-solid fa-circle-check"></i> VIAL VERIFIED &middot; REQUEST LOGGED</div>
+        <p class="text-sm mb-2" style="color:var(--vv-text)">Lot recorded</p>
+        <p id="lot-out" class="font-mono text-xl mb-4" style="color:var(--vv-cyan)"></p>
+        <p class="text-sm mb-6 max-w-md mx-auto" style="color:var(--vv-text-muted)">
+          Your lot was logged for CoA follow-up. Documentation is provided <strong style="color:var(--vv-text)">when available</strong> for that lot. We do not display fabricated analytical results.
+        </p>
         <div class="flex flex-wrap justify-center gap-3">
-          <a id="mailto-link" class="vv-btn-primary" href="#">Open email to research@</a>
+          <a id="mailto-link" class="vv-btn-primary" href="#">Email research@vialvibes.com</a>
           <a href="research/how-to-read-a-coa.html" class="vv-btn-ghost">How to read a CoA</a>
-          <a href="coa.html" class="vv-btn-ghost">Full CoA center</a>
+          <a href="coa.html" class="vv-btn-ghost">CoA center</a>
         </div>
       </div>
     </div>
 
-    <p class="text-center text-xs mt-10 max-w-lg mx-auto" style="color:var(--vv-text-dim)">
-      Fun outside, serious inside. Public PDF archive is coming later. Until then, email remains the reliable path.
-      <a href="research-use-only.html" class="underline" style="color:var(--vv-cyan)">RUO policy</a>
-    </p>
+    <div class="max-w-2xl mx-auto mt-12 grid sm:grid-cols-3 gap-4 text-center text-xs" style="color:var(--vv-text-dim)">
+      <div class="vv-glass rounded-2xl p-4">No fake purity scores</div>
+      <div class="vv-glass rounded-2xl p-4">Public archive coming later</div>
+      <div class="vv-glass rounded-2xl p-4">RUO documentation only</div>
+    </div>
   </main>
+
+  <footer class="py-8 text-center text-xs border-t border-white/5" style="color:var(--vv-text-dim)">
+    <p class="mb-1">&copy; 2026 VialVibes</p>
+    <p>Operated by APEX Research, LLC &middot; <a href="research-use-only.html" class="underline" style="color:var(--vv-cyan)">RUO policy</a></p>
+  </footer>
 
   <script>
     (function () {
@@ -90,9 +205,10 @@
         var lock = document.getElementById('vault-lock');
         lock.classList.add('unlocked');
         lock.innerHTML = '<i class="fa-solid fa-lock-open"></i>';
-
         document.getElementById('lot-out').textContent = lot;
         document.getElementById('vault-ok').classList.add('show');
+        document.getElementById('vault-form').style.opacity = '0.45';
+        document.getElementById('vault-form').style.pointerEvents = 'none';
 
         var subject = encodeURIComponent('CoA request — lot ' + lot);
         var body = encodeURIComponent(
@@ -102,7 +218,7 @@
           'Please provide Certificate of Analysis documentation if available for this research lot.\n'
         );
         document.getElementById('mailto-link').href =
-          'mailto:research@truepeptidelabs.com?subject=' + subject + '&body=' + body;
+          'mailto:research@vialvibes.com?subject=' + subject + '&body=' + body;
 
         try {
           var log = JSON.parse(localStorage.getItem('vv_vault_requests') || '[]');

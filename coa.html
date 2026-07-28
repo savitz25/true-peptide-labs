@@ -24,7 +24,7 @@
   "name": "VialVibes",
   "legalName": "APEX Research, LLC",
   "url": "https://www.peptidetrue.com",
-  "email": "research@truepeptidelabs.com",
+  "email": "research@vialvibes.com",
   "description": "Research-use-only peptide supplier for qualified laboratories.",
   "areaServed": "US"
 }
@@ -110,13 +110,13 @@
           <h2 class="heading-font text-2xl text-slate-900">Lot number lookup</h2>
           <p class="text-slate-600 leading-relaxed mt-1">
             Enter the lot number printed on your vial or packaging. This form prepares an email request to
-            <a href="mailto:research@truepeptidelabs.com" class="text-emerald-700 font-medium underline">research@truepeptidelabs.com</a>—
+            <a href="mailto:research@vialvibes.com" class="text-emerald-700 font-medium underline">research@vialvibes.com</a>—
             it does not download files automatically and does not return fabricated purity data.
           </p>
         </div>
       </div>
 
-      <form id="coa-form" class="space-y-4 mt-6" action="mailto:research@truepeptidelabs.com" method="get" enctype="text/plain">
+      <form id="coa-form" class="space-y-4 mt-6" action="mailto:research@vialvibes.com" method="get" enctype="text/plain">
         <input type="hidden" name="subject" id="coa-subject" value="CoA request">
         <div>
           <label for="lot-number" class="block text-sm font-semibold text-slate-800 mb-1.5">Lot number <span class="text-red-500">*</span></label>
@@ -176,7 +176,7 @@
         VialVibes (operated by APEX Research, LLC) provides lot-level documentation <strong class="text-slate-800">on request when available</strong> for the materials we supply. Availability, format, and the specific tests reported can differ by product and lot.
       </p>
       <ul class="space-y-3 text-slate-600 mb-5">
-        <li class="flex gap-3"><i class="fa-solid fa-circle-check text-emerald-600 mt-1 shrink-0"></i><span>Request CoAs using the form above or by emailing your lot number to research@truepeptidelabs.com.</span></li>
+        <li class="flex gap-3"><i class="fa-solid fa-circle-check text-emerald-600 mt-1 shrink-0"></i><span>Request CoAs using the form above or by emailing your lot number to research@vialvibes.com.</span></li>
         <li class="flex gap-3"><i class="fa-solid fa-circle-check text-emerald-600 mt-1 shrink-0"></i><span>A public self-serve archive is planned; it is not live yet (see placeholder below).</span></li>
         <li class="flex gap-3"><i class="fa-solid fa-circle-xmark text-slate-400 mt-1 shrink-0"></i><span><strong class="text-slate-800">No fabricated PDFs</strong> or downloadable CoA files are hosted on this page for marketing purposes.</span></li>
         <li class="flex gap-3"><i class="fa-solid fa-circle-xmark text-slate-400 mt-1 shrink-0"></i><span><strong class="text-slate-800">No invented purity statistics</strong>, pass rates, or certification badges appear here.</span></li>
@@ -196,7 +196,7 @@
           <h2 class="heading-font text-xl text-slate-900">Public CoA archive</h2>
           <p class="text-slate-600 leading-relaxed mt-2">
             A browsable archive of lot PDFs is <strong class="text-slate-800">coming soon</strong>. Until self-serve downloads are available, use the lot lookup form or email
-            <a href="mailto:research@truepeptidelabs.com?subject=CoA%20request" class="text-emerald-700 font-semibold hover:underline">research@truepeptidelabs.com</a>.
+            <a href="mailto:research@vialvibes.com?subject=CoA%20request" class="text-emerald-700 font-semibold hover:underline">research@vialvibes.com</a>.
           </p>
           <p class="mt-4 text-sm text-slate-500 italic">
             Placeholder — PDF links will appear here when the public archive is published. No sample or placeholder PDFs are provided.
@@ -233,7 +233,7 @@
           <img src="assets/logo-vialvibes.svg" alt="VialVibes" class="h-12 w-auto">
         </a>
         <p class="text-xs max-w-xs">VialVibes supplies research-use-only peptides for qualified laboratories. Operated by APEX Research, LLC.</p>
-        <p class="text-xs mt-3"><a href="mailto:research@truepeptidelabs.com" class="hover:text-white">research@truepeptidelabs.com</a></p>
+        <p class="text-xs mt-3"><a href="mailto:research@vialvibes.com" class="hover:text-white">research@vialvibes.com</a></p>
       </div>
       <div class="grid grid-cols-2 md:grid-cols-4 gap-x-10 gap-y-8 text-xs">
         <div>
@@ -323,7 +323,7 @@
       'Thank you.'
     ].join('\n');
 
-    var mailto = 'mailto:research@truepeptidelabs.com'
+    var mailto = 'mailto:research@vialvibes.com'
       + '?subject=' + encodeURIComponent(subject)
       + '&body=' + encodeURIComponent(body);
     window.location.href = mailto;
@@ -331,7 +331,7 @@
     var msg = document.getElementById('coa-message');
     msg.classList.remove('hidden');
     msg.innerHTML = '<strong>Email draft opened.</strong> If your mail client did not open, write to '
-      + '<a class="underline font-semibold" href="mailto:research@truepeptidelabs.com">research@truepeptidelabs.com</a> '
+      + '<a class="underline font-semibold" href="mailto:research@vialvibes.com">research@vialvibes.com</a> '
       + 'with lot number <strong>' + lot.replace(/</g, '&lt;') + '</strong>. '
       + 'We provide CoAs when available for the requested lot. A public archive is coming soon.';
   });

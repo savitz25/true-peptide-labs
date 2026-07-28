@@ -5,7 +5,7 @@ Research-use-only (RUO) peptide supplier site. Static multi-page HTML on Vercel.
 **Brand:** VialVibes (operated by APEX Research, LLC)  
 **Tagline:** Good Vibes. Serious Science.  
 **Domain:** peptidetrue.com  
-**Emails (current):** research@truepeptidelabs.com · orders@truepeptidelabs.com  
+**Emails (current):** research@vialvibes.com · orders@vialvibes.com  
 
 ## Brand & design system
 
