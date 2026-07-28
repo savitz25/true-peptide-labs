@@ -1,0 +1,6 @@
+{
+  "name": "vialvibes",
+  "private": true,
+  "description": "VialVibes static site + Vercel serverless email (Resend)",
+  "version": "1.0.0"
+}

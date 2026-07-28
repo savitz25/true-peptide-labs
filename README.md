@@ -59,3 +59,8 @@ Redirects in `vercel.json` (index.html → `/`, legacy tools → `/tools/*`).
 ## Compliance
 
 Products are **research use only**. Do not reintroduce unverified certificates, institutional testimonials, or human-use language. Prefer legal review before traffic scaling.
+
+## Email (Resend)
+
+See [EMAIL-SETUP.md](./EMAIL-SETUP.md) for Resend outbound + inbound forward to info@movetrusthub.com.
+

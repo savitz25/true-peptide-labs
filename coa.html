@@ -119,18 +119,16 @@
         <div>
           <h2 class="heading-font text-2xl text-slate-900">Lot number lookup</h2>
           <p class="text-slate-600 leading-relaxed mt-1">
-            Enter the lot number printed on your vial or packaging. This form prepares an email request to
-            <a href="mailto:research@vialvibes.com" class="text-emerald-700 font-medium underline">research@vialvibes.com</a>—
-            it does not download files automatically and does not return fabricated purity data.
+            Enter the lot number printed on your vial or packaging. This form sends a documentation request via Resend
+            from <strong>research@vialvibes.com</strong>. It does not download files automatically and does not return fabricated purity data.
           </p>
         </div>
       </div>
 
-      <form id="coa-form" class="space-y-4 mt-6" action="mailto:research@vialvibes.com" method="get" enctype="text/plain">
-        <input type="hidden" name="subject" id="coa-subject" value="CoA request">
+      <form id="coa-form" class="space-y-4 mt-6">
         <div>
           <label for="lot-number" class="block text-sm font-semibold text-slate-800 mb-1.5">Lot number <span class="text-red-500">*</span></label>
-          <input type="text" id="lot-number" name="body" required autocomplete="off"
+          <input type="text" id="lot-number" required autocomplete="off"
                  placeholder="e.g. LOT printed on label"
                  class="w-full border border-slate-200 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-100 rounded-2xl px-4 py-3 text-sm outline-none">
         </div>
@@ -154,10 +152,10 @@
                  placeholder="Lab, university, or company"
                  class="w-full border border-slate-200 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-100 rounded-2xl px-4 py-3 text-sm outline-none">
         </div>
-        <button type="submit"
+        <button type="submit" id="coa-submit"
                 class="w-full sm:w-auto px-8 py-3 bg-emerald-600 hover:bg-emerald-700 text-white text-sm font-semibold rounded-2xl inline-flex items-center justify-center gap-2">
           <i class="fa-solid fa-envelope"></i>
-          Request CoA by email
+          Request CoA
         </button>
       </form>
 
@@ -296,20 +294,14 @@
   </div>
 </footer>
 
+<script src="js/email-client.js"></script>
 <script>
 (function () {
-  // Prefill from ?lot= and ?product= query params
   var params = new URLSearchParams(window.location.search);
-  var lotParam = params.get('lot');
-  var productParam = params.get('product');
-  if (lotParam) {
-    document.getElementById('lot-number').value = lotParam;
-  }
-  if (productParam) {
-    document.getElementById('product-name').value = productParam;
-  }
+  if (params.get('lot')) document.getElementById('lot-number').value = params.get('lot');
+  if (params.get('product')) document.getElementById('product-name').value = params.get('product');
 
-  document.getElementById('coa-form').addEventListener('submit', function (e) {
+  document.getElementById('coa-form').addEventListener('submit', async function (e) {
     e.preventDefault();
     var lot = document.getElementById('lot-number').value.trim();
     var product = document.getElementById('product-name').value.trim();
@@ -317,33 +309,33 @@
     var institution = document.getElementById('institution').value.trim();
     if (!lot) return;
 
-    var subject = 'CoA request — lot ' + lot;
-    var body = [
-      'Hello VialVibes,',
-      '',
-      'Please send the Certificate of Analysis (if available) for the following research lot:',
-      '',
-      'Lot number: ' + lot,
-      'Product name: ' + (product || '(not provided)'),
-      'Reply-to email: ' + (email || '(not provided)'),
-      'Institution: ' + (institution || '(not provided)'),
-      '',
-      'I confirm this request is for laboratory research documentation only.',
-      '',
-      'Thank you.'
-    ].join('\n');
-
-    var mailto = 'mailto:research@vialvibes.com'
-      + '?subject=' + encodeURIComponent(subject)
-      + '&body=' + encodeURIComponent(body);
-    window.location.href = mailto;
-
     var msg = document.getElementById('coa-message');
+    var btn = document.getElementById('coa-submit');
     msg.classList.remove('hidden');
-    msg.innerHTML = '<strong>Email draft opened.</strong> If your mail client did not open, write to '
-      + '<a class="underline font-semibold" href="mailto:research@vialvibes.com">research@vialvibes.com</a> '
-      + 'with lot number <strong>' + lot.replace(/</g, '&lt;') + '</strong>. '
-      + 'We provide CoAs when available for the requested lot. A public archive is coming soon.';
+    msg.className = 'mt-5 bg-slate-50 border border-slate-200 rounded-2xl p-4 text-sm text-slate-700';
+    msg.textContent = 'Sending documentation request…';
+    if (btn) btn.disabled = true;
+
+    try {
+      await VVEmail.sendVaultRequest({
+        lot: lot,
+        product: product,
+        email: email,
+        institution: institution,
+        source: 'coa-page'
+      });
+      msg.className = 'mt-5 bg-emerald-50 border border-emerald-100 rounded-2xl p-4 text-sm text-emerald-900';
+      msg.innerHTML = '<strong>Request sent.</strong> Your lot <strong>' + lot.replace(/</g, '&lt;') +
+        '</strong> was submitted from research@vialvibes.com. We provide CoAs when available for the requested lot. A public archive is coming soon.';
+      e.target.reset();
+      if (params.get('lot')) document.getElementById('lot-number').value = params.get('lot');
+    } catch (err) {
+      msg.className = 'mt-5 bg-red-50 border border-red-100 rounded-2xl p-4 text-sm text-red-800';
+      msg.innerHTML = '<strong>Could not send via Resend.</strong> ' + (err.message || 'Unknown error') +
+        ' Email <a class="underline font-semibold" href="mailto:research@vialvibes.com">research@vialvibes.com</a> with your lot number.';
+    } finally {
+      if (btn) btn.disabled = false;
+    }
   });
 })();
 </script>
