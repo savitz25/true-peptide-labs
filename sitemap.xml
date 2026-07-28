@@ -1,58 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <!-- Homepage -->
-  <url><loc>https://vialvibes.com/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://www.vialvibes.com/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
 
   <!-- Peptide Library & products -->
-  <url><loc>https://vialvibes.com/peptides/</loc><changefreq>weekly</changefreq><priority>0.95</priority></url>
-  <url><loc>https://vialvibes.com/peptides/bpc-157.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://vialvibes.com/peptides/tb-500.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://vialvibes.com/peptides/semaglutide.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://vialvibes.com/peptides/tirzepatide.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://vialvibes.com/peptides/retatrutide.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://vialvibes.com/peptides/ipamorelin.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://vialvibes.com/peptides/cjc-1295.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://vialvibes.com/peptides/ghk-cu.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://vialvibes.com/peptides/tissue-repair.html</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
-  <url><loc>https://vialvibes.com/peptides/metabolic.html</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
-  <url><loc>https://vialvibes.com/peptides/growth-hormone.html</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
-  <url><loc>https://vialvibes.com/peptides/cosmetic.html</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://www.vialvibes.com/peptides/</loc><changefreq>weekly</changefreq><priority>0.95</priority></url>
+  <url><loc>https://www.vialvibes.com/peptides/bpc-157.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.vialvibes.com/peptides/tb-500.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.vialvibes.com/peptides/semaglutide.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.vialvibes.com/peptides/tirzepatide.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.vialvibes.com/peptides/retatrutide.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.vialvibes.com/peptides/ipamorelin.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.vialvibes.com/peptides/cjc-1295.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.vialvibes.com/peptides/ghk-cu.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.vialvibes.com/peptides/tissue-repair.html</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://www.vialvibes.com/peptides/metabolic.html</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://www.vialvibes.com/peptides/growth-hormone.html</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://www.vialvibes.com/peptides/cosmetic.html</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
 
   <!-- Signature experiences & tools -->
-  <url><loc>https://vialvibes.com/vibe-finder.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://vialvibes.com/vault.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://vialvibes.com/tools/peptide-calculator.html</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://vialvibes.com/tools/research-combination-builder.html</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://vialvibes.com/coa.html</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://vialvibes.com/quality.html</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://www.vialvibes.com/vibe-finder.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.vialvibes.com/vault.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.vialvibes.com/tools/peptide-calculator.html</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.vialvibes.com/tools/research-combination-builder.html</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.vialvibes.com/coa.html</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.vialvibes.com/quality.html</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
 
   <!-- Research Hub -->
-  <url><loc>https://vialvibes.com/research/</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://vialvibes.com/research/compare.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://vialvibes.com/research/bpc-157.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://vialvibes.com/research/tb-500.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://vialvibes.com/research/semaglutide.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://vialvibes.com/research/tirzepatide.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://vialvibes.com/research/retatrutide.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://vialvibes.com/research/ipamorelin.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://vialvibes.com/research/cjc-1295.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://vialvibes.com/research/ghk-cu.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://vialvibes.com/research/how-to-read-a-coa.html</loc><changefreq>monthly</changefreq><priority>0.75</priority></url>
-  <url><loc>https://vialvibes.com/research/hplc-mass-spectrometry.html</loc><changefreq>monthly</changefreq><priority>0.75</priority></url>
-  <url><loc>https://vialvibes.com/research/peptide-purity-claims.html</loc><changefreq>monthly</changefreq><priority>0.75</priority></url>
-  <url><loc>https://vialvibes.com/research/storage-stability.html</loc><changefreq>monthly</changefreq><priority>0.75</priority></url>
-  <url><loc>https://vialvibes.com/research/reconstitution-best-practices.html</loc><changefreq>monthly</changefreq><priority>0.75</priority></url>
-  <url><loc>https://vialvibes.com/research/research-use-only-explainer.html</loc><changefreq>monthly</changefreq><priority>0.75</priority></url>
-  <url><loc>https://vialvibes.com/research/glossary.html</loc><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://www.vialvibes.com/research/</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.vialvibes.com/research/compare.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.vialvibes.com/research/bpc-157.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.vialvibes.com/research/tb-500.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.vialvibes.com/research/semaglutide.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.vialvibes.com/research/tirzepatide.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.vialvibes.com/research/retatrutide.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.vialvibes.com/research/ipamorelin.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.vialvibes.com/research/cjc-1295.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.vialvibes.com/research/ghk-cu.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.vialvibes.com/research/how-to-read-a-coa.html</loc><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://www.vialvibes.com/research/hplc-mass-spectrometry.html</loc><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://www.vialvibes.com/research/peptide-purity-claims.html</loc><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://www.vialvibes.com/research/storage-stability.html</loc><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://www.vialvibes.com/research/reconstitution-best-practices.html</loc><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://www.vialvibes.com/research/research-use-only-explainer.html</loc><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://www.vialvibes.com/research/glossary.html</loc><changefreq>monthly</changefreq><priority>0.75</priority></url>
 
   <!-- Company & legal -->
-  <url><loc>https://vialvibes.com/about.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://vialvibes.com/about-scientific-content.html</loc><changefreq>monthly</changefreq><priority>0.65</priority></url>
-  <url><loc>https://vialvibes.com/contact.html</loc><changefreq>monthly</changefreq><priority>0.75</priority></url>
-  <url><loc>https://vialvibes.com/research-use-only.html</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
-  <url><loc>https://vialvibes.com/terms.html</loc><changefreq>yearly</changefreq><priority>0.5</priority></url>
-  <url><loc>https://vialvibes.com/privacy.html</loc><changefreq>yearly</changefreq><priority>0.5</priority></url>
-  <url><loc>https://vialvibes.com/careers.html</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
-  <url><loc>https://vialvibes.com/publications.html</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
-  <url><loc>https://vialvibes.com/research-grants.html</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://www.vialvibes.com/about.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.vialvibes.com/about-scientific-content.html</loc><changefreq>monthly</changefreq><priority>0.65</priority></url>
+  <url><loc>https://www.vialvibes.com/contact.html</loc><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://www.vialvibes.com/research-use-only.html</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://www.vialvibes.com/terms.html</loc><changefreq>yearly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://www.vialvibes.com/privacy.html</loc><changefreq>yearly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://www.vialvibes.com/careers.html</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://www.vialvibes.com/publications.html</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://www.vialvibes.com/research-grants.html</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
 </urlset>

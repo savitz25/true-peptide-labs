@@ -6,7 +6,7 @@
  *
  * Configure in Resend:
  * 1. Enable Inbound for vialvibes.com (MX → Resend)
- * 2. Webhook URL: https://vialvibes.com/api/resend-inbound
+ * 2. Webhook URL: https://www.vialvibes.com/api/resend-inbound
  * 3. Events: email.received (and any inbound equivalents on your plan)
  *
  * If you use Cloudflare Email Routing / ImprovMX for catch-all instead,

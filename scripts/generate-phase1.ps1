@@ -3,7 +3,7 @@ $ErrorActionPreference = "Stop"
 $Root = Split-Path -Parent (Split-Path -Parent $MyInvocation.MyCommand.Path)
 Set-Location $Root
 
-$Domain = "https://www.peptidetrue.com"
+$Domain = "https://www.vialvibes.com"
 $Year = 2026
 
 $Products = @(
@@ -14,7 +14,7 @@ $Products = @(
     molecularWeight='1419.5 g/mol (free peptide; salt form may vary)'
     sequence='Gly-Glu-Pro-Pro-Pro-Gly-Lys-Pro-Ala-Asp-Asp-Ala-Gly-Leu-Val (BPC-157 backbone; arginate salt form)'
     description='Synthetic pentadecapeptide supplied for laboratory research in angiogenesis, soft-tissue, and gut-barrier model systems.'
-    details='BPC-157 Arginate is provided as a lyophilized research material for qualified laboratories. Published literature discusses this peptide sequence in experimental models of tissue response and GI barrier biology. Materials from True Peptide Labs are for controlled laboratory research use only - not for human or veterinary use.'
+    details='BPC-157 Arginate is provided as a lyophilized research material for qualified laboratories. Published literature discusses this peptide sequence in experimental models of tissue response and GI barrier biology. Materials from Vial Vibes are for controlled laboratory research use only - not for human or veterinary use.'
     researchFocus=@('Angiogenesis models','Soft-tissue research','GI barrier models')
   },
   [ordered]@{
@@ -111,10 +111,10 @@ function Get-OrgJsonLd {
 {
   "@context": "https://schema.org",
   "@type": "Organization",
-  "name": "True Peptide Labs",
+  "name": "Vial Vibes",
   "legalName": "APEX Research, LLC",
-  "url": "https://www.peptidetrue.com",
-  "email": "research@truepeptidelabs.com",
+  "url": "https://www.vialvibes.com",
+  "email": "research@vialvibes.com",
   "description": "Research-use-only peptide supplier for qualified laboratories.",
   "areaServed": "US"
 }
@@ -132,7 +132,7 @@ function Get-NavHtml([int]$depth, [string]$active = '') {
   <div class="max-w-screen-2xl mx-auto">
     <div class="px-4 sm:px-8 py-4 flex items-center justify-between gap-4">
       <a href="${p}index.html" class="flex items-center gap-x-2 shrink-0">
-        <img src="${p}logo.png" alt="True Peptide Labs" class="h-12 sm:h-14 w-auto">
+        <img src="${p}logo.png" alt="Vial Vibes" class="h-12 sm:h-14 w-auto">
       </a>
       <div class="hidden lg:flex items-center gap-x-7 text-sm font-medium">
         <a href="${p}peptides/index.html" class="$(LinkClass 'peptides')">Peptides</a>
@@ -196,10 +196,10 @@ function Get-FooterHtml([int]$depth) {
     <div class="flex flex-col md:flex-row justify-between gap-y-10">
       <div>
         <a href="${p}index.html" class="inline-flex items-center gap-x-2 text-white mb-4">
-          <img src="${p}logo.png" alt="True Peptide Labs" class="h-12 w-auto">
+          <img src="${p}logo.png" alt="Vial Vibes" class="h-12 w-auto">
         </a>
-        <p class="text-xs max-w-xs">True Peptide Labs supplies research-use-only peptides for qualified laboratories. Operated by APEX Research, LLC.</p>
-        <p class="text-xs mt-3"><a href="mailto:research@truepeptidelabs.com" class="hover:text-white">research@truepeptidelabs.com</a></p>
+        <p class="text-xs max-w-xs">Vial Vibes supplies research-use-only peptides for qualified laboratories. Operated by APEX Research, LLC.</p>
+        <p class="text-xs mt-3"><a href="mailto:research@vialvibes.com" class="hover:text-white">research@vialvibes.com</a></p>
       </div>
       <div class="grid grid-cols-2 md:grid-cols-4 gap-x-10 gap-y-8 text-xs">
         <div>
@@ -244,10 +244,10 @@ function Get-FooterHtml([int]$depth) {
     </div>
     <div class="mt-12 pt-8 border-t border-white/10">
       <div class="disclaimer bg-slate-950 border border-white/10 rounded-2xl p-5 text-[11.5px] leading-relaxed">
-        <strong class="text-white">IMPORTANT DISCLAIMER:</strong> All products sold by True Peptide Labs (operated by APEX Research, LLC) are intended <span class="text-red-400 font-semibold">strictly for in vitro laboratory research purposes only</span>. They are not approved by the FDA for human use, are not drugs, and are not intended to diagnose, treat, cure, or prevent any disease. These products are not for human consumption, injection, or any form of bodily introduction. By purchasing you certify you are a qualified researcher, institution, or laboratory professional. Misuse may be illegal. All sales are final.
+        <strong class="text-white">IMPORTANT DISCLAIMER:</strong> All products sold by Vial Vibes (operated by APEX Research, LLC) are intended <span class="text-red-400 font-semibold">strictly for in vitro laboratory research purposes only</span>. They are not approved by the FDA for human use, are not drugs, and are not intended to diagnose, treat, cure, or prevent any disease. These products are not for human consumption, injection, or any form of bodily introduction. By purchasing you certify you are a qualified researcher, institution, or laboratory professional. Misuse may be illegal. All sales are final.
         <a href="${p}research-use-only.html" class="underline text-emerald-400">Full RUO policy</a>.
       </div>
-      <div class="text-center mt-8 text-[10px] tracking-wider">© $Year True Peptide Labs, operated by APEX Research, LLC. All rights reserved.</div>
+      <div class="text-center mt-8 text-[10px] tracking-wider">© $Year Vial Vibes, operated by APEX Research, LLC. All rights reserved.</div>
     </div>
   </div>
 </footer>
@@ -273,7 +273,7 @@ function Get-Head($title, $desc, $canonical, $depth, $extraHead = '') {
   <meta property="og:description" content="$d">
   <meta property="og:type" content="website">
   <meta property="og:url" content="$c">
-  <meta property="og:site_name" content="True Peptide Labs">
+  <meta property="og:site_name" content="Vial Vibes">
   <meta name="twitter:card" content="summary">
   <link rel="icon" type="image/png" href="${p}logo.png">
   <link rel="apple-touch-icon" href="${p}logo.png">
@@ -333,7 +333,7 @@ foreach ($prod in $Products) {
   "name": "$pname",
   "description": "$pdesc",
   "sku": "TPL-$($prod.slug.ToUpper())",
-  "brand": { "@type": "Brand", "name": "True Peptide Labs" },
+  "brand": { "@type": "Brand", "name": "Vial Vibes" },
   "category": "$pcat",
   "offers": {
     "@type": "Offer",
@@ -364,7 +364,7 @@ $productJson
 $breadcrumbJson
   </script>
 "@
-  $head = Get-Head "$($prod.shortName) Research Peptide | True Peptide Labs" "$($prod.name) for laboratory research. $($prod.vialSize) lyophilized. Lot CoA on request. Research use only." "$Domain/peptides/$($prod.slug).html" 1 $extra
+  $head = Get-Head "$($prod.shortName) Research Peptide | Vial Vibes" "$($prod.name) for laboratory research. $($prod.vialSize) lyophilized. Lot CoA on request. Research use only." "$Domain/peptides/$($prod.slug).html" 1 $extra
   $nav = Get-NavHtml 1 'peptides'
   $footer = Get-FooterHtml 1
   $html = @"
@@ -407,7 +407,7 @@ $nav
           <a href="../coa.html?product=$pshort" class="px-6 py-3.5 border border-slate-200 hover:bg-white font-semibold rounded-2xl inline-flex items-center gap-2">
             <i class="fa-solid fa-file-lines"></i> Request lot CoA
           </a>
-          <a href="mailto:research@truepeptidelabs.com?subject=CoA%20request%20-%20$pshort" class="px-6 py-3.5 border border-slate-200 hover:bg-white font-semibold rounded-2xl text-sm">Email research@</a>
+          <a href="mailto:research@vialvibes.com?subject=CoA%20request%20-%20$pshort" class="px-6 py-3.5 border border-slate-200 hover:bg-white font-semibold rounded-2xl text-sm">Email research@</a>
         </div>
         <div class="mt-6 bg-amber-50 border border-amber-200 rounded-2xl p-4 text-sm text-amber-950 leading-relaxed">
           <strong>Research Use Only.</strong> This material is not for human consumption, injection, clinical use, or veterinary administration. Sold only to qualified researchers and institutions.
@@ -471,7 +471,7 @@ $catLinks = ($Categories | ForEach-Object {
 "@
 }) -join "`n"
 
-$head = Get-Head 'Research Peptides Catalog | True Peptide Labs' 'Browse research-use-only peptides for qualified laboratories. Tissue, metabolic, GH axis, and ECM research materials. Lot CoA on request.' "$Domain/peptides/" 1
+$head = Get-Head 'Research Peptides Catalog | Vial Vibes' 'Browse research-use-only peptides for qualified laboratories. Tissue, metabolic, GH axis, and ECM research materials. Lot CoA on request.' "$Domain/peptides/" 1
 $nav = Get-NavHtml 1 'peptides'
 $footer = Get-FooterHtml 1
 $catalog = @"
@@ -505,7 +505,7 @@ Write-Host 'Wrote peptides/index.html'
 foreach ($cat in $Categories) {
   $list = @($Products | Where-Object { $_.categorySlug -eq $cat.slug })
   $cards = ($list | ForEach-Object { Product-CardHtml $_ 1 }) -join "`n"
-  $head = Get-Head ($cat.name + ' Peptides | True Peptide Labs') ($cat.name + ': research-use-only peptides for laboratory models. ' + $cat.description) "$Domain/peptides/$($cat.slug).html" 1
+  $head = Get-Head ($cat.name + ' Peptides | Vial Vibes') ($cat.name + ': research-use-only peptides for laboratory models. ' + $cat.description) "$Domain/peptides/$($cat.slug).html" 1
   $nav = Get-NavHtml 1 'peptides'
   $footer = Get-FooterHtml 1
   $cname = Escape-Html $cat.name

@@ -1,5 +1,5 @@
 # Apply VialVibes branding across static HTML (logos, favicons, visible brand strings).
-# Preserves: emails (@truepeptidelabs.com), APEX Research LLC legal, RUO substance.
+# Preserves: emails (@vialvibes.com), APEX Research LLC legal, RUO substance.
 # Usage: from repo root:  powershell -ExecutionPolicy Bypass -File scripts/apply-vialvibes-brand.ps1
 
 $ErrorActionPreference = 'Stop'
@@ -45,8 +45,8 @@ foreach ($file in $htmlFiles) {
     $content = $content.Replace('href="../logo.png"', 'href="../assets/logo-vialvibes-mark.svg"')
   }
 
-  # Visible brand → VialVibes (emails use truepeptidelabs.com — unchanged)
-  $content = $content.Replace('True Peptide Labs', 'VialVibes')
+  # Visible brand → VialVibes (emails use vialvibes.com — unchanged)
+  $content = $content.Replace('Vial Vibes', 'VialVibes')
   # Fix mojibake copyright if present
   $content = $content.Replace([char]0x00C2 + [char]0x00A9, [char]0x00A9)
   $content = $content.Replace('Â©', '©')
@@ -66,7 +66,7 @@ foreach ($js in $jsTargets) {
   if (-not (Test-Path $js)) { continue }
   $content = [System.IO.File]::ReadAllText($js)
   $original = $content
-  $content = $content.Replace('True Peptide Labs', 'VialVibes')
+  $content = $content.Replace('Vial Vibes', 'VialVibes')
   if ($content -ne $original) {
     [System.IO.File]::WriteAllText($js, $content, $utf8NoBom)
     $updated.Add(($js.Substring($root.Length).TrimStart('\', '/')))

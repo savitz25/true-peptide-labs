@@ -15,7 +15,7 @@ function getConfig() {
     fromOrders: env('EMAIL_FROM_ORDERS', 'VialVibes Orders <orders@vialvibes.com>'),
     forwardTo: env('EMAIL_FORWARD_TO', 'info@movetrusthub.com'),
     cc: env('EMAIL_CC'),
-    siteUrl: env('SITE_URL', 'https://vialvibes.com'),
+    siteUrl: env('SITE_URL', 'https://www.vialvibes.com'),
     webhookSecret: env('RESEND_WEBHOOK_SECRET'),
   };
 }

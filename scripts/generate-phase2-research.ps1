@@ -2,7 +2,7 @@
 $ErrorActionPreference = 'Stop'
 $Root = Split-Path -Parent (Split-Path -Parent $MyInvocation.MyCommand.Path)
 $OutDir = Join-Path $Root 'research'
-$Domain = 'https://www.peptidetrue.com'
+$Domain = 'https://www.vialvibes.com'
 $Reviewed = '2026-07-28'
 
 function Nav {
@@ -10,7 +10,7 @@ function Nav {
 <nav class="bg-white border-b border-slate-200 sticky top-0 z-50">
   <div class="max-w-screen-2xl mx-auto">
     <div class="px-4 sm:px-8 py-4 flex items-center justify-between gap-4">
-      <a href="../index.html" class="flex items-center gap-x-2 shrink-0"><img src="../logo.png" alt="True Peptide Labs" class="h-12 sm:h-14 w-auto"></a>
+      <a href="../index.html" class="flex items-center gap-x-2 shrink-0"><img src="../logo.png" alt="Vial Vibes" class="h-12 sm:h-14 w-auto"></a>
       <div class="hidden lg:flex items-center gap-x-7 text-sm font-medium">
         <a href="../peptides/index.html" class="nav-link text-slate-600">Peptides</a>
         <a href="index.html" class="nav-link active text-emerald-700 font-semibold">Research</a>
@@ -50,9 +50,9 @@ function Footer {
   <div class="max-w-screen-2xl mx-auto px-4 sm:px-8 pt-14 pb-9">
     <div class="flex flex-col md:flex-row justify-between gap-y-10">
       <div>
-        <a href="../index.html" class="inline-flex mb-4"><img src="../logo.png" alt="True Peptide Labs" class="h-12 w-auto"></a>
-        <p class="text-xs max-w-xs">True Peptide Labs supplies research-use-only peptides for qualified laboratories. Operated by APEX Research, LLC.</p>
-        <p class="text-xs mt-3"><a href="mailto:research@truepeptidelabs.com" class="hover:text-white">research@truepeptidelabs.com</a></p>
+        <a href="../index.html" class="inline-flex mb-4"><img src="../logo.png" alt="Vial Vibes" class="h-12 w-auto"></a>
+        <p class="text-xs max-w-xs">Vial Vibes supplies research-use-only peptides for qualified laboratories. Operated by APEX Research, LLC.</p>
+        <p class="text-xs mt-3"><a href="mailto:research@vialvibes.com" class="hover:text-white">research@vialvibes.com</a></p>
       </div>
       <div class="grid grid-cols-2 md:grid-cols-4 gap-x-10 gap-y-8 text-xs">
         <div><div class="font-semibold text-white tracking-wider mb-3">PEPTIDES</div><div class="space-y-1.5"><a href="../peptides/index.html" class="block hover:text-white">All Peptides</a><a href="../peptides/tissue-repair.html" class="block hover:text-white">Tissue and Repair</a><a href="../peptides/metabolic.html" class="block hover:text-white">Metabolic</a></div></div>
@@ -62,8 +62,8 @@ function Footer {
       </div>
     </div>
     <div class="mt-12 pt-8 border-t border-white/10">
-      <div class="disclaimer bg-slate-950 border border-white/10 rounded-2xl p-5 text-[11.5px] leading-relaxed"><strong class="text-white">IMPORTANT DISCLAIMER:</strong> All products sold by True Peptide Labs (operated by APEX Research, LLC) are intended <span class="text-red-400 font-semibold">strictly for in vitro laboratory research purposes only</span>. They are not approved by the FDA for human use, are not drugs, and are not intended to diagnose, treat, cure, or prevent any disease. Not for human consumption, injection, or bodily introduction. <a href="../research-use-only.html" class="underline text-emerald-400">Full RUO policy</a>.</div>
-      <div class="text-center mt-8 text-[10px] tracking-wider">&copy; 2026 True Peptide Labs, operated by APEX Research, LLC.</div>
+      <div class="disclaimer bg-slate-950 border border-white/10 rounded-2xl p-5 text-[11.5px] leading-relaxed"><strong class="text-white">IMPORTANT DISCLAIMER:</strong> All products sold by Vial Vibes (operated by APEX Research, LLC) are intended <span class="text-red-400 font-semibold">strictly for in vitro laboratory research purposes only</span>. They are not approved by the FDA for human use, are not drugs, and are not intended to diagnose, treat, cure, or prevent any disease. Not for human consumption, injection, or bodily introduction. <a href="../research-use-only.html" class="underline text-emerald-400">Full RUO policy</a>.</div>
+      <div class="text-center mt-8 text-[10px] tracking-wider">&copy; 2026 Vial Vibes, operated by APEX Research, LLC.</div>
     </div>
   </div>
 </footer>
@@ -134,7 +134,7 @@ $Pages = @(
   @{
     slug='semaglutide'; short='Semaglutide'; name='Semaglutide'; cat='Metabolic Research'; catSlug='metabolic'
     product='../peptides/semaglutide.html'; cas='910463-68-2'; mw='About 4113.6 g/mol (reference)'
-    intro='Semaglutide is a long-acting GLP-1 receptor agonist extensively described in metabolic research and clinical literature. True Peptide Labs supplies research-use-only material for qualified laboratory investigation. Research materials are distinct from FDA-approved pharmaceutical products (e.g., branded medicines) and must not be used as substitutes for approved drugs.'
+    intro='Semaglutide is a long-acting GLP-1 receptor agonist extensively described in metabolic research and clinical literature. Vial Vibes supplies research-use-only material for qualified laboratory investigation. Research materials are distinct from FDA-approved pharmaceutical products (e.g., branded medicines) and must not be used as substitutes for approved drugs.'
     chem='GLP-1 receptor agonist peptide analog. Lyophilized research material. CAS 910463-68-2 commonly listed. Confirm identity/purity on lot CoA.'
     history='GLP-1 biology and GLP-1 receptor agonists are central to modern metabolic research. Semaglutide has been studied in large clinical programs for type 2 diabetes and weight management as approved medicines in those regulated contexts. Laboratory research also uses incretin analogs as tool compounds under appropriate institutional controls.'
     areas=@(
@@ -154,7 +154,7 @@ $Pages = @(
   @{
     slug='tirzepatide'; short='Tirzepatide'; name='Tirzepatide'; cat='Metabolic Research'; catSlug='metabolic'
     product='../peptides/tirzepatide.html'; cas='2023788-19-2'; mw='About 4813.5 g/mol (reference)'
-    intro='Tirzepatide is a dual GIP and GLP-1 receptor agonist widely discussed in metabolic clinical research literature. Catalog research material from True Peptide Labs is Research Use Only and is not an approved drug product.'
+    intro='Tirzepatide is a dual GIP and GLP-1 receptor agonist widely discussed in metabolic clinical research literature. Catalog research material from Vial Vibes is Research Use Only and is not an approved drug product.'
     chem='Dual incretin-pathway peptide research material. CAS 2023788-19-2 commonly listed. Confirm lot CoA for identity and purity.'
     history='Dual agonism at GIP and GLP-1 receptors has been investigated in clinical development programs (e.g., SURPASS and SURMOUNT series) for metabolic disease endpoints under regulated pharmaceutical pathways. Those programs are distinct from RUO laboratory supply.'
     areas=@(
@@ -173,7 +173,7 @@ $Pages = @(
   @{
     slug='retatrutide'; short='Retatrutide'; name='Retatrutide'; cat='Metabolic Research'; catSlug='metabolic'
     product='../peptides/retatrutide.html'; cas='2381089-83-2'; mw='About 4731 g/mol (reference; confirm lot CoA)'
-    intro='Retatrutide is an investigational triple agonist (GIP, GLP-1, and glucagon receptors) described in peer-reviewed clinical research literature. True Peptide Labs research material is supplied RUO for laboratory use only and is not an approved medicine.'
+    intro='Retatrutide is an investigational triple agonist (GIP, GLP-1, and glucagon receptors) described in peer-reviewed clinical research literature. Vial Vibes research material is supplied RUO for laboratory use only and is not an approved medicine.'
     chem='Triple-agonist peptide research material. CAS 2381089-83-2 commonly associated. Confirm lot analytical documentation.'
     history='Phase 2 clinical trials published in major journals have evaluated retatrutide in obesity and type 2 diabetes research contexts under regulated clinical development. Those trials study a drug candidate pathway, not open-market research vials as medicines.'
     areas=@(
@@ -210,7 +210,7 @@ $Pages = @(
   @{
     slug='cjc-1295'; short='CJC-1295'; name='CJC-1295 (no DAC)'; cat='GH Axis Research'; catSlug='growth-hormone'
     product='../peptides/cjc-1295.html'; cas='863288-34-0'; mw='Approximately 3367 g/mol for no-DAC form (confirm lot CoA)'
-    intro='CJC-1295 is a modified GHRH analog studied for effects on GH and IGF-I axes. The True Peptide Labs catalog lists a no-DAC research form. DAC and no-DAC forms differ in half-life engineering; do not assume interchangeability without analytical confirmation.'
+    intro='CJC-1295 is a modified GHRH analog studied for effects on GH and IGF-I axes. The Vial Vibes catalog lists a no-DAC research form. DAC and no-DAC forms differ in half-life engineering; do not assume interchangeability without analytical confirmation.'
     chem='Modified GHRH (1-29) analog research material, no DAC. CAS 863288-34-0 commonly referenced. Confirm form and mass on CoA.'
     history='Published clinical pharmacology studies examined long-acting CJC-1295 constructs (including DAC-related designs) for prolonged GH and IGF-I stimulation with preserved pulsatility in some reports. Mouse GHRH-knockout work has also been used to study growth endpoints.'
     areas=@(
@@ -241,30 +241,30 @@ function Build-Page($p) {
     }
   }
   $relatedHtml = ($p.related | ForEach-Object { "<a href=`"$($_.href)`" class=`"px-4 py-2 border border-slate-200 rounded-xl text-sm font-semibold hover:border-emerald-400`">$($_.t)</a>" }) -join "`n"
-  $desc = "$($p.short) research overview for laboratory professionals. Literature-framed, research use only. True Peptide Labs."
+  $desc = "$($p.short) research overview for laboratory professionals. Literature-framed, research use only. Vial Vibes."
   $html = @"
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>$($p.short) Research Overview | True Peptide Labs</title>
+  <title>$($p.short) Research Overview | Vial Vibes</title>
   <meta name="description" content="$desc">
   <link rel="canonical" href="$Domain/research/$($p.slug).html">
-  <meta property="og:title" content="$($p.short) Research Overview | True Peptide Labs">
+  <meta property="og:title" content="$($p.short) Research Overview | Vial Vibes">
   <meta property="og:description" content="$desc">
   <meta property="og:type" content="article">
   <meta property="og:url" content="$Domain/research/$($p.slug).html">
-  <meta property="og:site_name" content="True Peptide Labs">
+  <meta property="og:site_name" content="Vial Vibes">
   <link rel="icon" type="image/png" href="../logo.png">
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="../css/site.css">
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"Organization","name":"True Peptide Labs","legalName":"APEX Research, LLC","url":"$Domain","email":"research@truepeptidelabs.com"}
+  {"@context":"https://schema.org","@type":"Organization","name":"Vial Vibes","legalName":"APEX Research, LLC","url":"$Domain","email":"research@vialvibes.com"}
   </script>
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"Article","headline":"$($p.short) Research Overview","dateModified":"$Reviewed","datePublished":"$Reviewed","author":{"@type":"Organization","name":"True Peptide Labs research documentation team"},"publisher":{"@type":"Organization","name":"True Peptide Labs"},"mainEntityOfPage":"$Domain/research/$($p.slug).html"}
+  {"@context":"https://schema.org","@type":"Article","headline":"$($p.short) Research Overview","dateModified":"$Reviewed","datePublished":"$Reviewed","author":{"@type":"Organization","name":"Vial Vibes research documentation team"},"publisher":{"@type":"Organization","name":"Vial Vibes"},"mainEntityOfPage":"$Domain/research/$($p.slug).html"}
   </script>
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"$Domain/"},{"@type":"ListItem","position":2,"name":"Research","item":"$Domain/research/"},{"@type":"ListItem","position":3,"name":"$($p.short)","item":"$Domain/research/$($p.slug).html"}]}
@@ -310,7 +310,7 @@ $nav
 
     <article class="lg:col-span-9 order-1 lg:order-2 prose-research">
       <div class="meta-byline mb-8">
-        <div><strong>Written by:</strong> True Peptide Labs research documentation team</div>
+        <div><strong>Written by:</strong> Vial Vibes research documentation team</div>
         <div><strong>Scientifically reviewed by:</strong> [slot for future named reviewer]</div>
         <div><strong>Last reviewed:</strong> $Reviewed</div>
         <div class="mt-1"><a href="../about-scientific-content.html" class="text-emerald-700 underline">Content standards</a></div>
@@ -380,11 +380,11 @@ $studiesHtml
 
       <section id="regulatory">
         <h2>Regulatory status note</h2>
-        <p>Materials sold by True Peptide Labs are <strong>Research Use Only</strong>. They are not intended for human consumption, clinical administration, or veterinary use, and are not sold as FDA-approved drugs. Where the scientific literature discusses approved medicines or investigational drug programs involving the same active structure class, those regulated products remain distinct from RUO research reagents. See <a href="research-use-only-explainer.html">Research Use Only - what it means</a> and the legal <a href="../research-use-only.html">RUO policy</a>.</p>
+        <p>Materials sold by Vial Vibes are <strong>Research Use Only</strong>. They are not intended for human consumption, clinical administration, or veterinary use, and are not sold as FDA-approved drugs. Where the scientific literature discusses approved medicines or investigational drug programs involving the same active structure class, those regulated products remain distinct from RUO research reagents. See <a href="research-use-only-explainer.html">Research Use Only - what it means</a> and the legal <a href="../research-use-only.html">RUO policy</a>.</p>
       </section>
 
       <div class="bg-amber-50 border border-amber-200 rounded-2xl p-5 text-sm text-amber-950 leading-relaxed mt-8">
-        <strong>Scientific reference only - Research Use Only.</strong> Content prepared for laboratory professionals. Citations describe published research and do not constitute product claims, medical advice, or authorization for human use of research materials. True Peptide Labs is operated by APEX Research, LLC.
+        <strong>Scientific reference only - Research Use Only.</strong> Content prepared for laboratory professionals. Citations describe published research and do not constitute product claims, medical advice, or authorization for human use of research materials. Vial Vibes is operated by APEX Research, LLC.
       </div>
 
       <section class="mt-10">

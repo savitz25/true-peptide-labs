@@ -195,8 +195,8 @@ window.TPL_CATEGORIES = [
 
 window.TPL_SITE = {
   brand: "VialVibes",
-  legal: "VialVibes is operated by APEX Research, LLC",
-  domain: "https://www.peptidetrue.com",
+  legal: "Vial Vibes is operated by APEX Research, LLC",
+  domain: "https://www.vialvibes.com",
   emailResearch: "research@vialvibes.com",
   emailOrders: "orders@vialvibes.com"
 };

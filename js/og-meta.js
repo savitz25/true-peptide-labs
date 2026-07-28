@@ -4,8 +4,8 @@
  */
 window.VV_OG = {
   siteName: 'Vial Vibes',
-  image: 'https://vialvibes.com/images/og-vial-vibes-share.jpg',
-  imageFallback: 'https://www.peptidetrue.com/images/og-vial-vibes-share.jpg',
+  image: 'https://www.vialvibes.com/images/og-vial-vibes-share.jpg',
+  imageFallback: 'https://www.vialvibes.com/images/og-vial-vibes-share.jpg',
   width: 1200,
   height: 630,
   defaultDescription:
