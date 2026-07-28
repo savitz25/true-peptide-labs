@@ -143,7 +143,15 @@
       </nav>
       <p class="text-emerald-400 text-sm font-semibold tracking-wider uppercase mb-3">Batch verification</p>
       <h1 class="heading-font text-4xl sm:text-5xl font-semibold tracking-tighter">Certificates of Analysis</h1>
-      <p class="mt-4 text-lg text-white/80 max-w-2xl">Request lot documentation for research materials. We provide CoAs when available for the requested lot—no fabricated downloads or purity stats on this page.</p>
+      <p class="mt-4 text-lg text-white/80 max-w-2xl">Request lot documentation for research materials. We provide CoAs <strong class="text-white">on request when available</strong> for the lot you specify—no fabricated downloads or purity stats on this page.</p>
+      <div class="mt-6 flex flex-wrap gap-3">
+        <a href="vault.html" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-2xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 text-sm font-semibold">
+          <i class="fa-solid fa-vault"></i> Open Vial Vault
+        </a>
+        <a href="research/how-to-read-a-coa.html" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-2xl bg-white/10 hover:bg-white/15 border border-white/15 text-sm font-semibold">
+          How to read a CoA
+        </a>
+      </div>
     </div>
   </div>
 
@@ -157,8 +165,9 @@
         <div>
           <h2 class="heading-font text-2xl text-slate-900">Lot number lookup</h2>
           <p class="text-slate-600 leading-relaxed mt-1">
-            Enter the lot number printed on your vial or packaging. This form sends a documentation request via Resend
-            from <strong>research@vialvibes.com</strong>. It does not download files automatically and does not return fabricated purity data.
+            Enter the lot number printed on your vial or packaging. This form sends a documentation request to our research desk
+            (via Resend from <strong>research@vialvibes.com</strong>). It does not download files automatically and does not return fabricated purity data.
+            Prefer the branded experience? Use the <a href="vault.html" class="text-emerald-700 font-semibold underline">Vial Vault</a>.
           </p>
         </div>
       </div>
@@ -167,15 +176,25 @@
         <div>
           <label for="lot-number" class="block text-sm font-semibold text-slate-800 mb-1.5">Lot number <span class="text-red-500">*</span></label>
           <input type="text" id="lot-number" required autocomplete="off"
-                 placeholder="e.g. LOT printed on label"
+                 placeholder="Printed on vial / packaging"
                  class="w-full border border-slate-200 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-100 rounded-2xl px-4 py-3 text-sm outline-none">
         </div>
         <div class="grid sm:grid-cols-2 gap-4">
           <div>
             <label for="product-name" class="block text-sm font-semibold text-slate-800 mb-1.5">Product name</label>
-            <input type="text" id="product-name" autocomplete="off"
-                   placeholder="Product name"
+            <input type="text" id="product-name" autocomplete="off" list="coa-product-list"
+                   placeholder="e.g. BPC-157 Arginate"
                    class="w-full border border-slate-200 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-100 rounded-2xl px-4 py-3 text-sm outline-none">
+            <datalist id="coa-product-list">
+              <option value="BPC-157 Arginate"></option>
+              <option value="TB-500"></option>
+              <option value="Semaglutide"></option>
+              <option value="Tirzepatide"></option>
+              <option value="Retatrutide"></option>
+              <option value="Ipamorelin"></option>
+              <option value="CJC-1295 (no DAC)"></option>
+              <option value="GHK-Cu"></option>
+            </datalist>
           </div>
           <div>
             <label for="researcher-email" class="block text-sm font-semibold text-slate-800 mb-1.5">Researcher email</label>
@@ -190,11 +209,17 @@
                  placeholder="Lab, university, or company"
                  class="w-full border border-slate-200 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-100 rounded-2xl px-4 py-3 text-sm outline-none">
         </div>
+        <div>
+          <label for="coa-notes" class="block text-sm font-semibold text-slate-800 mb-1.5">Message / notes <span class="text-slate-400 font-normal">(optional)</span></label>
+          <textarea id="coa-notes" rows="3" maxlength="2000" placeholder="Order reference, preferred format, or timing notes"
+                    class="w-full border border-slate-200 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-100 rounded-2xl px-4 py-3 text-sm outline-none resize-y"></textarea>
+        </div>
         <button type="submit" id="coa-submit"
                 class="w-full sm:w-auto px-8 py-3 bg-emerald-600 hover:bg-emerald-700 text-white text-sm font-semibold rounded-2xl inline-flex items-center justify-center gap-2">
           <i class="fa-solid fa-envelope"></i>
-          Request CoA
+          Request lot CoA
         </button>
+        <p class="text-xs text-slate-500">We follow up when documentation is available for the lot you specify. Not an automatic download.</p>
       </form>
 
       <div id="coa-message" class="hidden mt-5 bg-emerald-50 border border-emerald-100 rounded-2xl p-4 text-sm text-emerald-900"></div>
@@ -360,6 +385,7 @@
     var product = document.getElementById('product-name').value.trim();
     var email = document.getElementById('researcher-email').value.trim();
     var institution = document.getElementById('institution').value.trim();
+    var notes = document.getElementById('coa-notes').value.trim();
     if (!lot) return;
 
     var msg = document.getElementById('coa-message');
@@ -375,13 +401,16 @@
         product: product,
         email: email,
         institution: institution,
+        notes: notes,
         source: 'coa-page'
       });
-      msg.className = 'mt-5 bg-emerald-50 border border-emerald-100 rounded-2xl p-4 text-sm text-emerald-900';
-      msg.innerHTML = '<strong>Request sent.</strong> Your lot <strong>' + lot.replace(/</g, '&lt;') +
-        '</strong> was submitted from research@vialvibes.com. We provide CoAs when available for the requested lot. A public archive is coming soon.';
+      msg.className = 'mt-5 bg-emerald-50 border border-emerald-100 rounded-2xl p-4 text-sm text-emerald-900 leading-relaxed';
+      msg.innerHTML = '<strong>Request received.</strong> Lot <strong>' + lot.replace(/</g, '&lt;') +
+        '</strong> was submitted to our research desk. We provide CoAs <em>when available</em> for the requested lot—not as an automatic download. ' +
+        'You can also track the same flow in the <a href="vault.html" class="underline font-semibold">Vial Vault</a>.';
       e.target.reset();
       if (params.get('lot')) document.getElementById('lot-number').value = params.get('lot');
+      if (params.get('product')) document.getElementById('product-name').value = params.get('product');
     } catch (err) {
       msg.className = 'mt-5 bg-red-50 border border-red-100 rounded-2xl p-4 text-sm text-red-800';
       msg.innerHTML = '<strong>Could not send via Resend.</strong> ' + (err.message || 'Unknown error') +

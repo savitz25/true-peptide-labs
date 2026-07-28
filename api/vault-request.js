@@ -1,6 +1,6 @@
 /**
  * POST /api/vault-request
- * Body: { lot, product?, email?, institution? }
+ * Body: { lot, product?, email?, institution?, notes? }
  * CoA / documentation request from Vial Vault or CoA form.
  * From: research@vialvibes.com → EMAIL_FORWARD_TO (info@movetrusthub.com)
  */
@@ -30,6 +30,7 @@ module.exports = async function handler(req, res) {
     const product = String(body.product || '').trim();
     const email = String(body.email || '').trim();
     const institution = String(body.institution || '').trim();
+    const notes = String(body.notes || body.message || '').trim().slice(0, 2000);
     const source = String(body.source || 'vault').trim();
 
     if (!lot) {
@@ -50,6 +51,7 @@ module.exports = async function handler(req, res) {
         <p style="margin:0 0 8px"><strong>Product:</strong> ${escapeHtml(product || '(not specified)')}</p>
         <p style="margin:0 0 8px"><strong>Institution:</strong> ${escapeHtml(institution || '(not specified)')}</p>
         <p style="margin:0 0 8px"><strong>Researcher email:</strong> ${escapeHtml(email || '(not specified)')}</p>
+        <p style="margin:0 0 8px"><strong>Notes:</strong> ${escapeHtml(notes || '(none)')}</p>
         <p style="margin:16px 0 0;color:#475569;font-size:14px">
           Please provide Certificate of Analysis documentation <em>if available</em> for this research lot.
           Do not invent purity results.
@@ -65,7 +67,7 @@ module.exports = async function handler(req, res) {
       cc: cfg.cc || undefined,
       subject: `[Vial Vault] CoA request — lot ${lot}`,
       html,
-      text: `CoA request\nLot: ${lot}\nProduct: ${product || 'n/a'}\nEmail: ${email || 'n/a'}\nInstitution: ${institution || 'n/a'}\nSource: ${source}`,
+      text: `CoA request\nLot: ${lot}\nProduct: ${product || 'n/a'}\nEmail: ${email || 'n/a'}\nInstitution: ${institution || 'n/a'}\nNotes: ${notes || 'n/a'}\nSource: ${source}`,
     });
 
     res.status(200).json({ ok: true, id: result.id, lot });
