@@ -59,8 +59,8 @@
           '<div class="vial-footer">' +
             '<div class="vial-price">$' + p.price + '</div>' +
             '<div class="flex gap-2">' +
-              '<a href="' + research + '" class="vv-btn-ghost !py-2 !px-3 text-xs">Learn</a>' +
-              '<a href="' + href + '" class="vv-btn-primary !py-2 !px-3 text-xs">View</a>' +
+              '<a href="' + research + '" class="vv-btn-ghost !py-2 !px-3 text-xs">Research overview</a>' +
+              '<a href="' + href + '" class="vv-btn-primary !py-2 !px-3 text-xs">Product specs</a>' +
             '</div>' +
           '</div>' +
         '</div>' +
