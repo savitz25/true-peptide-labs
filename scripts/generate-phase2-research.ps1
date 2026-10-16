@@ -52,7 +52,7 @@ function Footer {
       <div>
         <a href="../index.html" class="inline-flex mb-4"><img src="../logo.png" alt="Vial Vibes" class="h-12 w-auto"></a>
         <p class="text-xs max-w-xs">Vial Vibes supplies research-use-only peptides for qualified laboratories. Operated by APEX Research, LLC.</p>
-        <p class="text-xs mt-3"><a href="mailto:research@vialvibes.com" class="hover:text-white">research@vialvibes.com</a></p>
+        <p class="text-xs mt-3"><a href="mailto:hello@asktrusthub.com" class="hover:text-white">hello@asktrusthub.com</a></p>
       </div>
       <div class="grid grid-cols-2 md:grid-cols-4 gap-x-10 gap-y-8 text-xs">
         <div><div class="font-semibold text-white tracking-wider mb-3">PEPTIDES</div><div class="space-y-1.5"><a href="../peptides/index.html" class="block hover:text-white">All Peptides</a><a href="../peptides/tissue-repair.html" class="block hover:text-white">Tissue and Repair</a><a href="../peptides/metabolic.html" class="block hover:text-white">Metabolic</a></div></div>
@@ -261,7 +261,7 @@ function Build-Page($p) {
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="../css/site.css">
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"Organization","name":"Vial Vibes","legalName":"APEX Research, LLC","url":"$Domain","email":"research@vialvibes.com"}
+  {"@context":"https://schema.org","@type":"Organization","name":"Vial Vibes","legalName":"APEX Research, LLC","url":"$Domain","email":"hello@asktrusthub.com"}
   </script>
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"Article","headline":"$($p.short) Research Overview","dateModified":"$Reviewed","datePublished":"$Reviewed","author":{"@type":"Organization","name":"Vial Vibes research documentation team"},"publisher":{"@type":"Organization","name":"Vial Vibes"},"mainEntityOfPage":"$Domain/research/$($p.slug).html"}

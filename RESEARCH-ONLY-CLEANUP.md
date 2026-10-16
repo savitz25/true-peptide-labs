@@ -9,3 +9,5 @@ Follow-up to the commerce-removal commit. Public pages now read as a research an
 - Canonicals, `og:url`, `sitemap.xml`, and `robots.txt` stay on `https://www.vialvibes.com`.
 
 Historical phase notes were left as history. They are not public pages.
+
+Updated support email to hello@asktrusthub.com

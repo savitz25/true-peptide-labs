@@ -1,7 +1,7 @@
 /**
  * POST /api/contact
  * Body: { name, email, subject?, message, topic? }
- * Sends from research@vialvibes.com. Delivers to EMAIL_FORWARD_TO.
+ * Sends from hello@asktrusthub.com. Delivers to EMAIL_FORWARD_TO.
  */
 const {
   getConfig,

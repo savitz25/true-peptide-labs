@@ -12,3 +12,5 @@ Vial Vibes no longer presents ordering, a cart, or prices. Research Hub, laborat
 - The privacy local-storage section no longer describes a shopping cart.
 
 Terms of sale were not rewritten in the commerce-removal pass. Public mailbox stays research@vialvibes.com. Wording follow-up: RESEARCH-ONLY-CLEANUP.md.
+
+Updated support email to hello@asktrusthub.com

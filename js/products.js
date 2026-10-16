@@ -189,5 +189,5 @@ window.TPL_SITE = {
   brand: "VialVibes",
   legal: "Vial Vibes is operated by APEX Research, LLC",
   domain: "https://www.vialvibes.com",
-  emailResearch: "research@vialvibes.com",
+  emailResearch: "hello@asktrusthub.com",
 };

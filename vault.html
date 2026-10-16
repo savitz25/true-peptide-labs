@@ -173,7 +173,7 @@
   "url": "https://www.vialvibes.com",
   "logo": "https://www.vialvibes.com/icons/icon-512.png",
   "description": "Research-use-only peptides, laboratory tools, and educational resources for qualified researchers. Operated by APEX Research, LLC.",
-  "email": "research@vialvibes.com",
+  "email": "hello@asktrusthub.com",
   "sameAs": []
 }
   </script>
@@ -297,7 +297,7 @@
               <strong style="color:var(--vv-text)">when available</strong> for this lot. We do not display fabricated analytical results on this site.
             </p>
             <div class="flex flex-wrap justify-center gap-3">
-              <a id="mailto-link" class="vv-btn-primary" href="mailto:research@vialvibes.com">Email research@vialvibes.com</a>
+              <a id="mailto-link" class="vv-btn-primary" href="mailto:hello@asktrusthub.com">Email hello@asktrusthub.com</a>
               <a href="research/how-to-read-a-coa.html" class="vv-btn-ghost">How to read a CoA</a>
               <a href="coa.html" class="vv-btn-ghost">CoA center</a>
             </div>
@@ -433,7 +433,7 @@
         <a href="coa.html" class="vv-btn-ghost !py-2.5 !px-4">Alternate CoA request form</a>
         <a href="peptides/index.html" class="vv-btn-ghost !py-2.5 !px-4">Peptide Library</a>
         <a href="research/index.html" class="vv-btn-ghost !py-2.5 !px-4">Research Hub</a>
-        <a href="mailto:research@vialvibes.com?subject=CoA%20request" class="vv-btn-primary !py-2.5 !px-4">Email research@vialvibes.com</a>
+        <a href="mailto:hello@asktrusthub.com?subject=CoA%20request" class="vv-btn-primary !py-2.5 !px-4">Email hello@asktrusthub.com</a>
       </div>
     </section>
 
@@ -493,7 +493,7 @@
           errEl.style.color = '#f87171';
           errEl.textContent = (err && err.message)
             ? err.message
-            : 'Could not send request. Email research@vialvibes.com with your lot number.';
+            : 'Could not send request. Email hello@asktrusthub.com with your lot number.';
           e.target.appendChild(errEl);
           if (submitBtn) {
             submitBtn.disabled = false;
@@ -519,7 +519,7 @@
           'Please provide Certificate of Analysis documentation if available for this research lot.\n'
         );
         var ml = document.getElementById('mailto-link');
-        if (ml) ml.href = 'mailto:research@vialvibes.com?subject=' + subject + '&body=' + body;
+        if (ml) ml.href = 'mailto:hello@asktrusthub.com?subject=' + subject + '&body=' + body;
 
         try {
           var log = JSON.parse(localStorage.getItem('vv_vault_requests') || '[]');

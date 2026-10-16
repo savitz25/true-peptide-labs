@@ -114,7 +114,7 @@ function Get-OrgJsonLd {
   "name": "Vial Vibes",
   "legalName": "APEX Research, LLC",
   "url": "https://www.vialvibes.com",
-  "email": "research@vialvibes.com",
+  "email": "hello@asktrusthub.com",
   "description": "Research-use-only peptide supplier for qualified laboratories.",
   "areaServed": "US"
 }
@@ -199,7 +199,7 @@ function Get-FooterHtml([int]$depth) {
           <img src="${p}logo.png" alt="Vial Vibes" class="h-12 w-auto">
         </a>
         <p class="text-xs max-w-xs">Vial Vibes supplies research-use-only peptides for qualified laboratories. Operated by APEX Research, LLC.</p>
-        <p class="text-xs mt-3"><a href="mailto:research@vialvibes.com" class="hover:text-white">research@vialvibes.com</a></p>
+        <p class="text-xs mt-3"><a href="mailto:hello@asktrusthub.com" class="hover:text-white">hello@asktrusthub.com</a></p>
       </div>
       <div class="grid grid-cols-2 md:grid-cols-4 gap-x-10 gap-y-8 text-xs">
         <div>
@@ -407,7 +407,7 @@ $nav
           <a href="../coa.html?product=$pshort" class="px-6 py-3.5 border border-slate-200 hover:bg-white font-semibold rounded-2xl inline-flex items-center gap-2">
             <i class="fa-solid fa-file-lines"></i> Request lot CoA
           </a>
-          <a href="mailto:research@vialvibes.com?subject=CoA%20request%20-%20$pshort" class="px-6 py-3.5 border border-slate-200 hover:bg-white font-semibold rounded-2xl text-sm">Email research@</a>
+          <a href="mailto:hello@asktrusthub.com?subject=CoA%20request%20-%20$pshort" class="px-6 py-3.5 border border-slate-200 hover:bg-white font-semibold rounded-2xl text-sm">Email research@</a>
         </div>
         <div class="mt-6 bg-amber-50 border border-amber-200 rounded-2xl p-4 text-sm text-amber-950 leading-relaxed">
           <strong>Research Use Only.</strong> This material is not for human consumption, injection, clinical use, or veterinary administration. Sold only to qualified researchers and institutions.

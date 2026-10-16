@@ -11,7 +11,7 @@ function env(name, fallback = '') {
 function getConfig() {
   return {
     apiKey: env('RESEND_API_KEY'),
-    fromResearch: env('EMAIL_FROM_RESEARCH', 'VialVibes Research <research@vialvibes.com>'),
+    fromResearch: env('EMAIL_FROM_RESEARCH', 'VialVibes Research <hello@asktrusthub.com>'),
     forwardTo: env('EMAIL_FORWARD_TO', 'info@movetrusthub.com'),
     cc: env('EMAIL_CC'),
     siteUrl: env('SITE_URL', 'https://www.vialvibes.com'),

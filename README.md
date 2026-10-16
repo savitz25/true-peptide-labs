@@ -5,7 +5,7 @@ Research-use-only (RUO) research and education library. Static multi-page HTML o
 **Brand:** Vial Vibes / VialVibes (operated by APEX Research, LLC)  
 **Tagline:** Good Vibes. Serious Science.  
 **Domain:** https://www.vialvibes.com  
-**Emails (current):** research@vialvibes.com  
+**Emails (current):** hello@asktrusthub.com  
 
 ## Brand & design system
 

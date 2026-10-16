@@ -2,7 +2,7 @@
  * POST /api/vault-request
  * Body: { lot, product?, email?, institution?, notes? }
  * CoA / documentation request from Vial Vault or CoA form.
- * From: research@vialvibes.com → EMAIL_FORWARD_TO (info@movetrusthub.com)
+ * From: hello@asktrusthub.com → EMAIL_FORWARD_TO (info@movetrusthub.com)
  */
 const {
   getConfig,
