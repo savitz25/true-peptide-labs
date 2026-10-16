@@ -12,7 +12,6 @@ function getConfig() {
   return {
     apiKey: env('RESEND_API_KEY'),
     fromResearch: env('EMAIL_FROM_RESEARCH', 'VialVibes Research <research@vialvibes.com>'),
-    fromOrders: env('EMAIL_FROM_ORDERS', 'VialVibes Orders <orders@vialvibes.com>'),
     forwardTo: env('EMAIL_FORWARD_TO', 'info@movetrusthub.com'),
     cc: env('EMAIL_CC'),
     siteUrl: env('SITE_URL', 'https://www.vialvibes.com'),

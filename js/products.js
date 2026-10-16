@@ -1,7 +1,7 @@
 /**
  * VialVibes — Phase 1 product catalog
  * Research Use Only. Specs without verified CoA evidence stay conservative.
- * Prices/sizes seeded from Phase 0 homepage catalog.
+ * Sizes seeded from Phase 0 homepage catalog.
  */
 window.TPL_PRODUCTS = [
   {
@@ -12,7 +12,6 @@ window.TPL_PRODUCTS = [
     category: "recovery",
     categorySlug: "tissue-repair",
     categoryLabel: "Tissue & Repair Models",
-    price: 59,
     vialSize: "5 mg",
     form: "Lyophilized powder",
     purityNote: "Lot-specific Certificate of Analysis available on request",
@@ -32,7 +31,6 @@ window.TPL_PRODUCTS = [
     category: "recovery",
     categorySlug: "tissue-repair",
     categoryLabel: "Tissue & Repair Models",
-    price: 69,
     vialSize: "5 mg",
     form: "Lyophilized powder",
     purityNote: "Lot-specific Certificate of Analysis available on request",
@@ -52,7 +50,6 @@ window.TPL_PRODUCTS = [
     category: "metabolic",
     categorySlug: "metabolic",
     categoryLabel: "Metabolic Research",
-    price: 129,
     vialSize: "5 mg",
     form: "Lyophilized powder",
     purityNote: "Lot-specific Certificate of Analysis available on request",
@@ -72,7 +69,6 @@ window.TPL_PRODUCTS = [
     category: "metabolic",
     categorySlug: "metabolic",
     categoryLabel: "Metabolic Research",
-    price: 149,
     vialSize: "5 mg",
     form: "Lyophilized powder",
     purityNote: "Lot-specific Certificate of Analysis available on request",
@@ -92,7 +88,6 @@ window.TPL_PRODUCTS = [
     category: "gh",
     categorySlug: "growth-hormone",
     categoryLabel: "GH Axis Research",
-    price: 49,
     vialSize: "5 mg",
     form: "Lyophilized powder",
     purityNote: "Lot-specific Certificate of Analysis available on request",
@@ -112,7 +107,6 @@ window.TPL_PRODUCTS = [
     category: "gh",
     categorySlug: "growth-hormone",
     categoryLabel: "GH Axis Research",
-    price: 55,
     vialSize: "2 mg",
     form: "Lyophilized powder",
     purityNote: "Lot-specific Certificate of Analysis available on request",
@@ -132,7 +126,6 @@ window.TPL_PRODUCTS = [
     category: "cosmetic",
     categorySlug: "cosmetic",
     categoryLabel: "Skin / ECM Research",
-    price: 45,
     vialSize: "50 mg",
     form: "Lyophilized powder",
     purityNote: "Lot-specific Certificate of Analysis available on request",
@@ -152,7 +145,6 @@ window.TPL_PRODUCTS = [
     category: "metabolic",
     categorySlug: "metabolic",
     categoryLabel: "Metabolic Research",
-    price: 179,
     vialSize: "5 mg",
     form: "Lyophilized powder",
     purityNote: "Lot-specific Certificate of Analysis available on request",
@@ -198,5 +190,4 @@ window.TPL_SITE = {
   legal: "Vial Vibes is operated by APEX Research, LLC",
   domain: "https://www.vialvibes.com",
   emailResearch: "research@vialvibes.com",
-  emailOrders: "orders@vialvibes.com"
 };

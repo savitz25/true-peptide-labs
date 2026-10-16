@@ -57,10 +57,10 @@
           '<p class="vial-meta">' + escapeHtml(p.vialSize) + ' · CoA on request · ' + escapeHtml(p.shortName) + '</p>' +
           '<p class="vial-meta" style="margin-top:-0.35rem">' + escapeHtml(p.description) + '</p>' +
           '<div class="vial-footer">' +
-            '<div class="vial-price">$' + p.price + '</div>' +
-            '<div class="flex gap-2">' +
+            '<div class="flex flex-wrap gap-2">' +
               '<a href="' + research + '" class="vv-btn-ghost !py-2 !px-3 text-xs">Research overview</a>' +
-              '<a href="' + href + '" class="vv-btn-primary !py-2 !px-3 text-xs">Product specs</a>' +
+              '<a href="' + href + '" class="vv-btn-primary !py-2 !px-3 text-xs">Specifications / Details</a>' +
+              '<a href="' + base + 'vault.html?product=' + encodeURIComponent(p.name) + '#request" class="vv-btn-ghost !py-2 !px-3 text-xs">Request lot CoA</a>' +
             '</div>' +
           '</div>' +
         '</div>' +

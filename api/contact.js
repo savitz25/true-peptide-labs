@@ -1,7 +1,7 @@
 /**
  * POST /api/contact
  * Body: { name, email, subject?, message, topic? }
- * Sends from research@ or orders@ based on topic; delivers to EMAIL_FORWARD_TO.
+ * Sends from research@vialvibes.com. Delivers to EMAIL_FORWARD_TO.
  */
 const {
   getConfig,
@@ -41,14 +41,13 @@ module.exports = async function handler(req, res) {
     }
 
     const cfg = getConfig();
-    const isOrders = topic === 'orders' || topic === 'order' || topic === 'fulfillment';
-    const from = isOrders ? cfg.fromOrders : cfg.fromResearch;
+    const from = cfg.fromResearch;
     const to = cfg.forwardTo;
 
     const html = `
       <div style="font-family:Inter,system-ui,sans-serif;max-width:560px;color:#0f172a">
         <h2 style="margin:0 0 12px">VialVibes contact form</h2>
-        <p style="margin:0 0 8px"><strong>Topic:</strong> ${escapeHtml(isOrders ? 'Orders / fulfillment' : 'Research / documentation')}</p>
+        <p style="margin:0 0 8px"><strong>Topic:</strong> ${escapeHtml(topic || 'research')}</p>
         <p style="margin:0 0 8px"><strong>Name:</strong> ${escapeHtml(name || '(not provided)')}</p>
         <p style="margin:0 0 8px"><strong>Email:</strong> ${escapeHtml(email)}</p>
         <p style="margin:0 0 8px"><strong>Subject:</strong> ${escapeHtml(subject)}</p>

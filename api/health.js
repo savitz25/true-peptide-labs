@@ -11,6 +11,5 @@ module.exports = async function handler(req, res) {
     resendConfigured: Boolean(cfg.apiKey),
     forwardTo: cfg.forwardTo,
     fromResearch: cfg.fromResearch,
-    fromOrders: cfg.fromOrders,
   });
 };

@@ -40,7 +40,6 @@ Compliance non-negotiables (RUO, no human-use language, no invented CoAs) are do
 /about-scientific-content.html  Content standards (E-E-A-T)
 /coa.html               Lot CoA request
 /quality.html           Quality stance
-/cart.html /checkout.html
 legal & company pages   about, terms, privacy, RUO, contact, ...
 /assets/                Logos (logo-vialvibes.svg, logo-vialvibes-mark.svg)
 /js/products.js         Shared catalog data

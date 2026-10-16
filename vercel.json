@@ -4,7 +4,9 @@
     { "source": "/peptide-calculator.html", "destination": "/tools/peptide-calculator.html", "permanent": true },
     { "source": "/stack-builder.html", "destination": "/tools/research-combination-builder.html", "permanent": true },
     { "source": "/peptides", "destination": "/peptides/", "permanent": true },
-    { "source": "/research", "destination": "/research/", "permanent": true }
+    { "source": "/research", "destination": "/research/", "permanent": true },
+    { "source": "/cart.html", "destination": "/", "permanent": true },
+    { "source": "/checkout.html", "destination": "/", "permanent": true }
   ],
   "cleanUrls": false,
   "functions": {

@@ -92,15 +92,8 @@
         "@type": "Answer",
         "text": "Every catalog item has a dedicated page under Peptides with research-safe descriptions, specs, and CoA request links."
       }
-    },
-    {
-      "@type": "Question",
-      "name": "How does checkout work?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Use Cart and Checkout. Card data is not collected on our pages; Stripe hosted payment is planned. A RUO certification checkbox is required before submitting a research order request."
-      }
     }
+
   ]
 }
   </script>
@@ -132,12 +125,7 @@
                     <a href="contact.html" class="nav-link">Contact</a>
                 </div>
                 <div class="flex items-center gap-x-2 sm:gap-x-3">
-                    <a href="cart.html" class="flex items-center gap-x-2 vv-btn-ghost !py-2.5 !px-4 sm:!px-5 h-11 text-sm relative">
-                        <i class="fa-solid fa-shopping-cart"></i>
-                        <span class="hidden sm:inline">Cart</span>
-                        <div id="cart-count" class="absolute -top-1.5 -right-1.5 min-w-[19px] h-[19px] px-1.5 bg-[#00E5FF] text-[#0F0C29] text-[10px] font-bold rounded-full flex items-center justify-center" style="display:none">0</div>
-                    </a>
-                    <button type="button" class="lg:hidden w-11 h-11 flex items-center justify-center text-slate-300 hover:text-cyan-300" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')" aria-label="Open menu">
+<button type="button" class="lg:hidden w-11 h-11 flex items-center justify-center text-slate-300 hover:text-cyan-300" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')" aria-label="Open menu">
                         <i class="fa-solid fa-bars text-xl"></i>
                     </button>
                 </div>
@@ -155,8 +143,7 @@
                 <a href="tools/research-combination-builder.html" class="py-1 text-slate-200 font-medium">Research Combination Builder</a>
                 <a href="about.html" class="py-1 text-slate-200 font-medium">About</a>
                 <a href="contact.html" class="py-1 text-slate-200 font-medium">Contact</a>
-                <a href="cart.html" class="py-1 text-slate-200 font-medium">Cart</a>
-            </div>
+</div>
         </div>
     </nav>
 
@@ -241,7 +228,7 @@
                 <div>
                     <div class="vv-chip mb-3">Start here</div>
                     <h2 class="heading-font text-2xl sm:text-3xl tracking-tight mb-2">What&rsquo;s your research vibe?</h2>
-                    <p class="text-sm sm:text-base max-w-xl" style="color:var(--vv-text-muted)">A quick discovery quiz that points you toward study-focus categories and compounds worth exploring&mdash;then you learn, compare, verify, and shop.</p>
+                    <p class="text-sm sm:text-base max-w-xl" style="color:var(--vv-text-muted)">A quick discovery quiz that points you toward study-focus categories and compounds worth exploring&mdash;then you learn, compare, and verify.</p>
                 </div>
                 <a href="vibe-finder.html" class="vv-btn-primary shrink-0 !px-8 !py-4 text-base">
                     Open Vibe Finder
@@ -404,15 +391,6 @@
                         Every catalog item has a dedicated page under <a href="peptides/index.html" class="text-[#00E5FF] underline">Peptides</a> with research-safe descriptions, specs, and CoA request links.
                     </div>
                 </div>
-                <div class="vv-glass rounded-2xl px-6 py-4 border border-white/10">
-                    <button onclick="toggleFaq(this)" class="w-full flex justify-between items-center text-left font-medium text-white">
-                        <span>How does checkout work?</span>
-                        <i class="fa-solid fa-chevron-down transition-transform text-slate-400"></i>
-                    </button>
-                    <div class="faq-answer hidden text-sm text-slate-400 pt-3">
-                        Use <a href="cart.html" class="text-[#00E5FF] underline">Cart</a> and <a href="checkout.html" class="text-[#00E5FF] underline">Checkout</a>. Card data is not collected on our pages; Stripe hosted payment is planned. A RUO certification checkbox is required before submitting a research order request.
-                    </div>
-                </div>
             </div>
         </div>
     </section>
@@ -503,21 +481,6 @@
             icon.style.transform = answer.classList.contains('hidden') ? '' : 'rotate(180deg)';
         }
 
-        function updateCartBadge() {
-            try {
-                var cart = JSON.parse(localStorage.getItem('tpl_cart')) || [];
-                var n = cart.reduce(function (s, i) { return s + (i.qty || 1); }, 0);
-                var el = document.getElementById('cart-count');
-                if (!el) return;
-                if (n > 0) {
-                    el.style.display = 'flex';
-                    el.textContent = n;
-                } else {
-                    el.style.display = 'none';
-                }
-            } catch (e) {}
-        }
-
         function renderHomeProducts() {
             var grid = document.getElementById('home-product-grid');
             if (!grid || !window.TPL_PRODUCTS) return;
@@ -538,9 +501,10 @@
                     '<div class="uppercase tracking-widest text-[10px] text-[#00E5FF] font-bold">' + p.categoryLabel + '</div>' +
                     '<h3 class="font-semibold text-xl tracking-tight mt-1 leading-tight heading-font"><a href="peptides/' + p.slug + '.html" class="hover:text-cyan-300 text-white">' + p.name + '</a></h3>' +
                     '<p class="text-sm text-slate-400 mt-2 line-clamp-2">' + p.description + '</p>' +
-                    '<div class="mt-auto pt-5 flex items-end justify-between gap-3">' +
-                    '<div class="text-3xl font-semibold tracking-tighter price text-white">$' + p.price + '</div>' +
-                    '<a href="peptides/' + p.slug + '.html" class="text-sm font-semibold px-4 py-2.5 rounded-2xl bg-gradient-to-r from-[#00E5FF] to-[#00FFAA] text-[#0F0C29]">View</a>' +
+                    '<div class="mt-auto pt-5 flex flex-wrap gap-2">' +
+                    '<a href="research/' + p.slug + '.html" class="text-xs font-semibold px-3 py-2 rounded-2xl border border-white/20 text-white">Research overview</a>' +
+                    '<a href="peptides/' + p.slug + '.html" class="text-xs font-semibold px-3 py-2 rounded-2xl bg-gradient-to-r from-[#00E5FF] to-[#00FFAA] text-[#0F0C29]">Specifications / Details</a>' +
+                    '<a href="vault.html?product=' + encodeURIComponent(p.name) + '#request" class="text-xs font-semibold px-3 py-2 rounded-2xl border border-white/20 text-white">Request lot CoA</a>' +
                     '</div></div></article>'
                 );
             }).join('');
@@ -563,7 +527,6 @@
 
         document.addEventListener('DOMContentLoaded', function () {
             renderHomeProducts();
-            updateCartBadge();
             seedParticles(document.getElementById('hero-particles'), 22);
             seedParticles(document.getElementById('hero-mol'), 12);
         });

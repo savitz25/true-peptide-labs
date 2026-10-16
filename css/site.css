@@ -650,8 +650,7 @@ footer {
 .vial-card h3 a { color: var(--vv-text); text-decoration: none; }
 .vial-card h3 a:hover { color: var(--vv-cyan); }
 .vial-card .vial-meta { font-size: 0.8rem; color: var(--vv-text-muted); margin-bottom: 0.75rem; flex: 1; }
-.vial-card .vial-footer { display: flex; align-items: flex-end; justify-content: space-between; gap: 0.75rem; }
-.vial-card .vial-price { font-family: var(--font-display); font-size: 1.65rem; letter-spacing: -0.03em; }
+.vial-card .vial-footer { display: flex; align-items: flex-start; justify-content: flex-start; gap: 0.75rem; flex-wrap: wrap; }
 
 /* ---- Interactive 3D vial stage ---- */
 .vial-3d-scene {
