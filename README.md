@@ -1,11 +1,11 @@
 # VialVibes (true-peptide-labs)
 
-Research-use-only (RUO) peptide supplier site. Static multi-page HTML on Vercel.
+Research-use-only (RUO) research and education library. Static multi-page HTML on Vercel.
 
 **Brand:** Vial Vibes / VialVibes (operated by APEX Research, LLC)  
 **Tagline:** Good Vibes. Serious Science.  
 **Domain:** https://www.vialvibes.com  
-**Emails (current):** research@vialvibes.com · orders@vialvibes.com  
+**Emails (current):** research@vialvibes.com  
 
 ## Brand & design system
 

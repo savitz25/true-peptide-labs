@@ -133,7 +133,7 @@ window.TPL_PRODUCTS = [
     molecularWeight: "Approx. 340–404 g/mol range reported for complex forms (confirm lot CoA)",
     sequence: "Gly-His-Lys · copper complex (research material)",
     description: "Copper-binding tripeptide for laboratory research on collagen pathways, extracellular matrix, and oxidative-stress models.",
-    details: "GHK-Cu is provided for in vitro / laboratory research only. Published work discusses gene-expression and matrix-biology endpoints in experimental systems. Not for human cosmetic or clinical use when sold as research material from this catalog.",
+    details: "GHK-Cu is provided for in vitro / laboratory research only. Published work discusses gene-expression and matrix-biology endpoints in experimental systems. Not for human cosmetic or clinical use when described as research material in this library.",
     researchFocus: ["Collagen pathway models", "ECM research", "Oxidative stress assays"],
     inStock: true
   },
