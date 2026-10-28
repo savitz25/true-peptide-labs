@@ -1,4 +1,7 @@
-# Generate full Phase 2 compound research pages (ASCII-safe)
+# Generate full Phase 2 compound research pages (ASCII-safe).
+# Live research HTML is the source of truth after PEPTIDE-PAGE-UPGRADE.
+# Do not run this script over the published pages unless the page data below
+# has been reconciled with those files. Running it overwrites citation text.
 $ErrorActionPreference = 'Stop'
 $Root = Split-Path -Parent (Split-Path -Parent $MyInvocation.MyCommand.Path)
 $OutDir = Join-Path $Root 'research'
@@ -228,9 +231,23 @@ $Pages = @(
   }
 )
 
+function Get-ResearchContext([string]$text) {
+  $clean = ($text -replace '\s+', ' ').Trim()
+  $parts = [regex]::Split($clean, '(?<=\.)\s+')
+  $keep = New-Object System.Collections.Generic.List[string]
+  if ($parts.Length -gt 0 -and $parts[0]) { [void]$keep.Add($parts[0]) }
+  for ($i = 1; $i -lt $parts.Length; $i++) {
+    if ($parts[$i] -match 'not |RUO|Research Use Only|do not|distinct|only') {
+      [void]$keep.Add($parts[$i])
+    }
+  }
+  return ($keep -join ' ')
+}
+
 function Build-Page($p) {
   $nav = Nav
   $footer = Footer
+  $context = Get-ResearchContext ([string]$p.intro)
   $areasHtml = ($p.areas | ForEach-Object { "<li>$_</li>" }) -join "`n"
   $studiesHtml = ''
   foreach ($s in $p.studies) {
@@ -287,6 +304,7 @@ $nav
       <div class="lg:sticky lg:top-28 space-y-4">
         <div class="bg-white border border-slate-200 rounded-2xl p-5 toc-card">
           <div class="text-xs font-bold tracking-wider text-emerald-700 mb-2">ON THIS PAGE</div>
+          <a href="#at-a-glance">At a glance</a>
           <a href="#intro">Introduction</a>
           <a href="#chemistry">Chemistry</a>
           <a href="#history">Background</a>
@@ -316,6 +334,20 @@ $nav
         <div class="mt-1"><a href="../about-scientific-content.html" class="text-emerald-700 underline">Content standards</a></div>
       </div>
 
+      <aside class="page-takeaway" aria-label="Research context">
+        <div class="page-kicker">Research context</div>
+        <p>$context</p>
+        <p class="page-takeaway-note">Literature context only. Not a product claim, dosing guide, or authorization for human use.</p>
+      </aside>
+      <section id="at-a-glance">
+        <h2>At a glance</h2>
+        <dl class="at-a-glance">
+          <div><dt>Catalog</dt><dd>$($p.name)</dd></div>
+          <div><dt>CAS</dt><dd>$($p.cas)</dd></div>
+          <div><dt>Documentation</dt><dd>Lot CoA on request</dd></div>
+          <div><dt>Use</dt><dd>Research use only</dd></div>
+        </dl>
+      </section>
       <section id="intro">
         <h2>Introduction</h2>
         <p>$($p.intro)</p>
@@ -357,7 +389,7 @@ $areasHtml
       <section id="studies">
         <h2>Key published studies and reviews</h2>
         <p>Prefer primary literature. Open links in a new tab. Always read full papers for methods and limitations.</p>
-        <ol class="cite-list list-decimal pl-5 space-y-2">
+        <ol class="cite-list page-cites">
 $studiesHtml
         </ol>
       </section>
@@ -380,15 +412,23 @@ $studiesHtml
 
       <section id="regulatory">
         <h2>Regulatory status note</h2>
-        <p>Materials sold by Vial Vibes are <strong>Research Use Only</strong>. They are not intended for human consumption, clinical administration, or veterinary use, and are not sold as FDA-approved drugs. Where the scientific literature discusses approved medicines or investigational drug programs involving the same active structure class, those regulated products remain distinct from RUO research reagents. See <a href="research-use-only-explainer.html">Research Use Only - what it means</a> and the legal <a href="../research-use-only.html">RUO policy</a>.</p>
+        <p>Materials described by Vial Vibes are <strong>Research Use Only</strong>. They are not intended for human consumption, clinical administration, or veterinary use, and are not presented as FDA-approved drugs. Where the scientific literature discusses approved medicines or investigational drug programs involving the same active structure class, those regulated products remain distinct from RUO research reagents. See <a href="research-use-only-explainer.html">Research Use Only - what it means</a> and the legal <a href="../research-use-only.html">RUO policy</a>.</p>
       </section>
 
       <div class="bg-amber-50 border border-amber-200 rounded-2xl p-5 text-sm text-amber-950 leading-relaxed mt-8">
+        <div class="limitation-kicker">Limitation</div>
         <strong>Scientific reference only - Research Use Only.</strong> Content prepared for laboratory professionals. Citations describe published research and do not constitute product claims, medical advice, or authorization for human use of research materials. Vial Vibes is operated by APEX Research, LLC.
       </div>
 
       <section class="mt-10">
-        <h2>Related research pages</h2>
+        <h2>Related</h2>
+        <div class="related-actions">
+          <a href="$($p.product)">Specifications</a>
+          <a href="../tools/peptide-calculator.html">Reconstitution calculator</a>
+          <a href="../coa.html?product=$($p.short)">Request lot CoA</a>
+          <a href="compare.html">Compare compounds</a>
+        </div>
+        <h3>Related compounds</h3>
         <div class="flex flex-wrap gap-3 not-prose">
 $relatedHtml
           <a href="index.html" class="px-4 py-2 border border-slate-200 rounded-xl text-sm font-semibold hover:border-emerald-400">Research Hub</a>
