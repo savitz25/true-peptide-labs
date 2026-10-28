@@ -68,13 +68,21 @@
 .research-models { color: #b7c5d8; font-size: .76rem; line-height: 1.7; margin: 0 0 20px; }
 .research-reference-label { margin: 0 0 16px; padding: 8px 10px; border: 1px solid #74608c; border-radius: 7px; color: #e1d5fa; background: #29203e; font-size: .72rem; line-height: 1.6; }
 .reference-note { scroll-margin-top: 24px; margin-bottom: 24px; padding: 28px; border: 1px dashed #74608c; border-radius: 14px; background: rgba(37,27,62,.48); }
-.reference-note h2 { font-family: var(--font-display); font-size: 1.6rem; margin: 0 0 12px; }
-.reference-note h3 { font-size: .95rem; margin: 20px 0 8px; }
+.reference-note h1, .reference-note > h2 { font-family: var(--font-display); font-size: 1.8rem; margin: 0 0 12px; }
+.reference-note h1 ~ h2, .reference-note h3 { font-family: inherit; font-size: .95rem; margin: 20px 0 8px; }
 .reference-note p, .reference-note li { color: #c0cbdc; line-height: 1.8; }
 .reference-note .research-reference-label { display: inline-block; color: #e1d5fa; }
 .reference-note a, .reference-note-index a { color: var(--vv-cyan); text-decoration: underline; text-underline-offset: 4px; }
 .reference-note-index { display: flex; flex-wrap: wrap; gap: 12px 24px; padding: 0; margin: 0 0 32px; list-style: none; }
 .reference-note-index a { display: inline-block; padding-block: 8px; }
+.reference-note ul.evidence-types { list-style: none; padding-left: 0; display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 0.35rem 0 0.85rem; }
+.reference-note ul.evidence-types li { margin: 0; border: 1px solid rgba(0, 229, 255, 0.35); border-radius: 999px; padding: 0.35rem 0.75rem; color: #E2E8F0; font-size: 0.8125rem; font-weight: 600; line-height: 1.35; background: rgba(0, 229, 255, 0.06); }
+.reference-note p.studied-note { color: #FDE68A; font-size: 0.8125rem; margin-top: 0.35rem; }
+.reference-note .uncertain-block { background: rgba(168, 85, 247, 0.12); border: 1px solid rgba(168, 85, 247, 0.35); border-radius: 1rem; padding: 0.9rem 1rem; margin-top: 0.35rem; }
+.reference-note .limitation-kicker { font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700; color: #FDE68A; margin: 0 0 0.35rem; }
+.reference-note ul.reference-cites { list-style: none; padding-left: 0; display: flex; flex-direction: column; gap: 0.75rem; margin: 0.35rem 0 0; }
+.reference-note ul.reference-cites li { margin: 0; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(248, 249, 250, 0.12); border-left: 3px solid var(--vv-cyan); border-radius: 0.9rem; padding: 0.9rem 1rem; color: #E2E8F0; }
+.reference-note-links { display: flex; flex-wrap: wrap; gap: 8px 18px; margin-top: 18px; }
 .research-unavailable { color: var(--vv-text-muted); font-size: .72rem; padding-block: 12px; }
 .library-empty { padding: 40px 24px; text-align: center; border: 1px dashed #525c78; border-radius: 14px; margin-bottom: 36px; }
 .library-empty h2 { font-size: 1.2rem; }
