@@ -162,15 +162,33 @@
       : 'Try a broader term, choose another category or entry type, or reset all filters.';
   }
 
+  // Accept both library keys and the category slugs used by comparison links.
+  function readCategory() {
+    var requested = new URLSearchParams(location.search).get('category');
+    var aliases = { 'tissue-repair': 'recovery', 'growth-hormone': 'gh' };
+    requested = aliases[requested] || requested;
+    category.value = categoryOptions.some(function (option) { return option.key === requested; }) ? requested : 'all';
+  }
+
+  function saveCategory() {
+    var url = new URL(location.href);
+    if (category.value === 'all') url.searchParams.delete('category');
+    else url.searchParams.set('category', category.value);
+    history.replaceState(null, '', url);
+  }
+
+  readCategory();
+  window.addEventListener('popstate', function () { readCategory(); paint(); });
   search.addEventListener('input', function (event) { if (!event.isComposing) paint(); });
   search.addEventListener('compositionend', paint);
-  category.addEventListener('change', paint);
+  category.addEventListener('change', function () { saveCategory(); paint(); });
   type.addEventListener('change', paint);
   document.querySelectorAll('[data-reset-library]').forEach(function (button) {
     button.addEventListener('click', function () {
       category.value = 'all';
       type.value = 'all';
       search.value = '';
+      saveCategory();
       paint();
       search.focus();
     });

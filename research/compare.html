@@ -364,21 +364,37 @@
 (function () {
   var buttons = document.querySelectorAll('.filter-btn');
   var rows = document.querySelectorAll('.compare-row');
+  function applyFilter(requested) {
+    var aliases = { recovery: 'tissue-repair', gh: 'growth-hormone' };
+    requested = aliases[requested] || requested;
+    var filter = Array.from(buttons).some(function (btn) { return btn.getAttribute('data-filter') === requested; }) ? requested : 'all';
+    buttons.forEach(function (btn) {
+      var active = btn.getAttribute('data-filter') === filter;
+      btn.classList.toggle('bg-emerald-600', active);
+      btn.classList.toggle('text-white', active);
+      btn.classList.toggle('bg-slate-100', !active);
+      btn.classList.toggle('text-slate-700', !active);
+      btn.setAttribute('aria-pressed', String(active));
+    });
+    rows.forEach(function (row) {
+      row.style.display = (filter === 'all' || row.getAttribute('data-category') === filter) ? '' : 'none';
+    });
+  }
+  function readCategory() {
+    applyFilter(new URLSearchParams(location.search).get('category'));
+  }
   buttons.forEach(function (btn) {
     btn.addEventListener('click', function () {
       var filter = btn.getAttribute('data-filter');
-      buttons.forEach(function (b) {
-        b.classList.remove('bg-emerald-600', 'text-white');
-        b.classList.add('bg-slate-100', 'text-slate-700');
-      });
-      btn.classList.add('bg-emerald-600', 'text-white');
-      btn.classList.remove('bg-slate-100', 'text-slate-700');
-      rows.forEach(function (row) {
-        var cat = row.getAttribute('data-category');
-        row.style.display = (filter === 'all' || cat === filter) ? '' : 'none';
-      });
+      applyFilter(filter);
+      var url = new URL(location.href);
+      if (filter === 'all') url.searchParams.delete('category');
+      else url.searchParams.set('category', filter);
+      history.replaceState(null, '', url);
     });
   });
+  readCategory();
+  window.addEventListener('popstate', readCategory);
 })();
 </script>
   <script src="../js/pwa-register.js" defer></script>

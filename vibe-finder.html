@@ -172,13 +172,30 @@
       var cat = (answers.focus && answers.focus.cat) || 'metabolic';
       var products = (window.TPL_PRODUCTS || []).filter(function (p) { return p.category === cat; });
       var path = (answers.depth && answers.depth.path) || 'browse';
+      var focusLinks = {
+        recovery: { category: 'tissue-repair', area: 'connective', label: 'Explore connective tissue models' },
+        metabolic: { category: 'metabolic', area: 'metabolic', label: 'Explore metabolic pathway models' },
+        gh: { category: 'growth-hormone', area: 'gh-axis', label: 'Explore GH axis models' },
+        cosmetic: { category: 'cosmetic', area: 'skin-ecm', label: 'Explore skin / ECM models' }
+      };
+      var focus = focusLinks[cat];
+      var libraryHref = 'peptides/index.html?category=' + focus.category;
+      var compareHref = 'research/compare.html?category=' + focus.category;
       var nextLinks = {
         learn: { href: 'research/index.html', label: 'Open Research Hub' },
-        compare: { href: 'research/compare.html', label: 'Compare compounds' },
+        compare: { href: compareHref, label: 'Compare this category' },
         verify: { href: 'vault.html', label: 'Open Vial Vault' },
-        browse: { href: 'peptides/index.html', label: 'Peptide Library' }
+        browse: { href: libraryHref, label: 'Browse this category' }
       };
       var next = nextLinks[path] || nextLinks.browse;
+      var relatedLinks = [
+        nextLinks.browse,
+        { href: 'body-explorer.html#' + focus.area, label: focus.label },
+        nextLinks.compare,
+        { href: 'vault.html', label: 'Verify a lot' }
+      ].filter(function (link) { return link.href !== next.href; }).map(function (link) {
+        return '<a class="vv-btn-ghost" href="' + link.href + '">' + link.label + '</a>';
+      }).join('');
       var catLabel = products[0] ? products[0].categoryLabel : 'Research catalog';
       var cards = products.map(function (p) {
         return '<a href="peptides/' + p.slug + '.html" class="block vv-glass rounded-2xl p-4 hover:border-cyan-400/40 border border-white/10 transition">' +
@@ -193,8 +210,7 @@
         '<div class="grid sm:grid-cols-2 gap-3 mb-8">' + cards + '</div>' +
         '<div class="flex flex-wrap gap-3">' +
           '<a class="vv-btn-primary" href="' + next.href + '">' + next.label + '</a>' +
-          '<a class="vv-btn-ghost" href="research/compare.html">Compare</a>' +
-          '<a class="vv-btn-ghost" href="vault.html">Verify a lot</a>' +
+          relatedLinks +
           '<button type="button" class="vv-btn-ghost" id="restart">Restart quiz</button>' +
         '</div>' +
         '<p class="mt-6 text-xs" style="color:var(--vv-text-dim)">Not medical advice. Not for human use. Research professionals only.</p>' +
