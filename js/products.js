@@ -188,6 +188,6 @@ window.TPL_CATEGORIES = [
 window.TPL_SITE = {
   brand: "VialVibes",
   legal: "Vial Vibes is operated by APEX Research, LLC",
-  domain: "https://www.vialvibes.com",
+  domain: "https://vialvibes.com",
   emailResearch: "hello@asktrusthub.com",
 };

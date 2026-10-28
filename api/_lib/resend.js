@@ -14,7 +14,7 @@ function getConfig() {
     fromResearch: env('EMAIL_FROM_RESEARCH', 'VialVibes Research <hello@asktrusthub.com>'),
     forwardTo: env('EMAIL_FORWARD_TO', 'info@movetrusthub.com'),
     cc: env('EMAIL_CC'),
-    siteUrl: env('SITE_URL', 'https://www.vialvibes.com'),
+    siteUrl: env('SITE_URL', 'https://vialvibes.com'),
     webhookSecret: env('RESEND_WEBHOOK_SECRET'),
   };
 }

@@ -3,7 +3,7 @@ $ErrorActionPreference = "Stop"
 $Root = Split-Path -Parent (Split-Path -Parent $MyInvocation.MyCommand.Path)
 Set-Location $Root
 
-$Domain = "https://www.vialvibes.com"
+$Domain = "https://vialvibes.com"
 $Year = 2026
 
 $Products = @(
@@ -113,7 +113,7 @@ function Get-OrgJsonLd {
   "@type": "Organization",
   "name": "Vial Vibes",
   "legalName": "APEX Research, LLC",
-  "url": "https://www.vialvibes.com",
+  "url": "https://vialvibes.com",
   "email": "hello@asktrusthub.com",
   "description": "Research-use-only peptide supplier for qualified laboratories.",
   "areaServed": "US"

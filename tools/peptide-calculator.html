@@ -14,21 +14,21 @@
   <meta name="description" content="Free peptide reconstitution calculator for laboratory use. Calculate concentrations and aliquot volumes for lyophilized research peptides. Research Use Only.">
   <meta property="og:title" content="Peptide Reconstitution Calculator | Lab Tool | Vial Vibes">
   <meta property="og:description" content="Free peptide reconstitution calculator for laboratory use. Calculate concentrations and aliquot volumes for lyophilized research peptides. Research Use Only.">
-  <meta property="og:image" content="https://www.vialvibes.com/images/og-vial-vibes-share.jpg">
-  <meta property="og:image:secure_url" content="https://www.vialvibes.com/images/og-vial-vibes-share.jpg">
+  <meta property="og:image" content="https://vialvibes.com/images/og-vial-vibes-share.jpg">
+  <meta property="og:image:secure_url" content="https://vialvibes.com/images/og-vial-vibes-share.jpg">
   <meta property="og:image:type" content="image/jpeg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="Vial Vibes — Good Vibes. Serious Science.">
-  <meta property="og:url" content="https://www.vialvibes.com/tools/peptide-calculator.html">
+  <meta property="og:url" content="https://vialvibes.com/tools/peptide-calculator.html">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Vial Vibes">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Peptide Reconstitution Calculator | Lab Tool | Vial Vibes">
   <meta name="twitter:description" content="Free peptide reconstitution calculator for laboratory use. Calculate concentrations and aliquot volumes for lyophilized research peptides. Research Use Only.">
-  <meta name="twitter:image" content="https://www.vialvibes.com/images/og-vial-vibes-share.jpg">
+  <meta name="twitter:image" content="https://vialvibes.com/images/og-vial-vibes-share.jpg">
   <meta name="twitter:image:alt" content="Vial Vibes — Good Vibes. Serious Science.">
-  <link rel="canonical" href="https://www.vialvibes.com/tools/peptide-calculator.html">
+  <link rel="canonical" href="https://vialvibes.com/tools/peptide-calculator.html">
 <link rel="icon" type="image/svg+xml" href="../assets/logo-vialvibes-mark.svg">
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -51,8 +51,8 @@
   "@type": "Organization",
   "name": "Vial Vibes",
   "legalName": "APEX Research, LLC",
-  "url": "https://www.vialvibes.com",
-  "logo": "https://www.vialvibes.com/icons/icon-512.png",
+  "url": "https://vialvibes.com",
+  "logo": "https://vialvibes.com/icons/icon-512.png",
   "description": "Research-use-only peptides, laboratory tools, and educational resources for qualified researchers. Operated by APEX Research, LLC.",
   "email": "hello@asktrusthub.com",
   "sameAs": []
@@ -64,7 +64,7 @@
   "@type": "WebApplication",
   "name": "Reconstitution Calculator",
   "description": "Free laboratory tool for calculating reconstitution concentration and aliquot volumes for in-vitro research assays. Research use only. Not for human dosing or clinical use.",
-  "url": "https://www.vialvibes.com/tools/peptide-calculator.html",
+  "url": "https://vialvibes.com/tools/peptide-calculator.html",
   "applicationCategory": "ScienceApplication",
   "operatingSystem": "Any",
   "browserRequirements": "Requires JavaScript",
@@ -72,7 +72,7 @@
     "@type": "Organization",
     "name": "Vial Vibes",
     "legalName": "APEX Research, LLC",
-    "url": "https://www.vialvibes.com"
+    "url": "https://vialvibes.com"
   }
 }
   </script>
@@ -81,9 +81,9 @@
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
-    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.vialvibes.com/" },
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://vialvibes.com/" },
     { "@type": "ListItem", "position": 2, "name": "Tools" },
-    { "@type": "ListItem", "position": 3, "name": "Reconstitution Calculator", "item": "https://www.vialvibes.com/tools/peptide-calculator.html" }
+    { "@type": "ListItem", "position": 3, "name": "Reconstitution Calculator", "item": "https://vialvibes.com/tools/peptide-calculator.html" }
   ]
 }
   </script>
@@ -265,6 +265,8 @@
         </div>
       </div>
 
+      <div id="vial-limit-warning" class="hidden max-w-3xl mx-auto mb-8 p-5 bg-amber-50 border border-amber-300 rounded-3xl text-sm text-amber-950" role="status"></div>
+
       <div class="max-w-3xl mx-auto text-sm text-slate-600">
         <h3 class="font-semibold text-xl mb-4 text-slate-800">How to Use (Laboratory Assay Prep)</h3>
         <ol class="list-decimal list-inside space-y-2">
@@ -275,6 +277,7 @@
         </ol>
         <p class="mt-4 text-slate-600">
           Concentration = vial content ÷ reconstitution volume. Aliquot volume = target research amount ÷ concentration.
+          If the requested amount is larger than the selected vial content, the calculator states how many vials of that content the mass would require.
           Values are intended for laboratory planning of research solutions only.
         </p>
         <p class="mt-4">
@@ -459,6 +462,13 @@
     const beakerFill = document.getElementById('beaker-fill');
     const beakerLabel = document.getElementById('beaker-label');
 
+    const warnEl = document.getElementById('vial-limit-warning');
+    function hideVialWarning() {
+      if (!warnEl) return;
+      warnEl.classList.add('hidden');
+      warnEl.textContent = '';
+    }
+
     if (!selectedDose || !selectedStrength || !selectedWater) {
       doseEl.textContent = 'Select amount';
       drawEl.textContent = 'Select values';
@@ -468,6 +478,7 @@
       volEl.textContent = '';
       if (beakerFill) beakerFill.style.height = '0%';
       if (beakerLabel) beakerLabel.textContent = '0.00 mL';
+      hideVialWarning();
       return;
     }
 
@@ -492,6 +503,15 @@
     // Animate visual beaker (fill = aliquot volume / 3 mL, capped at 100%)
     if (beakerFill) beakerFill.style.height = percent + '%';
     if (beakerLabel) beakerLabel.textContent = vol.toFixed(2) + ' mL';
+
+    if (warnEl && dose > strength) {
+      const vialsNeeded = Math.ceil(dose / strength);
+      const vialWord = vialsNeeded === 1 ? 'vial' : 'vials';
+      warnEl.classList.remove('hidden');
+      warnEl.textContent = 'Requested research amount (' + dose + ' mg) exceeds the selected vial content (' + strength + ' mg). One vial cannot supply that mass. At least ' + vialsNeeded + ' ' + vialWord + ' of this content would be needed. This is a material check for laboratory planning only.';
+    } else {
+      hideVialWarning();
+    }
   }
 
   window.onload = function() {

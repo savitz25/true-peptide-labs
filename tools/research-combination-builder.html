@@ -14,21 +14,21 @@
   <meta name="description" content="Plan research peptide combinations for laboratory experimental design. Map study focus areas to catalog compounds. Research use only — not clinical advice.">
   <meta property="og:title" content="Research Combination Builder | Lab Tool | Vial Vibes">
   <meta property="og:description" content="Plan research peptide combinations for laboratory experimental design. Map study focus areas to catalog compounds. Research use only — not clinical advice.">
-  <meta property="og:image" content="https://www.vialvibes.com/images/og-vial-vibes-share.jpg">
-  <meta property="og:image:secure_url" content="https://www.vialvibes.com/images/og-vial-vibes-share.jpg">
+  <meta property="og:image" content="https://vialvibes.com/images/og-vial-vibes-share.jpg">
+  <meta property="og:image:secure_url" content="https://vialvibes.com/images/og-vial-vibes-share.jpg">
   <meta property="og:image:type" content="image/jpeg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="Vial Vibes — Good Vibes. Serious Science.">
-  <meta property="og:url" content="https://www.vialvibes.com/tools/research-combination-builder.html">
+  <meta property="og:url" content="https://vialvibes.com/tools/research-combination-builder.html">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Vial Vibes">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Research Combination Builder | Lab Tool | Vial Vibes">
   <meta name="twitter:description" content="Plan research peptide combinations for laboratory experimental design. Map study focus areas to catalog compounds. Research use only — not clinical advice.">
-  <meta name="twitter:image" content="https://www.vialvibes.com/images/og-vial-vibes-share.jpg">
+  <meta name="twitter:image" content="https://vialvibes.com/images/og-vial-vibes-share.jpg">
   <meta name="twitter:image:alt" content="Vial Vibes — Good Vibes. Serious Science.">
-  <link rel="canonical" href="https://www.vialvibes.com/tools/research-combination-builder.html">
+  <link rel="canonical" href="https://vialvibes.com/tools/research-combination-builder.html">
 <link rel="icon" type="image/svg+xml" href="../assets/logo-vialvibes-mark.svg">
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -82,8 +82,8 @@
   "@type": "Organization",
   "name": "Vial Vibes",
   "legalName": "APEX Research, LLC",
-  "url": "https://www.vialvibes.com",
-  "logo": "https://www.vialvibes.com/icons/icon-512.png",
+  "url": "https://vialvibes.com",
+  "logo": "https://vialvibes.com/icons/icon-512.png",
   "description": "Research-use-only peptides, laboratory tools, and educational resources for qualified researchers. Operated by APEX Research, LLC.",
   "email": "hello@asktrusthub.com",
   "sameAs": []
@@ -95,7 +95,7 @@
   "@type": "WebApplication",
   "name": "Research Combination Builder",
   "description": "Free laboratory planning tool for organizing research peptide combinations for in-vitro experimental design. Research use only. Not for human use or clinical protocols.",
-  "url": "https://www.vialvibes.com/tools/research-combination-builder.html",
+  "url": "https://vialvibes.com/tools/research-combination-builder.html",
   "applicationCategory": "ScienceApplication",
   "operatingSystem": "Any",
   "browserRequirements": "Requires JavaScript",
@@ -103,7 +103,7 @@
     "@type": "Organization",
     "name": "Vial Vibes",
     "legalName": "APEX Research, LLC",
-    "url": "https://www.vialvibes.com"
+    "url": "https://vialvibes.com"
   }
 }
   </script>
@@ -112,9 +112,9 @@
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
-    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.vialvibes.com/" },
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://vialvibes.com/" },
     { "@type": "ListItem", "position": 2, "name": "Tools" },
-    { "@type": "ListItem", "position": 3, "name": "Research Combination Builder", "item": "https://www.vialvibes.com/tools/research-combination-builder.html" }
+    { "@type": "ListItem", "position": 3, "name": "Research Combination Builder", "item": "https://vialvibes.com/tools/research-combination-builder.html" }
   ]
 }
   </script>
@@ -226,17 +226,10 @@
           <p class="text-slate-600 mt-1">Select up to 4 research domains. We highlight candidate compounds and combination notes for study design.</p>
         </div>
         <div id="stack-score"
-             class="hidden md:flex items-center gap-3 bg-white border border-slate-200 px-5 py-3 rounded-2xl">
-          <div>
-            <div class="text-xs text-slate-500">COMBINATION FIT</div>
-            <div id="score-value" class="text-3xl font-semibold tabular-nums text-emerald-600">0</div>
-          </div>
-          <div class="text-right">
-            <div class="text-emerald-600">
-              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-            </div>
-            <div class="text-xs text-slate-500">Alignment Index</div>
-          </div>
+             class="hidden md:block max-w-sm bg-white border border-slate-200 px-5 py-3 rounded-2xl">
+          <div class="text-xs text-slate-500">CATEGORY OVERLAP</div>
+          <div id="score-value" class="text-sm font-semibold text-emerald-700 leading-snug">Select research categories</div>
+          <div class="text-xs text-slate-500 mt-1">Counts shared research categories only. Not a compatibility score.</div>
         </div>
       </div>
 
@@ -313,9 +306,9 @@
         <div class="bg-white border border-slate-100 rounded-2xl p-6">
           <div class="font-semibold mb-2 flex items-center gap-2">
             <span class="w-6 h-6 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center text-xs font-bold">2</span>
-            Compatibility Matching
+            Category Overlap
           </div>
-          <p class="text-slate-600">We map compounds to selected focus areas and surface combination alignment for research design planning.</p>
+          <p class="text-slate-600">Each result counts how many of your selected research categories include that compound. That count is not a compatibility score.</p>
         </div>
         <div class="bg-white border border-slate-100 rounded-2xl p-6">
           <div class="font-semibold mb-2 flex items-center gap-2">
@@ -691,6 +684,14 @@
     updateStackScore();
   }
 
+  function categoryMatchCount(pid) {
+    let matched = 0;
+    selectedGoals.forEach(gid => {
+      if (goalPeptideMap[gid] && goalPeptideMap[gid].includes(pid)) matched++;
+    });
+    return matched;
+  }
+
   function getRecommendedPeptides() {
     if (selectedGoals.size === 0) return [];
 
@@ -734,22 +735,20 @@
 
     recommendedIds.forEach(pid => {
       const p = peptideData[pid];
-      const score = selectedGoals.size > 0 ?
-        Math.round((getRecommendedPeptides().indexOf(pid) / recommendedIds.length) * 100) : 80;
+      const matched = categoryMatchCount(pid);
+      const totalGoals = selectedGoals.size;
+      const matchLabel = `Matches ${matched} of ${totalGoals} selected research ${totalGoals === 1 ? 'category' : 'categories'}`;
 
       const card = document.createElement('div');
       card.className = `peptide-card bg-white border border-slate-200 rounded-3xl p-6 cursor-pointer sleek-shadow`;
 
       card.innerHTML = `
-        <div class="flex justify-between items-start mb-3">
+        <div class="flex justify-between items-start mb-3 gap-4">
           <div>
             <div class="font-semibold text-xl tracking-tight">${p.name}</div>
             <div class="text-sm text-emerald-600 font-medium">${p.short}</div>
           </div>
-          <div class="text-right">
-            <div class="text-xs text-emerald-600 font-medium">ALIGN</div>
-            <div class="text-emerald-700 font-semibold">${score}%</div>
-          </div>
+          <div class="text-right text-xs text-slate-600 max-w-[11rem]">${matchLabel}</div>
         </div>
 
         <div class="text-sm text-slate-600 mb-4 line-clamp-2">${p.benefits[0]}</div>
@@ -781,31 +780,20 @@
     const scoreEl = document.getElementById('score-value');
     if (!scoreEl) return;
 
+    const box = document.getElementById('stack-score');
     const numGoals = selectedGoals.size;
+    if (!box) return;
     if (numGoals === 0) {
-      document.getElementById('stack-score').classList.add('hidden');
+      scoreEl.textContent = 'Select research categories';
+      box.classList.add('hidden');
       return;
     }
 
-    document.getElementById('stack-score').classList.remove('hidden');
-
-    const base = numGoals * 18;
-    const synergy = Math.min(getRecommendedPeptides().length * 4, 28);
-    const total = Math.min(base + synergy, 98);
-
-    scoreEl.textContent = total;
-
-    const starContainer = document.getElementById('stack-score');
-    if (starContainer) {
-      const stars = starContainer.querySelectorAll('i');
-      stars.forEach((star, i) => {
-        if ((total / 33) > i) {
-          star.classList.add('text-emerald-400');
-        } else {
-          star.classList.remove('text-emerald-400');
-        }
-      });
-    }
+    box.classList.remove('hidden');
+    const shown = getRecommendedPeptides().length;
+    const goalWord = numGoals === 1 ? 'category' : 'categories';
+    const compoundWord = shown === 1 ? 'compound overlaps' : 'compounds overlap';
+    scoreEl.textContent = shown + ' ' + compoundWord + ' your ' + numGoals + ' selected research ' + goalWord;
   }
 
   function showPeptideModal(peptideId) {
@@ -907,7 +895,7 @@
     const myPanel = document.getElementById('my-stack-panel');
     if (myPanel) myPanel.classList.add('hidden');
 
-    document.getElementById('score-value').textContent = '0';
+    document.getElementById('score-value').textContent = 'Select research categories';
     document.getElementById('stack-score').classList.add('hidden');
 
     renderGoals();

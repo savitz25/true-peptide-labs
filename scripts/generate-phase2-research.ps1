@@ -2,7 +2,7 @@
 $ErrorActionPreference = 'Stop'
 $Root = Split-Path -Parent (Split-Path -Parent $MyInvocation.MyCommand.Path)
 $OutDir = Join-Path $Root 'research'
-$Domain = 'https://www.vialvibes.com'
+$Domain = 'https://vialvibes.com'
 $Reviewed = '2026-07-28'
 
 function Nav {
@@ -86,7 +86,7 @@ $Pages = @(
     mechanisms='Reviews of preclinical work discuss proposed involvement of growth-related signaling, angiogenesis-associated pathways, and inflammatory-cytokine modulation in model systems. These mechanistic discussions are literature-derived hypotheses and model-level findings. They are not product claims and do not establish clinical indications for research reagents.'
     studies=@(
       @{ pmid='30915550'; label='Gwyer D, et al. (2019). Gastric pentadecapeptide body protection compound BPC 157 and its role in accelerating musculoskeletal soft tissue healing. Cell Tissue Res. PubMed 30915550.' },
-      @{ pmid='40756949'; label='Vasireddi N, et al. Emerging use of BPC-157 in orthopaedic sports medicine: a systematic review (preclinical-focused synthesis). PubMed 40756949.' },
+      @{ pmid='40756949'; label='Vasireddi N, et al. (2025). Emerging use of BPC-157 in orthopaedic sports medicine: a systematic review. HSS J. PubMed 40756949.' },
       @{ pmid='40005999'; label='Jozwiak M, et al. (2025). Multifunctionality and possible medical application of the BPC 157 peptide - literature and patent review. Pharmaceuticals. PubMed 40005999.' }
     )
     limits='High-quality, large-scale clinical trials remain limited relative to the volume of preclinical reports. Manufacturing quality, contamination risk, and regulatory status of non-pharmaceutical sources are repeatedly flagged as practical concerns in review literature. Findings in animal models do not automatically translate to humans. Always separate approved drug products (if any) from research-use materials sold for laboratory work.'
@@ -105,9 +105,9 @@ $Pages = @(
     )
     mechanisms='Literature on T-beta-4 discusses actin-binding behavior and effects on cell motility and angiogenesis-related endpoints in experimental systems. Mechanistic language in reviews should be read as model biology, not as instructions or claims for research materials sold RUO.'
     studies=@(
-      @{ pmid='22074294'; label='Goldstein AL, et al. (2012). Thymosin beta-4: a multi-functional regenerative peptide - basic properties and clinical applications (review). Expert Opin Biol Ther. PubMed 22074294.' },
-      @{ pmid='10469335'; label='Malinda KM, et al. (1999). Thymosin beta-4 accelerates wound healing (rat full-thickness wound model). J Invest Dermatol. PubMed 10469335.' },
-      @{ pmid='23084823'; label='Ho ENM, et al. (2012). Doping control analysis of TB-500, a synthetic version of an active region of thymosin beta-4. Drug Test Anal. PubMed 23084823.' }
+      @{ pmid='22074294'; label='Goldstein AL, et al. (2012). Thymosin beta-4: a multi-functional regenerative peptide. Basic properties and clinical applications. Expert Opin Biol Ther. PubMed 22074294.' },
+      @{ pmid='10469335'; label='Malinda KM, et al. (1999). Thymosin beta-4 accelerates wound healing. J Invest Dermatol. PubMed 10469335.' },
+      @{ pmid='23084823'; label='Ho EN, et al. (2012). Doping control analysis of TB-500, a synthetic version of an active region of thymosin beta-4, in equine urine and plasma by liquid chromatography-mass spectrometry. J Chromatogr A. PubMed 23084823.' }
     )
     limits='Catalog "TB-500" preparations may not be chemically identical to full-length T-beta-4 used in some papers. Sequence and mass must be verified analytically. Much of the regenerative framing in secondary literature exceeds what is supported for unregulated research materials. Human clinical validation for research reagents is not established by animal models alone.'
     related=@(@{href='bpc-157.html'; t='BPC-157'},@{href='ghk-cu.html'; t='GHK-Cu'},@{href='compare.html'; t='Compare compounds'})
@@ -125,8 +125,8 @@ $Pages = @(
     )
     mechanisms='Published discussions link GHK-Cu to modulation of gene sets related to matrix remodeling and antioxidant defenses in experimental systems. These are literature mechanisms under study, not clinical product claims for RUO materials.'
     studies=@(
-      @{ pmid='18689049'; label='Pickart L, Margolina A. (2008). The human tri-peptide GHK and tissue remodeling. J Biomater Sci Polym Ed. PubMed 18689049.' },
-      @{ pmid='20979553'; label='Pickart L, et al. related copper-peptide / GHK literature (verify exact title on PubMed). PubMed 20979553.' }
+      @{ pmid='18644225'; label='Pickart L. (2008). The human tri-peptide GHK and tissue remodeling. J Biomater Sci Polym Ed. PubMed 18644225.' },
+      @{ pmid='29986520'; label='Pickart L, Margolina A. (2018). Regenerative and protective actions of the GHK-Cu peptide in the light of the new gene data. Int J Mol Sci. PubMed 29986520.' }
     )
     limits='Cosmetic or clinical product claims found in marketing sources are not equivalent to controlled laboratory research use. In vitro findings do not prove clinical outcomes. Confirm complex stoichiometry and purity on CoA.'
     related=@(@{href='bpc-157.html'; t='BPC-157'},@{href='tb-500.html'; t='TB-500'},@{href='compare.html'; t='Compare compounds'})
@@ -144,8 +144,8 @@ $Pages = @(
     )
     mechanisms='As a GLP-1 receptor agonist, semaglutide is described as engaging receptors involved in glucose-dependent insulin secretion, glucagon pathways, gastric emptying, and central appetite-regulation circuits in research and clinical literature. Those descriptions concern the molecule class and approved-drug contexts; they are not directions for using RUO research material in humans.'
     studies=@(
-      @{ pmid='34942372'; label='Chao AM, Wadden TA. (2023). Semaglutide for the treatment of obesity. Trends Cardiovasc Med. PubMed 34942372.' },
-      @{ pmid='40281304'; label='Drucker DJ. GLP-1-based therapies for diabetes, obesity and beyond (review). PubMed 40281304.' },
+      @{ pmid='34942372'; label='Chao AM, et al. (2023). Semaglutide for the treatment of obesity. Trends Cardiovasc Med. PubMed 34942372.' },
+      @{ pmid='40281304'; label='Drucker DJ. (2025). GLP-1-based therapies for diabetes, obesity and beyond. Nat Rev Drug Discov. PubMed 40281304.' },
       @{ pmid=''; label='Kommu S, et al. Semaglutide - StatPearls. NCBI Bookshelf NBK603723. https://www.ncbi.nlm.nih.gov/books/NBK603723/' }
     )
     limits='Do not conflate RUO research peptides with FDA-approved semaglutide medicines. Clinical trial results for approved products do not authorize unregulated use of research materials. Institutional review and legal compliance remain buyer responsibilities.'
@@ -164,8 +164,8 @@ $Pages = @(
     )
     mechanisms='Literature describes simultaneous engagement of GIP and GLP-1 receptors with effects on glycemic and body-weight endpoints in clinical studies of the pharmaceutical product. Mechanistic summaries are for scientific literacy only and do not authorize human use of research reagents.'
     studies=@(
-      @{ pmid='34170647'; label='Frias JP, et al. (2021). Tirzepatide versus semaglutide once weekly in patients with type 2 diabetes (SURPASS-2). N Engl J Med. PubMed 34170647.' },
-      @{ pmid='35658024'; label='Jastreboff AM, et al. (2022). Tirzepatide once weekly for the treatment of obesity (SURMOUNT-1). N Engl J Med. PubMed 35658024.' }
+      @{ pmid='34170647'; label='Frias JP, et al. (2021). Tirzepatide versus semaglutide once weekly in patients with type 2 diabetes. N Engl J Med. PubMed 34170647.' },
+      @{ pmid='35658024'; label='Jastreboff AM, et al. (2022). Tirzepatide once weekly for the treatment of obesity. N Engl J Med. PubMed 35658024.' }
     )
     limits='Approved pharmaceutical tirzepatide products are regulated medicines. Research materials sold RUO are not interchangeable with them. Clinical efficacy results do not constitute claims for laboratory reagents.'
     related=@(@{href='semaglutide.html'; t='Semaglutide'},@{href='retatrutide.html'; t='Retatrutide'},@{href='compare.html'; t='Compare compounds'})
@@ -184,7 +184,7 @@ $Pages = @(
     mechanisms='Published trial reports describe multi-receptor engagement designed to influence energy balance and glycemic pathways. Language from clinical papers must not be repurposed as instructions for RUO materials.'
     studies=@(
       @{ pmid='37366315'; label='Jastreboff AM, et al. (2023). Triple-hormone-receptor agonist retatrutide for obesity - a phase 2 trial. N Engl J Med. PubMed 37366315.' },
-      @{ pmid='37385280'; label='Rosenstock J, et al. (2023). Retatrutide for people with type 2 diabetes: a phase 2 trial. Lancet. PubMed 37385280.' }
+      @{ pmid='37385280'; label='Rosenstock J, et al. (2023). Retatrutide, a GIP, GLP-1 and glucagon receptor agonist, for people with type 2 diabetes: a randomised, double-blind, placebo and active-controlled, parallel-group, phase 2 trial conducted in the USA. Lancet. PubMed 37385280.' }
     )
     limits='Investigational status of pharmaceutical programs is not the same as RUO catalog supply. Human trial data do not authorize non-clinical research materials for human administration.'
     related=@(@{href='tirzepatide.html'; t='Tirzepatide'},@{href='semaglutide.html'; t='Semaglutide'},@{href='compare.html'; t='Compare compounds'})
