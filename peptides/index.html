@@ -11,9 +11,9 @@
   <meta name="mobile-web-app-capable" content="yes">
   <link rel="manifest" href="/manifest.webmanifest">
   <link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
-  <meta name="description" content="A laboratory research reference for peptides. Filter by research category, search compounds, and explore existing research overviews, specifications, and lot CoA requests.">
+  <meta name="description" content="Explore catalog materials and literature-only research references. Search compounds and pathways, filter by research category or entry type, and read the evidence in context.">
   <meta property="og:title" content="Research Peptide Library | Vial Vibes">
-  <meta property="og:description" content="A laboratory research reference for peptides. Filter by research category, search compounds, and explore existing research overviews, specifications, and lot CoA requests.">
+  <meta property="og:description" content="Explore catalog materials and literature-only research references. Search compounds and pathways, filter by research category or entry type, and read the evidence in context.">
   <meta property="og:image" content="https://vialvibes.com/images/og-vial-vibes-share.jpg">
   <meta property="og:image:secure_url" content="https://vialvibes.com/images/og-vial-vibes-share.jpg">
   <meta property="og:image:type" content="image/jpeg">
@@ -25,7 +25,7 @@
   <meta property="og:site_name" content="Vial Vibes">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Research Peptide Library | Vial Vibes">
-  <meta name="twitter:description" content="A laboratory research reference for peptides. Filter by research category, search compounds, and explore existing research overviews, specifications, and lot CoA requests.">
+  <meta name="twitter:description" content="Explore catalog materials and literature-only research references. Search compounds and pathways, filter by research category or entry type, and read the evidence in context.">
   <meta name="twitter:image" content="https://vialvibes.com/images/og-vial-vibes-share.jpg">
   <meta name="twitter:image:alt" content="Vial Vibes — Good Vibes. Serious Science.">
   <link rel="canonical" href="https://vialvibes.com/peptides/">
@@ -221,11 +221,14 @@
         <div>
           <div class="library-eyebrow">Vial Vibes / Laboratory reference</div>
           <h1>Research<br><span>Peptide Library</span></h1>
-          <p class="library-intro">Explore peptide research by study focus. This laboratory reference connects qualified researchers with existing literature overviews, material specifications, and lot-specific documentation.</p>
+          <p class="library-intro">Browse compounds by research focus. Catalog materials link to specifications and lot documentation. Research references cover the literature only; they do not indicate material availability.</p>
         </div>
         <aside class="library-guide" aria-labelledby="guide-heading">
-          <h2 id="guide-heading">From literature to documentation</h2>
-          <p>Categories describe experimental research topics. They do not establish safety, efficacy, or suitability for human use.</p>
+          <h2 id="guide-heading">Two ways to explore</h2>
+          <dl class="library-entry-key">
+            <div><dt><span class="research-kind">Catalog material</span></dt><dd>Research context + material documentation</dd></div>
+            <div><dt><span class="research-kind research-kind-reference">Research reference</span></dt><dd>Literature context, without catalog materials</dd></div>
+          </dl>
           <a href="../research-use-only.html">Read our Research Use Only policy &rarr;</a>
         </aside>
       </div>
@@ -235,38 +238,47 @@
       <div class="library-search-row">
         <div class="library-search-field">
           <label for="lib-search">Search the library</label>
-          <input id="lib-search" type="search" placeholder="Name, pathway, or research topic" autocomplete="off" aria-controls="library-results">
+          <input id="lib-search" type="search" placeholder="Try BPC-157 or GLP-1" autocomplete="off" spellcheck="false" aria-controls="library-results" aria-describedby="library-search-hint">
+        </div>
+        <div class="library-select-field">
+          <label for="lib-category">Research category</label>
+          <select id="lib-category" aria-controls="library-results"><option value="all">All categories</option></select>
+        </div>
+        <div class="library-select-field">
+          <label for="lib-type">Entry type</label>
+          <select id="lib-type" aria-controls="library-results">
+            <option value="all">All entries</option>
+            <option value="catalog">Catalog materials</option>
+            <option value="reference">Research references</option>
+          </select>
         </div>
         <button type="button" class="library-reset" data-reset-library>Reset filters</button>
       </div>
-      <fieldset>
-        <legend>Research category</legend>
-        <div id="filters" class="library-filters"></div>
-      </fieldset>
+      <p id="library-search-hint" class="library-search-hint">Search names, aliases, and research topics. Combine filters to narrow the list; entries are alphabetical within each group.</p>
     </section>
 
     <div id="library-results" hidden>
       <div class="library-result-line">
         <p id="library-count" role="status" aria-live="polite" aria-atomic="true"></p>
-        <p>Catalog CoAs are lot-specific and provided on request when available.</p>
+        <p>Research context only. No human-use guidance.</p>
       </div>
       <section id="catalog-section" class="library-section" aria-labelledby="catalog-heading">
         <div class="library-section-heading">
-          <h2 id="catalog-heading">Catalog research entries</h2>
-          <p>Existing material specifications and research overviews</p>
+          <h2 id="catalog-heading">Catalog materials <span id="catalog-count" class="library-section-count"></span></h2>
+          <p>Material specifications and research overviews. CoAs are lot-specific and available on request when documented.</p>
         </div>
         <div id="library-grid" class="research-grid"></div>
       </section>
       <section id="reference-section" class="library-section" aria-labelledby="reference-heading" hidden>
         <div class="library-section-heading">
-          <h2 id="reference-heading">Research-reference entries</h2>
+          <h2 id="reference-heading">Research references <span id="reference-count" class="library-section-count"></span></h2>
           <p>Research reference only — not catalog items. Literature context without specifications or CoA requests.</p>
         </div>
         <div id="reference-grid" class="research-grid"></div>
       </section>
       <section id="empty" class="library-empty" aria-labelledby="empty-heading" hidden>
         <h2 id="empty-heading">No matching research entries</h2>
-        <p>Try a broader term or reset the category and search.</p>
+        <p id="empty-description">Try a broader term, choose another category or entry type, or reset all filters.</p>
         <button type="button" class="library-reset" data-reset-library>Show all entries</button>
       </section>
     </div>
@@ -302,7 +314,7 @@
       </div>
       <div>
         <h2>Need research documentation?</h2>
-        <p>Use an entry&rsquo;s Request CoA link with your lot number. Documentation availability and reported tests vary by lot. For reference questions, contact our support team.</p>
+        <p>Use a catalog material&rsquo;s Request CoA link with your lot number. Documentation availability and reported tests vary by lot. For literature-reference questions, contact our support team.</p>
         <a href="mailto:hello@asktrusthub.com">hello@asktrusthub.com</a>
       </div>
     </section>
