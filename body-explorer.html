@@ -78,9 +78,9 @@
     .be-pip[data-pip="neural"] { background: #FBBF24; color: #FBBF24; }
     .be-pip[data-pip="immune"] { background: #FDA4AF; color: #FDA4AF; }
     .be-figure[data-active="neural"] [data-zone="neural"],
-    .be-figure[data-hover="neural"] [data-zone="neural"],
+    .be-figure[data-hover="neural"] [data-zone="neural"] { opacity: 0.95; filter: drop-shadow(0 0 6px #FBBF24) drop-shadow(0 0 16px rgba(251, 191, 36, 0.7)); }
     .be-figure[data-active="immune"] [data-zone="immune"],
-    .be-figure[data-hover="immune"] [data-zone="immune"] { opacity: .95; filter: drop-shadow(0 0 12px currentColor); }
+    .be-figure[data-hover="immune"] [data-zone="immune"] { opacity: 0.95; filter: drop-shadow(0 0 6px #FDA4AF) drop-shadow(0 0 16px rgba(253, 164, 175, 0.7)); }
     .be-card.be-reference { border: 1px dashed #a78bca; background: rgba(44,31,62,.65); box-shadow: inset 3px 0 0 #c4b5fd; }
     .be-entry-kind { font-size: .74rem; line-height: 1.6; color: #e1d5fa; margin: 0 0 .65rem; }
     .be-models { font-size: .8rem; line-height: 1.7; color: #c0cbdc; margin-top: .7rem; }
@@ -213,6 +213,8 @@
     .be-layout[data-active="gut-barrier"] .be-card { box-shadow: inset 3px 0 0 #00FFAA; }
     .be-layout[data-active="gh-axis"] .be-card { box-shadow: inset 3px 0 0 #D500F9; }
     .be-layout[data-active="metabolic"] .be-card { box-shadow: inset 3px 0 0 #22D3EE; }
+    .be-layout[data-active="neural"] .be-card { box-shadow: inset 3px 0 0 #FBBF24; }
+    .be-layout[data-active="immune"] .be-card { box-shadow: inset 3px 0 0 #FDA4AF; }
     .be-card-name {
       margin: 0;
       font-family: var(--font-display);
@@ -332,40 +334,91 @@
         <div class="be-figure" id="be-figure" data-active="skin-ecm">
           <svg class="be-svg" viewBox="0 0 360 760" role="img" aria-label="Stylized standing figure with seven research-model highlights. Use the area buttons to select.">
             <defs>
-              <linearGradient id="beBody" x1="0" y1="0" x2="0.2" y2="1">
-                <stop offset="0%" stop-color="#31407A"/>
-                <stop offset="42%" stop-color="#1C244F"/>
-                <stop offset="100%" stop-color="#101326"/>
+              <linearGradient id="beBody" x1="0.12" y1="0" x2="0.78" y2="1">
+                <stop offset="0%" stop-color="#5164AE"/>
+                <stop offset="34%" stop-color="#1C2758"/>
+                <stop offset="100%" stop-color="#0B1020"/>
               </linearGradient>
-              <linearGradient id="beSheen" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0%" stop-color="#D9FBFF" stop-opacity="0.28"/>
-                <stop offset="38%" stop-color="#D9FBFF" stop-opacity="0.05"/>
-                <stop offset="70%" stop-color="#D9FBFF" stop-opacity="0"/>
-              </linearGradient>
+              <radialGradient id="beVolume" cx="30%" cy="16%" r="58%">
+                <stop offset="0%" stop-color="#E7FFFE" stop-opacity="0.46"/>
+                <stop offset="34%" stop-color="#7EEBFF" stop-opacity="0.1"/>
+                <stop offset="100%" stop-color="#050714" stop-opacity="0"/>
+              </radialGradient>
+              <radialGradient id="beShade" cx="82%" cy="48%" r="62%">
+                <stop offset="0%" stop-color="#050714" stop-opacity="0.5"/>
+                <stop offset="100%" stop-color="#050714" stop-opacity="0"/>
+              </radialGradient>
+              <radialGradient id="beGlowGh" cx="50%" cy="42%" r="62%">
+                <stop offset="0%" stop-color="#D500F9" stop-opacity="0.72"/>
+                <stop offset="64%" stop-color="#D500F9" stop-opacity="0.26"/>
+                <stop offset="100%" stop-color="#D500F9" stop-opacity="0"/>
+              </radialGradient>
+              <radialGradient id="beGlowNeural" cx="64%" cy="42%" r="64%">
+                <stop offset="0%" stop-color="#FBBF24" stop-opacity="0.7"/>
+                <stop offset="62%" stop-color="#FBBF24" stop-opacity="0.24"/>
+                <stop offset="100%" stop-color="#FBBF24" stop-opacity="0"/>
+              </radialGradient>
+              <radialGradient id="beGlowSkin" cx="58%" cy="44%" r="64%">
+                <stop offset="0%" stop-color="#C084FC" stop-opacity="0.72"/>
+                <stop offset="60%" stop-color="#A855F7" stop-opacity="0.26"/>
+                <stop offset="100%" stop-color="#A855F7" stop-opacity="0"/>
+              </radialGradient>
+              <radialGradient id="beGlowImmune" cx="36%" cy="50%" r="66%">
+                <stop offset="0%" stop-color="#FDA4AF" stop-opacity="0.7"/>
+                <stop offset="62%" stop-color="#FDA4AF" stop-opacity="0.24"/>
+                <stop offset="100%" stop-color="#FDA4AF" stop-opacity="0"/>
+              </radialGradient>
+              <radialGradient id="beGlowGut" cx="50%" cy="48%" r="66%">
+                <stop offset="0%" stop-color="#00FFAA" stop-opacity="0.62"/>
+                <stop offset="64%" stop-color="#00FFAA" stop-opacity="0.22"/>
+                <stop offset="100%" stop-color="#00FFAA" stop-opacity="0"/>
+              </radialGradient>
+              <radialGradient id="beGlowMet" cx="50%" cy="48%" r="64%">
+                <stop offset="0%" stop-color="#22D3EE" stop-opacity="0.66"/>
+                <stop offset="62%" stop-color="#22D3EE" stop-opacity="0.22"/>
+                <stop offset="100%" stop-color="#22D3EE" stop-opacity="0"/>
+              </radialGradient>
+              <radialGradient id="beGlowCon" cx="50%" cy="42%" r="64%">
+                <stop offset="0%" stop-color="#00E5FF" stop-opacity="0.66"/>
+                <stop offset="58%" stop-color="#00E5FF" stop-opacity="0.24"/>
+                <stop offset="100%" stop-color="#00E5FF" stop-opacity="0"/>
+              </radialGradient>
+              <path id="beSilhouette" d="M180 28 C206 28 224 50 224 76 C224 102 208 122 192 132 C198 142 200 154 196 168 C230 156 260 164 278 178 C298 196 308 230 304 268 C300 308 290 352 276 386 C270 402 274 416 264 428 C252 442 236 434 232 418 C230 396 240 354 252 316 C260 274 246 236 236 210 C244 228 250 258 246 296 C242 332 230 364 228 398 C226 428 234 446 238 460 C248 496 252 536 244 576 C238 616 234 654 228 690 C224 714 228 732 214 738 C202 742 190 730 196 712 C202 678 208 636 210 598 C212 554 202 514 180 496 C158 514 148 554 150 598 C152 636 158 678 164 712 C170 730 158 742 146 738 C132 732 136 714 132 690 C126 654 122 616 116 576 C108 536 112 496 122 460 C126 446 134 428 132 398 C130 364 118 332 114 296 C110 258 116 228 124 210 C114 236 100 274 108 316 C120 354 130 396 128 418 C124 434 108 442 96 428 C86 416 90 402 84 386 C70 352 60 308 56 268 C52 230 62 196 82 178 C100 164 130 156 164 168 C160 154 162 142 168 132 C152 122 136 102 136 76 C136 50 154 28 180 28 Z"/>
               <clipPath id="beClip">
-                <use href="#beOutline"/>
+                <use href="#beSilhouette"/>
               </clipPath>
             </defs>
-            <ellipse cx="180" cy="730" rx="74" ry="9" fill="#00E5FF" opacity="0.16"/>
-            <path id="beOutline" fill="url(#beBody)" stroke="#070B18" stroke-width="6" stroke-linejoin="round" d="M 180.0 34.0 C 186.7 34.0 194.3 34.7 200.0 38.0 C 205.7 41.3 211.0 47.7 214.0 54.0 C 217.0 60.3 218.0 68.7 218.0 76.0 C 218.0 83.3 217.0 91.3 214.0 98.0 C 211.0 104.7 203.7 110.3 200.0 116.0 C 196.3 121.7 193.7 125.7 192.0 132.0 C 190.3 138.3 186.3 149.3 190.0 154.0 C 193.7 158.7 204.7 157.7 214.0 160.0 C 223.3 162.3 236.0 163.7 246.0 168.0 C 256.0 172.3 267.0 178.3 274.0 186.0 C 281.0 193.7 286.0 203.0 288.0 214.0 C 290.0 225.0 288.0 239.0 286.0 252.0 C 284.0 265.0 279.0 278.7 276.0 292.0 C 273.0 305.3 270.0 319.0 268.0 332.0 C 266.0 345.0 263.7 359.0 264.0 370.0 C 264.3 381.0 271.3 390.7 270.0 398.0 C 268.7 405.3 260.7 413.0 256.0 414.0 C 251.3 415.0 243.7 411.7 242.0 404.0 C 240.3 396.3 244.7 380.7 246.0 368.0 C 247.3 355.3 249.7 341.3 250.0 328.0 C 250.3 314.7 249.7 300.7 248.0 288.0 C 246.3 275.3 243.3 262.0 240.0 252.0 C 236.7 242.0 231.7 228.7 228.0 228.0 C 224.3 227.3 221.0 238.3 218.0 248.0 C 215.0 257.7 212.0 273.0 210.0 286.0 C 208.0 299.0 207.0 313.3 206.0 326.0 C 205.0 338.7 203.3 350.3 204.0 362.0 C 204.7 373.7 207.7 385.0 210.0 396.0 C 212.3 407.0 215.3 414.3 218.0 428.0 C 220.7 441.7 225.0 461.3 226.0 478.0 C 227.0 494.7 225.7 511.3 224.0 528.0 C 222.3 544.7 218.3 561.3 216.0 578.0 C 213.7 594.7 211.7 612.3 210.0 628.0 C 208.3 643.7 207.7 660.0 206.0 672.0 C 204.3 684.0 203.3 693.7 200.0 700.0 C 196.7 706.3 190.3 710.3 186.0 710.0 C 181.7 709.7 176.7 706.3 174.0 698.0 C 171.3 689.7 171.3 674.3 170.0 660.0 C 168.7 645.7 167.3 628.3 166.0 612.0 C 164.7 595.7 163.7 578.7 162.0 562.0 C 160.3 545.3 158.0 527.7 156.0 512.0 C 154.0 496.3 148.7 478.0 150.0 468.0 C 151.3 458.0 159.0 455.3 164.0 452.0 C 169.0 448.7 174.7 448.0 180.0 448.0 C 185.3 448.0 191.0 448.7 196.0 452.0 C 201.0 455.3 208.7 458.0 210.0 468.0 C 211.3 478.0 206.0 496.3 204.0 512.0 C 202.0 527.7 199.7 545.3 198.0 562.0 C 196.3 578.7 195.3 595.7 194.0 612.0 C 192.7 628.3 191.3 645.7 190.0 660.0 C 188.7 674.3 188.7 689.7 186.0 698.0 C 183.3 706.3 178.3 709.7 174.0 710.0 C 169.7 710.3 163.3 706.3 160.0 700.0 C 156.7 693.7 155.7 684.0 154.0 672.0 C 152.3 660.0 151.7 643.7 150.0 628.0 C 148.3 612.3 146.3 594.7 144.0 578.0 C 141.7 561.3 137.7 544.7 136.0 528.0 C 134.3 511.3 133.0 494.7 134.0 478.0 C 135.0 461.3 139.3 441.7 142.0 428.0 C 144.7 414.3 147.7 407.0 150.0 396.0 C 152.3 385.0 155.3 373.7 156.0 362.0 C 156.7 350.3 155.0 338.7 154.0 326.0 C 153.0 313.3 152.0 299.0 150.0 286.0 C 148.0 273.0 145.0 257.7 142.0 248.0 C 139.0 238.3 135.7 227.3 132.0 228.0 C 128.3 228.7 123.3 242.0 120.0 252.0 C 116.7 262.0 113.7 275.3 112.0 288.0 C 110.3 300.7 109.7 314.7 110.0 328.0 C 110.3 341.3 112.7 355.3 114.0 368.0 C 115.3 380.7 119.7 396.3 118.0 404.0 C 116.3 411.7 108.7 415.0 104.0 414.0 C 99.3 413.0 91.3 405.3 90.0 398.0 C 88.7 390.7 95.7 381.0 96.0 370.0 C 96.3 359.0 94.0 345.0 92.0 332.0 C 90.0 319.0 87.0 305.3 84.0 292.0 C 81.0 278.7 76.0 265.0 74.0 252.0 C 72.0 239.0 70.0 225.0 72.0 214.0 C 74.0 203.0 79.0 193.7 86.0 186.0 C 93.0 178.3 104.0 172.3 114.0 168.0 C 124.0 163.7 136.7 162.3 146.0 160.0 C 155.3 157.7 166.3 158.7 170.0 154.0 C 173.7 149.3 169.7 138.3 168.0 132.0 C 166.3 125.7 163.7 121.7 160.0 116.0 C 156.3 110.3 149.0 104.7 146.0 98.0 C 143.0 91.3 142.0 83.3 142.0 76.0 C 142.0 68.7 143.0 60.3 146.0 54.0 C 149.0 47.7 154.3 41.3 160.0 38.0 C 165.7 34.7 173.3 34.0 180.0 34.0 Z"/>
-            <use href="#beOutline" fill="none" stroke="#9AF7FF" stroke-width="1.35" stroke-linejoin="round" opacity="0.72"/>
+            <ellipse cx="180" cy="748" rx="92" ry="8" fill="#00E5FF" opacity="0.16"/>
+            <use href="#beSilhouette" fill="url(#beBody)" stroke="#070B18" stroke-width="6" stroke-linejoin="round"/>
             <g clip-path="url(#beClip)">
-              <ellipse cx="132" cy="250" rx="78" ry="210" fill="url(#beSheen)"/>
-              <ellipse class="be-zone" data-zone="neural" fill="#FBBF24" cx="180" cy="90" rx="29" ry="22"/>
-              <ellipse class="be-zone" data-zone="immune" fill="#FDA4AF" cx="180" cy="213" rx="24" ry="33"/>
-              <path class="be-zone" data-zone="gh-axis" fill="#D500F9" d="M150 50 C164 36 196 36 210 50 C202 78 158 78 150 50 Z"/>
-              <path class="be-zone" data-zone="skin-ecm" fill="#A855F7" d="M232 172 C258 164 286 184 286 216 C284 242 264 252 246 234 C228 214 214 188 232 172 Z"/>
-              <path class="be-zone" data-zone="gut-barrier" fill="#00FFAA" d="M144 292 C164 274 198 274 216 294 C228 320 214 356 180 360 C146 356 130 324 144 292 Z"/>
-              <path class="be-zone" data-zone="metabolic" fill="#22D3EE" d="M140 372 C164 356 200 356 222 372 C234 396 216 428 180 432 C144 428 124 398 140 372 Z"/>
-              <path class="be-zone" data-zone="connective" fill="#00E5FF" d="M198 470 C216 460 228 482 224 520 C220 572 212 624 202 648 C188 644 184 590 188 530 C190 496 186 478 198 470 Z"/>
-              <path class="be-zone" data-zone="connective" fill="#00E5FF" d="M162 470 C144 460 132 482 136 520 C140 572 148 624 158 648 C172 644 176 590 172 530 C170 496 174 478 162 470 Z"/>
-              <g fill="none" stroke="#C9F8FF" stroke-width="1.15" stroke-linecap="round" opacity="0.34">
-                <path d="M152 186 C166 198 194 198 208 186"/>
-                <path d="M180 198 L180 338"/>
-                <path d="M150 308 C166 326 194 326 210 308"/>
-                <path d="M158 392 C170 402 190 402 202 392"/>
+              <rect x="20" y="10" width="320" height="750" fill="url(#beVolume)"/>
+              <rect x="20" y="10" width="320" height="750" fill="url(#beShade)"/>
+              <path class="be-zone" data-zone="gh-axis" fill="url(#beGlowGh)" d="M150 44 C166 32 196 32 212 48 C206 80 196 104 180 108 C162 100 152 74 150 44 Z"/>
+              <path class="be-zone" data-zone="neural" fill="url(#beGlowNeural)" d="M158 40 C176 28 214 34 222 58 C226 86 204 112 180 114 C156 108 148 72 158 40 Z"/>
+              <path class="be-zone" data-zone="skin-ecm" fill="url(#beGlowSkin)" d="M230 164 C266 154 302 180 298 216 C292 246 258 244 234 216 C216 194 208 172 230 164 Z"/>
+              <path class="be-zone" data-zone="immune" fill="url(#beGlowImmune)" d="M126 178 C152 164 200 166 216 188 C226 212 208 238 176 244 C142 236 118 208 126 178 Z"/>
+              <path class="be-zone" data-zone="gut-barrier" fill="url(#beGlowGut)" d="M142 268 C162 250 200 250 220 270 C232 298 216 334 180 340 C142 332 128 300 142 268 Z"/>
+              <path class="be-zone" data-zone="metabolic" fill="url(#beGlowMet)" d="M136 356 C160 340 204 340 224 358 C236 386 218 422 180 428 C140 420 122 388 136 356 Z"/>
+              <path class="be-zone" data-zone="connective" fill="url(#beGlowCon)" d="M198 500 C222 492 240 524 234 568 C228 618 218 668 208 702 C194 694 196 640 200 588 C204 538 186 510 198 500 Z"/>
+              <path class="be-zone" data-zone="connective" fill="url(#beGlowCon)" d="M162 500 C138 492 120 524 126 568 C132 618 142 668 152 702 C166 694 164 640 160 588 C156 538 174 510 162 500 Z"/>
+              <g fill="none" stroke="#E7FEFF" stroke-width="1.15" stroke-linecap="round" opacity="0.46">
+                <path d="M132 188 C156 206 204 206 228 188"/>
+                <path d="M180 198 L180 332"/>
+                <path d="M156 214 C170 236 178 242 180 228"/>
+                <path d="M204 214 C190 236 182 242 180 228"/>
+                <path d="M150 300 C166 314 194 314 210 300"/>
+                <path d="M146 332 C166 346 194 346 214 332"/>
+                <path d="M150 362 C168 374 192 374 210 362"/>
+                <path d="M138 424 C160 408 200 408 222 424"/>
+                <path d="M236 186 C252 206 248 232 230 224"/>
+                <path d="M124 186 C108 206 112 232 130 224"/>
+                <path d="M132 508 C150 492 164 508 160 540"/>
+                <path d="M228 508 C210 492 196 508 200 540"/>
+                <path d="M122 612 C138 600 156 612 152 628"/>
+                <path d="M238 612 C222 600 204 612 208 628"/>
               </g>
             </g>
+            <use href="#beSilhouette" fill="none" stroke="#C9FDFF" stroke-width="1.35" stroke-linejoin="round" opacity="0.72"/>
           </svg>
           <div class="absolute inset-0" id="be-spots" role="group" aria-label="Figure highlights"></div>
         </div>
