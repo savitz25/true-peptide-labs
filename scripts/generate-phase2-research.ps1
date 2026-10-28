@@ -1,7 +1,8 @@
 # Generate full Phase 2 compound research pages (ASCII-safe).
-# Live research HTML is the source of truth after PEPTIDE-PAGE-UPGRADE.
-# Do not run this script over the published pages unless the page data below
-# has been reconciled with those files. Running it overwrites citation text.
+# Live research HTML is the source of truth after PEPTIDE-PAGE-UPGRADE
+# and EVIDENCE-FRAMING-UPGRADE. Do not run this script over the published
+# pages unless the page data below has been reconciled with those files.
+# Running it overwrites citation text.
 $ErrorActionPreference = 'Stop'
 $Root = Split-Path -Parent (Split-Path -Parent $MyInvocation.MyCommand.Path)
 $OutDir = Join-Path $Root 'research'
@@ -78,6 +79,8 @@ $Pages = @(
     slug='bpc-157'; short='BPC-157'; name='BPC-157 Arginate'; cat='Tissue and Repair Models'; catSlug='tissue-repair'
     product='../peptides/bpc-157.html'; cas='137525-51-0'; mw='About 1419.5 g/mol (free peptide; salt form may vary)'
     intro='BPC-157 is a synthetic pentadecapeptide sequence that has been investigated extensively in preclinical laboratory and animal research literature. This page summarizes published research context for laboratory professionals. It is not medical advice and does not authorize human use of research materials.'
+    studied='Papers and reviews cited here examine this sequence in animal and in vitro models. This page already states that most of that evidence is preclinical.'
+    evidence=@('Animal models','In vitro models','Systematic and narrative reviews')
     chem='Catalog listing: BPC-157 Arginate, typically supplied as lyophilized powder (see product page for vial size). CAS commonly associated with the free peptide sequence: 137525-51-0. Identity and purity are lot-dependent; request a Certificate of Analysis for the lot you receive.'
     history='BPC-157 (body protection compound-157) is described in the literature as a synthetic peptide derived from a partial sequence related to a protein found in gastric juice. Over several decades, experimental papers and reviews have examined this sequence in a range of animal and in vitro models. Systematic and narrative reviews emphasize that the bulk of the evidence base remains preclinical.'
     areas=@(
@@ -99,6 +102,8 @@ $Pages = @(
     slug='tb-500'; short='TB-500'; name='TB-500 (Thymosin Beta-4-related research material)'; cat='Tissue and Repair Models'; catSlug='tissue-repair'
     product='../peptides/tb-500.html'; cas='77591-33-4'; mw='Full thymosin beta-4 reference mass is often cited near ~4963 g/mol; research fragment identity may differ - confirm on lot CoA'
     intro='TB-500 is a name used in research-supply contexts for synthetic material related to thymosin beta-4 (T-beta-4) literature. Full-length T-beta-4 has been studied in laboratory and animal models of cell migration and tissue response. This page frames published science carefully and does not equate catalog research material with pharmaceutical products.'
+    studied='The sources below discuss laboratory assays, animal wound and tissue models, reviews, and analytical detection work. Catalog TB-500 is not described as identical to full-length thymosin beta-4 or to a pharmaceutical product.'
+    evidence=@('Laboratory assays','Animal models','Reviews','Analytical detection')
     chem='Catalog material is lyophilized research peptide associated with T-beta-4 / actin-related literature. CAS 77591-33-4 is commonly linked to thymosin beta-4 in databases; fragment preparations may have different sequences or masses. Confirm identity methods on the lot CoA.'
     history='Thymosin beta-4 is a naturally occurring peptide discussed for roles in actin sequestration and cell motility. Laboratory studies and reviews describe experimental endpoints in wound and tissue models. Analytical chemistry literature has also described detection of TB-500-related sequences in doping-control matrices, which is relevant to identity and monitoring research rather than therapeutic use of research reagents.'
     areas=@(
@@ -119,6 +124,8 @@ $Pages = @(
     slug='ghk-cu'; short='GHK-Cu'; name='GHK-Cu Copper Peptide'; cat='Skin / ECM Research'; catSlug='cosmetic'
     product='../peptides/ghk-cu.html'; cas='89030-95-5'; mw='Complex forms often reported roughly 340-404 g/mol range - confirm lot CoA'
     intro='GHK-Cu (glycyl-L-histidyl-L-lysine copper complex) has been investigated in laboratory research on extracellular matrix biology, gene-expression profiling, and dermal model systems. This overview is for scientific reference only.'
+    studied='The overview is laboratory research on extracellular-matrix biology, gene-expression work, and dermal model systems. In vitro findings are not presented as clinical outcomes.'
+    evidence=@('Laboratory research','Experimental systems','In vitro findings')
     chem='Tripeptide Gly-His-Lys complexed with copper(II). Supplied as lyophilized research material. CAS and mass can vary by salt/complex form; verify lot documentation.'
     history='The GHK peptide and its copper complex have a long research history in connective-tissue and skin-biology literature, including work associated with Pickart and colleagues on remodeling-related gene expression and matrix endpoints in experimental systems.'
     areas=@(
@@ -138,6 +145,8 @@ $Pages = @(
     slug='semaglutide'; short='Semaglutide'; name='Semaglutide'; cat='Metabolic Research'; catSlug='metabolic'
     product='../peptides/semaglutide.html'; cas='910463-68-2'; mw='About 4113.6 g/mol (reference)'
     intro='Semaglutide is a long-acting GLP-1 receptor agonist extensively described in metabolic research and clinical literature. Vial Vibes supplies research-use-only material for qualified laboratory investigation. Research materials are distinct from FDA-approved pharmaceutical products (e.g., branded medicines) and must not be used as substitutes for approved drugs.'
+    studied='Semaglutide is discussed here in metabolic research and in clinical programs for approved medicines, and also as a laboratory tool compound. Those approved products are kept distinct from research-use-only material.'
+    evidence=@('Clinical programs for approved medicines','Laboratory tool-compound research','Review literature','Reference summary')
     chem='GLP-1 receptor agonist peptide analog. Lyophilized research material. CAS 910463-68-2 commonly listed. Confirm identity/purity on lot CoA.'
     history='GLP-1 biology and GLP-1 receptor agonists are central to modern metabolic research. Semaglutide has been studied in large clinical programs for type 2 diabetes and weight management as approved medicines in those regulated contexts. Laboratory research also uses incretin analogs as tool compounds under appropriate institutional controls.'
     areas=@(
@@ -158,6 +167,8 @@ $Pages = @(
     slug='tirzepatide'; short='Tirzepatide'; name='Tirzepatide'; cat='Metabolic Research'; catSlug='metabolic'
     product='../peptides/tirzepatide.html'; cas='2023788-19-2'; mw='About 4813.5 g/mol (reference)'
     intro='Tirzepatide is a dual GIP and GLP-1 receptor agonist widely discussed in metabolic clinical research literature. Catalog research material from Vial Vibes is Research Use Only and is not an approved drug product.'
+    studied='Clinical development programs for the pharmaceutical product are described here, including literature in patients with type 2 diabetes and in obesity research. Those programs are distinct from research-use-only supply.'
+    evidence=@('Human clinical research')
     chem='Dual incretin-pathway peptide research material. CAS 2023788-19-2 commonly listed. Confirm lot CoA for identity and purity.'
     history='Dual agonism at GIP and GLP-1 receptors has been investigated in clinical development programs (e.g., SURPASS and SURMOUNT series) for metabolic disease endpoints under regulated pharmaceutical pathways. Those programs are distinct from RUO laboratory supply.'
     areas=@(
@@ -177,6 +188,8 @@ $Pages = @(
     slug='retatrutide'; short='Retatrutide'; name='Retatrutide'; cat='Metabolic Research'; catSlug='metabolic'
     product='../peptides/retatrutide.html'; cas='2381089-83-2'; mw='About 4731 g/mol (reference; confirm lot CoA)'
     intro='Retatrutide is an investigational triple agonist (GIP, GLP-1, and glucagon receptors) described in peer-reviewed clinical research literature. Vial Vibes research material is supplied RUO for laboratory use only and is not an approved medicine.'
+    studied='Phase 2 trials cited here were conducted in regulated clinical development, in obesity research and in people with type 2 diabetes. The page states that those trials concern a drug-candidate pathway, not research vials used as medicines.'
+    evidence=@('Phase 2 clinical trials')
     chem='Triple-agonist peptide research material. CAS 2381089-83-2 commonly associated. Confirm lot analytical documentation.'
     history='Phase 2 clinical trials published in major journals have evaluated retatrutide in obesity and type 2 diabetes research contexts under regulated clinical development. Those trials study a drug candidate pathway, not open-market research vials as medicines.'
     areas=@(
@@ -196,6 +209,8 @@ $Pages = @(
     slug='ipamorelin'; short='Ipamorelin'; name='Ipamorelin'; cat='GH Axis Research'; catSlug='growth-hormone'
     product='../peptides/ipamorelin.html'; cas='170851-70-4'; mw='About 711.9 g/mol (reference)'
     intro='Ipamorelin is a selective growth hormone secretagogue (ghrelin receptor agonist) characterized in classical pharmacological literature. It is supplied here strictly for laboratory research use only.'
+    studied='This page describes ipamorelin in classical pharmacological literature, including comparative animal pharmacology and pituitary GH-release models in laboratory animals. Supply here is for laboratory research only.'
+    evidence=@('Animal pharmacology','Laboratory models')
     chem='Pentapeptide GHS (Aib-His-D-2-Nal-D-Phe-Lys-NH2). CAS 170851-70-4. Lyophilized research material; confirm CoA.'
     history='Ipamorelin was described as a selective GH secretagogue with relatively low effects on ACTH/cortisol in comparative animal pharmacology relative to some other GHRPs, making it a useful research tool for GH axis studies.'
     areas=@(
@@ -214,6 +229,8 @@ $Pages = @(
     slug='cjc-1295'; short='CJC-1295'; name='CJC-1295 (no DAC)'; cat='GH Axis Research'; catSlug='growth-hormone'
     product='../peptides/cjc-1295.html'; cas='863288-34-0'; mw='Approximately 3367 g/mol for no-DAC form (confirm lot CoA)'
     intro='CJC-1295 is a modified GHRH analog studied for effects on GH and IGF-I axes. The Vial Vibes catalog lists a no-DAC research form. DAC and no-DAC forms differ in half-life engineering; do not assume interchangeability without analytical confirmation.'
+    studied='Clinical pharmacology papers have studied long-acting CJC-1295 constructs, including work in healthy adults. Mouse GHRH-knockout experiments are also part of the background on this page. The catalog form is no-DAC and is not treated as interchangeable with every published construct.'
+    evidence=@('Human clinical pharmacology','Mouse models')
     chem='Modified GHRH (1-29) analog research material, no DAC. CAS 863288-34-0 commonly referenced. Confirm form and mass on CoA.'
     history='Published clinical pharmacology studies examined long-acting CJC-1295 constructs (including DAC-related designs) for prolonged GH and IGF-I stimulation with preserved pulsatility in some reports. Mouse GHRH-knockout work has also been used to study growth endpoints.'
     areas=@(
@@ -244,6 +261,18 @@ function Get-ResearchContext([string]$text) {
   return ($keep -join ' ')
 }
 
+function Get-CiteKind([string]$label) {
+  if ($label -match 'systematic review') { return 'Systematic review' }
+  if ($label -match 'literature and patent review') { return 'Literature and patent review' }
+  if ($label -match 'phase 2 trial') { return 'Phase 2 trial' }
+  if ($label -match 'healthy adults') { return 'Clinical pharmacology' }
+  if ($label -match 'patients with type 2 diabetes') { return 'Clinical research' }
+  if ($label -match 'Nat Rev') { return 'Review' }
+  if ($label -match 'StatPearls') { return 'Reference summary' }
+  if ($label -match 'Doping control analysis') { return 'Doping-control analysis' }
+  return ''
+}
+
 function Build-Page($p) {
   $nav = Nav
   $footer = Footer
@@ -251,11 +280,31 @@ function Build-Page($p) {
   $areasHtml = ($p.areas | ForEach-Object { "<li>$_</li>" }) -join "`n"
   $studiesHtml = ''
   foreach ($s in $p.studies) {
+    $kind = Get-CiteKind ([string]$s.label)
+    $year = ''
+    if ([string]$s.label -match '\((\d{4})\)') { $year = $Matches[1] }
+    $bits = @()
+    if ($year) { $bits += "<span>$year</span>" }
+    if ($kind) { $bits += "<span>$kind</span>" }
+    $kicker = ''
+    if ($bits.Count -gt 0) { $kicker = '<div class="cite-kicker">' + ($bits -join '') + '</div>' }
+    $href = ''
     if ($s.pmid -and $s.pmid.Length -gt 0) {
-      $studiesHtml += "<li><a href=`"https://pubmed.ncbi.nlm.nih.gov/$($s.pmid)/`" target=`"_blank`" rel=`"noopener noreferrer`">$($s.label)</a></li>`n"
-    } else {
-      $studiesHtml += "<li>$($s.label)</li>`n"
+      $href = "https://pubmed.ncbi.nlm.nih.gov/$($s.pmid)/"
+    } elseif ([string]$s.label -match 'https://\S+') {
+      $href = $Matches[0]
     }
+    if ($href) {
+      $studiesHtml += "<li>$kicker<a href=`"$href`" target=`"_blank`" rel=`"noopener noreferrer`">$($s.label)</a></li>`n"
+    } else {
+      $studiesHtml += "<li>$kicker$($s.label)</li>`n"
+    }
+  }
+  $limitItems = [regex]::Split(([string]$p.limits).Trim(), '(?<=\.)\s+') | Where-Object { $_ -and $_.Trim() }
+  $limitsHtml = ($limitItems | ForEach-Object { "<li>$($_.Trim())</li>" }) -join "`n          "
+  $evidenceHtml = ''
+  if ($p.evidence) {
+    $evidenceHtml = ($p.evidence | ForEach-Object { "<li>$_</li>" }) -join "`n          "
   }
   $relatedHtml = ($p.related | ForEach-Object { "<a href=`"$($_.href)`" class=`"px-4 py-2 border border-slate-200 rounded-xl text-sm font-semibold hover:border-emerald-400`">$($_.t)</a>" }) -join "`n"
   $desc = "$($p.short) research overview for laboratory professionals. Literature-framed, research use only. Vial Vibes."
@@ -305,13 +354,14 @@ $nav
         <div class="bg-white border border-slate-200 rounded-2xl p-5 toc-card">
           <div class="text-xs font-bold tracking-wider text-emerald-700 mb-2">ON THIS PAGE</div>
           <a href="#at-a-glance">At a glance</a>
+          <a href="#studied">What has been studied</a>
           <a href="#intro">Introduction</a>
           <a href="#chemistry">Chemistry</a>
           <a href="#history">Background</a>
           <a href="#areas">Research areas</a>
           <a href="#mechanisms">Mechanisms</a>
           <a href="#studies">Key literature</a>
-          <a href="#limits">Limitations</a>
+          <a href="#limits">What remains uncertain</a>
           <a href="#lab">Lab handling</a>
           <a href="#regulatory">Regulatory</a>
         </div>
@@ -347,6 +397,14 @@ $nav
           <div><dt>Documentation</dt><dd>Lot CoA on request</dd></div>
           <div><dt>Use</dt><dd>Research use only</dd></div>
         </dl>
+      </section>
+      <section id="studied">
+        <h2>What has been studied</h2>
+        <p>$($p.studied)</p>
+        <ul class="evidence-types">
+          $evidenceHtml
+        </ul>
+        <p class="studied-note">These labels restate evidence types already described on this page. They are not new findings and do not validate catalog material.</p>
       </section>
       <section id="intro">
         <h2>Introduction</h2>
@@ -395,8 +453,13 @@ $studiesHtml
       </section>
 
       <section id="limits">
-        <h2>Known limitations and evidence gaps</h2>
-        <p>$($p.limits)</p>
+        <h2>What remains uncertain</h2>
+        <div class="uncertain-block">
+          <div class="limitation-kicker">Limitations</div>
+          <ul>
+          $limitsHtml
+          </ul>
+        </div>
       </section>
 
       <section id="lab">

@@ -564,6 +564,60 @@ footer {
   margin-bottom: 0.35rem;
 }
 
+.prose-research ul.evidence-types {
+  list-style: none;
+  padding-left: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0.85rem 0 0.35rem;
+}
+
+.prose-research ul.evidence-types li {
+  margin: 0;
+  border: 1px solid rgba(0, 229, 255, 0.35);
+  border-radius: 999px;
+  padding: 0.35rem 0.75rem;
+  color: #E2E8F0;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  line-height: 1.35;
+  background: rgba(0, 229, 255, 0.06);
+}
+
+.prose-research p.studied-note {
+  color: #FDE68A;
+  font-size: 0.8125rem;
+  margin: 0.75rem 0 0;
+}
+
+.uncertain-block {
+  background: rgba(168, 85, 247, 0.12);
+  border: 1px solid rgba(168, 85, 247, 0.35);
+  border-radius: 1.25rem;
+  padding: 1rem 1.15rem 0.35rem;
+}
+
+.prose-research .uncertain-block ul {
+  margin-top: 0.35rem;
+}
+
+.prose-research .uncertain-block li {
+  margin-bottom: 0.45rem;
+}
+
+.prose-research ol.page-cites .cite-kicker {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin: 0 0 0.4rem;
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--vv-cyan);
+}
+
 .meta-byline {
   font-size: 0.8125rem;
   color: var(--vv-text-muted);
