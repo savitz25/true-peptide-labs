@@ -11,10 +11,10 @@
   <meta name="mobile-web-app-capable" content="yes">
   <link rel="manifest" href="/manifest.webmanifest">
   <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
-  <meta name="description" content="Contact Vial Vibes for lot CoA requests, and laboratory questions. Email hello@asktrusthub.com. Research use only.">
+  <meta name="description" content="Contact Vial Vibes for lot CoA requests and laboratory questions. Email hello@asktrusthub.com. Research use only.">
   <link rel="canonical" href="https://www.vialvibes.com/contact.html">
   <meta property="og:title" content="Contact Vial Vibes | Research Support">
-  <meta property="og:description" content="Contact Vial Vibes for lot CoA requests, and laboratory questions. Email hello@asktrusthub.com. Research use only.">
+  <meta property="og:description" content="Contact Vial Vibes for lot CoA requests and laboratory questions. Email hello@asktrusthub.com. Research use only.">
   <meta property="og:image" content="https://www.vialvibes.com/images/og-vial-vibes-share.jpg">
   <meta property="og:url" content="https://www.vialvibes.com/contact.html">
   <meta property="og:type" content="website">
@@ -84,7 +84,7 @@
     <div class="max-w-screen-2xl mx-auto px-4 sm:px-8 relative z-10">
       <p class="text-xs font-bold tracking-widest uppercase mb-3" style="color:var(--vv-cyan)">Support</p>
       <h1 class="heading-font text-4xl sm:text-5xl tracking-tighter mb-3">Contact VialVibes</h1>
-      <p class="text-lg max-w-xl" style="color:var(--vv-text-muted)">Send research questions through the form. Messages are delivered via Resend from hello@asktrusthub.com.</p>
+      <p class="text-lg max-w-xl" style="color:var(--vv-text-muted)">Send research and documentation questions through the form or email hello@asktrusthub.com.</p>
     </div>
   </header>
 
@@ -95,7 +95,7 @@
           <i class="fa-solid fa-flask text-xl"></i>
         </div>
         <h2 class="heading-font text-xl mb-2">Research</h2>
-        <p class="text-sm mb-3" style="color:var(--vv-text-muted)">CoAs, documentation, and laboratory questions.</p>
+        <p class="text-sm mb-3" style="color:var(--vv-text-muted)">Include the compound name, lot number (if available), and the document or page your question concerns.</p>
         <p class="font-semibold break-all" style="color:var(--vv-cyan)">hello@asktrusthub.com</p>
       </div>
     </div>
@@ -109,7 +109,7 @@
         </div>
         <div>
           <label class="block text-xs font-semibold tracking-wider mb-1.5" style="color:var(--vv-text-muted)">EMAIL *</label>
-          <input id="c-email" type="email" required class="w-full rounded-2xl px-4 py-3 text-sm" placeholder="you@lab.edu">
+          <input id="c-email" type="email" required class="w-full rounded-2xl px-4 py-3 text-sm" placeholder="Your email address">
         </div>
       </div>
       <div>
@@ -128,7 +128,7 @@
       </div>
       <button type="submit" id="c-submit" class="vv-btn-primary w-full !py-3.5">Send message</button>
       <p id="c-status" class="text-sm hidden" role="status"></p>
-      <p class="text-xs" style="color:var(--vv-text-dim)">Messages are sent through Resend from hello@asktrusthub.com. Reply-To is your email so we can respond directly.</p>
+      <p class="text-xs" style="color:var(--vv-text-dim)">We reply to the email address you provide. Response times depend on the request; lot documentation may require additional verification. We cannot provide medical advice or human-use guidance.</p>
     </form>
 
     <div class="vv-glass rounded-3xl p-6 text-sm" style="color:var(--vv-text-muted)">
@@ -161,11 +161,11 @@
           message: document.getElementById('c-message').value
         });
         status.style.color = 'var(--vv-mint)';
-        status.textContent = 'Message sent. We will reply from @vialvibes.com.';
+        status.textContent = 'Message sent. We will reply to the email address you provided. For follow-up, email hello@asktrusthub.com.';
         e.target.reset();
       } catch (err) {
         status.style.color = '#f87171';
-        status.textContent = err.message || 'Could not send. Email hello@asktrusthub.com directly.';
+        status.textContent = 'Could not send your message. Please try again or email hello@asktrusthub.com directly.';
       } finally {
         btn.disabled = false;
       }

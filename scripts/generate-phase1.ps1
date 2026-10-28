@@ -407,7 +407,7 @@ $nav
           <a href="../coa.html?product=$pshort" class="px-6 py-3.5 border border-slate-200 hover:bg-white font-semibold rounded-2xl inline-flex items-center gap-2">
             <i class="fa-solid fa-file-lines"></i> Request lot CoA
           </a>
-          <a href="mailto:hello@asktrusthub.com?subject=CoA%20request%20-%20$pshort" class="px-6 py-3.5 border border-slate-200 hover:bg-white font-semibold rounded-2xl text-sm">Email research@</a>
+          <a href="mailto:hello@asktrusthub.com?subject=CoA%20request%20-%20$pshort" class="px-6 py-3.5 border border-slate-200 hover:bg-white font-semibold rounded-2xl text-sm">Email hello@asktrusthub.com</a>
         </div>
         <div class="mt-6 bg-amber-50 border border-amber-200 rounded-2xl p-4 text-sm text-amber-950 leading-relaxed">
           <strong>Research Use Only.</strong> This material is not for human consumption, injection, clinical use, or veterinary administration. Sold only to qualified researchers and institutions.

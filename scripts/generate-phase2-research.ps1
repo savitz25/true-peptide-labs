@@ -311,8 +311,8 @@ $nav
     <article class="lg:col-span-9 order-1 lg:order-2 prose-research">
       <div class="meta-byline mb-8">
         <div><strong>Written by:</strong> Vial Vibes research documentation team</div>
-        <div><strong>Scientifically reviewed by:</strong> [slot for future named reviewer]</div>
-        <div><strong>Last reviewed:</strong> $Reviewed</div>
+        <div><strong>Independent scientific review:</strong> Not documented</div>
+        <div><strong>Last editorial review:</strong> $Reviewed</div>
         <div class="mt-1"><a href="../about-scientific-content.html" class="text-emerald-700 underline">Content standards</a></div>
       </div>
 

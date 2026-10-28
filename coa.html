@@ -160,8 +160,8 @@
         <div>
           <h2 class="heading-font text-2xl text-slate-900">Lot number lookup</h2>
           <p class="text-slate-600 leading-relaxed mt-1">
-            Enter the lot number printed on your vial or packaging. This form sends a documentation request to our research desk
-            (via Resend from <strong>hello@asktrusthub.com</strong>). It does not download files automatically and does not return fabricated purity data.
+            Enter the lot number printed on your vial or packaging. This form sends a documentation request to our research desk.
+            CoAs are provided when available for the requested lot. You can also email <strong>hello@asktrusthub.com</strong>.
             Prefer the branded experience? Use the <a href="vault.html" class="text-emerald-700 font-semibold underline">Vial Vault</a>.
           </p>
         </div>
@@ -194,7 +194,7 @@
           <div>
             <label for="researcher-email" class="block text-sm font-semibold text-slate-800 mb-1.5">Researcher email</label>
             <input type="email" id="researcher-email" autocomplete="email"
-                   placeholder="you@institution.edu"
+                   placeholder="Your email address"
                    class="w-full border border-slate-200 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-100 rounded-2xl px-4 py-3 text-sm outline-none">
           </div>
         </div>
@@ -408,8 +408,8 @@
       if (params.get('product')) document.getElementById('product-name').value = params.get('product');
     } catch (err) {
       msg.className = 'mt-5 bg-red-50 border border-red-100 rounded-2xl p-4 text-sm text-red-800';
-      msg.innerHTML = '<strong>Could not send via Resend.</strong> ' + (err.message || 'Unknown error') +
-        ' Email <a class="underline font-semibold" href="mailto:hello@asktrusthub.com">hello@asktrusthub.com</a> with your lot number.';
+      msg.innerHTML = '<strong>Could not send your request.</strong> Please try again or' +
+        ' email <a class="underline font-semibold" href="mailto:hello@asktrusthub.com">hello@asktrusthub.com</a> with your lot number.';
     } finally {
       if (btn) btn.disabled = false;
     }
