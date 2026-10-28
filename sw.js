@@ -1,11 +1,13 @@
 /* Vial Vibes service worker — cache shell + tools for offline/PWA use */
-const CACHE_VERSION = 'vv-pwa-v6-library-polish';
+const CACHE_VERSION = 'vv-pwa-v7-vault-ux';
 const PRECACHE = [
   '/',
   '/index.html',
   '/offline.html',
   '/manifest.webmanifest',
   '/css/site.css',
+  '/css/vault.css',
+  '/js/vault.js',
   '/css/research-library.css',
   '/js/products.js',
   '/js/research-library-data.js',

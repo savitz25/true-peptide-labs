@@ -11,9 +11,9 @@
   <link rel="manifest" href="/manifest.webmanifest">
   <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
   <title>Vial Vault | Lot CoA Documentation Request | Vial Vibes</title>
-  <meta name="description" content="Request lot-specific Certificates of Analysis for research peptides. Honest documentation on request—no invented purity scores. Vial Vault by Vial Vibes.">
+  <meta name="description" content="Request lot-specific research documentation, understand what a CoA reports, and learn what happens after submission. Documentation provided when available for the lot.">
   <meta property="og:title" content="Vial Vault | Lot CoA Documentation Request | Vial Vibes">
-  <meta property="og:description" content="Request lot-specific Certificates of Analysis for research peptides. Honest documentation on request—no invented purity scores. Vial Vault by Vial Vibes.">
+  <meta property="og:description" content="Request lot-specific research documentation, understand what a CoA reports, and learn what happens after submission. Documentation provided when available for the lot.">
   <meta property="og:image" content="https://vialvibes.com/images/og-vial-vibes-share.jpg">
   <meta property="og:image:secure_url" content="https://vialvibes.com/images/og-vial-vibes-share.jpg">
   <meta property="og:image:type" content="image/jpeg">
@@ -25,145 +25,13 @@
   <meta property="og:site_name" content="Vial Vibes">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Vial Vault | Lot CoA Documentation Request | Vial Vibes">
-  <meta name="twitter:description" content="Request lot-specific Certificates of Analysis for research peptides. Honest documentation on request—no invented purity scores. Vial Vault by Vial Vibes.">
+  <meta name="twitter:description" content="Request lot-specific research documentation, understand what a CoA reports, and learn what happens after submission. Documentation provided when available for the lot.">
   <meta name="twitter:image" content="https://vialvibes.com/images/og-vial-vibes-share.jpg">
   <meta name="twitter:image:alt" content="Vial Vibes — Good Vibes. Serious Science.">
   <link rel="canonical" href="https://vialvibes.com/vault.html">
   <link rel="icon" type="image/svg+xml" href="assets/logo-vialvibes-mark.svg">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="css/site.css">
-  <style>
-    .vault-hero-bg {
-      background:
-        radial-gradient(ellipse 60% 50% at 50% 0%, rgba(0, 229, 255, 0.14), transparent 55%),
-        radial-gradient(ellipse 40% 40% at 80% 80%, rgba(168, 85, 247, 0.12), transparent 50%),
-        linear-gradient(180deg, #0F0C29 0%, #121212 100%);
-    }
-    .vault-panel {
-      border-radius: 1.85rem;
-      padding: 2rem 1.75rem 1.75rem;
-      background: linear-gradient(165deg, rgba(30, 27, 75, 0.94), rgba(10, 8, 28, 0.97));
-      border: 1px solid rgba(0, 229, 255, 0.28);
-      box-shadow: 0 0 80px rgba(0, 229, 255, 0.1), 0 24px 60px rgba(0, 0, 0, 0.45);
-      position: relative;
-      overflow: hidden;
-    }
-    .vault-panel::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background:
-        linear-gradient(135deg, transparent 40%, rgba(0, 255, 170, 0.06) 50%, transparent 60%),
-        radial-gradient(circle at 50% 0%, rgba(0, 229, 255, 0.15), transparent 50%);
-      pointer-events: none;
-    }
-    .vault-scanline {
-      position: absolute;
-      left: 0; right: 0;
-      height: 2px;
-      background: linear-gradient(90deg, transparent, #00E5FF, transparent);
-      opacity: 0.35;
-      animation: scan 3.5s linear infinite;
-      pointer-events: none;
-    }
-    @keyframes scan {
-      0% { top: 8%; opacity: 0; }
-      10% { opacity: 0.4; }
-      90% { opacity: 0.4; }
-      100% { top: 92%; opacity: 0; }
-    }
-    .vault-lock {
-      width: 88px; height: 88px;
-      margin: 0 auto 1.25rem;
-      border-radius: 50%;
-      border: 2px solid rgba(0, 229, 255, 0.45);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 2rem;
-      color: #00E5FF;
-      box-shadow: 0 0 40px rgba(0, 229, 255, 0.25), inset 0 0 30px rgba(0, 229, 255, 0.08);
-      transition: all 0.5s cubic-bezier(0.34, 1.4, 0.64, 1);
-      position: relative;
-      z-index: 2;
-    }
-    .vault-lock.unlocked {
-      border-color: #00FFAA;
-      color: #00FFAA;
-      box-shadow: 0 0 50px rgba(0, 255, 170, 0.4);
-      transform: scale(1.06);
-    }
-    .vault-rings {
-      position: absolute;
-      inset: -12px;
-      border-radius: 50%;
-      border: 1px dashed rgba(0, 229, 255, 0.25);
-      animation: spin 20s linear infinite;
-    }
-    @keyframes spin { to { transform: rotate(360deg); } }
-    .vault-verified {
-      display: none;
-      text-align: center;
-      animation: fadeIn 0.45s ease;
-      position: relative;
-      z-index: 2;
-    }
-    .vault-verified.show { display: block; }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(8px); }
-      to { opacity: 1; transform: none; }
-    }
-    .vault-verified .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.55rem;
-      padding: 0.7rem 1.25rem;
-      border-radius: 999px;
-      font-weight: 800;
-      letter-spacing: 0.14em;
-      font-size: 0.72rem;
-      background: linear-gradient(135deg, rgba(0, 255, 170, 0.22), rgba(0, 229, 255, 0.18));
-      border: 1px solid rgba(0, 255, 170, 0.55);
-      color: #00FFAA;
-      text-transform: uppercase;
-      box-shadow: 0 0 30px rgba(0, 255, 170, 0.2);
-    }
-    .vault-input {
-      width: 100%;
-      border-radius: 1rem;
-      padding: 0.85rem 1rem;
-      font-size: 0.875rem;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.12);
-      color: #F8FAFC;
-      outline: none;
-    }
-    .vault-input:focus {
-      border-color: rgba(0, 229, 255, 0.55);
-      box-shadow: 0 0 0 3px rgba(0, 229, 255, 0.12);
-    }
-    .vault-input::placeholder { color: rgba(248,250,252,0.35); }
-    .vault-card {
-      border-radius: 1.5rem;
-      border: 1px solid rgba(255,255,255,0.1);
-      background: rgba(255,255,255,0.03);
-      padding: 1.5rem 1.35rem;
-    }
-    .vault-structure-row {
-      display: grid;
-      grid-template-columns: 8.5rem 1fr;
-      gap: 0.75rem;
-      padding: 0.7rem 0;
-      border-bottom: 1px solid rgba(255,255,255,0.06);
-      font-size: 0.875rem;
-    }
-    .vault-structure-row:last-child { border-bottom: 0; }
-    @media (max-width: 640px) {
-      .vault-structure-row { grid-template-columns: 1fr; gap: 0.2rem; }
-    }
-  </style>
-  <script src="js/email-client.js"></script>
+  <link rel="stylesheet" href="css/vault.css">
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -198,338 +66,168 @@
 }
   </script>
 </head>
-<body class="min-h-screen flex flex-col vault-hero-bg text-slate-100">
-  <nav class="vv-nav sticky top-0 z-50">
-    <div class="max-w-screen-2xl mx-auto px-4 sm:px-8 py-3.5 flex items-center justify-between gap-4">
-      <a href="index.html"><img src="assets/logo-vialvibes.svg" alt="Vial Vibes" class="h-10 sm:h-12"></a>
-      <div class="hidden lg:flex items-center gap-x-6 text-sm font-medium">
+<body class="vault-page">
+  <a class="vault-skip" href="#vault-main">Skip to documentation requests</a>
+  <nav class="vv-nav vault-nav" aria-label="Main navigation">
+    <div class="vault-shell vault-nav-inner">
+      <a href="index.html" aria-label="Vial Vibes home"><img src="assets/logo-vialvibes.svg" alt="Vial Vibes" class="vault-logo" width="176" height="48"></a>
+      <div class="vault-nav-links">
         <a href="peptides/index.html" class="nav-link">Peptide Library</a>
         <a href="research/index.html" class="nav-link">Research</a>
         <a href="body-explorer.html" class="nav-link">Body Explorer</a>
+        <a href="vault.html" class="nav-link active" aria-current="page">Vial Vault</a>
         <a href="quality.html" class="nav-link">Quality</a>
-        <a href="vault.html" class="nav-link active">Vault</a>
-        <a href="coa.html" class="nav-link">CoA</a>
-        <a href="tools/peptide-calculator.html" class="nav-link">Calculator</a>
         <a href="contact.html" class="nav-link">Contact</a>
       </div>
-</div>
+      <details class="vault-mobile-nav">
+        <summary>Menu</summary>
+        <div class="vault-mobile-links">
+          <a href="peptides/index.html">Peptide Library</a>
+          <a href="research/index.html">Research</a>
+          <a href="body-explorer.html">Body Explorer</a>
+          <a href="vault.html" aria-current="page">Vial Vault</a>
+          <a href="quality.html">Quality</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </details>
+    </div>
   </nav>
-  <div class="ruo-banner">
-    <div class="max-w-screen-2xl mx-auto px-4 py-2.5 text-center text-xs">
-      <strong>Honest documentation.</strong> CoAs are provided <em>on request when available</em> for the lot you specify. We never invent purity scores or fake PDFs.
-    </div>
-  </div>
+  <div class="vault-ruo"><strong>Research Use Only.</strong> Not for human consumption, clinical use, or veterinary administration.</div>
 
-  <main class="flex-1 px-4 sm:px-8 py-12 sm:py-16">
-    <!-- Hero -->
-    <div class="max-w-3xl mx-auto text-center mb-12">
-      <div class="vv-chip mb-4 inline-flex"><i class="fa-solid fa-shield-halved text-[10px]"></i> Lot-level documentation center</div>
-      <h1 class="heading-font text-4xl sm:text-6xl tracking-tighter mb-4">The Vial Vault</h1>
-      <p class="text-lg sm:text-xl" style="color:var(--vv-text-muted)">
-        The professional path to request lot-specific Certificates of Analysis for Vial Vibes research materials.
-        Enter the lot on your vial, tell us the product, and we will follow up with documentation <strong style="color:var(--vv-text)">when available</strong>.
-      </p>
-      <div class="mt-6 flex flex-wrap justify-center gap-2 text-xs sm:text-sm">
-        <span class="vv-glass rounded-full px-3 py-1.5">No instant fake scores</span>
-        <span class="vv-glass rounded-full px-3 py-1.5">No fabricated PDFs</span>
-        <span class="vv-glass rounded-full px-3 py-1.5">Research use only</span>
+  <main id="vault-main" class="vault-shell" tabindex="-1">
+    <header class="vault-hero">
+      <div class="vault-eyebrow">Lot documentation / Request center</div>
+      <h1>The Vial Vault</h1>
+      <p class="vault-lead">Request a Certificate of Analysis (CoA) for a specific research lot. Send the details from your label so our research desk can check for matching documentation and follow up by email when available.</p>
+      <div class="vault-jumps">
+        <a href="#request">Request documentation</a>
+        <a href="#coa-structure">What a CoA typically contains</a>
+        <a href="#vault-guides">Reading guides</a>
       </div>
-    </div>
+    </header>
 
-    <!-- Request + steps -->
-    <div class="max-w-6xl mx-auto grid lg:grid-cols-12 gap-8 lg:gap-10 items-start mb-16">
-      <div class="lg:col-span-5">
-        <div class="vault-panel" id="request">
-          <div class="vault-scanline" aria-hidden="true"></div>
-          <div class="relative mx-auto w-[88px] h-[88px] mb-4">
-            <div class="vault-rings" aria-hidden="true"></div>
-            <div id="vault-lock" class="vault-lock" style="margin:0"><i class="fa-solid fa-lock"></i></div>
-          </div>
-          <h2 class="heading-font text-2xl text-center mb-1 relative z-10">Request lot CoA</h2>
-          <p class="text-center text-sm mb-6 relative z-10" style="color:var(--vv-text-muted)">
-            Submits a documentation request to our research desk. Not an automatic download.
-          </p>
-
-          <form id="vault-form" class="space-y-3.5 relative z-10">
-            <div>
-              <label for="lot" class="block text-xs font-bold tracking-[0.14em] mb-1.5" style="color:var(--vv-cyan)">LOT NUMBER <span class="text-red-400">*</span></label>
-              <input id="lot" type="text" required autocomplete="off" placeholder="Printed on vial / packaging" class="vault-input font-mono">
-            </div>
-            <div>
-              <label for="product" class="block text-xs font-bold tracking-[0.14em] mb-1.5" style="color:var(--vv-text-muted)">PRODUCT</label>
-              <input id="product" type="text" autocomplete="off" list="product-list" placeholder="e.g. BPC-157 Arginate" class="vault-input">
+    <div class="vault-layout">
+      <section class="vault-panel" id="request" aria-labelledby="request-title">
+        <div id="vault-form-intro">
+          <span class="vault-status-chip">Request-based &middot; Availability checked by lot</span>
+          <h2 id="request-title">Request lot documentation</h2>
+          <p class="vault-panel-intro">This form sends a request to the research desk. It does not search a published document archive or generate an instant download.</p>
+        </div>
+        <div id="vault-prefill" class="vault-prefill" hidden><p id="prefill-text"></p></div>
+        <form id="vault-form" aria-label="Lot documentation request" aria-busy="false">
+          <fieldset id="request-fields" class="vault-form-fields" disabled>
+            <legend class="vault-help">Compound, lot number, and reply email are required.</legend>
+            <div class="vault-field">
+              <label for="product">Compound / material name <span>(required)</span></label>
+              <input id="product" name="product" type="text" required maxlength="160" autocomplete="off" list="product-list" class="vault-input" placeholder="e.g. BPC-157 Arginate" aria-describedby="product-help">
+              <p class="vault-help" id="product-help">Use the name and form printed on the vial or packaging. Prefilled details are editable.</p>
               <datalist id="product-list">
-                <option value="BPC-157 Arginate"></option>
-                <option value="TB-500"></option>
-                <option value="Semaglutide"></option>
-                <option value="Tirzepatide"></option>
-                <option value="Retatrutide"></option>
-                <option value="Ipamorelin"></option>
-                <option value="CJC-1295 (no DAC)"></option>
-                <option value="GHK-Cu"></option>
+                <option value="BPC-157 Arginate"></option><option value="TB-500 (Thymosin Beta-4 fragment)"></option>
+                <option value="Semaglutide"></option><option value="Tirzepatide"></option><option value="Retatrutide"></option>
+                <option value="Ipamorelin"></option><option value="CJC-1295 (no DAC)"></option><option value="GHK-Cu Copper Peptide"></option>
               </datalist>
             </div>
-            <div>
-              <label for="email" class="block text-xs font-bold tracking-[0.14em] mb-1.5" style="color:var(--vv-text-muted)">LAB EMAIL</label>
-              <input id="email" type="email" autocomplete="email" placeholder="Your email address" class="vault-input">
+            <div class="vault-field">
+              <label for="lot">Lot / batch number <span>(required)</span></label>
+              <input id="lot" name="lot" type="text" required maxlength="120" autocomplete="off" spellcheck="false" class="vault-input" placeholder="Copy the lot identifier from your label" aria-describedby="lot-help">
+              <p class="vault-help" id="lot-help">Keep any letters, numbers, and dashes exactly as shown. The compound name alone cannot identify a lot.</p>
             </div>
-            <div>
-              <label for="institution" class="block text-xs font-bold tracking-[0.14em] mb-1.5" style="color:var(--vv-text-muted)">INSTITUTION <span class="font-normal opacity-70">(optional)</span></label>
-              <input id="institution" type="text" autocomplete="organization" placeholder="Lab, university, or company" class="vault-input">
+            <div class="vault-field">
+              <label for="email">Email for follow-up <span>(required)</span></label>
+              <input id="email" name="email" type="email" required maxlength="254" autocomplete="email" class="vault-input" placeholder="you@laboratory.org" aria-describedby="email-help">
+              <p class="vault-help" id="email-help">Use an address where the research desk can reach you about this request.</p>
             </div>
-            <div>
-              <label for="notes" class="block text-xs font-bold tracking-[0.14em] mb-1.5" style="color:var(--vv-text-muted)">NOTES <span class="font-normal opacity-70">(optional)</span></label>
-              <textarea id="notes" rows="3" maxlength="2000" placeholder="Lot reference, preferred format, or timing notes" class="vault-input resize-y min-h-[5rem]"></textarea>
+            <div class="vault-field">
+              <label for="institution">Lab / institution <span>(optional)</span></label>
+              <input id="institution" name="institution" type="text" maxlength="160" autocomplete="organization" class="vault-input" aria-describedby="institution-help">
+              <p class="vault-help" id="institution-help">Helps identify the laboratory or organization associated with the request.</p>
             </div>
-            <button type="submit" class="vv-btn-primary w-full !py-3.5 text-base">
-              <i class="fa-solid fa-key"></i> Submit documentation request
-            </button>
-            <p class="text-[11px] text-center leading-relaxed" style="color:var(--vv-text-dim)">
-              Expect a human follow-up when CoA files are available for that lot. Typical fields and limits are explained below.
-            </p>
-          </form>
-
-          <div id="vault-ok" class="vault-verified mt-8">
-            <div class="badge mb-5"><i class="fa-solid fa-circle-check"></i> Request received</div>
-            <p class="text-sm mb-2" style="color:var(--vv-text)">Lot recorded for follow-up</p>
-            <p id="lot-out" class="font-mono text-xl mb-4" style="color:var(--vv-cyan)"></p>
-            <p class="text-sm mb-6 max-w-md mx-auto leading-relaxed" style="color:var(--vv-text-muted)">
-              Your request was logged. Our research desk will provide Certificate of Analysis documentation
-              <strong style="color:var(--vv-text)">when available</strong> for this lot. We do not display fabricated analytical results on this site.
-            </p>
-            <div class="flex flex-wrap justify-center gap-3">
-              <a id="mailto-link" class="vv-btn-primary" href="mailto:hello@asktrusthub.com">Email hello@asktrusthub.com</a>
-              <a href="research/how-to-read-a-coa.html" class="vv-btn-ghost">How to read a CoA</a>
-              <a href="coa.html" class="vv-btn-ghost">CoA center</a>
+            <div class="vault-field">
+              <label for="notes">Documentation details <span>(optional)</span></label>
+              <textarea id="notes" name="notes" rows="3" maxlength="2000" class="vault-input" placeholder="Specific report fields or label details you want to clarify" aria-describedby="notes-help"></textarea>
+              <p class="vault-help" id="notes-help">Up to 2,000 characters. Requested tests or report formats may not be available for the lot.</p>
             </div>
+            <button id="vault-submit" type="submit" class="vv-btn-primary vault-submit">Submit documentation request</button>
+          </fieldset>
+          <p id="vault-send-status" class="vault-help" role="status" aria-live="polite"></p>
+          <div id="vault-api-error" class="vault-error" role="alert" tabindex="-1" hidden>
+            <strong>Request not confirmed</strong><p id="vault-error-text"></p>
           </div>
-        </div>
-      </div>
+          <p class="vault-help">Document availability, test coverage, and response timing vary by lot. Submitting a request does not confirm that a document is available.</p>
+          <p class="vault-draft"><a id="email-request" href="mailto:hello@asktrusthub.com?subject=CoA%20documentation%20request">Prepare an email to hello@asktrusthub.com</a><br>Opens a draft in your email app. Review and send it there; opening the draft does not submit a request.</p>
+          <noscript><p class="vault-error">The online form needs JavaScript. Email hello@asktrusthub.com with the compound name, lot number, and your documentation question.</p></noscript>
+        </form>
 
-      <div class="lg:col-span-7 space-y-5">
-        <div class="vault-card">
-          <h2 class="heading-font text-2xl mb-3">What the Vial Vault is</h2>
-          <p class="text-sm leading-relaxed" style="color:var(--vv-text-muted)">
-            The Vial Vault is Vial Vibes’ documentation request center for research-use-only materials.
-            It is designed for laboratory professionals who need lot-matched Certificates of Analysis (CoAs)
-            for procurement files, internal quality records, or experimental documentation—not a public scoreboard of invented purity metrics.
-          </p>
+        <div id="vault-ok" class="vault-success" hidden>
+          <span class="vault-status-chip">Request received</span>
+          <h2 id="vault-success-title" tabindex="-1">Your request has been submitted</h2>
+          <p>Documentation will be provided when available for the lot. Availability still needs to be checked; this confirmation contains no analytical results.</p>
+          <dl class="vault-summary">
+            <div><dt>Compound / material</dt><dd id="product-out"></dd></div>
+            <div><dt>Lot / batch number</dt><dd id="lot-out"></dd></div>
+            <div><dt>Follow-up email</dt><dd id="email-out"></dd></div>
+          </dl>
+          <p>The research desk can contact you at this address about matching documentation or any clarification needed. Response timing and available tests vary. This page does not track the review status.</p>
+          <p><a id="followup-link" href="mailto:hello@asktrusthub.com">Correct details or follow up by email</a> &middot; <a href="research/how-to-read-a-coa.html">Prepare to read a CoA</a></p>
+          <button id="new-request" type="button" class="vault-secondary">Request documentation for another lot</button>
+          <p class="vault-help">Keeps the compound and contact fields; clears the lot and notes for the next request.</p>
         </div>
+      </section>
 
-        <div class="vault-card">
-          <h2 class="heading-font text-2xl mb-3">How lot documentation works</h2>
-          <ol class="space-y-3 text-sm" style="color:var(--vv-text-muted)">
-            <li class="flex gap-3"><span class="text-cyan-300 font-mono font-bold shrink-0">01</span><span><strong style="color:var(--vv-text)">Submit the lot</strong> printed on your vial or packaging, plus product name and a contact email when possible.</span></li>
-            <li class="flex gap-3"><span class="text-cyan-300 font-mono font-bold shrink-0">02</span><span><strong style="color:var(--vv-text)">We locate documentation</strong> for that specific lot when a CoA is available from our testing / supplier pathway.</span></li>
-            <li class="flex gap-3"><span class="text-cyan-300 font-mono font-bold shrink-0">03</span><span><strong style="color:var(--vv-text)">You receive a follow-up</strong> with the file or status. Availability, format, and test panel can differ by product and lot.</span></li>
-            <li class="flex gap-3"><span class="text-cyan-300 font-mono font-bold shrink-0">04</span><span><strong style="color:var(--vv-text)">You verify the match</strong> — lot on CoA must match lot on vial before using the document in lab records.</span></li>
+      <aside class="vault-side" aria-label="Request guidance">
+        <section class="vault-card" aria-labelledby="next-heading">
+          <h2 id="next-heading">What happens next</h2>
+          <ol class="vault-steps">
+            <li><div><strong>Send the lot details</strong><p>Identify the material, its lot, and an email for follow-up. A confirmation appears after successful submission.</p></div></li>
+            <li><div><strong>Documentation is checked</strong><p>The research desk checks for a report matching the requested lot. A document or a particular test may be unavailable.</p></div></li>
+            <li><div><strong>Review the follow-up</strong><p>Documentation is shared by email when available. Further label details may be needed to identify the lot.</p></div></li>
+            <li><div><strong>Match the report to your records</strong><p>Compare the material name and lot identifier, then review the methods, dates, results, and limitations.</p></div></li>
           </ol>
-          <p class="text-xs mt-4" style="color:var(--vv-text-dim)">
-            A browsable public PDF archive is planned for later. Until then, requests are handled on demand—honestly and without placeholder files.
-          </p>
-        </div>
-
-        <div class="vault-card">
-          <h2 class="heading-font text-2xl mb-3">Why lot-level documentation matters</h2>
-          <ul class="space-y-2.5 text-sm" style="color:var(--vv-text-muted)">
-            <li class="flex gap-2"><i class="fa-solid fa-check text-emerald-400 mt-1 shrink-0"></i><span>Links analytical results to the exact material in your freezer—not a generic product page claim.</span></li>
-            <li class="flex gap-2"><i class="fa-solid fa-check text-emerald-400 mt-1 shrink-0"></i><span>Supports institutional receiving, procurement, and method documentation workflows.</span></li>
-            <li class="flex gap-2"><i class="fa-solid fa-check text-emerald-400 mt-1 shrink-0"></i><span>Keeps quality conversations grounded in real reports instead of marketing percentages.</span></li>
-            <li class="flex gap-2"><i class="fa-solid fa-check text-emerald-400 mt-1 shrink-0"></i><span>Respects Research Use Only boundaries: documents research materials, not clinical products.</span></li>
-          </ul>
-        </div>
-      </div>
+        </section>
+        <section class="vault-card" aria-labelledby="lot-matters-heading">
+          <h2 id="lot-matters-heading">Why the lot matters</h2>
+          <p>A CoA records analytical information for a defined sample or batch. A report for another lot cannot establish the results for the material in your lab.</p>
+          <p>Matching the label and report helps maintain traceable laboratory records and interpret experiments alongside the actual test methods.</p>
+          <h3>Can&rsquo;t find the lot?</h3>
+          <p class="vault-small">Check the vial label and outer packaging. If the identifier is missing or unclear, <a href="mailto:hello@asktrusthub.com?subject=Help%20identifying%20a%20research%20lot">email hello@asktrusthub.com</a> with the material name and available label details.</p>
+          <p class="vault-small"><a href="research/how-to-read-a-coa.html">See the lot-matching checklist &rarr;</a></p>
+        </section>
+      </aside>
     </div>
 
-    <!-- What you receive -->
-    <section class="max-w-6xl mx-auto mb-12">
-      <div class="vault-card">
-        <h2 class="heading-font text-2xl sm:text-3xl mb-3">What you receive when you request a CoA</h2>
-        <p class="text-sm mb-6 max-w-3xl" style="color:var(--vv-text-muted)">
-          When documentation is available for the requested lot, you typically receive a Certificate of Analysis (PDF or equivalent)
-          prepared for that lot. Content varies by testing laboratory and product. We do <strong style="color:var(--vv-text)">not</strong>
-          guarantee a fixed test panel for every SKU or every batch.
-        </p>
-        <div class="grid md:grid-cols-2 gap-6">
-          <div>
-            <h3 class="text-sm font-bold tracking-wider uppercase mb-3" style="color:var(--vv-cyan)">Commonly included</h3>
-            <ul class="space-y-2 text-sm" style="color:var(--vv-text-muted)">
-              <li class="flex gap-2"><i class="fa-solid fa-hashtag text-cyan-400 mt-1 shrink-0"></i><span>Lot / batch identifier matching your vial</span></li>
-              <li class="flex gap-2"><i class="fa-solid fa-fingerprint text-cyan-400 mt-1 shrink-0"></i><span>Identity support (e.g. HPLC, MS, or other methods stated)</span></li>
-              <li class="flex gap-2"><i class="fa-solid fa-chart-column text-cyan-400 mt-1 shrink-0"></i><span>Purity-related results <em>if tested and reported</em> for that lot</span></li>
-              <li class="flex gap-2"><i class="fa-solid fa-calendar text-cyan-400 mt-1 shrink-0"></i><span>Analysis or report date</span></li>
-              <li class="flex gap-2"><i class="fa-solid fa-flask text-cyan-400 mt-1 shrink-0"></i><span>Method notes and laboratory limitations</span></li>
-            </ul>
-          </div>
-          <div>
-            <h3 class="text-sm font-bold tracking-wider uppercase mb-3" style="color:var(--vv-cyan)">Honest expectations</h3>
-            <ul class="space-y-2 text-sm" style="color:var(--vv-text-muted)">
-              <li class="flex gap-2"><i class="fa-solid fa-circle-info text-emerald-400 mt-1 shrink-0"></i><span>Available on request for most lots we supply—timing depends on archive retrieval.</span></li>
-              <li class="flex gap-2"><i class="fa-solid fa-circle-info text-emerald-400 mt-1 shrink-0"></i><span>Not every lot may have the same tests; always read the document you receive.</span></li>
-              <li class="flex gap-2"><i class="fa-solid fa-ban text-rose-400 mt-1 shrink-0"></i><span>No instant self-serve PDF library on this page yet.</span></li>
-              <li class="flex gap-2"><i class="fa-solid fa-ban text-rose-400 mt-1 shrink-0"></i><span>No site-wide purity percentages invented for marketing.</span></li>
-            </ul>
-          </div>
-        </div>
-      </div>
+    <section id="coa-structure" class="vault-education" aria-labelledby="coa-heading">
+      <div class="vault-eyebrow">Read the report in context</div>
+      <h2 id="coa-heading">What a CoA typically contains</h2>
+      <p>This is an educational field guide, not a certificate for a live lot. Report formats and tests vary. Read only the results and methods actually included in the document you receive.</p>
+      <dl class="vault-coa-fields">
+        <div><dt>Material identity and lot</dt><dd>The reported compound name, form when stated, and batch identifier. Compare them with the label and your internal records.</dd></div>
+        <div><dt>Analytical methods</dt><dd>How the sample was examined, including the methods and conditions stated by the laboratory. <a href="research/hplc-mass-spectrometry.html">Learn how HPLC and MS differ.</a></dd></div>
+        <div><dt>Identity and purity results</dt><dd>Separate findings supported by the tests reported. A purity percentage is method-dependent and does not, by itself, establish identity or suitability for a particular experiment.</dd></div>
+        <div><dt>Dates, laboratory, and limitations</dt><dd>Who issued the report, the analysis or report date, and any sample, method, or reporting limitations. Check these before filing the document.</dd></div>
+      </dl>
+      <p class="vault-limit">A CoA does not establish suitability for human or veterinary use. Tests such as sterility or endotoxin testing should not be assumed unless explicitly reported. <a href="research/peptide-purity-claims.html">Read the limits of purity claims.</a></p>
     </section>
 
-    <!-- Sample structure (text, for future PDFs) -->
-    <section class="max-w-6xl mx-auto mb-12" id="coa-structure">
-      <div class="vault-card">
-        <div class="flex flex-wrap items-start justify-between gap-3 mb-4">
-          <div>
-            <h2 class="heading-font text-2xl sm:text-3xl mb-2">Sample CoA structure (educational)</h2>
-            <p class="text-sm max-w-2xl" style="color:var(--vv-text-muted)">
-              Annotated layout of fields researchers often see. This is <strong style="color:var(--vv-text)">not</strong> a real certificate
-              and is not tied to any live lot. Real PDFs can be linked here later without changing the page design.
-            </p>
-          </div>
-          <span class="text-[10px] font-bold tracking-widest uppercase px-3 py-1.5 rounded-full border border-white/15" style="color:var(--vv-text-dim)">Text example · no PDF</span>
-        </div>
-        <div class="rounded-2xl border border-white/10 overflow-hidden" style="background:rgba(0,0,0,0.25)">
-          <div class="px-4 sm:px-5 py-3 border-b border-white/10 text-xs font-mono" style="color:var(--vv-cyan)">CERTIFICATE OF ANALYSIS · RESEARCH MATERIAL · ILLUSTRATIVE ONLY</div>
-          <div class="px-4 sm:px-5 py-2">
-            <div class="vault-structure-row"><div class="font-semibold text-slate-200">Product name</div><div style="color:var(--vv-text-muted)">Catalog compound name (and salt form if stated)</div></div>
-            <div class="vault-structure-row"><div class="font-semibold text-slate-200">Lot / batch</div><div style="color:var(--vv-text-muted)">Must match the lot on your vial label</div></div>
-            <div class="vault-structure-row"><div class="font-semibold text-slate-200">Identity</div><div style="color:var(--vv-text-muted)">Method(s) used to support identity (e.g. MS, HPLC retention)</div></div>
-            <div class="vault-structure-row"><div class="font-semibold text-slate-200">Purity (if reported)</div><div style="color:var(--vv-text-muted)">Method-dependent result for the tested sample—not a universal claim</div></div>
-            <div class="vault-structure-row"><div class="font-semibold text-slate-200">Appearance</div><div style="color:var(--vv-text-muted)">Physical description when recorded by the testing lab</div></div>
-            <div class="vault-structure-row"><div class="font-semibold text-slate-200">Report date</div><div style="color:var(--vv-text-muted)">When analysis or documentation was issued</div></div>
-            <div class="vault-structure-row"><div class="font-semibold text-slate-200">Limitations</div><div style="color:var(--vv-text-muted)">Conditions, methods, and caveats stated by the laboratory</div></div>
-          </div>
-        </div>
-        <!-- Future PDF slots: add real links here when published
-        <div id="coa-pdf-archive" class="mt-6 grid sm:grid-cols-2 gap-3" data-archive="pending"></div>
-        -->
+    <section id="vault-guides" class="vault-guides" aria-labelledby="guides-heading">
+      <div class="vault-eyebrow">Documentation reading room</div>
+      <h2 id="guides-heading">Make sense of the documentation</h2>
+      <div class="vault-guide-grid">
+        <a class="vault-card vault-guide" href="research/how-to-read-a-coa.html"><h3>How to read a CoA &rarr;</h3><p>Start with lot matching, then work through identity, methods, dates, and limitations.</p></a>
+        <a class="vault-card vault-guide" href="research/hplc-mass-spectrometry.html"><h3>HPLC &amp; mass spectrometry &rarr;</h3><p>Understand the different questions chromatograms and mass measurements address.</p></a>
+        <a class="vault-card vault-guide" href="research/peptide-purity-claims.html"><h3>Understanding purity claims &rarr;</h3><p>Read reported percentages alongside methods, sample context, and test coverage.</p></a>
       </div>
+      <p class="vault-help">More context: <a href="quality.html">Quality documentation</a> &middot; <a href="research/storage-stability.html">Storage &amp; stability</a> &middot; <a href="research/index.html">Research Hub</a></p>
     </section>
-
-    <!-- Education + related -->
-    <section class="max-w-6xl mx-auto mb-12">
-      <h2 class="heading-font text-2xl sm:text-3xl mb-5 text-center">Learn the documentation stack</h2>
-      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <a href="research/how-to-read-a-coa.html" class="vault-card hover:border-cyan-400/40 transition block">
-          <div class="text-cyan-300 mb-2"><i class="fa-solid fa-file-lines"></i></div>
-          <div class="font-semibold mb-1">How to read a CoA</div>
-          <p class="text-xs leading-relaxed" style="color:var(--vv-text-muted)">Field-by-field guide for peptide Certificates of Analysis.</p>
-        </a>
-        <a href="research/hplc-mass-spectrometry.html" class="vault-card hover:border-cyan-400/40 transition block">
-          <div class="text-cyan-300 mb-2"><i class="fa-solid fa-chart-area"></i></div>
-          <div class="font-semibold mb-1">HPLC &amp; mass spectrometry</div>
-          <p class="text-xs leading-relaxed" style="color:var(--vv-text-muted)">Educational overview of common peptide analytical methods.</p>
-        </a>
-        <a href="research/peptide-purity-claims.html" class="vault-card hover:border-cyan-400/40 transition block">
-          <div class="text-cyan-300 mb-2"><i class="fa-solid fa-percent"></i></div>
-          <div class="font-semibold mb-1">Purity claims explained</div>
-          <p class="text-xs leading-relaxed" style="color:var(--vv-text-muted)">Why method context matters more than a headline number.</p>
-        </a>
-        <a href="quality.html" class="vault-card hover:border-cyan-400/40 transition block">
-          <div class="text-cyan-300 mb-2"><i class="fa-solid fa-shield-halved"></i></div>
-          <div class="font-semibold mb-1">Quality &amp; compliance</div>
-          <p class="text-xs leading-relaxed" style="color:var(--vv-text-muted)">How we talk about documentation without overstated badges.</p>
-        </a>
-      </div>
-      <div class="mt-6 flex flex-wrap justify-center gap-3 text-sm">
-        <a href="coa.html" class="vv-btn-ghost !py-2.5 !px-4">Alternate CoA request form</a>
-        <a href="peptides/index.html" class="vv-btn-ghost !py-2.5 !px-4">Peptide Library</a>
-        <a href="research/index.html" class="vv-btn-ghost !py-2.5 !px-4">Research Hub</a>
-        <a href="mailto:hello@asktrusthub.com?subject=CoA%20request" class="vv-btn-primary !py-2.5 !px-4">Email hello@asktrusthub.com</a>
-      </div>
-    </section>
-
-    <div class="max-w-3xl mx-auto text-center text-xs leading-relaxed pb-4" style="color:var(--vv-text-dim)">
-      <strong style="color:var(--vv-text-muted)">Research Use Only.</strong>
-      Certificates of Analysis document laboratory research materials. Vial Vibes products are not for human consumption, clinical use, or veterinary administration.
-      Operated by APEX Research, LLC.
-      <a href="research-use-only.html" class="underline" style="color:var(--vv-cyan)">RUO policy</a>
-    </div>
   </main>
-
-  <footer class="py-8 text-center text-xs border-t border-white/5" style="color:var(--vv-text-dim)">
-    <p class="mb-1">&copy; 2026 Vial Vibes</p>
-    <p>Operated by APEX Research, LLC · <a href="research-use-only.html" class="underline" style="color:var(--vv-cyan)">RUO policy</a> · <a href="coa.html" class="underline" style="color:var(--vv-cyan)">CoA center</a></p>
+  <footer class="vault-footer">
+    <div class="vault-shell vault-footer-inner">
+      <p>Vial Vibes &middot; Operated by APEX Research, LLC.</p>
+      <p><a href="mailto:hello@asktrusthub.com">hello@asktrusthub.com</a> &middot; <a href="research-use-only.html">Research Use Only policy</a> &middot; <a href="privacy.html">Privacy</a></p>
+    </div>
   </footer>
-
-  <script>
-    (function () {
-      var params = new URLSearchParams(location.search);
-      if (params.get('lot')) document.getElementById('lot').value = params.get('lot');
-      if (params.get('product')) document.getElementById('product').value = params.get('product');
-      if (params.get('email')) document.getElementById('email').value = params.get('email');
-
-      document.getElementById('vault-form').addEventListener('submit', async function (e) {
-        e.preventDefault();
-        var lot = document.getElementById('lot').value.trim();
-        var product = document.getElementById('product').value.trim();
-        var email = document.getElementById('email').value.trim();
-        var institution = document.getElementById('institution').value.trim();
-        var notes = document.getElementById('notes').value.trim();
-        if (!lot) return;
-
-        var lock = document.getElementById('vault-lock');
-        var submitBtn = e.target.querySelector('button[type="submit"]');
-        var errEl = document.getElementById('vault-api-error');
-        if (errEl) errEl.remove();
-        if (submitBtn) {
-          submitBtn.disabled = true;
-          submitBtn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> Sending request…';
-        }
-
-        try {
-          if (window.VVEmail) {
-            await VVEmail.sendVaultRequest({
-              lot: lot,
-              product: product,
-              email: email,
-              institution: institution,
-              notes: notes,
-              source: 'vault'
-            });
-          }
-        } catch (err) {
-          errEl = document.createElement('p');
-          errEl.id = 'vault-api-error';
-          errEl.className = 'text-sm mt-3 text-center relative z-10';
-          errEl.style.color = '#f87171';
-          errEl.textContent = (err && err.message)
-            ? err.message
-            : 'Could not send request. Email hello@asktrusthub.com with your lot number.';
-          e.target.appendChild(errEl);
-          if (submitBtn) {
-            submitBtn.disabled = false;
-            submitBtn.innerHTML = '<i class="fa-solid fa-key"></i> Submit documentation request';
-          }
-          return;
-        }
-
-        lock.classList.add('unlocked');
-        lock.innerHTML = '<i class="fa-solid fa-lock-open"></i>';
-        document.getElementById('lot-out').textContent = lot;
-        document.getElementById('vault-ok').classList.add('show');
-        document.getElementById('vault-form').style.opacity = '0.45';
-        document.getElementById('vault-form').style.pointerEvents = 'none';
-
-        var subject = encodeURIComponent('CoA request - lot ' + lot);
-        var body = encodeURIComponent(
-          'Lot number: ' + lot + '\n' +
-          'Product: ' + (product || '(not specified)') + '\n' +
-          'Institution: ' + (institution || '(not specified)') + '\n' +
-          'Researcher email: ' + (email || '(not specified)') + '\n' +
-          'Notes: ' + (notes || '(none)') + '\n\n' +
-          'Please provide Certificate of Analysis documentation if available for this research lot.\n'
-        );
-        var ml = document.getElementById('mailto-link');
-        if (ml) ml.href = 'mailto:hello@asktrusthub.com?subject=' + subject + '&body=' + body;
-
-        try {
-          var log = JSON.parse(localStorage.getItem('vv_vault_requests') || '[]');
-          log.unshift({ lot: lot, product: product, email: email, institution: institution, notes: notes, at: new Date().toISOString() });
-          localStorage.setItem('vv_vault_requests', JSON.stringify(log.slice(0, 20)));
-        } catch (err2) {}
-      });
-    })();
-  </script>
+  <script src="js/products.js" defer></script>
+  <script src="js/email-client.js" defer></script>
+  <script src="js/vault.js" defer></script>
   <script src="js/pwa-register.js" defer></script>
 </body>
 </html>
