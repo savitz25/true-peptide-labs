@@ -1,5 +1,5 @@
 /* Vial Vibes service worker — cache shell + tools for offline/PWA use */
-const CACHE_VERSION = 'vv-pwa-v3-research-library';
+const CACHE_VERSION = 'vv-pwa-v4-body-explorer';
 const PRECACHE = [
   '/',
   '/index.html',
@@ -18,6 +18,7 @@ const PRECACHE = [
   '/peptides/index.html',
   '/vault.html',
   '/vibe-finder.html',
+  '/body-explorer.html',
   '/icons/icon-192.png',
   '/icons/icon-512.png',
   '/icons/apple-touch-icon.png',
