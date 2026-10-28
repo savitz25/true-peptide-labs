@@ -7,7 +7,7 @@ const context = { window: {} };
 vm.runInNewContext(fs.readFileSync(path.join(root, 'js/research-references.js'), 'utf8'), context);
 const entries = context.window.VV_RESEARCH_REFERENCES;
 const escape = value => String(value).replace(/[&<>"']/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[char]);
-const areaNames = { neural: 'Neural signaling models', immune: 'Immune signaling models', 'skin-ecm': 'Skin & ECM models', 'gut-barrier': 'Gut & barrier models', metabolic: 'Metabolic pathway models' };
+const areaNames = { neural: 'Neural signaling models', immune: 'Immune signaling models', 'skin-ecm': 'Skin & ECM models', 'gut-barrier': 'Gut & barrier models', metabolic: 'Metabolic pathway models', 'gh-axis': 'Growth-hormone axis models', connective: 'Connective tissue models' };
 const notes = entries.map(entry => `
     <article id="${escape(entry.slug)}" class="reference-note" aria-labelledby="note-${escape(entry.slug)}">
       <p class="research-reference-label">Research reference only — not a catalog item</p>
@@ -19,8 +19,7 @@ const notes = entries.map(entry => `
       <p><a href="${escape(entry.source.url)}">${escape(entry.source.label)} · PMID ${escape(entry.source.pmid)}</a></p>
       <h3>Scope of this note</h3>
       <p>${escape(entry.limitation)}</p>
-      ${entry.bodyAreas.length ? `<p>Explore model context: ${entry.bodyAreas.map(area => `<a href="../body-explorer.html#${escape(area)}">${escape(areaNames[area])}</a>`).join(' · ')}.</p>` : ''}
-      <p><a href="#notes-index">Back to reference list</a> · <a href="../peptides/index.html">Research Peptide Library</a></p>
+${entry.bodyAreas.length ? `      <p>Explore model context: ${entry.bodyAreas.map(area => `<a href="../body-explorer.html#${escape(area)}">${escape(areaNames[area])}</a>`).join(' · ')}.</p>\n` : ''}      <p><a href="#notes-index">Back to reference list</a> · <a href="../peptides/index.html">Research Peptide Library</a></p>
     </article>`).join('\n');
 const schema = {
   '@context': 'https://schema.org', '@type': 'CollectionPage',
@@ -34,7 +33,7 @@ const html = `<!DOCTYPE html>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Research-reference Peptide Notes | Vial Vibes</title>
-  <meta name="description" content="Eight literature-framed peptide research notes with model areas and published sources. Research reference only, not catalog items. Research Use Only.">
+  <meta name="description" content="${entries.length} literature-framed peptide research notes with model areas and published sources. Research reference only, not catalog items. Research Use Only.">
   <meta name="theme-color" content="#0F0C29">
   <link rel="canonical" href="https://vialvibes.com/research/reference-notes.html">
   <meta property="og:title" content="Research-reference Peptide Notes | Vial Vibes">
