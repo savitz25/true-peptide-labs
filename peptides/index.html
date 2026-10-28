@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Peptide Library | Research Materials Catalog | Vial Vibes</title>
+  <title>Research Peptide Library | Vial Vibes</title>
   <meta name="theme-color" content="#0F0C29">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -11,9 +11,9 @@
   <meta name="mobile-web-app-capable" content="yes">
   <link rel="manifest" href="/manifest.webmanifest">
   <link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
-  <meta name="description" content="Browse research-use-only peptides by study focus. Open product specs, research overviews, and CoA pathways. Catalog for qualified laboratories.">
-  <meta property="og:title" content="Peptide Library | Research Materials Catalog | Vial Vibes">
-  <meta property="og:description" content="Browse research-use-only peptides by study focus. Open product specs, research overviews, and CoA pathways. Catalog for qualified laboratories.">
+  <meta name="description" content="A laboratory research reference for peptides. Filter by research category, search compounds, and explore existing research overviews, specifications, and lot CoA requests.">
+  <meta property="og:title" content="Research Peptide Library | Vial Vibes">
+  <meta property="og:description" content="A laboratory research reference for peptides. Filter by research category, search compounds, and explore existing research overviews, specifications, and lot CoA requests.">
   <meta property="og:image" content="https://www.vialvibes.com/images/og-vial-vibes-share.jpg">
   <meta property="og:image:secure_url" content="https://www.vialvibes.com/images/og-vial-vibes-share.jpg">
   <meta property="og:image:type" content="image/jpeg">
@@ -24,15 +24,14 @@
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Vial Vibes">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Peptide Library | Research Materials Catalog | Vial Vibes">
-  <meta name="twitter:description" content="Browse research-use-only peptides by study focus. Open product specs, research overviews, and CoA pathways. Catalog for qualified laboratories.">
+  <meta name="twitter:title" content="Research Peptide Library | Vial Vibes">
+  <meta name="twitter:description" content="A laboratory research reference for peptides. Filter by research category, search compounds, and explore existing research overviews, specifications, and lot CoA requests.">
   <meta name="twitter:image" content="https://www.vialvibes.com/images/og-vial-vibes-share.jpg">
   <meta name="twitter:image:alt" content="Vial Vibes — Good Vibes. Serious Science.">
   <link rel="canonical" href="https://www.vialvibes.com/peptides/">
   <link rel="icon" type="image/svg+xml" href="../assets/logo-vialvibes-mark.svg">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="../css/site.css">
+  <link rel="stylesheet" href="../css/research-library.css">
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -49,8 +48,8 @@
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "WebPage",
-  "name": "Peptide Library",
+  "@type": "CollectionPage",
+  "name": "Research Peptide Library",
   "description": "Browse research-use-only peptides for qualified laboratories. Discovery is for laboratory professionals. Not for human consumption or clinical use.",
   "url": "https://www.vialvibes.com/peptides/",
   "isPartOf": {
@@ -70,7 +69,7 @@
 {
   "@context": "https://schema.org",
   "@type": "ItemList",
-  "name": "Peptide Library",
+  "name": "Research Peptide Library",
   "description": "Browse research-use-only peptides for qualified laboratories. Filter by research focus. Not for human use.",
   "url": "https://www.vialvibes.com/peptides/",
   "numberOfItems": 8,
@@ -132,150 +131,142 @@
   "@type": "BreadcrumbList",
   "itemListElement": [
     { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.vialvibes.com/" },
-    { "@type": "ListItem", "position": 2, "name": "Peptide Library", "item": "https://www.vialvibes.com/peptides/" }
+    { "@type": "ListItem", "position": 2, "name": "Research Peptide Library", "item": "https://www.vialvibes.com/peptides/" }
   ]
 }
   </script>
 </head>
-<body class="min-h-screen flex flex-col">
-  <nav class="vv-nav sticky top-0 z-50">
-    <div class="max-w-screen-2xl mx-auto px-4 sm:px-8 py-3.5 flex items-center justify-between gap-4">
-      <a href="../index.html"><img src="../assets/logo-vialvibes.svg" alt="VialVibes" class="h-10 sm:h-12"></a>
-      <div class="hidden lg:flex items-center gap-x-7 text-sm font-medium">
-        <a href="index.html" class="nav-link active">Peptide Library</a>
+<body class="research-library">
+  <a class="library-skip" href="#library-main">Skip to peptide library</a>
+  <nav class="vv-nav library-nav" aria-label="Main navigation">
+    <div class="library-shell library-nav-inner">
+      <a href="../index.html" aria-label="Vial Vibes home"><img src="../assets/logo-vialvibes.svg" alt="Vial Vibes" class="library-logo" width="176" height="48"></a>
+      <div class="library-nav-links">
+        <a href="index.html" class="nav-link active" aria-current="page">Peptide Library</a>
         <a href="../research/index.html" class="nav-link">Research</a>
-        <a href="../vibe-finder.html" class="nav-link">Vibe Finder</a>
         <a href="../vault.html" class="nav-link">Vial Vault</a>
         <a href="../tools/peptide-calculator.html" class="nav-link">Calculator</a>
         <a href="../about.html" class="nav-link">About</a>
+        <a href="../contact.html" class="nav-link">Contact</a>
       </div>
-</div>
+      <details class="library-mobile-nav">
+        <summary>Menu</summary>
+        <div class="library-mobile-links">
+          <a href="index.html" aria-current="page">Peptide Library</a>
+          <a href="../research/index.html">Research</a>
+          <a href="../vault.html">Vial Vault</a>
+          <a href="../tools/peptide-calculator.html">Calculator</a>
+          <a href="../about.html">About</a>
+          <a href="../contact.html">Contact</a>
+        </div>
+      </details>
+    </div>
   </nav>
-  <div class="ruo-banner">
-    <div class="max-w-screen-2xl mx-auto px-4 py-2.5 text-center text-xs">
-      <strong>Research Use Only.</strong> Discovery is for laboratory professionals. Not for human consumption or clinical use.
-    </div>
-  </div>
+  <div class="library-notice"><strong>Research Use Only.</strong> Not for human consumption, clinical use, or veterinary administration.</div>
 
-  <header class="hero-dark py-14 relative">
-    <div class="vv-particles" id="particles" aria-hidden="true"></div>
-    <div class="max-w-screen-2xl mx-auto px-4 sm:px-8 relative z-10">
-      <nav class="breadcrumb text-sm mb-6" style="color:var(--vv-text-dim)"><a href="../index.html">Home</a> / <span style="color:var(--vv-text)">Peptide Library</span></nav>
-      <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6">
+  <main id="library-main" class="library-shell" tabindex="-1">
+    <header class="library-hero">
+      <div class="library-breadcrumb"><a href="../index.html">Home</a><span aria-hidden="true">/</span><span>Peptide Library</span></div>
+      <div class="library-hero-grid">
         <div>
-          <div class="vv-chip mb-4">Discovery first</div>
-          <h1 class="heading-font text-4xl sm:text-6xl tracking-tighter mb-3">Peptide Library</h1>
-          <p class="text-lg max-w-xl" style="color:var(--vv-text-muted)">Browse beautiful vial profiles. Filter by research focus. Learn → compare → verify.</p>
+          <div class="library-eyebrow">Vial Vibes / Laboratory reference</div>
+          <h1>Research<br><span>Peptide Library</span></h1>
+          <p class="library-intro">Explore peptide research by study focus. This laboratory reference connects qualified researchers with existing literature overviews, material specifications, and lot-specific documentation.</p>
         </div>
-        <div class="flex flex-wrap gap-2">
-          <a href="../vibe-finder.html" class="vv-btn-primary text-sm">Vibe Finder</a>
-          <a href="../research/compare.html" class="vv-btn-ghost text-sm">Compare</a>
-          <a href="../vault.html" class="vv-btn-ghost text-sm">Vial Vault</a>
+        <aside class="library-guide" aria-labelledby="guide-heading">
+          <h2 id="guide-heading">From literature to documentation</h2>
+          <p>Categories describe experimental research topics. They do not establish safety, efficacy, or suitability for human use.</p>
+          <a href="../research-use-only.html">Read our Research Use Only policy &rarr;</a>
+        </aside>
+      </div>
+    </header>
+
+    <section id="library-controls" class="library-controls" aria-label="Search and filter the library" hidden>
+      <div class="library-search-row">
+        <div class="library-search-field">
+          <label for="lib-search">Search the library</label>
+          <input id="lib-search" type="search" placeholder="Name, pathway, or research topic" autocomplete="off" aria-controls="library-results">
+        </div>
+        <button type="button" class="library-reset" data-reset-library>Reset filters</button>
+      </div>
+      <fieldset>
+        <legend>Research category</legend>
+        <div id="filters" class="library-filters"></div>
+      </fieldset>
+    </section>
+
+    <div id="library-results" hidden>
+      <div class="library-result-line">
+        <p id="library-count" role="status" aria-live="polite" aria-atomic="true"></p>
+        <p>CoAs are lot-specific and provided on request when available.</p>
+      </div>
+      <section id="catalog-section" class="library-section" aria-labelledby="catalog-heading">
+        <div class="library-section-heading">
+          <h2 id="catalog-heading">Catalog research entries</h2>
+          <p>Existing material specifications and research overviews</p>
+        </div>
+        <div id="library-grid" class="research-grid"></div>
+      </section>
+      <section id="reference-section" class="library-section" aria-labelledby="reference-heading" hidden>
+        <div class="library-section-heading">
+          <h2 id="reference-heading">Research-reference entries</h2>
+          <p>Literature references only; inclusion does not indicate material or lot-document availability.</p>
+        </div>
+        <div id="reference-grid" class="research-grid"></div>
+      </section>
+      <section id="empty" class="library-empty" aria-labelledby="empty-heading" hidden>
+        <h2 id="empty-heading">No matching research entries</h2>
+        <p>Try a broader term or reset the category and search.</p>
+        <button type="button" class="library-reset" data-reset-library>Show all entries</button>
+      </section>
+    </div>
+
+    <section id="library-fallback" class="library-fallback" aria-labelledby="fallback-heading">
+      <h2 id="fallback-heading">Research overviews</h2>
+      <p>Browse the existing overviews below. Interactive search and categories load when JavaScript is available.</p>
+      <ul>
+        <li><a href="../research/bpc-157.html">BPC-157 Arginate</a></li>
+        <li><a href="../research/tb-500.html">TB-500 (Thymosin Beta-4 fragment)</a></li>
+        <li><a href="../research/semaglutide.html">Semaglutide</a></li>
+        <li><a href="../research/tirzepatide.html">Tirzepatide</a></li>
+        <li><a href="../research/ipamorelin.html">Ipamorelin</a></li>
+        <li><a href="../research/cjc-1295.html">CJC-1295 (no DAC)</a></li>
+        <li><a href="../research/ghk-cu.html">GHK-Cu Copper Peptide</a></li>
+        <li><a href="../research/retatrutide.html">Retatrutide</a></li>
+      </ul>
+    </section>
+
+    <section class="library-resources" aria-label="Research documentation and support">
+      <div>
+        <h2>Read the evidence in context</h2>
+        <p>Research summaries introduce published work and its limitations. Check the original literature and the documentation for the specific material and lot.</p>
+        <div class="library-resource-links">
+          <a href="../research/index.html">Research Hub</a>
+          <a href="../research/how-to-read-a-coa.html">How to read a CoA</a>
+          <a href="../research/hplc-mass-spectrometry.html">Analytical methods</a>
         </div>
       </div>
-    </div>
-  </header>
-
-  <main class="flex-1 max-w-screen-2xl mx-auto px-4 sm:px-8 py-10 w-full">
-    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
-      <div class="flex flex-wrap gap-2" id="filters">
-        <button type="button" class="library-filter active" data-cat="all">All</button>
-        <button type="button" class="library-filter" data-cat="recovery">Tissue &amp; Repair</button>
-        <button type="button" class="library-filter" data-cat="metabolic">Metabolic</button>
-        <button type="button" class="library-filter" data-cat="gh">GH Axis</button>
-        <button type="button" class="library-filter" data-cat="cosmetic">Skin / ECM</button>
+      <div>
+        <h2>Need research documentation?</h2>
+        <p>Use an entry&rsquo;s Request CoA link with your lot number. Documentation availability and reported tests vary by lot. For reference questions, contact our support team.</p>
+        <a href="mailto:hello@asktrusthub.com">hello@asktrusthub.com</a>
       </div>
-      <div class="relative w-full sm:w-72">
-        <i class="fa-solid fa-search absolute left-4 top-3.5" style="color:var(--vv-text-dim)"></i>
-        <input id="lib-search" type="search" placeholder="Search peptides..." class="w-full rounded-2xl pl-11 pr-4 py-3 text-sm">
-      </div>
-    </div>
-
-        <div id="library-pathways" class="mb-10 rounded-3xl border border-white/10 p-5 sm:p-6" style="background:rgba(255,255,255,0.03)">
-      <div class="text-xs font-bold tracking-[0.16em] uppercase mb-3" style="color:var(--vv-cyan)">Research pathways</div>
-      <div class="flex flex-wrap gap-2 text-sm">
-        <a href="../research/index.html" class="vv-btn-ghost !py-2 !px-3 text-xs">Research Hub</a>
-        <a href="../research/compare.html" class="vv-btn-ghost !py-2 !px-3 text-xs">Compare compounds</a>
-        <a href="../tools/peptide-calculator.html" class="vv-btn-ghost !py-2 !px-3 text-xs">Reconstitution calculator</a>
-        <a href="../tools/research-combination-builder.html" class="vv-btn-ghost !py-2 !px-3 text-xs">Combination builder</a>
-        <a href="../research/how-to-read-a-coa.html" class="vv-btn-ghost !py-2 !px-3 text-xs">How to read a CoA</a>
-        <a href="../research/reconstitution-best-practices.html" class="vv-btn-ghost !py-2 !px-3 text-xs">Reconstitution guide</a>
-        <a href="../coa.html" class="vv-btn-ghost !py-2 !px-3 text-xs">Request lot CoA</a>
-        <a href="../vault.html" class="vv-btn-ghost !py-2 !px-3 text-xs">Vial Vault</a>
-      </div>
-    </div>
-    <div id="library-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5"></div>
-    <p id="empty" class="hidden text-center py-16" style="color:var(--vv-text-muted)">No matches. Try another filter or <a href="../vibe-finder.html" class="underline" style="color:var(--vv-cyan)">Vibe Finder</a>.</p>
+    </section>
   </main>
 
-  <footer class="bg-slate-900 text-sm mt-auto">
-    <div class="max-w-screen-2xl mx-auto px-4 sm:px-8 py-10 flex flex-col sm:flex-row justify-between gap-6">
-      <div>
-        <img src="../assets/logo-vialvibes.svg" alt="VialVibes" class="h-10 mb-3">
-        <p class="text-xs max-w-xs" style="color:var(--vv-text-dim)">Good Vibes. Serious Science. Operated by APEX Research, LLC.</p>
-      </div>
-      <div class="text-xs space-y-1" style="color:var(--vv-text-muted)">
-        <a href="../research/index.html" class="block hover:text-white">Research Hub</a>
-        <a href="../coa.html" class="block hover:text-white">CoA</a>
-        <a href="../research-use-only.html" class="block hover:text-white">RUO policy</a>
+  <footer>
+    <div class="library-shell library-footer-inner">
+      <p>Good Vibes. Serious Science.<br>Vial Vibes is operated by APEX Research, LLC.</p>
+      <div class="library-footer-links">
+        <a href="../research-use-only.html">Research Use Only policy</a>
+        <a href="../contact.html">Contact</a>
+        <a href="../privacy.html">Privacy</a>
       </div>
     </div>
   </footer>
-
-  <script src="../js/products.js"></script>
-  <script src="../js/vial-ui.js"></script>
-  <script>
-    (function () {
-      var cat = 'all';
-      var q = '';
-      var grid = document.getElementById('library-grid');
-      var empty = document.getElementById('empty');
-
-      function paint() {
-        var list = VV.filterProducts(cat);
-        if (q.length > 1) {
-          var qq = q.toLowerCase();
-          list = list.filter(function (p) {
-            return (p.name + p.description + p.shortName + p.categoryLabel).toLowerCase().indexOf(qq) >= 0;
-          });
-        }
-        if (!list.length) {
-          grid.innerHTML = '';
-          empty.classList.remove('hidden');
-          return;
-        }
-        empty.classList.add('hidden');
-        VV.renderVialGrid(grid, list, { basePath: '../' });
-      }
-
-      document.querySelectorAll('.library-filter').forEach(function (btn) {
-        btn.addEventListener('click', function () {
-          document.querySelectorAll('.library-filter').forEach(function (b) { b.classList.remove('active'); });
-          btn.classList.add('active');
-          cat = btn.dataset.cat;
-          paint();
-        });
-      });
-      document.getElementById('lib-search').addEventListener('input', function (e) {
-        q = e.target.value;
-        paint();
-      });
-
-      // soft particles
-      var p = document.getElementById('particles');
-      if (p) {
-        for (var i = 0; i < 18; i++) {
-          var s = document.createElement('span');
-          s.style.left = Math.random() * 100 + '%';
-          s.style.top = Math.random() * 100 + '%';
-          s.style.animationDelay = (Math.random() * 4) + 's';
-          s.style.opacity = 0.15 + Math.random() * 0.3;
-          p.appendChild(s);
-        }
-      }
-      paint();
-    })();
-  </script>
+  <script src="../js/products.js" defer></script>
+  <script src="../js/research-library-data.js" defer></script>
+  <script src="../js/research-library.js" defer></script>
   <script src="../js/pwa-register.js" defer></script>
 </body>
 </html>

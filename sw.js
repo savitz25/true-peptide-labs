@@ -1,12 +1,15 @@
 /* Vial Vibes service worker — cache shell + tools for offline/PWA use */
-const CACHE_VERSION = 'vv-pwa-v2';
+const CACHE_VERSION = 'vv-pwa-v3-research-library';
 const PRECACHE = [
   '/',
   '/index.html',
   '/offline.html',
   '/manifest.webmanifest',
   '/css/site.css',
+  '/css/research-library.css',
   '/js/products.js',
+  '/js/research-library-data.js',
+  '/js/research-library.js',
   '/js/vial-ui.js',
   '/js/email-client.js',
   '/js/pwa-register.js',
