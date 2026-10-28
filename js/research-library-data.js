@@ -5,7 +5,12 @@
 window.VV_RESEARCH_LIBRARY = {
   categories: window.TPL_CATEGORIES.map(function (category) {
     return { key: category.key, name: category.name };
-  }),
+  }).concat([
+    { key: 'neural', name: 'Neural Signaling Models' },
+    { key: 'cellular', name: 'Cellular Biology' },
+    { key: 'barrier', name: 'Gut / Barrier Models' },
+    { key: 'immune', name: 'Immune Signaling Models' }
+  ]),
   catalog: window.TPL_PRODUCTS.map(function (product) {
     return {
       slug: product.slug,
@@ -18,7 +23,8 @@ window.VV_RESEARCH_LIBRARY = {
       coa: '../vault.html?product=' + encodeURIComponent(product.name) + '#request'
     };
   }),
-  // Add literature-only compounds here, never to TPL_PRODUCTS solely to list them.
-  // Use the same fields as above; specifications and coa may be null when absent.
-  references: []
+  // Shared reference content has no specifications or CoA destinations.
+  references: (window.VV_RESEARCH_REFERENCES || []).map(function (entry) {
+    return Object.assign({}, entry, { referenceOnly: true, overview: entry.note });
+  })
 };

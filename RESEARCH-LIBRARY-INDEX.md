@@ -7,12 +7,12 @@
 
 ## Adding entries
 
-`js/research-library-data.js` separates `catalog` (adapted from `TPL_PRODUCTS` in `js/products.js`) from `references` (literature-only entries). Filtering and rendering are in `js/research-library.js`; presentation is in `css/research-library.css`.
+`js/research-library-data.js` separates `catalog` (adapted from `TPL_PRODUCTS` in `js/products.js`) from `references` (adapted from `VV_RESEARCH_REFERENCES` in `js/research-references.js`). Filtering and rendering are in `js/research-library.js`; presentation is in `css/research-library.css`. See `RESEARCH-REFERENCE-EXPANSION.md` for the shared reference and Body Explorer workflow.
 
 - For a catalog compound, add its reviewed data to `TPL_PRODUCTS` and create the matching existing-pattern research/specification pages. The library picks it up automatically.
-- For a reference-only compound, add an object to `references` with a unique `slug`, `name`, `category`, research-safe `description`, optional searchable `keywords`, and `overview` URL. Set `specifications` and `coa` to `null` unless real destinations exist. URLs are relative to `/peptides/`. Missing documents display “not available”; the separate reference section appears only when it has matching entries. Do not add a reference-only compound to the material catalog merely to list it.
+- For a reference-only compound, add its literature-framed data, model areas, source, and note URL to `js/research-references.js`, then run `node scripts/generate-reference-notes.cjs`. Reference entries have no specifications or CoA fields or actions. Do not add a reference-only compound to the material catalog merely to list it.
 - Reuse a category key (`recovery`, `metabolic`, `gh`, `cosmetic`), or add a `{ key, name }` entry to the library's `categories` array for a new reference topic. Filters are generated from that array.
-- Update the index's static `ItemList` structured data and fallback overview links when adding entries. Confirm destination pages, specification anchors, accurate RUO wording, and document availability before publishing.
+- The reference-note generator updates the index's static `ItemList` and reference fallback links. Catalog fallback links remain manually maintained. Confirm destination pages, specification anchors for catalog entries, accurate RUO wording, and source citations before publishing.
 
 ## Validation
 

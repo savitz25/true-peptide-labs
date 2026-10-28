@@ -32,18 +32,26 @@
   function card(entry) {
     var article = element('article', 'research-card');
     article.dataset.category = entry.category;
+    if (entry.referenceOnly) {
+      article.classList.add('research-card-reference');
+      article.appendChild(element('p', 'research-reference-label', 'Research reference only — not a catalog item'));
+    }
     article.setAttribute('aria-labelledby', 'entry-' + entry.slug);
     article.appendChild(element('span', 'research-tag', categoryName(entry.category)));
     var title = element('h3', '', entry.name);
     title.id = 'entry-' + entry.slug;
     article.appendChild(title);
     article.appendChild(element('p', 'research-description', entry.description));
+    if (entry.models) {
+      article.appendChild(element('p', 'research-models', 'Research models: ' + entry.models.join('; ') + '.'));
+    }
     var links = element('div', 'research-links');
-    [
+    var actions = entry.referenceOnly ? [['Research note & source', entry.overview]] : [
       ['Research Overview', entry.overview],
       ['Specifications', entry.specifications],
       ['Request CoA', entry.coa]
-    ].forEach(function (item) {
+    ];
+    actions.forEach(function (item) {
       if (item[1]) {
         var link = element('a', '', item[0]);
         link.href = item[1];
@@ -64,7 +72,7 @@
       return {
         node: node,
         category: entry.category,
-        text: normalize([entry.name, entry.description, entry.keywords || '', categoryName(entry.category)].join(' '))
+        text: normalize([entry.name, entry.description, entry.keywords || '', (entry.models || []).join(' '), categoryName(entry.category)].join(' '))
       };
     });
   });
@@ -84,7 +92,7 @@
       group.section.hidden = visible === 0;
       total += visible;
     });
-    count.textContent = 'Showing ' + total + ' of ' + (data.catalog.length + data.references.length) + ' entries';
+    count.textContent = 'Showing ' + total + ' of ' + (data.catalog.length + data.references.length) + ' entries (' + data.catalog.length + ' catalog; ' + data.references.length + ' research reference only)';
     document.getElementById('empty').hidden = total !== 0;
     filters.querySelectorAll('button').forEach(function (button) {
       button.setAttribute('aria-pressed', String(button.dataset.category === category));

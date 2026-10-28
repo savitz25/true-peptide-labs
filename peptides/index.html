@@ -72,7 +72,7 @@
   "name": "Research Peptide Library",
   "description": "Browse research-use-only peptides for qualified laboratories. Filter by research focus. Not for human use.",
   "url": "https://vialvibes.com/peptides/",
-  "numberOfItems": 8,
+  "numberOfItems": 16,
   "itemListElement": [
     {
       "@type": "ListItem",
@@ -121,6 +121,54 @@
       "position": 8,
       "name": "Retatrutide",
       "url": "https://vialvibes.com/peptides/retatrutide.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 9,
+      "name": "Selank (research reference only — not a catalog item)",
+      "url": "https://vialvibes.com/research/reference-notes.html#selank"
+    },
+    {
+      "@type": "ListItem",
+      "position": 10,
+      "name": "Semax (research reference only — not a catalog item)",
+      "url": "https://vialvibes.com/research/reference-notes.html#semax"
+    },
+    {
+      "@type": "ListItem",
+      "position": 11,
+      "name": "Epitalon (research reference only — not a catalog item)",
+      "url": "https://vialvibes.com/research/reference-notes.html#epitalon"
+    },
+    {
+      "@type": "ListItem",
+      "position": 12,
+      "name": "KPV (research reference only — not a catalog item)",
+      "url": "https://vialvibes.com/research/reference-notes.html#kpv"
+    },
+    {
+      "@type": "ListItem",
+      "position": 13,
+      "name": "MOTS-c (research reference only — not a catalog item)",
+      "url": "https://vialvibes.com/research/reference-notes.html#mots-c"
+    },
+    {
+      "@type": "ListItem",
+      "position": 14,
+      "name": "Humanin (research reference only — not a catalog item)",
+      "url": "https://vialvibes.com/research/reference-notes.html#humanin"
+    },
+    {
+      "@type": "ListItem",
+      "position": 15,
+      "name": "Thymosin alpha-1 (research reference only — not a catalog item)",
+      "url": "https://vialvibes.com/research/reference-notes.html#thymosin-alpha-1"
+    },
+    {
+      "@type": "ListItem",
+      "position": 16,
+      "name": "LL-37 (research reference only — not a catalog item)",
+      "url": "https://vialvibes.com/research/reference-notes.html#ll-37"
     }
   ]
 }
@@ -200,7 +248,7 @@
     <div id="library-results" hidden>
       <div class="library-result-line">
         <p id="library-count" role="status" aria-live="polite" aria-atomic="true"></p>
-        <p>CoAs are lot-specific and provided on request when available.</p>
+        <p>Catalog CoAs are lot-specific and provided on request when available.</p>
       </div>
       <section id="catalog-section" class="library-section" aria-labelledby="catalog-heading">
         <div class="library-section-heading">
@@ -212,7 +260,7 @@
       <section id="reference-section" class="library-section" aria-labelledby="reference-heading" hidden>
         <div class="library-section-heading">
           <h2 id="reference-heading">Research-reference entries</h2>
-          <p>Literature references only; inclusion does not indicate material or lot-document availability.</p>
+          <p>Research reference only — not catalog items. Literature context without specifications or CoA requests.</p>
         </div>
         <div id="reference-grid" class="research-grid"></div>
       </section>
@@ -236,6 +284,10 @@
         <li><a href="../research/ghk-cu.html">GHK-Cu Copper Peptide</a></li>
         <li><a href="../research/retatrutide.html">Retatrutide</a></li>
       </ul>
+      <!-- C3: reference fallback -->
+      <h3>Research references only — not catalog items</h3>
+      <ul><li><a href="/research/reference-notes.html#selank">Selank research note</a></li><li><a href="/research/reference-notes.html#semax">Semax research note</a></li><li><a href="/research/reference-notes.html#epitalon">Epitalon research note</a></li><li><a href="/research/reference-notes.html#kpv">KPV research note</a></li><li><a href="/research/reference-notes.html#mots-c">MOTS-c research note</a></li><li><a href="/research/reference-notes.html#humanin">Humanin research note</a></li><li><a href="/research/reference-notes.html#thymosin-alpha-1">Thymosin alpha-1 research note</a></li><li><a href="/research/reference-notes.html#ll-37">LL-37 research note</a></li></ul>
+      <!-- C3: end reference fallback -->
     </section>
 
     <section class="library-resources" aria-label="Research documentation and support">
@@ -267,6 +319,7 @@
     </div>
   </footer>
   <script src="../js/products.js" defer></script>
+  <script src="../js/research-references.js" defer></script>
   <script src="../js/research-library-data.js" defer></script>
   <script src="../js/research-library.js" defer></script>
   <script src="../js/pwa-register.js" defer></script>
