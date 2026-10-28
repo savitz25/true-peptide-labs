@@ -82,9 +82,8 @@
     .be-figure[data-active="immune"] [data-zone="immune"],
     .be-figure[data-hover="immune"] [data-zone="immune"] { opacity: 0.95; filter: drop-shadow(0 0 6px #FDA4AF) drop-shadow(0 0 16px rgba(253, 164, 175, 0.7)); }
     .be-card.be-reference { border: 1px dashed #a78bca; background: rgba(44,31,62,.65); box-shadow: inset 3px 0 0 #c4b5fd; }
-    .be-entry-kind { font-size: .74rem; line-height: 1.6; color: #e1d5fa; margin: 0 0 .65rem; }
+    .be-entry-kind { font-size: .74rem; line-height: 1.6; color: #9AF6FF; margin: 0 0 .65rem; }
     .be-models { font-size: .8rem; line-height: 1.7; color: #c0cbdc; margin-top: .7rem; }
-    .be-group-title { margin: 1rem 0 0; font-size: .9rem; color: #e1d5fa; }
     .be-cat:hover, .be-cat:focus-visible, .be-cat[aria-pressed="true"] {
       border-color: #00E5FF;
       box-shadow: 0 0 0 1px rgba(0, 229, 255, 0.35), 0 0 22px rgba(0, 229, 255, 0.16);
@@ -96,6 +95,7 @@
       .be-layout { grid-template-columns: minmax(280px, 360px) minmax(0, 1fr); gap: 2.25rem; }
     }
     .be-stage {
+      align-self: start;
       border-radius: 1.75rem;
       border: 1px solid rgba(0, 229, 255, 0.16);
       background:
@@ -200,8 +200,37 @@
       line-height: 1.55;
       color: #D5DEEA;
     }
-    #be-panel-cards { display: grid; gap: 0.85rem; margin-top: 1.15rem; }
+    .be-panel { min-width: 0; scroll-margin-top: 7rem; }
+    #be-categories { scroll-margin-top: 7rem; }
+    .be-panel:focus { outline: none; }
+    .be-panel:focus-visible { outline: 2px solid #00E5FF; outline-offset: 5px; border-radius: 1.5rem; }
+    .be-controls { margin-top: 1.25rem; padding: 1rem 0; border-block: 1px solid rgba(248,249,250,.14); }
+    .be-controls label { display: block; font-size: .85rem; font-weight: 600; margin-bottom: .45rem; }
+    .be-search-row { display: flex; gap: .65rem; }
+    #be-search { width: 100%; min-width: 0; min-height: 44px; border: 1px solid #6B7490; border-radius: .65rem; background: #100E29; color: #F8F9FA; padding: .65rem .8rem; font-size: 1rem; }
+    #be-search::placeholder { color: #ABB6CC; }
+    .be-help, .be-results { color: #D5DEEA; font-size: .8rem; line-height: 1.6; margin-top: .6rem; }
+    .be-filters { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: .85rem; }
+    .be-action { min-height: 44px; padding: .5rem .8rem; border-radius: .65rem; border: 1px solid #6B7490; color: #D5DEEA; font-size: .8rem; line-height: 1.4; background: rgba(14,12,36,.6); cursor: pointer; }
+    .be-action:hover { border-color: #00E5FF; }
+    .be-action[aria-pressed="true"] { background: rgba(0,229,255,.14); border-color: #00E5FF; color: #9AF6FF; }
+    .be-action:focus-visible, #be-search:focus-visible { outline: 2px solid #00E5FF; outline-offset: 3px; }
+    .be-jump { margin-bottom: 1rem; }
+    .be-back { margin-top: 1.25rem; }
+    #be-panel-cards { display: grid; gap: 1.5rem; margin-top: 1.15rem; }
+    .be-group-title { margin: 0 0 .8rem; color: #F8F9FA; font-size: 1rem; font-weight: 600; }
+    .be-group-count { display: inline-block; margin-left: .5rem; padding: .1rem .5rem; border-radius: 1rem; background: rgba(248,249,250,.1); font-size: .8rem; }
+    .be-card-grid { display: grid; gap: .85rem; }
+    .be-empty { margin: 0; color: #D5DEEA; line-height: 1.6; }
+    .be-card.be-reference .be-entry-kind { color: #E2D1FF; }
+    @media (min-width: 1280px) {
+      .be-card-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
     .be-card {
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+      overflow-wrap: anywhere;
       border: 1px solid rgba(248, 249, 250, 0.08);
       background: linear-gradient(180deg, rgba(22, 20, 52, 0.92), rgba(12, 11, 32, 0.92));
       border-radius: 1.05rem;
@@ -215,6 +244,7 @@
     .be-layout[data-active="metabolic"] .be-card { box-shadow: inset 3px 0 0 #22D3EE; }
     .be-layout[data-active="neural"] .be-card { box-shadow: inset 3px 0 0 #FBBF24; }
     .be-layout[data-active="immune"] .be-card { box-shadow: inset 3px 0 0 #FDA4AF; }
+    .be-layout[data-active] .be-card.be-reference { box-shadow: inset 3px 0 0 #C4B5FD; }
     .be-card-name {
       margin: 0;
       font-family: var(--font-display);
@@ -234,7 +264,7 @@
       text-transform: uppercase;
       color: #9AF6FF;
     }
-    .be-links { display: flex; flex-wrap: wrap; gap: 0.45rem; margin-top: 0.95rem; }
+    .be-links { display: flex; flex-wrap: wrap; gap: 0.45rem; margin-top: auto; padding-top: 0.95rem; }
     .be-links a {
       display: inline-flex;
       align-items: center;
@@ -254,7 +284,9 @@
       box-shadow: 0 0 0 3px rgba(0, 255, 170, 0.18);
     }
     @media (max-width: 640px) {
-      .be-figure { width: min(78%, 270px); }
+      .be-figure { width: min(100%, 300px); }
+      .be-spot[data-area="immune"] { left: 22% !important; }
+      .be-spot[data-area="skin-ecm"] { left: 82% !important; }
       .be-cat { font-size: 0.8rem; }
     }
     @media (prefers-reduced-motion: reduce) {
@@ -328,6 +360,7 @@
 
     <noscript><p>Explore the <a href="research/reference-notes.html" class="underline">research-reference notes</a> or <a href="peptides/index.html" class="underline">Peptide Library</a>. Interactive model selection requires JavaScript.</p></noscript>
     <div id="be-categories" class="be-cats" role="group" aria-label="Research model areas"></div>
+    <button type="button" class="be-action be-jump" id="be-jump" aria-controls="be-panel">View selected model entries</button>
 
     <div class="be-layout" id="be-layout" data-active="skin-ecm">
       <div class="be-stage">
@@ -424,12 +457,27 @@
         </div>
         <p class="be-caption">Stylized research graphic. Not an anatomical diagnosis chart.</p>
       </div>
-      <section class="be-panel" aria-labelledby="be-panel-title">
+      <section class="be-panel" id="be-panel" tabindex="-1" aria-labelledby="be-panel-title">
         <div class="be-panel-inner">
           <p class="be-kicker">Selected research model</p>
           <h2 id="be-panel-title" class="heading-font"></h2>
           <p id="be-panel-summary"></p>
-          <div id="be-panel-cards" aria-live="polite"></div>
+          <div class="be-controls">
+            <label for="be-search">Search this research model</label>
+            <div class="be-search-row">
+              <input type="search" id="be-search" placeholder="Compound or research model" aria-describedby="be-search-help" aria-controls="be-panel-cards" autocomplete="off">
+              <button type="button" class="be-action" id="be-reset">Reset</button>
+            </div>
+            <p class="be-help" id="be-search-help">Search names, research context, and model terms within the selected area. Selecting another area resets these filters.</p>
+            <div class="be-filters" role="group" aria-label="Entry type">
+              <button type="button" class="be-action" data-kind="all" aria-pressed="true" aria-controls="be-panel-cards">All entries</button>
+              <button type="button" class="be-action" data-kind="catalog" aria-pressed="false" aria-controls="be-panel-cards">Catalog compounds</button>
+              <button type="button" class="be-action" data-kind="reference" aria-pressed="false" aria-controls="be-panel-cards">Research references</button>
+            </div>
+          </div>
+          <p class="be-results" id="be-results" role="status" aria-live="polite" aria-atomic="true"></p>
+          <div id="be-panel-cards"></div>
+          <button type="button" class="be-action be-back" id="be-back" aria-controls="be-categories">Back to research areas</button>
         </div>
       </section>
     </div>
@@ -583,6 +631,10 @@
     var titleEl = document.getElementById('be-panel-title');
     var summaryEl = document.getElementById('be-panel-summary');
     var cardsEl = document.getElementById('be-panel-cards');
+    var searchEl = document.getElementById('be-search');
+    var resultsEl = document.getElementById('be-results');
+    var kindButtons = document.querySelectorAll('[data-kind]');
+    var selectedKind = 'all';
 
     function areaById(id) {
       for (var i = 0; i < BE_AREAS.length; i++) if (BE_AREAS[i].id === id) return BE_AREAS[i];
@@ -595,61 +647,96 @@
 
     function renderCards(area) {
       cardsEl.textContent = '';
-      var lastKind = '';
-      area.compounds.forEach(function (compound) {
-        var kind = compound.referenceOnly ? 'Research-reference entries' : 'Catalog compounds';
-        if (kind !== lastKind) {
-          var heading = document.createElement('h3');
-          heading.className = 'be-group-title';
-          heading.textContent = kind;
-          cardsEl.appendChild(heading);
-          lastKind = kind;
-        }
-        var card = document.createElement('article');
-        card.className = compound.referenceOnly ? 'be-card be-reference' : 'be-card';
-        if (compound.referenceOnly) {
+      var query = searchEl.value.trim().toLowerCase();
+      var matches = area.compounds.filter(function (compound) {
+        return [compound.name, compound.why].concat(compound.models || []).join(' ').toLowerCase().includes(query);
+      });
+      var counts = {
+        all: matches.length,
+        catalog: matches.filter(function (compound) { return !compound.referenceOnly; }).length,
+        reference: matches.filter(function (compound) { return compound.referenceOnly; }).length
+      };
+      var labels = { all: 'All entries', catalog: 'Catalog compounds', reference: 'Research references' };
+      kindButtons.forEach(function (button) {
+        var kind = button.getAttribute('data-kind');
+        button.textContent = labels[kind] + ' (' + counts[kind] + ')';
+        button.setAttribute('aria-pressed', String(kind === selectedKind));
+      });
+      resultsEl.textContent = 'Showing ' + counts[selectedKind] + ' of ' + area.compounds.length + ' entries in ' + area.short + '.';
+      if (!counts[selectedKind]) {
+        var empty = document.createElement('p');
+        empty.className = 'be-empty';
+        empty.textContent = 'No entries match these filters. Try another term, choose All entries, or reset the filters.';
+        cardsEl.appendChild(empty);
+      }
+      ['catalog', 'reference'].forEach(function (kind) {
+        if (selectedKind !== 'all' && selectedKind !== kind) return;
+        var compounds = matches.filter(function (compound) { return Boolean(compound.referenceOnly) === (kind === 'reference'); });
+        if (!compounds.length) return;
+        var group = document.createElement('section');
+        group.setAttribute('aria-labelledby', 'be-group-' + kind);
+        var heading = document.createElement('h3');
+        heading.className = 'be-group-title';
+        heading.id = 'be-group-' + kind;
+        heading.textContent = kind === 'reference' ? 'Research-reference entries' : 'Catalog compounds';
+        var count = document.createElement('span');
+        count.className = 'be-group-count';
+        count.textContent = compounds.length;
+        heading.appendChild(count);
+        group.appendChild(heading);
+        var grid = document.createElement('div');
+        grid.className = 'be-card-grid';
+        group.appendChild(grid);
+        cardsEl.appendChild(group);
+        compounds.forEach(function (compound) {
+          var card = document.createElement('article');
+          card.className = compound.referenceOnly ? 'be-card be-reference' : 'be-card';
           var status = document.createElement('p');
           status.className = 'be-entry-kind';
-          status.textContent = 'Research reference only — not a catalog item';
+          status.textContent = compound.referenceOnly ? 'Research reference only — not a catalog item' : 'Catalog compound';
           card.appendChild(status);
-        }
-        var h = document.createElement('h4');
-        h.className = 'be-card-name';
-        h.textContent = compound.name;
-        var why = document.createElement('p');
-        why.className = 'be-why';
-        var label = document.createElement('strong');
-        label.className = 'be-why-label';
-        label.textContent = 'Why it appears here. ';
-        why.appendChild(label);
-        why.appendChild(document.createTextNode(compound.why));
-        var links = document.createElement('div');
-        links.className = 'be-links';
-        var actions = compound.referenceOnly
-          ? [['Research note & source', compound.research]]
-          : [['Research Overview', compound.research], ['Specifications', compound.specs], ['Request CoA', coaHref(compound.coaProduct)]];
-        actions.forEach(function (pair) {
-          var a = document.createElement('a');
-          a.href = pair[1];
-          a.textContent = pair[0];
-          a.setAttribute('aria-label', pair[0] + ': ' + compound.name);
-          links.appendChild(a);
+          var h = document.createElement('h4');
+          h.className = 'be-card-name';
+          h.textContent = compound.name;
+          var why = document.createElement('p');
+          why.className = 'be-why';
+          var label = document.createElement('strong');
+          label.className = 'be-why-label';
+          label.textContent = 'Why it appears here. ';
+          why.appendChild(label);
+          why.appendChild(document.createTextNode(compound.why));
+          var links = document.createElement('div');
+          links.className = 'be-links';
+          var actions = compound.referenceOnly
+            ? [['Research note & source', compound.research]]
+            : [['Research Overview', compound.research], ['Specifications', compound.specs], ['Request CoA', coaHref(compound.coaProduct)]];
+          actions.forEach(function (pair) {
+            var a = document.createElement('a');
+            a.href = pair[1];
+            a.textContent = pair[0];
+            a.setAttribute('aria-label', pair[0] + ': ' + compound.name);
+            links.appendChild(a);
+          });
+          card.appendChild(h);
+          card.appendChild(why);
+          if (compound.models) {
+            var models = document.createElement('p');
+            models.className = 'be-models';
+            models.textContent = 'Research models: ' + compound.models.join('; ') + '.';
+            card.appendChild(models);
+          }
+          card.appendChild(links);
+          grid.appendChild(card);
         });
-        card.appendChild(h);
-        card.appendChild(why);
-        if (compound.models) {
-          var models = document.createElement('p');
-          models.className = 'be-models';
-          models.textContent = 'Research models: ' + compound.models.join('; ') + '.';
-          card.appendChild(models);
-        }
-        card.appendChild(links);
-        cardsEl.appendChild(card);
       });
     }
 
     function selectArea(id, fromHash) {
       var area = areaById(id);
+      if (layout.getAttribute('data-active') !== area.id) {
+        searchEl.value = '';
+        selectedKind = 'all';
+      }
       layout.setAttribute('data-active', area.id);
       figure.setAttribute('data-active', area.id);
       document.querySelectorAll('[data-area]').forEach(function (el) {
@@ -665,13 +752,13 @@
       group.addEventListener('keydown', function (e) {
         var order = ['ArrowRight', 'ArrowDown', 'ArrowLeft', 'ArrowUp'];
         var idx = order.indexOf(e.key);
-        if (idx < 0) return;
+        if (idx < 0 && e.key !== 'Home' && e.key !== 'End') return;
         var buttons = Array.prototype.slice.call(group.querySelectorAll('[data-area]'));
         if (!buttons.length) return;
         e.preventDefault();
-        var current = 0;
-        buttons.forEach(function (b, i) { if (b.getAttribute('aria-pressed') === 'true') current = i; });
-        var next = (current + (idx < 2 ? 1 : -1) + buttons.length) % buttons.length;
+        var current = buttons.indexOf(document.activeElement);
+        if (current < 0) return;
+        var next = e.key === 'Home' ? 0 : e.key === 'End' ? buttons.length - 1 : (current + (idx < 2 ? 1 : -1) + buttons.length) % buttons.length;
         buttons[next].focus();
         selectArea(buttons[next].getAttribute('data-area'));
       });
@@ -683,6 +770,7 @@
       cat.className = 'be-cat';
       cat.setAttribute('data-area', area.id);
       cat.setAttribute('aria-pressed', 'false');
+      cat.setAttribute('aria-controls', 'be-panel');
       var pip = document.createElement('span');
       pip.className = 'be-pip';
       pip.setAttribute('data-pip', area.id);
@@ -699,6 +787,7 @@
       spot.style.top = area.spot.top;
       spot.setAttribute('data-area', area.id);
       spot.setAttribute('aria-pressed', 'false');
+      spot.setAttribute('aria-controls', 'be-panel');
       spot.setAttribute('aria-label', area.title);
       spot.textContent = area.short;
       spot.addEventListener('click', function () { selectArea(area.id); });
@@ -711,6 +800,28 @@
 
     wireKeys(cats);
     wireKeys(spots);
+    searchEl.addEventListener('input', function () { renderCards(areaById(layout.getAttribute('data-active'))); });
+    kindButtons.forEach(function (button) {
+      button.addEventListener('click', function () {
+        selectedKind = button.getAttribute('data-kind');
+        renderCards(areaById(layout.getAttribute('data-active')));
+      });
+    });
+    document.getElementById('be-reset').addEventListener('click', function () {
+      searchEl.value = '';
+      selectedKind = 'all';
+      renderCards(areaById(layout.getAttribute('data-active')));
+      searchEl.focus();
+    });
+    document.getElementById('be-jump').addEventListener('click', function () {
+      var panel = document.getElementById('be-panel');
+      panel.focus({ preventScroll: true });
+      panel.scrollIntoView({ block: 'start' });
+    });
+    document.getElementById('be-back').addEventListener('click', function () {
+      cats.querySelector('[aria-pressed="true"]').focus({ preventScroll: true });
+      cats.scrollIntoView({ block: 'start' });
+    });
     var start = (location.hash || '').replace('#', '');
     selectArea(areaById(start).id, true);
     window.addEventListener('hashchange', function () {

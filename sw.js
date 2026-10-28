@@ -1,5 +1,5 @@
 /* Vial Vibes service worker — cache shell + tools for offline/PWA use */
-const CACHE_VERSION = 'vv-pwa-v9-journey-connections';
+const CACHE_VERSION = 'vv-pwa-v10-body-explorer-polish';
 const PRECACHE = [
   '/',
   '/index.html',
